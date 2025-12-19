@@ -1,0 +1,1 @@
+import{s as t}from"./loading-CLXJ3Lsj.js";$("#base_create_enter").on("click",function(){window.confirm("倉庫追加を実行しますか？")===!0&&(t(),$("#base_form").submit())});$("#base_update_enter").on("click",function(){window.confirm("倉庫更新を実行しますか？")===!0&&(t(),$("#base_form").submit())});

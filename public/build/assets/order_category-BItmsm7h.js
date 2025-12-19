@@ -1,0 +1,1 @@
+import{s as e}from"./loading-CLXJ3Lsj.js";$("#order_category_create_enter").on("click",function(){try{window.confirm("受注区分を追加しますか？")==!0&&(e(),$("#order_category_form").submit())}catch(r){alert(r.message)}});$("#order_category_update_enter").on("click",function(){try{window.confirm("受注区分を更新しますか？")==!0&&(e(),$("#order_category_form").submit())}catch(r){alert(r.message)}});

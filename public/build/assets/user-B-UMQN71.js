@@ -1,0 +1,1 @@
+import{s as r}from"./loading-CLXJ3Lsj.js";$("#user_create_enter").on("click",function(){window.confirm("ユーザー追加を実行しますか？")===!0&&(r(),$("#user_form").submit())});$("#user_update_enter").on("click",function(){window.confirm("ユーザー更新を実行しますか？")===!0&&(r(),$("#user_form").submit())});

@@ -1,0 +1,1 @@
+import{s as t}from"./loading-CLXJ3Lsj.js";$(".display_switch").on("click",function(){t()});tippy(".tippy_display_by_item",{content:"単品商品",duration:500,maxWidth:"none",allowHTML:!0,placement:"right",theme:"tippy_main_theme"});tippy(".tippy_display_by_set_item",{content:"セット商品",duration:500,maxWidth:"none",allowHTML:!0,placement:"right",theme:"tippy_main_theme"});

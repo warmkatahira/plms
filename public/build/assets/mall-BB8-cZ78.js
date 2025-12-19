@@ -1,0 +1,1 @@
+import{s as e}from"./loading-CLXJ3Lsj.js";$("#mall_create_enter").on("click",function(){window.confirm("モール追加を実行しますか？")===!0&&(e(),$("#mall_form").submit())});$("#mall_update_enter").on("click",function(){window.confirm("モール更新を実行しますか？")===!0&&(e(),$("#mall_form").submit())});$("#image_file").on("change",function(){const t=this.files[0];t&&$("#image_file_name").text(t.name)});

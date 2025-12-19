@@ -1,0 +1,177 @@
+// 無駄なスクロールバーを非表示
+.disable_scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+// 受注取込履歴のリスト用
+.order_import_history_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// 受注取込パターン選択モーダルのリスト用
+.order_import_pattern_select_modal_list {
+    width: 100%;
+    height: calc(100vh - 400px);
+}
+
+// 受注管理のリスト用
+.order_mgt_list {
+    width: 100%;
+    height: calc(100vh - 200px);
+}
+
+// 受注詳細の商品情報リスト用
+.order_detail_item_info_list {
+    width: 100%;
+    height: calc(100vh - 300px);
+}
+
+// 出荷管理のリスト用
+.shipping_mgt_list {
+    width: 100%;
+}
+
+// 荷札データダウンロードのリスト用
+.nifuda_download_list {
+    width: 100%;
+    height: calc(100vh - 135px);
+}
+
+// 出荷検品のリスト用
+.shipping_inspection_list {
+    width: 100%;
+    height: calc(100vh - 270px);
+}
+
+// 出荷完了のリスト用
+.shipping_work_end_list {
+    width: 100%;
+    height: calc(100vh - 80px);
+}
+
+// 出荷完了履歴のリスト用
+.shipping_work_end_history_list {
+    width: 100%;
+    height: calc(100vh - 120px);
+}
+
+// 出荷履歴のリスト用
+.shipping_history_list {
+    width: 100%;
+    height: calc(100vh - 130px);
+}
+
+// 商品のリスト用
+.item_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// セット商品のリスト用
+.set_item_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// 商品マッピングのリスト用
+.item_mall_mapping_list {
+    width: 100%;
+    height: calc(100vh - 130px);
+}
+
+// 在庫のリスト用
+.stock_list {
+    width: 100%;
+    height: calc(100vh - 130px);
+}
+
+// 入庫検品のリスト用
+.receiving_inspection_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// 入力在庫数操作のリスト用
+.input_stock_operation_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// 在庫履歴のリスト用
+.stock_history_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// 出荷倉庫のリスト用
+.shipping_base_list {
+    width: 100%;
+    height: calc(100vh - 165px);
+}
+
+// 会社のリスト用
+.company_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// 倉庫のリスト用
+.base_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// モールのリスト用
+.mall_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// ユーザーのリスト用
+.user_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// 操作ログのリスト用
+.operation_log_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// 祝日のリスト用
+.holiday_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// 受注取込パターンのリスト用
+.order_import_pattern_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// 倉庫別配送方法のリスト用
+.base_shipping_method_list {
+    width: 100%;
+    height: calc(100vh - 75px);
+}
+
+// 荷送人のリスト用
+.shipper_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// 受注区分のリスト用
+.order_category_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+// 自動処理のリスト用
+.auto_process_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}

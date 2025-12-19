@@ -1,0 +1,1 @@
+import{s as t}from"./loading-CLXJ3Lsj.js";$("#shipper_create_enter").on("click",function(){try{window.confirm("荷送人を追加しますか？")==!0&&(t(),$("#shipper_form").submit())}catch(e){alert(e.message)}});$("#shipper_update_enter").on("click",function(){try{window.confirm("荷送人を更新しますか？")==!0&&(t(),$("#shipper_form").submit())}catch(e){alert(e.message)}});
