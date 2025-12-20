@@ -1,1 +1,0 @@
-import{s as n}from"./loading-CLXJ3Lsj.js";$("#company_create_enter").on("click",function(){window.confirm("会社追加を実行しますか？")===!0&&(n(),$("#company_form").submit())});$("#company_update_enter").on("click",function(){window.confirm("会社更新を実行しますか？")===!0&&(n(),$("#company_form").submit())});

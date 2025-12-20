@@ -129,13 +129,6 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'CarbonImmutable'           => Carbon\CarbonImmutable::class,
         'SystemEnum'                => App\Enums\SystemEnum::class,
-        'OrderStatusEnum'           => App\Enums\OrderStatusEnum::class,
-        'OrderCategoryEnum'         => App\Enums\OrderCategoryEnum::class,
-        'DeliveryCompanyEnum'       => App\Enums\DeliveryCompanyEnum::class,
-        'ItemUploadEnum'            => App\Enums\ItemUploadEnum::class,
-        'AutoProcessEnum'           => App\Enums\AutoProcessEnum::class,
-        'OrderImportPatternEnum'    => App\Enums\OrderImportPatternEnum::class,
-        'TrackingNoUrlMakeFunc'     => App\Lib\TrackingNoUrlMakeFunc::class,
         'PDF'                       => Barryvdh\DomPDF\Facade::class,
         'DNS1D'                     => Milon\Barcode\Facades\DNS1DFacade::class, // barcode
         'DNS2D'                     => Milon\Barcode\Facades\DNS2DFacade::class, // barcode

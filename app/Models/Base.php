@@ -14,8 +14,6 @@ class Base extends Model
     protected $fillable = [
         'base_id',
         'base_name',
-        'base_color_code',
-        'mieru_customer_code',
         'sort_order',
     ];
     // 全てのレコードを取得
@@ -27,16 +25,6 @@ class Base extends Model
     public static function getSpecify($base_id)
     {
         return self::where('base_id', $base_id);
-    }
-    // stocksテーブルとのリレーション
-    public function stocks()
-    {
-        return $this->hasMany(Stock::class, 'base_id', 'base_id');
-    }
-    // base_shipping_methodsテーブルとのリレーション
-    public function base_shipping_methods()
-    {
-        return $this->hasMany(BaseShippingMethod::class, 'base_id', 'base_id');
     }
     // 倉庫名から倉庫IDを取得
     public static function getBaseIdByBaseName($base_name)

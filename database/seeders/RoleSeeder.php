@@ -15,14 +15,24 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         Role::create([
-            'role_id' => 'admin',
-            'role_name' => '管理者',
-            'sort_order' => 1,
+            'role_id'       => 'system_admin',
+            'role_name'     => 'システム管理者',
+            'sort_order'    => 1,
         ]);
         Role::create([
-            'role_id' => 'user',
-            'role_name' => '一般',
-            'sort_order' => 2,
+            'role_id'       => 'admin',
+            'role_name'     => '管理者',
+            'sort_order'    => 2,
+        ]);
+        Role::create([
+            'role_id'       => 'base_admin',
+            'role_name'     => '所長',
+            'sort_order'    => 3,
+        ]);
+        Role::create([
+            'role_id'       => 'user',
+            'role_name'     => '一般',
+            'sort_order'    => 4,
         ]);
     }
 }

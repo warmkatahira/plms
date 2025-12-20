@@ -43,7 +43,7 @@ class UserUpdateService
         // Toを設定
         $mail->to($user->email);
         // 件名を設定
-        $mail->subject('【smooth_'.SystemEnum::getSystemTitle().'】アカウント承認完了通知');
+        $mail->subject('【'.SystemEnum::getSystemTitle().'】アカウント承認完了通知');
         // メールを送信
         Mail::send($mail);
         // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-

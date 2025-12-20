@@ -43,17 +43,15 @@
         <script src="https://unpkg.com/tippy.js@6"></script>
     </head>
     <body>
-        <p class="text-xl text-center bg-theme-main py-3 cursor-default">{{ SystemEnum::getSystemTitle() }}</p>
         <!-- アラート表示 -->
         <x-alert/>
         <div class="flex mt-5">
             @guest
-                <a href="{{ route('login') }}" class="ml-auto mr-10"><img src="{{ asset('image/login_button.svg') }}" class="w-32"></a>
-                {{-- <a href="{{ route('register') }}" class="ml-10 mr-10"><img src="{{ asset('image/register_button.svg') }}" class="w-32"></a> --}}
+                <a href="{{ route('login') }}" class="btn ml-auto mr-10 rounded-md bg-theme-main text-center py-5 px-10">ログイン</a>
             @endauth
         </div>
         <div class="text-center">
-            <img src="{{ asset('image/smooth_logo.svg') }}" class="welcome_logo">
+            <img src="{{ asset('image/plms_logo.svg') }}" class="welcome_logo">
         </div>
     </body>
 </html>

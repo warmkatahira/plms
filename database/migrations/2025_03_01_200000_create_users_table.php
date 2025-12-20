@@ -14,23 +14,22 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table){
             $table->increments('user_no');
             $table->string('user_id', 20)->unique();
-            $table->string('last_name', 20);
-            $table->string('first_name', 20)->nullable();
+            $table->string('user_name', 20)->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('status')->default(false);
-            $table->string('role_id', 10)->default('user');
-            $table->string('company_id', 10);
+            $table->boolean('is_auto_update_statutory_leave_remaining_days')->default(false);
+            $table->string('role_id', 20)->default('user');
+            $table->string('base_id', 10);
             $table->string('profile_image_file_name', 50)->default('no_image.png');
             $table->boolean('must_change_password')->default(true);
-            $table->unsignedInteger('per_page')->default(100);
             $table->timestamp('last_login_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
             // 外部キー
             $table->foreign('role_id')->references('role_id')->on('roles')->cascadeOnUpdate();
-            $table->foreign('company_id')->references('company_id')->on('companies')->cascadeOnUpdate();
+            $table->foreign('base_id')->references('base_id')->on('bases')->cascadeOnUpdate();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table){

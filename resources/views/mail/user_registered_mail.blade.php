@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>smooth</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- favicon -->
         <link rel="shortcut icon" href="{{ asset('image/favicon.svg') }}">
@@ -18,7 +18,7 @@
     </head>
     <body style="font-family: 'Kosugi Maru';">
         <div style="font-size: 12px;">
-            <p>※このメールはsmoothから自動配信されています。</p>
+            <p>※このメールは{{ config('app.name', 'Laravel') }}から自動配信されています。</p>
             <p>以下のユーザーからアカウント承認申請がきています。</p>
             <div>
                 <p>{{ 'ユーザーID：'.$user->user_id }}</p>

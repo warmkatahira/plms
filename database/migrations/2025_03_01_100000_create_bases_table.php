@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('bases', function (Blueprint $table){
             $table->string('base_id', 10)->primary();
             $table->string('base_name', 20)->unique();
-            $table->string('base_color_code', 7)->default('#ffffff');
-            $table->string('mieru_customer_code', 20);
             $table->unsignedInteger('sort_order')->default(100);
             $table->timestamps();
         });

@@ -69,7 +69,7 @@ return [
         // DBバックアップ用(1日1回の定期用)
         'db_backup_normal' => [
             'driver' => 'local',
-            'root' => '/var/backup/smooth/db/normal',
+            'root' => '/var/backup/plms/db/normal',
             'throw' => false,
         ],
 

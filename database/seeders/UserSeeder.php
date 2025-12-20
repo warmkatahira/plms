@@ -15,15 +15,14 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'user_id' => 'katahira',
-            'last_name' => 'システム管理者',
-            'first_name' => '',
-            'email' => 't.katahira@warm.co.jp',
-            'password' => bcrypt('katahira134'),
-            'status' => 1,
-            'role_id' => 'admin',
-            'company_id' => 'warm',
-            'must_change_password' => false,
+            'user_id'               => 'katahira',
+            'user_name'             => '片平 貴順',
+            'email'                 => 't.katahira@warm.co.jp',
+            'password'              => bcrypt('katahira134'),
+            'status'                => true,
+            'role_id'               => 'admin',
+            'base_id'               => 'honsha',
+            'must_change_password'  => false,
         ]);
     }
 }

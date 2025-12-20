@@ -5,7 +5,7 @@
         </div>
         <div>
             <p class="text-5xl text-center">システム処理中です</p>
-            <p class="text-2xl text-center mt-10">現在システム処理を行っているため、smoothを利用できません。</p>
+            <p class="text-2xl text-center mt-10">現在システム処理を行っているため、システムを利用できません。</p>
             <p class="text-2xl text-center mt-3">終了まで、しばらくお待ちください。</p>
         </div>
     </div>

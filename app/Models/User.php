@@ -24,16 +24,15 @@ class User extends Authenticatable
     // 操作可能なカラムを定義
     protected $fillable = [
         'user_id',
-        'last_name',
-        'first_name',
+        'user_name',
         'email',
         'password',
         'status',
+        'is_auto_update_statutory_leave_remaining_days',
         'role_id',
-        'company_id',
+        'base_id',
         'profile_image_file_name',
         'must_change_password',
-        'per_page',
         'last_login_at',
     ];
     // 全てのレコードを取得
@@ -50,16 +49,6 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::Class, 'role_id', 'role_id');
-    }
-    // companiesテーブルとのリレーション
-    public function company()
-    {
-        return $this->belongsTo(Company::Class, 'company_id', 'company_id');
-    }
-    // 「last_name」と「first_name」を結合して返すアクセサ
-    public function getFullNameAttribute(): string
-    {
-        return $this->last_name . ' ' . $this->first_name;
     }
     // 「status」に基づいて、有効 or 無効を返すアクセサ
     public function getStatusTextAttribute(): string

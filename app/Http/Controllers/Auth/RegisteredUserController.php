@@ -37,10 +37,8 @@ class RegisteredUserController extends Controller
         // ユーザー作成
         $user = User::create([
             'user_id'       => $request->user_id,
-            'last_name'     => $request->last_name,
-            'first_name'    => $request->first_name,
+            'user__name'    => $request->user_name,
             'email'         => $request->email,
-            'company_id'    => 'warm',
             'password'      => Hash::make($request->password),
         ]);
 
@@ -54,7 +52,7 @@ class RegisteredUserController extends Controller
         // Toを設定
         $mail->to($to_users);
         // 件名を設定
-        $mail->subject('【smooth】ユーザー登録通知');
+        $mail->subject('【' . config('app.name', 'Laravel') . '】ユーザー登録通知');
         // メールを送信
         Mail::send($mail);
         // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
