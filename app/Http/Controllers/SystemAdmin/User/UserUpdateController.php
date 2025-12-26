@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 // モデル
 use App\Models\User;
 use App\Models\Role;
-use App\Models\Company;
+use App\Models\Base;
 // サービス
 use App\Services\SystemAdmin\User\UserUpdateService;
 // リクエスト
@@ -25,12 +25,12 @@ class UserUpdateController extends Controller
         $user = User::getSpecify($request->user_no)->first();
         // 権限を取得
         $roles = Role::getAll()->get();
-        // 会社を取得
-        $companies = Company::getAll()->get(); 
+        // 営業所を取得
+        $bases = Base::getAll()->get(); 
         return view('system_admin.user.update')->with([
             'user' => $user,
             'roles' => $roles,
-            'companies' => $companies,
+            'bases' => $bases,
         ]);
     }
 

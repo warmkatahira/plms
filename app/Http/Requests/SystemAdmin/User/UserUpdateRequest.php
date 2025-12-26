@@ -23,13 +23,13 @@ class UserUpdateRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'user_no'           => 'required|exists:users,user_no',
-            'last_name'         => 'required|string|max:20',
-            'first_name'        => 'required|string|max:20',
-            'email'             => 'required|email|unique:users,email,'.$this->user_no.',user_no',
-            'status'            => 'required|boolean',
-            'role_id'           => 'required|exists:roles,role_id',
-            'company_id'        => 'required|exists:companies,company_id',
+            'user_no'                                       => 'required|exists:users,user_no',
+            'status'                                        => 'required|boolean',
+            'base_id'                                       => 'required|exists:bases,base_id',
+            'employee_no'                                   => 'required|string|max:4',
+            'user_name'                                     => 'required|string|max:20',
+            'is_auto_update_statutory_leave_remaining_days' => 'required|boolean',
+            'role_id'                                       => 'required|exists:roles,role_id',
         ];
     }
 

@@ -5,18 +5,13 @@
       id="user_form">
     @csrf
     <div class="flex flex-col border border-gray-400 divide-y divide-gray-400">
-        @if($form_mode === 'create')
-            <x-form.input type="text" label="ユーザーID" id="user_id" name="user_id" :value="null" required="true" />
-        @endif
-        @if($form_mode === 'update')
-            <x-form.p label="ユーザーID" :value="$user->user_id" />
-        @endif
-        <x-form.input type="text" label="姓" id="last_name" name="last_name" :value="$form_mode === 'update' ? $user->last_name : null" required="true" />
-        <x-form.input type="text" label="名" id="first_name" name="first_name" :value="$form_mode === 'update' ? $user->first_name : null" required="true" />
-        <x-form.input type="text" label="メールアドレス" id="email" name="email" :value="$form_mode === 'update' ? $user->email : null" required="true" />
-        <x-form.select-boolean label="ステータス" id="status" name="status" :value="$form_mode === 'update' ? $user->status : null" label0="無効" label1="有効" required="true" />
+        <x-form.select-boolean label="ステータス" id="status" name="status" :value="$form_mode === 'update' ? $user->status : null" label1="有効" label0="無効" required="true" />
+        <x-form.select label="営業所名" id="base_id" name="base_id" :value="$form_mode === 'update' ? $user->base_id : null" :items="$bases" optionValue="base_id" optionText="base_name" required="true" />
+        <x-form.input type="text" label="従業員番号" id="employee_no" name="employee_no" :value="$form_mode === 'update' ? $user->employee_no : null" required="true" />
+        <x-form.input type="text" label="氏名" id="user_name" name="user_name" :value="$form_mode === 'update' ? $user->user_name : null" required="true" />
+        <x-form.select-boolean label="義務残日数自動更" id="is_auto_update_statutory_leave_remaining_days" name="is_auto_update_statutory_leave_remaining_days" :value="$form_mode === 'update' ? $user->is_auto_update_statutory_leave_remaining_days : null" label1="有効" label0="無効" required="true" />
+        <x-form.p label="ユーザーID" :value="$user->user_id" />
         <x-form.select label="権限" id="role_id" name="role_id" :value="$form_mode === 'update' ? $user->role_id : null" :items="$roles" optionValue="role_id" optionText="role_name" required="true" />
-        <x-form.select label="会社" id="company_id" name="company_id" :value="$form_mode === 'update' ? $user->company_id : null" :items="$companies" optionValue="company_id" optionText="company_name" required="true" />
     </div>
     @if($form_mode === 'update')
         <input type="hidden" name="user_no" value="{{ $user->user_no }}">
