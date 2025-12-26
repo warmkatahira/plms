@@ -20,9 +20,10 @@ class UserSeeder extends Seeder
             'email'                 => 't.katahira@warm.co.jp',
             'password'              => bcrypt('katahira134'),
             'status'                => true,
-            'role_id'               => 'admin',
-            'base_id'               => 'honsha',
+            'role_id'               => 'system_admin',
+            'base_id'               => '1st',
             'must_change_password'  => false,
         ]);
+        User::factory()->count(10)->create();
     }
 }

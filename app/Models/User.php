@@ -50,6 +50,11 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::Class, 'role_id', 'role_id');
     }
+    // basesテーブルとのリレーション
+    public function base()
+    {
+        return $this->belongsTo(Base::Class, 'base_id', 'base_id');
+    }
     // 「status」に基づいて、有効 or 無効を返すアクセサ
     public function getStatusTextAttribute(): string
     {

@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             BaseSeeder::class,
             UserSeeder::class,
+            PaidLeaveSeeder::class,
+            StatutoryLeaveSeeder::class,
         ]);
     }
 }

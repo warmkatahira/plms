@@ -12,8 +12,6 @@
             <x-form.p label="倉庫ID" :value="$base->base_id" />
         @endif
         <x-form.input type="text" label="倉庫名" id="base_name" name="base_name" :value="$form_mode === 'update' ? $base->base_name : null" required="true" />
-        <x-form.input type="color" label="倉庫カラー" id="base_color_code" name="base_color_code" :value="$form_mode === 'update' ? $base->base_color_code : null" required="true" />
-        <x-form.input type="text" label="ミエルカスタマーコード" id="mieru_customer_code" name="mieru_customer_code" :value="$form_mode === 'update' ? $base->mieru_customer_code : null" required="true" />
         <x-form.input type="text" label="並び順" id="sort_order" name="sort_order" :value="$form_mode === 'update' ? $base->sort_order : null" required="true" />
     </div>
     @if($form_mode === 'update')

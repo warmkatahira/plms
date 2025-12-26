@@ -34,5 +34,35 @@ class BaseSeeder extends Seeder
             'base_name'             => '第3営業所',
             'sort_order'            => 4,
         ]);
+        Base::create([
+            'base_id'               => 'LS',
+            'base_name'             => 'ロジステーション',
+            'sort_order'            => 5,
+        ]);
+        Base::create([
+            'base_id'               => 'LP',
+            'base_name'             => 'ロジポート',
+            'sort_order'            => 6,
+        ]);
+        Base::create([
+            'base_id'               => 'HR',
+            'base_name'             => '広島営業所',
+            'sort_order'            => 7,
+        ]);
+        Base::create([
+            'base_id'               => 'LC',
+            'base_name'             => 'ロジコンタクト',
+            'sort_order'            => 8,
+        ]);
+        Base::create([
+            'base_id'               => 'LSP',
+            'base_name'             => 'ロジステーションプラス',
+            'sort_order'            => 9,
+        ]);
+        Base::create([
+            'base_id'               => 'IMP',
+            'base_name'             => 'IMP三郷',
+            'sort_order'            => 10,
+        ]);
     }
 }

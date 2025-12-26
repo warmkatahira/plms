@@ -6,8 +6,6 @@
                     <th class="font-thin py-1 px-2 text-center">操作</th>
                     <th class="font-thin py-1 px-2 text-center">倉庫ID</th>
                     <th class="font-thin py-1 px-2 text-center">倉庫名</th>
-                    <th class="font-thin py-1 px-2 text-center">倉庫カラー</th>
-                    <th class="font-thin py-1 px-2 text-center">ミエルカスタマーコード</th>
                     <th class="font-thin py-1 px-2 text-center">並び順</th>
                     <th class="font-thin py-1 px-2 text-center">最終更新日時</th>
                 </tr>
@@ -22,10 +20,6 @@
                         </td>
                         <td class="py-1 px-2 border">{{ $base->base_id }}</td>
                         <td class="py-1 px-2 border">{{ $base->base_name }}</td>
-                        <td class="py-1 px-2 border">
-                            <div class="w-16 h-6 rounded border border-black" style="background-color: {{ $base->base_color_code }};"></div>
-                        </td>
-                        <td class="py-1 px-2 border">{{ $base->mieru_customer_code }}</td>
                         <td class="py-1 px-2 border text-right">{{ $base->sort_order }}</td>
                         <td class="py-1 px-2 border">{{ CarbonImmutable::parse($base->updated_at)->isoFormat('Y年MM月DD日(ddd) HH:mm:ss') }}</td>
                     </tr>
