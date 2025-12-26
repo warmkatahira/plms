@@ -30,7 +30,6 @@ class UserFactory extends Factory
             'user_id'               => $this->faker->unique()->userName(),
             'employee_no'           => $this->faker->numberBetween(1000, 9999),
             'user_name'             => $this->faker->name('ja_JP'),
-            'email'                 => $this->faker->unique()->safeEmail(),
             'password'              => bcrypt('password'),
             'status'                => true,
             'role_id'               => 'user',

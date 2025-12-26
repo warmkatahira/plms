@@ -26,6 +26,7 @@ class UserSearchService
         session(['back_url_1' => url()->full()]);
         // 変数が存在しない場合は検索が実行されていないので、初期条件をセット
         if(!isset($request->search_type)){
+            session(['search_status' => '1']);
         }
         // 「search」なら検索が実行されているので、検索条件をセット
         if($request->search_type === 'search'){

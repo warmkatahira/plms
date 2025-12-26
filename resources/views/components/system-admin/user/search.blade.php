@@ -1,7 +1,9 @@
 <form method="GET" action="{{ route($route) }}" id="search_form">
     <p class="text-xs bg-black text-white py-1 text-center">検索条件</p>
     <div class="flex flex-col gap-y-2 p-3 bg-white min-w-60 text-xs border border-black">
-        <x-search.date-period type="date" label="操作日" fromId="search_operation_date_from" fromName="search_operation_date_from" toId="search_operation_date_to" toName="search_operation_date_to" />
+        <x-search.select-boolean label="ステータス" id="search_status" name="search_status" label1="有効" label0="無効" />
+        <x-search.select label="営業所名" id="search_base_id" name="search_base_id" :selectItems="$bases" optionValue="base_id" optionText="base_name" required="true" />
+        <x-search.input type="text" label="氏名" id="search_user_name" name="search_user_name" />
         <input type="hidden" id="search_type" name="search_type" value="default">
         <div class="flex flex-row">
             <!-- 検索ボタン -->

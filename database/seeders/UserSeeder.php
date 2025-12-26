@@ -18,7 +18,6 @@ class UserSeeder extends Seeder
             'user_id'               => 'katahira',
             'employee_no'           => '0134',
             'user_name'             => '片平 貴順',
-            'email'                 => 't.katahira@warm.co.jp',
             'password'              => bcrypt('katahira134'),
             'status'                => true,
             'role_id'               => 'system_admin',
