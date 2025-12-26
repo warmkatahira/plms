@@ -24,6 +24,6 @@ class UserSeeder extends Seeder
             'base_id'               => '1st',
             'must_change_password'  => false,
         ]);
-        User::factory()->count(10)->create();
+        User::factory()->count(20)->create();
     }
 }

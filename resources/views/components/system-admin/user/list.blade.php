@@ -22,7 +22,21 @@
                                 <a href="{{ route('user_update.index', ['user_no' => $user->user_no]) }}" class="btn bg-btn-enter text-white py-1 px-2">更新</a>
                             </div>
                         </td>
-                        <td class="py-1 px-2 border text-center">{{ $user->status_text }}</td>
+                        <td class="py-1 px-2 border text-center">
+                            @if($user->status)
+                                <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold
+                                            text-status-active-text bg-status-active-bg rounded-full">
+                                    <span class="w-2 h-2 bg-status-active-dot rounded-full"></span>
+                                    有効
+                                </span>
+                            @else
+                                <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold
+                                            text-status-inactive-text bg-status-inactive-bg rounded-full">
+                                    <span class="w-2 h-2 bg-status-inactive-dot rounded-full"></span>
+                                    無効
+                                </span>
+                            @endif
+                        </td>
                         <td class="py-1 px-2 border">{{ $user->base->base_name }}</td>
                         <td class="py-1 px-2 border text-center">{{ $user->employee_no }}</td>
                         <td class="py-1 px-2 border min-w-[230px]">
@@ -31,7 +45,7 @@
                         </td>
                         <td class="py-1 px-2 border text-center">{{ $user->is_auto_update_statutory_leave_remaining_days_text }}</td>
                         <td class="py-1 px-2 border">{{ $user->user_id }}</td>
-                        <td class="py-1 px-2 border">{{ $user->role->role_name }}</td>
+                        <td class="py-1 px-2 border text-center">{{ $user->role->role_name }}</td>
                         <td class="py-1 px-2 border">
                             @if($user->last_login_at)
                                 {{ CarbonImmutable::parse($user->last_login_at)->isoFormat('YYYY年MM月DD日(ddd) HH時mm分ss秒').'('.CarbonImmutable::parse($user->last_login_at)->diffForHumans().')' }}

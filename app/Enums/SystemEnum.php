@@ -10,6 +10,7 @@ enum SystemEnum
     // システム名
     const SYSTEM_NAME_JP            = '有給管理システム';
     // ページネーションの値を定義
+    const PAGINATE_DEFAULT          = 50;
     const PAGINATE_OPERATION_LOG    = 200;
     // 初期画像のファイル名を定義
     const DEFAULT_IMAGE_FILE_NAME   = 'no_image.png';

@@ -56,6 +56,6 @@ class UserSearchService
             $query = $query->where('status', session('search_status'));
         }
         // 並び替えを実施
-        return $query->orderBy('user_no', 'asc');
+        return $query->orderBy('employee_no', 'asc');
     }
 }
