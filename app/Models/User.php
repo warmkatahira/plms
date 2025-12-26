@@ -24,6 +24,7 @@ class User extends Authenticatable
     // 操作可能なカラムを定義
     protected $fillable = [
         'user_id',
+        'employee_no',
         'user_name',
         'email',
         'password',
@@ -59,6 +60,11 @@ class User extends Authenticatable
     public function getStatusTextAttribute(): string
     {
         return $this->status ? '有効' : '無効';
+    }
+    // 「is_auto_update_statutory_leave_remaining_days」に基づいて、有効 or 無効を返すアクセサ
+    public function getIsAutoUpdateStatutoryLeaveRemainingDaysTextAttribute(): string
+    {
+        return $this->is_auto_update_statutory_leave_remaining_days ? '有効' : '無効';
     }
     // パスワードリセットの通知をカスタマイズ
     public function sendPasswordResetNotification($token)
