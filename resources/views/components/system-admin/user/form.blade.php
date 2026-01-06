@@ -5,7 +5,7 @@
       id="user_form">
     @csrf
     <div class="flex flex-col border border-gray-400 divide-y divide-gray-400">
-        <x-form.select-boolean label="ステータス" id="status" name="status" :value="$form_mode === 'update' ? $user->status : null" label1="有効" label0="無効" required="true" />
+        <x-form.switch-boolean label="ステータス" id="status" name="status" label0="無効" label1="有効" :value="$form_mode === 'update' ? $user->status : null" required="true" />
         <x-form.select label="営業所名" id="base_id" name="base_id" :value="$form_mode === 'update' ? $user->base_id : null" :items="$bases" optionValue="base_id" optionText="base_name" required="true" />
         <x-form.input type="text" label="従業員番号" id="employee_no" name="employee_no" :value="$form_mode === 'update' ? $user->employee_no : null" required="true" />
         <x-form.input type="text" label="氏名" id="user_name" name="user_name" :value="$form_mode === 'update' ? $user->user_name : null" required="true" />

@@ -49,7 +49,7 @@ class UserUpdateController extends Controller
                 'alert_message' => $e->getMessage(),
             ]);
         }
-        return redirect()->route('user.index')->with([
+        return redirect(session('back_url_1'))->with([
             'alert_type' => 'success',
             'alert_message' => 'ユーザーを更新しました。',
         ]);

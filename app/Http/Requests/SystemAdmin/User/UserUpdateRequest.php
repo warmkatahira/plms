@@ -15,6 +15,14 @@ class UserUpdateRequest extends BaseRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        // 送信されていない = 無効なので、0をパラメータにマージする
+        $this->merge([
+            'status' => $this->has('status') ? $this->input('status') : 0,
+        ]);
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
