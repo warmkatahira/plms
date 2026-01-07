@@ -27,7 +27,7 @@
                         </td>
                         <td class="py-1 px-2 border">{{ $user->base->base_name }}</td>
                         <td class="py-1 px-2 border text-center">{{ $user->employee_no }}</td>
-                        <td class="py-1 px-2 border min-w-[230px]">
+                        <td class="py-1 px-2 border">
                             <img class="profile_image_normal image_fade_in_modal_open" src="{{ asset('storage/profile_images/'.$user->profile_image_file_name) }}">
                             {{ $user->user_name }}
                         </td>
