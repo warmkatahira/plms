@@ -6,12 +6,12 @@
     @csrf
     <div class="flex flex-col border border-gray-400 divide-y divide-gray-400">
         @if($form_mode === 'create')
-            <x-form.input type="text" label="倉庫ID" id="base_id" name="base_id" :value="null" required="true" />
+            <x-form.input type="text" label="営業所ID" id="base_id" name="base_id" :value="null" required="true" />
         @endif
         @if($form_mode === 'update')
-            <x-form.p label="倉庫ID" :value="$base->base_id" />
+            <x-form.p label="営業所ID" :value="$base->base_id" />
         @endif
-        <x-form.input type="text" label="倉庫名" id="base_name" name="base_name" :value="$form_mode === 'update' ? $base->base_name : null" required="true" />
+        <x-form.input type="text" label="営業所名" id="base_name" name="base_name" :value="$form_mode === 'update' ? $base->base_name : null" required="true" />
         <x-form.input type="text" label="並び順" id="sort_order" name="sort_order" :value="$form_mode === 'update' ? $base->sort_order : null" required="true" />
     </div>
     @if($form_mode === 'update')

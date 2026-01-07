@@ -12,9 +12,9 @@ class BaseController extends Controller
     public function index()
     {
         // ページヘッダーをセッションに格納
-        session(['page_header' => '倉庫']);
-        // 倉庫を取得
-        $bases = Base::getAll()->get();
+        session(['page_header' => '営業所']);
+        // 営業所を取得
+        $bases = Base::getAll()->withCount('users')->get();
         return view('system_admin.base.index')->with([
             'bases' => $bases,
         ]);

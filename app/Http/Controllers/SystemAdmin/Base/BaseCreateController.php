@@ -16,7 +16,7 @@ class BaseCreateController extends Controller
     public function index()
     {
         // ページヘッダーをセッションに格納
-        session(['page_header' => '倉庫追加']);
+        session(['page_header' => '営業所追加']);
         return view('system_admin.base.create')->with([
         ]);
     }
@@ -27,7 +27,7 @@ class BaseCreateController extends Controller
             DB::transaction(function () use ($request){
                 // インスタンス化
                 $BaseCreateService = new BaseCreateService;
-                // 倉庫を追加
+                // 営業所を追加
                 $BaseCreateService->createBase($request);
             });
         } catch (\Exception $e){
@@ -38,7 +38,7 @@ class BaseCreateController extends Controller
         }
         return redirect()->route('base.index')->with([
             'alert_type' => 'success',
-            'alert_message' => '倉庫を追加しました。',
+            'alert_message' => '営業所を追加しました。',
         ]);
     }
 }

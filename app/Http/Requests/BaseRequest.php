@@ -33,6 +33,11 @@ class BaseRequest extends FormRequest
     public function attributes()
     {
         return [
+            // 共通
+            'sort_order'            => '並び順',
+            // 営業所情報
+            'base_id'               => '営業所ID',
+            'base_name'             => '営業所名',
             // ユーザー情報
             'user_id'                                       => 'ユーザーID',
             'employee_no'                                   => '従業員番号',

@@ -25,8 +25,6 @@ class BaseCreateRequest extends BaseRequest
         return [
             'base_id'               => 'required|string|max:10|unique:bases,base_id',
             'base_name'             => 'required|string|max:20|unique:bases,base_name',
-            'base_color_code'       => 'required|regex:/^#[0-9A-Fa-f]{6}$/',
-            'mieru_customer_code'   => 'required|string|max:20',
             'sort_order'            => 'required|integer|min:1|max:100',
         ];
     }
