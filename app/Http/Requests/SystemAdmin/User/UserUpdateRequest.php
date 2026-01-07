@@ -20,6 +20,7 @@ class UserUpdateRequest extends BaseRequest
         // 送信されていない = 無効なので、0をパラメータにマージする
         $this->merge([
             'status' => $this->has('status') ? $this->input('status') : 0,
+            'is_auto_update_statutory_leave_remaining_days' => $this->has('is_auto_update_statutory_leave_remaining_days') ? $this->input('is_auto_update_statutory_leave_remaining_days') : 0,
         ]);
     }
 
