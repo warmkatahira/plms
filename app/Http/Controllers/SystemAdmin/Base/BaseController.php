@@ -13,8 +13,14 @@ class BaseController extends Controller
     {
         // ページヘッダーをセッションに格納
         session(['page_header' => '営業所']);
-        // 営業所を取得
-        $bases = Base::getAll()->withCount('users')->get();
+        // 営業所を取得(ユーザーのステータスがtrueのレコード数も取得)
+        $bases = Base::getAll()
+                    ->withCount([
+                        'users as active_users_count' => function ($query) {
+                            $query->where('status', true);
+                        }
+                    ])
+                    ->get();
         return view('system_admin.base.index')->with([
             'bases' => $bases,
         ]);

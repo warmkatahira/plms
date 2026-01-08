@@ -22,7 +22,7 @@
                         <td class="py-1 px-2 border">{{ $base->base_id }}</td>
                         <td class="py-1 px-2 border">{{ $base->base_name }}</td>
                         <td class="py-1 px-2 border text-right">{{ $base->sort_order }}</td>
-                        <td class="py-1 px-2 border text-right">{{ number_format($base->users_count) }}</td>
+                        <td class="py-1 px-2 border text-right">{{ number_format($base->active_users_count) }}</td>
                         <td class="py-1 px-2 border">{{ CarbonImmutable::parse($base->updated_at)->isoFormat('Y年MM月DD日(ddd) HH:mm:ss').'('.CarbonImmutable::parse($base->updated_at)->diffForHumans().')' }}</td>
                     </tr>
                 @endforeach
