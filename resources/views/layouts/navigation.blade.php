@@ -10,13 +10,6 @@
     <div class="flex flex-col gap-3 pt-7 pl-5">
         <!-- ダッシュボード -->
         <x-navigation-btn route="dashboard.index" label="ダッシュボード" icon="las la-home" isRightMargin="true" />
-        <!-- 設定 -->
-        <div class="flex flex-col gap-0.5">
-            <x-navigation-btn label="設定" icon="las la-cog" openCloseKey="setting" />
-            <div class="navigation-content hidden">
-                <x-navigation-btn route="base.index" label="XXX" isLeftMargin="true" isRightMargin="true" />
-            </div>
-        </div>
         @can('system_admin_check')
             <!-- システム管理 -->
              <div class="flex flex-col gap-0.5">
