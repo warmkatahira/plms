@@ -11,6 +11,7 @@
                     <th class="font-thin py-1 px-2 text-center">ユーザーID</th>
                     <th class="font-thin py-1 px-2 text-center">義務残日数<br>自動更新</th>
                     <th class="font-thin py-1 px-2 text-center">権限</th>
+                    <th class="font-thin py-1 px-2 text-center">最終更新日時</th>
                     <th class="font-thin py-1 px-2 text-center">最終ログイン日時</th>
                 </tr>
             </thead>
@@ -28,14 +29,17 @@
                         <td class="py-1 px-2 border">{{ $user->base->base_name }}</td>
                         <td class="py-1 px-2 border text-center">{{ $user->employee_no }}</td>
                         <td class="py-1 px-2 border">
-                            <img class="profile_image_normal image_fade_in_modal_open" src="{{ asset('storage/profile_images/'.$user->profile_image_file_name) }}">
-                            {{ $user->user_name }}
+                            <div class="flex flex-row items-center pr-10">
+                                <img class="profile_image_normal image_fade_in_modal_open" src="{{ asset('storage/profile_images/'.$user->profile_image_file_name) }}">
+                                <span class="pl-2">{{ $user->user_name }}</span>
+                            </div>
                         </td>
                         <td class="py-1 px-2 border">{{ $user->user_id }}</td>
                         <td class="py-1 px-2 border text-center">
                             <x-list.status :value="$user->is_auto_update_statutory_leave_remaining_days" label1="有効" label0="無効" />
                         </td>
                         <td class="py-1 px-2 border text-center">{{ $user->role->role_name }}</td>
+                        <td class="py-1 px-2 border">{{ CarbonImmutable::parse($user->updated_at)->isoFormat('YYYY年MM月DD日(ddd) HH時mm分ss秒').'('.CarbonImmutable::parse($user->updated_at)->diffForHumans().')' }}</td>
                         <td class="py-1 px-2 border">
                             @if($user->last_login_at)
                                 {{ CarbonImmutable::parse($user->last_login_at)->isoFormat('YYYY年MM月DD日(ddd) HH時mm分ss秒').'('.CarbonImmutable::parse($user->last_login_at)->diffForHumans().')' }}
