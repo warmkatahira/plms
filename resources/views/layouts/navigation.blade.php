@@ -22,6 +22,7 @@
              <div class="flex flex-col gap-0.5">
                 <x-navigation-btn label="システム管理" icon="las la-robot" openCloseKey="system_admin" />
                 <div class="navigation-content hidden">
+                    <x-navigation-btn route="role.index" label="権限" isLeftMargin="true" isRightMargin="true" />
                     <x-navigation-btn route="base.index" label="営業所" isLeftMargin="true" isRightMargin="true" />
                     <x-navigation-btn route="user.index" label="ユーザー" isLeftMargin="true" isRightMargin="true" />
                     <x-navigation-btn route="operation_log.index" label="操作ログ" isLeftMargin="true" isRightMargin="true" />

@@ -3,6 +3,12 @@
     display: none;
 }
 
+// 権限のリスト用
+.role_list {
+    width: 100%;
+    height: calc(100vh - 80px);
+}
+
 // 営業所のリスト用
 .base_list {
     width: 100%;

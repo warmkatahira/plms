@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+// +-+-+-+-+-+-+-+- 権限 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\SystemAdmin\Role\RoleController;
 // +-+-+-+-+-+-+-+- 営業所 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\SystemAdmin\Base\BaseController;
 use App\Http\Controllers\SystemAdmin\Base\BaseCreateController;
@@ -16,9 +18,9 @@ use App\Http\Controllers\SystemAdmin\OperationLog\OperationLogDownloadController
 
 Route::middleware('common')->group(function (){
     Route::middleware(['system_admin_check'])->group(function () {
-        Route::controller(CompanyUpdateController::class)->prefix('company_update')->name('company_update.')->group(function(){
+        // +-+-+-+-+-+-+-+- 権限 +-+-+-+-+-+-+-+-
+        Route::controller(RoleController::class)->prefix('role')->name('role.')->group(function(){
             Route::get('', 'index')->name('index');
-            Route::post('update', 'update')->name('update');
         });
         // +-+-+-+-+-+-+-+- 営業所 +-+-+-+-+-+-+-+-
         Route::controller(BaseController::class)->prefix('base')->name('base.')->group(function(){

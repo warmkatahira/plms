@@ -21,4 +21,9 @@ class Role extends Model
     {
         return self::orderBy('sort_order', 'asc');
     }
+    // usersテーブルとのリレーション
+    public function users()
+    {
+        return $this->hasMany(User::class, 'role_id', 'role_id');
+    }
 }
