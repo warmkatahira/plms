@@ -7,7 +7,7 @@
                     <th class="font-thin py-1 px-2 text-center">営業所ID</th>
                     <th class="font-thin py-1 px-2 text-center">営業所名</th>
                     <th class="font-thin py-1 px-2 text-center">並び順</th>
-                    <th class="font-thin py-1 px-2 text-center">従業員数</th>
+                    <th class="font-thin py-1 px-2 text-center">有効従業員数</th>
                     <th class="font-thin py-1 px-2 text-center">最終更新日時</th>
                 </tr>
             </thead>
