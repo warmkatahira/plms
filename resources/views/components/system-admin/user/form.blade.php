@@ -9,7 +9,7 @@
         <x-form.select label="営業所名" id="base_id" name="base_id" :value="$form_mode === 'update' ? $user->base_id : null" :items="$bases" optionValue="base_id" optionText="base_name" required="true" />
         <x-form.input type="text" label="従業員番号" id="employee_no" name="employee_no" :value="$form_mode === 'update' ? $user->employee_no : null" required="true" />
         <x-form.input type="text" label="氏名" id="user_name" name="user_name" :value="$form_mode === 'update' ? $user->user_name : null" required="true" />
-        <x-form.p label="ユーザーID" :value="$user->user_id" />
+        <x-form.p label="ユーザーID" :value="$user->user_id" grayedOut="true" />
         <x-form.switch-boolean label="義務残日数自動更新" id="is_auto_update_statutory_leave_remaining_days" name="is_auto_update_statutory_leave_remaining_days"  label1="有効" label0="無効" :value="$form_mode === 'update' ? $user->is_auto_update_statutory_leave_remaining_days : null" required="true" />
         <x-form.select label="権限" id="role_id" name="role_id" :value="$form_mode === 'update' ? $user->role_id : null" :items="$roles" optionValue="role_id" optionText="role_name" required="true" />
     </div>
