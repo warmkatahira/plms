@@ -16,9 +16,9 @@ class EmployeeSearchService
     public function deleteSession()
     {
         session()->forget([
+            'search_status',
             'search_base_id',
             'search_user_name',
-            'search_status',
         ]);
     }
 
@@ -54,6 +54,11 @@ class EmployeeSearchService
     {
         // クエリをセット
         $query = User::query();
+        // ステータスの条件がある場合
+        if(session('search_status') != null){
+            // 条件を指定して取得
+            $query = $query->where('status', session('search_status'));
+        }
         // 営業所IDの条件がある場合
         if (session('search_base_id') != null) {
             $query = $query->where('base_id', session('search_base_id'));
@@ -62,11 +67,6 @@ class EmployeeSearchService
         if(session('search_user_name') != null){
             // 条件を指定して取得
             $query = $query->where('user_name', 'LIKE', '%'.session('search_user_name').'%');
-        }
-        // ステータスの条件がある場合
-        if(session('search_status') != null){
-            // 条件を指定して取得
-            $query = $query->where('status', session('search_status'));
         }
         // 並び替えを実施
         return $query->orderBy('employee_no', 'asc');
