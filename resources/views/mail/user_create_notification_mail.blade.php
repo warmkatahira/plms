@@ -19,10 +19,11 @@
     <body style="font-family: 'Kosugi Maru';">
         <div style="font-size: 12px;">
             <p>※このメールは{{ config('app.name', 'Laravel') }}から自動配信されています。</p>
-            <p>以下のアカウントが発行されました。</p>
+            <p>以下が追加されました。</p>
             <div>
+                <p>{{ '営業所名　：'.$user->base->base_name }}</p>
                 <p>{{ 'ユーザーID：'.$user->user_id }}</p>
-                <p>{{ 'ユーザー名：'.$user->full_name }}</p>
+                <p>{{ 'ユーザー名：'.$user->user_name }}</p>
                 <p>{{ '初期ログインパスワード：'.$password }}</p>
                 <p>ログインURL：{{ config('app.url') }}</p>
             </div>

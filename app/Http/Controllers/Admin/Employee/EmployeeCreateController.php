@@ -33,9 +33,7 @@ class EmployeeCreateController extends Controller
                 // インスタンス化
                 $EmployeeCreateService = new EmployeeCreateService;
                 // 従業員を追加
-                $employee = $EmployeeCreateService->createEmployee($request);
-                // 有給関連テーブルへレコード追加
-                $EmployeeCreateService->createPaidLeave($employee);
+                $EmployeeCreateService->createEmployee($request);
             });
         } catch (\Exception $e){
             return redirect()->back()->with([

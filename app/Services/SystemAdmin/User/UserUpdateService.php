@@ -4,11 +4,6 @@ namespace App\Services\SystemAdmin\User;
 
 // モデル
 use App\Models\User;
-// 列挙
-use App\Enums\SystemEnum;
-// その他
-use App\Mail\UserAvailableMail;
-use Illuminate\Support\Facades\Mail;
 
 class UserUpdateService
 {
