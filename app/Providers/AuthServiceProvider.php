@@ -32,9 +32,13 @@ class AuthServiceProvider extends BaseServiceProvider
         Gate::define('system_admin_check', function (User $user){
             return ($user->role_id === 'system_admin');
         });
-        // 権限が「admin」の場合のみ許可
+        // 権限が「system_admin」か「admin」の場合のみ許可
         Gate::define('admin_check', function (User $user){
-            return ($user->role_id === 'admin');
+            return in_array($user->role_id, ['system_admin', 'admin'], true);
+        });
+        // 権限が「system_admin」か「admin」か「base_admin」の場合のみ許可
+        Gate::define('base_admin_check', function (User $user){
+            return in_array($user->role_id, ['system_admin', 'admin', 'base_admin'], true);
         });
     }
 }

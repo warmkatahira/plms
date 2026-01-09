@@ -3,6 +3,12 @@
     display: none;
 }
 
+// 従業員のリスト用
+.employee_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
 // 権限のリスト用
 .role_list {
     width: 100%;
