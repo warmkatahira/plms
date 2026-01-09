@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'password'              => bcrypt('katahira134'),
             'status'                => true,
             'role_id'               => 'system_admin',
-            'base_id'               => '1st',
+            'base_id'               => 'honsha',
             'must_change_password'  => false,
         ]);
         User::factory()->count(20)->create();

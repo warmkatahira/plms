@@ -4,8 +4,11 @@ namespace App\Services\Admin\Employee;
 
 // モデル
 use App\Models\User;
+// 列挙
+use App\Enums\RoleEnum;
 // その他
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeSearchService
 {
@@ -27,12 +30,22 @@ class EmployeeSearchService
         // 変数が存在しない場合は検索が実行されていないので、初期条件をセット
         if(!isset($request->search_type)){
             session(['search_status' => '1']);
+            // 所長は自営業所だけなので、デフォルトで自営業所をセット
+            if(Auth::user()->role_id === RoleEnum::BASE_ADMIN){
+                session(['search_base_id' => Auth::user()->base_id]);
+            }
         }
         // 「search」なら検索が実行されているので、検索条件をセット
         if($request->search_type === 'search'){
-            session(['search_base_id' => $request->search_base_id]);
-            session(['search_user_name' => $request->search_user_name]);
             session(['search_status' => $request->search_status]);
+            session(['search_user_name' => $request->search_user_name]);
+            // 権限によって検索値を使用するか固定値を使用するか分岐
+            // 所長は自営業所だけなので固定値、それ以外は検索値
+            if(Auth::user()->role_id === RoleEnum::BASE_ADMIN){
+                session(['search_base_id' => Auth::user()->base_id]);
+            }else{
+                session(['search_base_id' => $request->search_base_id]);
+            }
         }
     }
 
