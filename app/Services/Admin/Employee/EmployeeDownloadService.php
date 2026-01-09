@@ -41,7 +41,7 @@ class EmployeeDownloadService
                         $employee->daily_working_hours,
                         $employee->half_day_working_hours,
                         $employee->is_auto_update_statutory_leave_remaining_days_text,
-                        CarbonImmutable::parse($employee->statutory_leave_expiration_date)->isoFormat('YYYY年MM月DD日'),
+                        $employee->statutory_leave_expiration_date ? CarbonImmutable::parse($employee->statutory_leave_expiration_date)->isoFormat('YYYY年MM月DD日') : null,
                         $employee->statutory_leave_days,
                         $employee->statutory_leave_remaining_days,
                         CarbonImmutable::parse($employee->updated_at)->isoFormat('YYYY年MM月DD日(ddd) HH時mm分ss秒'),

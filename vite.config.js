@@ -30,6 +30,8 @@ export default defineConfig({
                 // ダッシュボード
                 'resources/js/dashboard/dashboard.js',
                 'resources/sass/dashboard/dashboard.scss',
+                // 管理
+                'resources/js/admin/employee/employee.js',
                 // システム管理
                 'resources/js/system_admin/base/base.js',
                 'resources/js/system_admin/user/user.js',

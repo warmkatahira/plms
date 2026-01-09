@@ -16,12 +16,14 @@ class StatutoryLeaveSeeder extends Seeder
     public function run(): void
     {
         User::select('user_no')->get()->each(function ($user) {
-            StatutoryLeave::create([
-                'user_no'                         => $user->user_no,
-                'statutory_leave_expiration_date' => '2026-03-31',
-                'statutory_leave_days'            => 5,
-                'statutory_leave_remaining_days'  => 5,
-            ]);
+            if($user->user_no != 1){
+                StatutoryLeave::create([
+                    'user_no'                         => $user->user_no,
+                    'statutory_leave_expiration_date' => '2026-03-31',
+                    'statutory_leave_days'            => 5,
+                    'statutory_leave_remaining_days'  => 5,
+                ]);
+            }
         });
     }
 }

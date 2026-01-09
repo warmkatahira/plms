@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\SystemAdmin\User;
+namespace App\Http\Requests\Admin\Employee;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Requests\BaseRequest;
 
-class UserCreateRequest extends BaseRequest
+class EmployeeCreateRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -38,13 +38,14 @@ class UserCreateRequest extends BaseRequest
             'user_name'                                     => 'required|string|max:20',
             'user_id'                                       => 'required|string|max:20|unique:users,user_id',
             'is_auto_update_statutory_leave_remaining_days' => 'required|boolean',
-            'role_id'                                       => 'required|exists:roles,role_id',
         ];
     }
 
     public function messages()
     {
-        return parent::messages();
+        return array_merge(parent::messages(), [
+            'regex'     => ':attributeは英数字のみで入力して下さい。',
+        ]);
     }
 
     public function attributes()

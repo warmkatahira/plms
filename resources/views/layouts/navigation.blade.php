@@ -16,6 +16,9 @@
                 <x-navigation-btn label="管理" icon="las la-users-cog" openCloseKey="system_admin" />
                 <div class="navigation-content hidden">
                     <x-navigation-btn route="employee.index" label="従業員一覧" isLeftMargin="true" isRightMargin="true" />
+                    @can('admin_check')
+                        <x-navigation-btn route="employee_create.index" label="従業員追加" isLeftMargin="true" isRightMargin="true" />
+                    @endcan
                 </div>
             </div>
         @endcan

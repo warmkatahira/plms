@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('statutory_leaves', function (Blueprint $table) {
             $table->increments('paid_leave_id');
             $table->unsignedInteger('user_no');
-            $table->date('statutory_leave_expiration_date');
+            $table->date('statutory_leave_expiration_date')->nullable();
             $table->decimal('statutory_leave_days', 4, 1);
             $table->decimal('statutory_leave_remaining_days', 4, 1);
             $table->timestamps();
