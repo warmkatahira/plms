@@ -82,6 +82,26 @@ class User extends Authenticatable
         $url = url("reset-password/{$token}");
         $this->notify(new UserResetPasswordNotification($url));
     }
+    // ダウンロード時のヘッダーを定義
+    public static function downloadHeader()
+    {
+        return [
+            'ステータス',
+            '営業所名',
+            '従業員番号',
+            '氏名',
+            '保有日数',
+            '残日数',
+            '取得日数',
+            '1日あたりの時間数',
+            '半日あたりの時間数',
+            '義務残日数自動更新',
+            '義務期限日',
+            '義務日数',
+            '義務残日数',
+            '最終更新日時',
+        ];
+    }
 
     /**
      * The attributes that should be hidden for serialization.

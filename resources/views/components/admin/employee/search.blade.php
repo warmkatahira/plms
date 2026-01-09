@@ -6,6 +6,7 @@
             <x-search.select label="営業所名" id="search_base_id" name="search_base_id" :selectItems="$bases" optionValue="base_id" optionText="base_name" required="true" />
         @endif
         <x-search.input type="text" label="氏名" id="search_user_name" name="search_user_name" />
+        <x-search.select-boolean label="義務残日数自動更新" id="search_is_auto_update_statutory_leave_remaining_days" name="search_is_auto_update_statutory_leave_remaining_days" label1="有効" label0="無効" />
         <input type="hidden" id="search_type" name="search_type" value="default">
         <div class="flex flex-row">
             <!-- 検索ボタン -->

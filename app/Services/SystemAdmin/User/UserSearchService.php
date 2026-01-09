@@ -40,7 +40,7 @@ class UserSearchService
     public function getSearchResult()
     {
         // クエリをセット
-        $query = User::query();
+        $query = User::with('base');
         // ステータスの条件がある場合
         if(session('search_status') != null){
             // 条件を指定して取得

@@ -19,6 +19,7 @@ class EmployeeSearchService
             'search_status',
             'search_base_id',
             'search_user_name',
+            'search_is_auto_update_statutory_leave_remaining_days',
         ]);
     }
 
@@ -39,6 +40,7 @@ class EmployeeSearchService
         if($request->search_type === 'search'){
             session(['search_status' => $request->search_status]);
             session(['search_user_name' => $request->search_user_name]);
+            session(['search_is_auto_update_statutory_leave_remaining_days' => $request->search_is_auto_update_statutory_leave_remaining_days]);
             // 権限によって検索値を使用するか固定値を使用するか分岐
             // 所長は自営業所だけなので固定値、それ以外は検索値
             if(Auth::user()->role_id === RoleEnum::BASE_ADMIN){
@@ -53,7 +55,9 @@ class EmployeeSearchService
     public function getSearchResult()
     {
         // クエリをセット
-        $query = User::query();
+        $query = User::join('paid_leaves', 'paid_leaves.user_no', 'users.user_no')
+                    ->join('statutory_leaves', 'statutory_leaves.user_no', 'users.user_no')
+                    ->with('base');
         // ステータスの条件がある場合
         if(session('search_status') != null){
             // 条件を指定して取得
@@ -67,6 +71,11 @@ class EmployeeSearchService
         if(session('search_user_name') != null){
             // 条件を指定して取得
             $query = $query->where('user_name', 'LIKE', '%'.session('search_user_name').'%');
+        }
+        // 義務残日数自動更新の条件がある場合
+        if(session('search_is_auto_update_statutory_leave_remaining_days') != null){
+            // 条件を指定して取得
+            $query = $query->where('is_auto_update_statutory_leave_remaining_days', session('search_is_auto_update_statutory_leave_remaining_days'));
         }
         // 並び替えを実施
         return $query->orderBy('employee_no', 'asc');
