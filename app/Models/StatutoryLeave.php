@@ -15,4 +15,9 @@ class StatutoryLeave extends Model
         'statutory_leave_days',
         'statutory_leave_remaining_days',
     ];
+    // usersテーブルとのリレーション
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_no', 'user_no');
+    }
 }

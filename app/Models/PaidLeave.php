@@ -17,4 +17,9 @@ class PaidLeave extends Model
         'daily_working_hours',
         'half_day_working_hours',
     ];
+    // usersテーブルとのリレーション
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_no', 'user_no');
+    }
 }

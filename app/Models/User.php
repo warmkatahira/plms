@@ -56,6 +56,16 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Base::Class, 'base_id', 'base_id');
     }
+    // paid_leavesテーブルとのリレーション
+    public function paid_leave()
+    {
+        return $this->hasOne(PaidLeave::Class, 'user_no', 'user_no');
+    }
+    // statutory_leavesテーブルとのリレーション
+    public function statutory_leave()
+    {
+        return $this->hasOne(StatutoryLeave::Class, 'user_no', 'user_no');
+    }
     // 「status」に基づいて、有効 or 無効を返すアクセサ
     public function getStatusTextAttribute(): string
     {
