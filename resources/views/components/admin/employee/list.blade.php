@@ -25,7 +25,7 @@
                     <tr class="text-left cursor-default whitespace-nowrap hover:bg-theme-sub group @if(!$employee->status) bg-common-disabled @endif">
                         <td class="py-1 px-2 border">
                             <div class="flex flex-row gap-5">
-                                <a href="{{ route('user_update.index', ['user_no' => $employee->user_no]) }}" class="btn bg-btn-enter text-white py-1 px-2">更新</a>
+                                <a href="{{ route('employee_update.index', ['user_no' => $employee->user_no]) }}" class="btn bg-btn-enter text-white py-1 px-2">更新</a>
                             </div>
                         </td>
                         <td class="py-1 px-2 border text-center">

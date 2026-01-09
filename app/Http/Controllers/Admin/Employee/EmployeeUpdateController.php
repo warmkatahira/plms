@@ -6,34 +6,38 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // モデル
 use App\Models\Base;
+use App\Models\User;
 // サービス
-use App\Services\Admin\Employee\EmployeeCreateService;
+use App\Services\Admin\Employee\EmployeeUpdateService;
 // リクエスト
-use App\Http\Requests\Admin\Employee\EmployeeCreateRequest;
+use App\Http\Requests\Admin\Employee\EmployeeUpdateRequest;
 // その他
 use Illuminate\Support\Facades\DB;
 
-class EmployeeCreateController extends Controller
+class EmployeeUpdateController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // ページヘッダーをセッションに格納
-        session(['page_header' => '従業員追加']);
+        session(['page_header' => '従業員更新']);
+        // 従業員を取得
+        $employee = User::getSpecify($request->user_no)->first();
         // 営業所を取得
         $bases = Base::getAll()->get();
-        return view('admin.employee.create')->with([
+        return view('admin.employee.update')->with([
+            'employee' => $employee,
             'bases' => $bases,
         ]);
     }
 
-    public function create(EmployeeCreateRequest $request)
+    public function update(EmployeeUpdateRequest $request)
     {
         try {
             DB::transaction(function () use ($request){
                 // インスタンス化
-                $EmployeeCreateService = new EmployeeCreateService;
-                // 従業員を追加
-                $EmployeeCreateService->createEmployee($request);
+                $EmployeeUpdateService = new EmployeeUpdateService;
+                // 従業員を更新
+                $EmployeeUpdateService->updateEmployee($request);
             });
         } catch (\Exception $e){
             return redirect()->back()->with([
@@ -43,7 +47,7 @@ class EmployeeCreateController extends Controller
         }
         return redirect()->route('employee.index')->with([
             'alert_type' => 'success',
-            'alert_message' => '従業員を追加しました。',
+            'alert_message' => '従業員を更新しました。',
         ]);
     }
 }

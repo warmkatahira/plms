@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 
 class EmployeeCreateService
 {
-    // ユーザーを追加
+    // 従業員を追加
     public function createEmployee($request)
     {
         // 初期ログインパスワードを取得（英数字12桁）

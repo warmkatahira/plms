@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Employee\EmployeeController;
 use App\Http\Controllers\Admin\Employee\EmployeeDownloadController;
 use App\Http\Controllers\Admin\Employee\EmployeeCreateController;
+use App\Http\Controllers\Admin\Employee\EmployeeUpdateController;
 
 Route::middleware('common')->group(function (){
     Route::middleware(['base_admin_check'])->group(function () {
@@ -20,6 +21,10 @@ Route::middleware('common')->group(function (){
             Route::controller(EmployeeCreateController::class)->prefix('employee_create')->name('employee_create.')->group(function(){
                 Route::get('', 'index')->name('index');
                 Route::post('create', 'create')->name('create');
+            });
+            Route::controller(EmployeeUpdateController::class)->prefix('employee_update')->name('employee_update.')->group(function(){
+                Route::get('', 'index')->name('index');
+                Route::post('update', 'update')->name('update');
             });
         });
     });
