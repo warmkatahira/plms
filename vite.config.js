@@ -27,9 +27,6 @@ export default defineConfig({
                 'resources/sass/clipboard_copy.scss',
                 // 認証
                 'resources/js/auth/register.js',
-                // ダッシュボード
-                'resources/js/dashboard/dashboard.js',
-                'resources/sass/dashboard/dashboard.scss',
                 // 管理
                 'resources/js/admin/employee/employee.js',
                 // システム管理

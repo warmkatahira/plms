@@ -1,20 +1,22 @@
 @props([
-    'labelId' => null,
-    'label' => null,
-    'orderCountId',
-    'shipQuantityId',
+    'label',
+    'value',
+    'formatType',
+    'decimal' => 1,
 ])
 
-<div class="flex flex-col shadow-xl bg-white p-5 rounded-xl min-w-72">
-    <p id="{{ $labelId }}">{{ $label }}</p>
-    <div class="flex flex-row justify-between">
-        <div class="flex flex-row mt-5">
-            <p id="{{ $orderCountId }}" class="font-semibold text-2xl"></p>
-            <p class="text-base pt-2 ml-2">件</p>
-        </div>
-        <div class="flex flex-row mt-5">
-            <p id="{{ $shipQuantityId }}" class="font-semibold text-2xl"></p>
-            <p class="text-base pt-2 ml-2">PCS</p>
-        </div>
-    </div>
+<div class="col-span-3 bg-white rounded-xl shadow-lg p-4">
+    <p class="text-base text-gray-600 text-center tracking-wide">
+        {{ $label }}
+    </p>
+    <p class="mt-2 text-2xl font-bold text-gray-800 text-center">
+        @if($formatType === 'days')
+            {{ number_format($value, $decimal) }}
+        @elseif($formatType === 'date')
+            {{ CarbonImmutable::parse($value)->isoFormat('YYYY年MM月DD日') }}
+        @endif
+        @if($formatType === 'days')
+            <span class="ml-1 text-sm font-normal text-gray-400">日</span>
+        @endif
+    </p>
 </div>
