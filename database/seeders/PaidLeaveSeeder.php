@@ -16,16 +16,14 @@ class PaidLeaveSeeder extends Seeder
     public function run(): void
     {
         User::select('user_no')->get()->each(function ($user) {
-            if($user->user_no != 1){
-                PaidLeave::create([
-                    'user_no'                   => $user->user_no,
-                    'paid_leave_granted_days'   => 10,
-                    'paid_leave_remaining_days' => 8,
-                    'paid_leave_used_days'      => 2,
-                    'daily_working_hours'       => 6.25,
-                    'half_day_working_hours'    => 3.75,
-                ]);
-            }
+            PaidLeave::create([
+                'user_no'                   => $user->user_no,
+                'paid_leave_granted_days'   => 10,
+                'paid_leave_remaining_days' => 8,
+                'paid_leave_used_days'      => 2,
+                'daily_working_hours'       => 6.25,
+                'half_day_working_hours'    => 3.75,
+            ]);
         });
     }
 }
