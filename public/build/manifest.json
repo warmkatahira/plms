@@ -1,8 +1,17 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-DekAx6QM.css",
+    "file": "assets/app-DtFh4k54.css",
     "src": "resources/css/app.css",
     "isEntry": true
+  },
+  "resources/js/admin/employee/employee.js": {
+    "file": "assets/employee-hoI8iuTY.js",
+    "name": "employee",
+    "src": "resources/js/admin/employee/employee.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/loading.js"
+    ]
   },
   "resources/js/app.js": {
     "file": "assets/app-Bo-u61x1.js",
@@ -29,12 +38,6 @@
     "file": "assets/common-DYSTgVaS.js",
     "name": "common",
     "src": "resources/js/common.js",
-    "isEntry": true
-  },
-  "resources/js/dashboard/dashboard.js": {
-    "file": "assets/dashboard-l0sNRNKZ.js",
-    "name": "dashboard",
-    "src": "resources/js/dashboard/dashboard.js",
     "isEntry": true
   },
   "resources/js/dropdown.js": {
@@ -117,11 +120,6 @@
   "resources/sass/common.scss": {
     "file": "assets/common-C_Ek5JKF.css",
     "src": "resources/sass/common.scss",
-    "isEntry": true
-  },
-  "resources/sass/dashboard/dashboard.scss": {
-    "file": "assets/dashboard-B9i60jde.css",
-    "src": "resources/sass/dashboard/dashboard.scss",
     "isEntry": true
   },
   "resources/sass/dropdown.scss": {

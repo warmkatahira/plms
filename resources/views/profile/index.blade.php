@@ -16,7 +16,7 @@
         </form>
         <div class="flex flex-row gap-10 mt-5">
             {{-- <button id="profile_update_enter" type="button" class="btn bg-btn-enter text-white w-56 p-3"><i class="las la-check la-lg mr-1"></i>プロフィール更新</button> --}}
-            <button id="logout_enter" type="button" class="btn bg-btn-cancel text-white w-56 p-3"><i class="las la-sign-out-alt la-lg mr-1"></i>ログアウト</button>
+            <button id="logout_enter" type="button" class="btn bg-btn-cancel text-white w-full md:w-56 p-3 text-xl md:text-sm"><i class="las la-sign-out-alt la-lg mr-1"></i>ログアウト</button>
         </div>
         <form method="POST" action="{{ route('logout') }}" id="logaut_form" class="mt-5">
             @csrf

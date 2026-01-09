@@ -45,13 +45,17 @@
     <body>
         <!-- アラート表示 -->
         <x-alert/>
-        <div class="flex mt-5">
-            @guest
-                <a href="{{ route('login') }}" class="btn ml-auto mr-10 rounded-md bg-theme-main text-center py-5 px-10">ログイン</a>
-            @endauth
-        </div>
-        <div class="text-center">
-            <img src="{{ asset('image/plms_logo.svg') }}" class="welcome_logo">
+        <div class="flex flex-col-reverse md:flex-col md:mt-5">
+            <!-- ログインボタン -->
+            <div class="flex flex-col">
+                @guest
+                    <a href="{{ route('login') }}" class="btn md:ml-auto md:mr-10 rounded-md bg-theme-main text-center py-5 w-full md:w-48 mt-5 md:mt-0 text-2xl md:text-sm">ログイン</a>
+                @endguest
+            </div>
+            <!-- ロゴ -->
+            <div class="text-center">
+                <img src="{{ asset('image/plms_logo.svg') }}" class="welcome_logo mx-auto">
+            </div>
         </div>
     </body>
 </html>
