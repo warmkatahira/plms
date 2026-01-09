@@ -52,8 +52,8 @@
                                 {{ CarbonImmutable::parse($employee->statutory_leave_expiration_date)->isoFormat('YYYY年MM月DD日(ddd)') }}
                             @endif
                         </td>
-                        <td class="py-1 px-2 border text-right">{{ number_format($employee->statutory_leave_days, 2) }}</td>
-                        <td class="py-1 px-2 border text-right">{{ number_format($employee->statutory_leave_remaining_days, 2) }}</td>
+                        <td class="py-1 px-2 border text-right">{{ number_format($employee->statutory_leave_days, 1) }}</td>
+                        <td class="py-1 px-2 border text-right">{{ number_format($employee->statutory_leave_remaining_days, 1) }}</td>
                         <td class="py-1 px-2 border">{{ CarbonImmutable::parse($employee->updated_at)->isoFormat('YYYY年MM月DD日(ddd) HH時mm分ss秒').'('.CarbonImmutable::parse($employee->updated_at)->diffForHumans().')' }}</td>
                     </tr>
                 @endforeach
