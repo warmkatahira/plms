@@ -35,7 +35,7 @@ class EmployeeUpdateRequest extends BaseRequest
             'user_no'                                       => 'required|exists:users,user_no',
             'status'                                        => 'required|boolean',
             'base_id'                                       => 'required|exists:bases,base_id',
-            'employee_no'                                   => 'required|string|max:4|unique:users,employee_no',
+            'employee_no'                                   => 'required|string|max:4|unique:users,employee_no,'.$this->user_no.',user_no',
             'user_name'                                     => 'required|string|max:20',
             'is_auto_update_statutory_leave_remaining_days' => 'required|boolean',
         ];

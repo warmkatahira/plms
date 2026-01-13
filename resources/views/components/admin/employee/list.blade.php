@@ -3,7 +3,9 @@
         <table class="text-xs">
             <thead>
                 <tr class="text-left text-white bg-black whitespace-nowrap sticky top-0">
-                    <th class="font-thin py-1 px-2 text-center">操作</th>
+                    @can('admin_check')
+                        <th class="font-thin py-1 px-2 text-center">操作</th>
+                    @endcan
                     <th class="font-thin py-1 px-2 text-center">ステータス</th>
                     <th class="font-thin py-1 px-2 text-center">営業所名</th>
                     <th class="font-thin py-1 px-2 text-center">従業員番号</th>
@@ -23,11 +25,13 @@
             <tbody class="bg-white">
                 @foreach($employees as $employee)
                     <tr class="text-left cursor-default whitespace-nowrap hover:bg-theme-sub group @if(!$employee->status) bg-common-disabled @endif">
-                        <td class="py-1 px-2 border">
-                            <div class="flex flex-row gap-5">
-                                <a href="{{ route('employee_update.index', ['user_no' => $employee->user_no]) }}" class="btn bg-btn-enter text-white py-1 px-2">更新</a>
-                            </div>
-                        </td>
+                        @can('admin_check')
+                            <td class="py-1 px-2 border">
+                                <div class="flex flex-row gap-5">
+                                    <a href="{{ route('employee_update.index', ['user_no' => $employee->user_no]) }}" class="btn bg-btn-enter text-white py-1 px-2">更新</a>
+                                </div>
+                            </td>
+                        @endcan
                         <td class="py-1 px-2 border text-center">
                             <x-list.status :value="$employee->status" label1="有効" label0="無効" />
                         </td>

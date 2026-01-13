@@ -22,7 +22,7 @@ class UserUpdateController extends Controller
         // ページヘッダーをセッションに格納
         session(['page_header' => 'ユーザー更新']);
         // ユーザーを取得
-        $user = User::getSpecify($request->user_no)->first();
+        $user = User::getSpecify($request->user_no)->firstOrFail();
         // 権限を取得
         $roles = Role::getAll()->get();
         // 営業所を取得

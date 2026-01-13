@@ -1,6 +1,8 @@
 <x-app-layout>
     <div class="flex flex-row my-3">
-        <x-admin.employee.operation-div />
+        @can('admin_check')
+            <x-admin.employee.operation-div />
+        @endcan
         <x-pagination :pages="$employees" />
     </div>
     <div class="flex flex-row gap-x-5 items-start">

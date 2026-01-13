@@ -8,7 +8,7 @@ use App\Models\User;
 class EmployeeUpdateService
 {
     // 従業員を更新
-    public function createEmployee($request)
+    public function updateEmployee($request)
     {
         // 従業員を更新
         User::getSpecify($request->user_no)->update([

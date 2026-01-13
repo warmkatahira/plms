@@ -20,7 +20,7 @@ class BaseUpdateController extends Controller
         // ページヘッダーをセッションに格納
         session(['page_header' => '営業所更新']);
         // 営業所を取得
-        $base = Base::getSpecify($request->base_id)->first();
+        $base = Base::getSpecify($request->base_id)->firstOrFail();
         return view('system_admin.base.update')->with([
             'base' => $base,
         ]);
