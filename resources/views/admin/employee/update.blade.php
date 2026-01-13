@@ -1,4 +1,5 @@
 <x-app-layout>
+    <x-page-back :url="session('back_url_1')" />
     <div class="flex flex-row gap-10 mt-5">
         <form method="POST" action="{{ route('employee_update.update') }}" id="employee_form">
             @csrf
