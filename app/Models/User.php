@@ -87,7 +87,7 @@ class User extends Authenticatable
     {
         return [
             'ステータス',
-            '営業所名',
+            '省略営業所名',
             '従業員番号',
             '氏名',
             '保有日数',

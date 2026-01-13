@@ -32,8 +32,8 @@ class EmployeeDownloadService
                     // 変数に情報を格納
                     $row = [
                         $employee->status_text,
-                        $employee->base->base_name,
-                        $employee->employee_no,
+                        $employee->base->short_base_name,
+                        "'".$employee->employee_no,
                         $employee->user_name,
                         $employee->paid_leave_granted_days,
                         $employee->paid_leave_remaining_days,
