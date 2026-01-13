@@ -90,6 +90,7 @@ class User extends Authenticatable
             '省略営業所名',
             '従業員番号',
             '氏名',
+            'ユーザーID',
             '保有日数',
             '残日数',
             '取得日数',

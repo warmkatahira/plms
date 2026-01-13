@@ -23,10 +23,11 @@ class BaseRequest extends FormRequest
             'unique'                            => ":attributeは既に使用されています。",
             'confirmed'                         => ":attributeが確認用と一致しません。",
             'date'                              => ":attributeが日付ではありません。",
-            'max'                               => ":attributeは:max文字以内で入力して下さい。",
-            'min'                               => ":attributeは:min以上で入力して下さい。",
+            'max'                               => ":attributeは:max文字以下で入力して下さい。",
+            'min'                               => ":attributeは:min文字以上で入力して下さい。",
             'sort_order.max'                    => ":attributeは:max以下で入力して下さい。",
             'in'                                => ":attributeが正しくありません。",
+            'numeric'                           => ":attributeは数値で入力して下さい。",
         ];
     }
 
@@ -45,6 +46,15 @@ class BaseRequest extends FormRequest
             'password'                                      => 'パスワード',
             'status'                                        => 'ステータス',
             'is_auto_update_statutory_leave_remaining_days' => '義務残日数自動更新',
+            // 有給関連情報
+            'paid_leave_granted_days'                       => '保有日数',
+            'paid_leave_remaining_days'                     => '残日数',
+            'paid_leave_used_days'                          => '取得日数',
+            'statutory_leave_days'                          => '義務日数',
+            'statutory_leave_remaining_days'                => '義務残日数',
+            'daily_working_hours'                           => '1日あたりの時間数',
+            'half_day_working_hours'                        => '半日あたりの時間数',
+            'statutory_leave_expiration_date'               => '義務期限日',
         ];
     }
 }

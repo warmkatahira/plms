@@ -21,6 +21,7 @@ Route::middleware('common')->group(function (){
             Route::controller(EmployeeCreateController::class)->prefix('employee_create')->name('employee_create.')->group(function(){
                 Route::get('', 'index')->name('index');
                 Route::post('create', 'create')->name('create');
+                Route::post('import', 'import')->name('import');
             });
             Route::controller(EmployeeUpdateController::class)->prefix('employee_update')->name('employee_update.')->group(function(){
                 Route::get('', 'index')->name('index');

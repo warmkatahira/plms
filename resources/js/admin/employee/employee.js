@@ -21,3 +21,16 @@ $('#employee_update_enter').on("click",function(){
         $("#employee_form").submit();
     }
 });
+
+// アップロードでファイルが選択されたら
+$('.select_file input[type=file]').on("change",function(){
+    // 処理を実行するか確認
+    const result = window.confirm("従業員追加(取込)を実行しますか？");
+    // 「はい」が押下されたらsubmit、「いいえ」が押下されたら処理キャンセル
+    if(result == true){
+        start_loading();
+        $("#employee_create_import_form").submit();
+    }
+    // 要素をクリア
+    $('.select_file input[type=file]').val(null);
+});

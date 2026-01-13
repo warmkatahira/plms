@@ -8,3 +8,4 @@
         <x-admin.employee.list :employees="$employees" />
     </div>
 </x-app-layout>
+@vite(['resources/js/admin/employee/employee.js'])

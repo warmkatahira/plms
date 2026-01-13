@@ -4,17 +4,24 @@ namespace App\Services\Admin\Employee;
 
 // モデル
 use App\Models\User;
+use App\Models\Base;
 use App\Models\PaidLeave;
 use App\Models\StatutoryLeave;
+use App\Models\EmployeeImport;
 // 列挙
 use App\Enums\RoleEnum;
 use App\Enums\SystemEnum;
+use App\Enums\EmployeeCreateEnum;
 // その他
 use App\Mail\UserCreateNotificationMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Rap2hpoutre\FastExcel\FastExcel;
+use Illuminate\Support\Facades\Storage;
+use Carbon\CarbonImmutable;
 
 class EmployeeCreateService
 {
@@ -35,29 +42,29 @@ class EmployeeCreateService
             'password'                                      => Hash::make($password),
         ]);
         // 有給関連テーブルへレコード追加
-        $this->createPaidLeave($user);
+        $this->createPaidLeave($user, $request);
         // アカウント発行通知メールを送信
         $this->sendMail($user, $password);
     }
 
     // 有給関連テーブルへレコード追加
-    public function createPaidLeave($user)
+    public function createPaidLeave($user, $request)
     {
         // 有給管理テーブルへ追加
         PaidLeave::create([
             'user_no'                   => $user->user_no,
-            'paid_leave_granted_days'   => 0,
-            'paid_leave_remaining_days' => 0,
-            'paid_leave_used_days'      => 0,
-            'daily_working_hours'       => 0,
-            'half_day_working_hours'    => 0,
+            'paid_leave_granted_days'   => $request->paid_leave_granted_days,
+            'paid_leave_remaining_days' => $request->paid_leave_remaining_days,
+            'paid_leave_used_days'      => $request->paid_leave_used_days,
+            'daily_working_hours'       => $request->daily_working_hours,
+            'half_day_working_hours'    => $request->half_day_working_hours,
         ]);
         // 有給義務管理テーブルへ追加
         StatutoryLeave::create([
             'user_no'                           => $user->user_no,
-            'statutory_leave_expiration_date'   => null,
-            'statutory_leave_days'              => 0,
-            'statutory_leave_remaining_days'    => 0,
+            'statutory_leave_expiration_date'   => $request->statutory_leave_expiration_date,
+            'statutory_leave_days'              => $request->statutory_leave_days,
+            'statutory_leave_remaining_days'    => $request->statutory_leave_remaining_days,
         ]);
     }
 
@@ -74,5 +81,307 @@ class EmployeeCreateService
         // メールを送信
         Mail::send($mail);
         // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+    }
+
+    public function importData($select_file)
+    {
+        // ストレージに保存する際のファイル名を設定
+        $save_file_name = 'employee_create_import_data.csv';
+        // ファイルを保存して保存先のパスを取得
+        $save_file_path = Storage::disk('public')->putFileAs('import/', $select_file, $save_file_name);
+        // パスを返す
+        return Storage::disk('public')->path($save_file_path);
+    }
+
+    public function checkHeader($save_file_path)
+    {
+        // 全データを取得
+        $all_line = (new FastExcel)->import($save_file_path);
+        // インポートしたデータのヘッダーを取得
+        $import_data_header = array_keys(mb_convert_encoding($all_line[0], 'UTF-8', 'ASCII, JIS, UTF-8, SJIS-win'));
+        // システムに定義している必須ヘッダーを取得
+        $require_header = EmployeeCreateEnum::REQUIRE_HEADER;
+        // ヘッダーが存在するか確認
+        $header_ng_count = $this->checkRequireHeader($import_data_header, $require_header);
+        // 0より大きい = 存在しないヘッダーがあるので、ここで処理を終了
+        if($header_ng_count > 0){
+            throw new \RuntimeException('取り込んだファイルのヘッダーが正しくありません。');
+        }
+        // 1行のデータを格納する配列をセット
+        $param = [];
+        // 追加先テーブルのカラム名に合わせて配列を整理
+        foreach($import_data_header as $header){
+            // 英語カラムを定義している配列から取得
+            $en_column = EmployeeCreateEnum::column_en_change($header);
+            // カラムが空ではない場合
+            if($en_column != ''){
+                // 配列に変換した英語カラムを格納
+                $param[] = $en_column;
+            }
+        }
+        return $param;
+    }
+
+    // ヘッダーが存在するか確認
+    public function checkRequireHeader($import_data_header, $require_header)
+    {
+        // ヘッダーが存在しなかった場合にカウントする変数をセット
+        $header_ng_count = 0;
+        // ヘッダーの分だけループ処理
+        foreach($require_header as $header){
+            // ヘッダーが存在するか確認
+            $result = $this->checkValueExists($import_data_header, $header);
+            // nullではない場合
+            if(!is_null($result)){
+                // カウントアップ
+                $header_ng_count++;
+            }
+        }
+        return $header_ng_count;
+    }
+
+    // 配列の値が存在しているか確認
+    public function checkValueExists($array, $value) {
+        // 存在したら「true」、存在しなかったら「false」
+        $result = in_array($value, $array);
+        // 存在しなかったら、エラーを返す
+        return !$result ? 'ヘッダーに「'.$value.'」がありません。' : null;
+    }
+
+    // 追加するデータを配列に格納（同時にバリデーションも実施）
+    public function setArrayImportData($save_file_path, $headers)
+    {
+        // データの情報を取得
+        $all_line = (new FastExcel)->import($save_file_path);
+        // 配列をセット
+        $create_data = [];
+        // 取得したレコードの分だけループ
+        foreach ($all_line as $line){
+            // UTF-8形式に変換した1行分のデータを取得
+            $line = mb_convert_encoding($line, 'UTF-8', 'ASCII, JIS, UTF-8, SJIS-win');
+            // 1行のデータを格納する配列をセット
+            $param = [];
+            // 追加先テーブルのカラム名に合わせて配列を整理
+            foreach($line as $key => $value){
+                // 英語カラムを定義している配列から取得
+                $en_column = EmployeeCreateEnum::column_en_change($key);
+                // カラムが空ではない場合
+                if($en_column != ''){
+                    // 値の調整を行う
+                    $adjustment_value = $this->valueAdjustment($key, $value);
+                    // 配列に変換した英語カラムを格納
+                    $param[$en_column] = $adjustment_value;
+                }
+            }
+            // 追加用の配列に整理した情報を格納
+            $create_data[] = $param;
+        }
+        // バリデーション
+        $validation_error = $this->commonValidation($create_data, $headers);
+        // エラーメッセージがあればバリデーションエラーを配列に格納
+        if(!empty($validation_error)){
+            return compact('validation_error');
+        }
+        return compact('create_data', 'validation_error');
+    }
+
+    // 値の調整を行う
+    public function valueAdjustment($key, $value)
+    {
+        // 特定のキーのみ値の調整を行う
+        switch($key){
+            case '従業員番号':
+                // シングルクォーテーションを取り除いている
+                $adjustment_value = str_replace(array("'"), "", $value);
+                break;
+            case 'ステータス':
+            case '義務残日数自動更新':
+                // 無効を「0」、有効を「1」に変換
+                $adjustment_value = $value === '無効' ? 0 : ($value === '有効' ? 1 : $value);
+                break;
+            case '省略営業所名':
+                // 省略営業所名から営業所IDに変換
+                $adjustment_value = Base::getBaseIdByShortBaseName($value);
+                break;
+            case '義務期限日':
+                if($value === '' || $value === null){
+                    $adjustment_value = null;
+                    break;
+                }
+                try {
+                    $date = null;
+                    foreach (['Y/m/d', 'Y/n/j'] as $format) {
+                        try {
+                            $date = CarbonImmutable::createFromFormat($format, $value);
+                            break; // 成功したら抜ける
+                        } catch (\Exception $e) {
+                            // 次のフォーマットへ
+                        }
+                    }
+                    $adjustment_value = $date
+                        ? $date->format('Y/m/d')
+                        : $value; // 変換不可 → バリデーションへ
+                } catch (\Exception $e) {
+                    $adjustment_value = $value;
+                }
+                break;
+            default:
+                // 何もしない
+                $adjustment_value = $value;
+                break;
+        }
+        return $adjustment_value === '' ? null : $adjustment_value;
+    }
+
+    // バリデーション
+    public function commonValidation($params, $headers)
+    {
+        // ルールを格納する配列をセット
+        $rules = [];
+        // バリデーションルールを定義
+        foreach($headers as $column){
+            switch ($column){
+                case 'status':
+                case 'is_auto_update_statutory_leave_remaining_days':
+                    $rules += ['*.'.$column => 'required|boolean'];
+                    break;
+                case 'short_base_name':
+                    $rules += ['*.'.$column => 'required|exists:bases,base_id'];
+                    break;
+                case 'employee_no':
+                    $rules += ['*.'.$column => 'required|string|max:4|unique:users,employee_no'];
+                    break;
+                case 'user_name':
+                    $rules += ['*.'.$column => 'required|string|max:20'];
+                    break;
+                case 'user_id':
+                    $rules += ['*.'.$column => 'required|string|max:20|unique:users,user_id'];
+                    break;
+                case 'paid_leave_granted_days':
+                case 'paid_leave_remaining_days':
+                case 'paid_leave_used_days':
+                case 'statutory_leave_days':
+                case 'statutory_leave_remaining_days':
+                    $rules += [
+                        '*.' . $column => [
+                            'required',
+                            'numeric',
+                            'min:0',
+                            'max:20',
+                            'regex:/^\d+(\.0|\.5)?$/'
+                        ],
+                    ];
+                    break;
+                case 'daily_working_hours':
+                case 'half_day_working_hours':
+                    $rules += [
+                        '*.' . $column => [
+                            'required',
+                            'numeric',
+                            'min:0',
+                            'max:10',
+                            'regex:/^\d+(\.(00|25|5|50|75))?$/',
+                        ],
+                    ];
+                    break;
+                case 'statutory_leave_expiration_date':
+                    $rules += ['*.'.$column => 'required|date_format:Y/m/d'];
+                    break;
+                default:
+                    break;
+            }
+        }
+        // バリデーションエラーメッセージを定義
+        $messages = [
+            'required'                      => ':attributeは必須です。',
+            'employee_no.max'               => ':attribute（:input）は:max文字以内で入力して下さい。',
+            'user_name.max'                 => ':attribute（:input）は:max文字以内で入力して下さい。',
+            'user_id.max'                   => ':attribute（:input）は:max文字以内で入力して下さい。',
+            'max'                           => ':attribute（:input）は:max以下で入力して下さい。',
+            'min'                           => ':attribute（:input）は:min以上で入力して下さい。',
+            'boolean'                       => ':attribute（:input）が正しくありません。',
+            'exists'                        => ':attribute（:input）はシステムに存在しません。',
+            'integer'                       => ':attribute（:input）は数値で入力して下さい。',
+            'unique'                        => ':attribute（:input）は既に使用されています。',
+            'daily_working_hours.regex'     => ':attribute（:input）は0.25刻みで入力して下さい。',
+            'half_day_working_hours.regex'  => ':attribute（:input）は0.25刻みで入力して下さい。',
+            'regex'                         => ':attribute（:input）は0.5刻みで入力して下さい。',
+            'date_format'                   => ':attribute（:input）はyyyy/mm/dd形式で入力して下さい。',
+        ];
+        // バリデーションエラー項目を定義
+        $attributes = [
+            '*.status'                                          => 'ステータス',
+            '*.short_base_name'                                 => '省略営業所名',
+            '*.employee_no'                                     => '従業員番号',
+            '*.user_name'                                       => '氏名',
+            '*.user_id'                                         => 'ユーザーID',
+            '*.paid_leave_granted_days'                         => '保有日数',
+            '*.paid_leave_remaining_days'                       => '残日数',
+            '*.paid_leave_used_days'                            => '取得日数',
+            '*.daily_working_hours'                             => '1日あたりの時間数',
+            '*.half_day_working_hours'                          => '半日あたりの時間数',
+            '*.is_auto_update_statutory_leave_remaining_days'   => '義務残日数自動更新',
+            '*.statutory_leave_expiration_date'                 => '義務期限日',
+            '*.statutory_leave_days'                            => '義務日数',
+            '*.statutory_leave_remaining_days'                  => '義務残日数',
+        ];
+        // バリデーション実施
+        return $this->processValidation($params, $rules, $messages, $attributes);
+    }
+
+    // バリデーション実施
+    public function processValidation($params, $rules, $messages, $attributes)
+    {
+        // 配列をセット
+        $validation_error = [];
+        // バリデーション実施
+        $validator = Validator::make($params, $rules, $messages, $attributes);
+        // バリデーションエラーの分だけループ
+        foreach($validator->errors()->getMessages() as $key => $value){
+            // 値を「.」で分割
+            $key_explode = explode('.', $key);
+            // メッセージを格納
+            $validation_error[] = [
+                'エラー行数' => ($key_explode[0] + 2) . '行目',
+                'エラー内容' => $value[0],
+            ];
+        }
+        return $validation_error;
+    }
+    
+    // インポートテーブルに追加
+    public function createArrayImportData($create_data)
+    {
+        // テーブルをロック
+        EmployeeImport::select()->lockForUpdate()->get();
+        // 追加先のテーブルをクリア
+        EmployeeImport::query()->delete();
+        // 追加用の配列に入っている情報をテーブルに追加
+        EmployeeImport::insert($create_data);
+    }
+
+    // 従業員を追加
+    public function createEmployeeByImport()
+    {
+        // 追加する情報の分だけループ処理
+        foreach(EmployeeImport::all() as $employee_import){
+            // 初期ログインパスワードを取得（英数字12桁）
+            $password = Str::random(12);
+            // 従業員を追加
+            $user = User::create([
+                'status'                                        => $employee_import->status,
+                'base_id'                                       => $employee_import->short_base_name,
+                'employee_no'                                   => $employee_import->employee_no,
+                'user_name'                                     => $employee_import->user_name,
+                'user_id'                                       => $employee_import->user_id,
+                'is_auto_update_statutory_leave_remaining_days' => $employee_import->is_auto_update_statutory_leave_remaining_days,
+                'role_id'                                       => RoleEnum::USER,
+                'password'                                      => Hash::make($password),
+            ]);
+            // 有給関連テーブルへレコード追加
+            $this->createPaidLeave($user, $employee_import);
+            // アカウント発行通知メールを送信
+            $this->sendMail($user, $password);
+        }
     }
 }
