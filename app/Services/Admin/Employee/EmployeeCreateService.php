@@ -15,6 +15,7 @@ use App\Services\Common\ImportErrorCreateService;
 use App\Enums\RoleEnum;
 use App\Enums\SystemEnum;
 use App\Enums\EmployeeCreateEnum;
+use App\Enums\WorkingHoursEnum;
 // 例外
 use App\Exceptions\EmployeeImportException;
 // その他
@@ -27,6 +28,7 @@ use Illuminate\Support\Facades\Validator;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Illuminate\Support\Facades\Storage;
 use Carbon\CarbonImmutable;
+use Illuminate\Validation\Rule;
 
 class EmployeeCreateService
 {
@@ -96,8 +98,10 @@ class EmployeeCreateService
     // 選択したファイルをストレージにインポート
     public function importFile($select_file)
     {
+        // 選択したデータの拡張子を取得（例: csv, xlsx）
+        $extension = $select_file->getClientOriginalExtension();
         // ストレージに保存する際のファイル名を設定
-        $save_file_name = 'employee_create_import_data.csv';
+        $save_file_name = 'employee_create_import_data.'.$extension;
         // ファイルを保存して保存先のパスを取得
         $save_file_path = Storage::disk('public')->putFileAs('import/', $select_file, $save_file_name);
         // パスを返す
@@ -107,10 +111,16 @@ class EmployeeCreateService
     // インポートしたデータのヘッダーを確認
     public function checkHeader($save_file_path, $import_original_file_name)
     {
+        // 選択したデータの拡張子を取得（例: csv, xlsx）
+        $extension = strtolower(pathinfo($import_original_file_name, PATHINFO_EXTENSION));
         // 全データを取得
         $all_line = (new FastExcel)->import($save_file_path);
         // インポートしたデータのヘッダーを取得
-        $import_data_header = array_keys(mb_convert_encoding($all_line[0], 'UTF-8', 'ASCII, JIS, UTF-8, SJIS-win'));
+        if($extension === 'csv'){
+            $import_data_header = array_keys(mb_convert_encoding($all_line[0], 'UTF-8', 'ASCII, JIS, UTF-8, SJIS-win'));
+        }else{
+            $import_data_header = array_keys($all_line[0]);
+        }
         // システムに定義している必須ヘッダーを取得
         $require_header = EmployeeCreateEnum::REQUIRE_HEADER;
         // ヘッダーが存在するか確認
@@ -145,6 +155,7 @@ class EmployeeCreateService
             $result = $this->checkValueExists($import_data_header, $header);
             // nullではない場合
             if(!is_null($result)){
+                dd($result);
                 // カウントアップ
                 $header_ng_count++;
             }
@@ -163,6 +174,8 @@ class EmployeeCreateService
     // 追加するデータを配列に格納（同時にバリデーションも実施）
     public function setArrayImportData($save_file_path, $headers, $import_original_file_name)
     {
+        // 選択したデータの拡張子を取得（例: csv, xlsx）
+        $extension = strtolower(pathinfo($import_original_file_name, PATHINFO_EXTENSION));
         // データの情報を取得
         $all_line = (new FastExcel)->import($save_file_path);
         // 配列をセット
@@ -170,7 +183,9 @@ class EmployeeCreateService
         // 取得したレコードの分だけループ
         foreach ($all_line as $line){
             // UTF-8形式に変換した1行分のデータを取得
-            $line = mb_convert_encoding($line, 'UTF-8', 'ASCII, JIS, UTF-8, SJIS-win');
+            if($extension === 'csv'){
+                $line = mb_convert_encoding($line, 'UTF-8', 'ASCII, JIS, UTF-8, SJIS-win');
+            }
             // 1行のデータを格納する配列をセット
             $param = [];
             // 追加先テーブルのカラム名に合わせて配列を整理
@@ -226,12 +241,16 @@ class EmployeeCreateService
                 }
                 try {
                     $date = null;
-                    foreach (['Y/m/d', 'Y/n/j'] as $format) {
-                        try {
-                            $date = CarbonImmutable::createFromFormat($format, $value);
-                            break; // 成功したら抜ける
-                        } catch (\Exception $e) {
-                            // 次のフォーマットへ
+                    if ($value instanceof \DateTimeInterface) {
+                        $date = CarbonImmutable::instance($value);
+                    } else {
+                        foreach (['Y/m/d', 'Y/n/j'] as $format) {
+                            try {
+                                $date = CarbonImmutable::createFromFormat($format, (string) $value);
+                                break; // 成功したら抜ける
+                            } catch (\Exception $e) {
+                                // 次のフォーマットへ
+                            }
                         }
                     }
                     $adjustment_value = $date
@@ -292,14 +311,18 @@ class EmployeeCreateService
                     ];
                     break;
                 case 'daily_working_hours':
+                    $rules += [
+                        '*.' . $column => [
+                            'required',
+                            Rule::in(array_keys(WorkingHoursEnum::DAILY_WORKING_HOURS)),
+                        ],
+                    ];
+                    break;
                 case 'half_day_working_hours':
                     $rules += [
                         '*.' . $column => [
                             'required',
-                            'numeric',
-                            'min:0',
-                            'max:10',
-                            'regex:/^\d+(\.(00|25|5|50|75))?$/',
+                            Rule::in(array_keys(WorkingHoursEnum::HALF_DAY_WORKING_HOURS)),
                         ],
                     ];
                     break;
@@ -323,10 +346,9 @@ class EmployeeCreateService
             'exists'                        => ':attribute（:input）はシステムに存在しません。',
             'integer'                       => ':attribute（:input）は数値で入力して下さい。',
             'unique'                        => ':attribute（:input）は既に使用されています。',
-            'daily_working_hours.regex'     => ':attribute（:input）は0.25刻みで入力して下さい。',
-            'half_day_working_hours.regex'  => ':attribute（:input）は0.25刻みで入力して下さい。',
             'regex'                         => ':attribute（:input）は0.5刻みで入力して下さい。',
             'date_format'                   => ':attribute（:input）はyyyy/mm/dd形式で入力して下さい。',
+            'in'                            => ':attribute（:input）が正しくありません。',
         ];
         // バリデーションエラー項目を定義
         $attributes = [
