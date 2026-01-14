@@ -57,8 +57,6 @@ class EmployeeCreateRequest extends BaseRequest
     public function messages()
     {
         return array_merge(parent::messages(), [
-            'daily_working_hours.regex'             => ':attributeは0.25刻みで入力して下さい。',
-            'half_day_working_hours.regex'          => ':attributeは0.25刻みで入力して下さい。',
             'paid_leave_granted_days.regex'         => ':attributeは0.5刻みで入力して下さい。',
             'paid_leave_remaining_days.regex'       => ':attributeは0.5刻みで入力して下さい。',
             'paid_leave_used_days.regex'            => ':attributeは0.5刻みで入力して下さい。',
