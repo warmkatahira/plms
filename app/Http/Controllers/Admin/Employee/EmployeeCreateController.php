@@ -12,6 +12,8 @@ use App\Services\Admin\Employee\EmployeeCreateService;
 use App\Http\Requests\Admin\Employee\EmployeeCreateRequest;
 // 例外
 use App\Exceptions\EmployeeImportException;
+// 列挙
+use App\Enums\WorkingHoursEnum;
 // その他
 use Illuminate\Support\Facades\DB;
 use Carbon\CarbonImmutable;
@@ -24,8 +26,14 @@ class EmployeeCreateController extends Controller
         session(['page_header' => '従業員追加']);
         // 営業所を取得
         $bases = Base::getAll()->get();
+        // 1日あたりの時間数を取得
+        $daily_working_hours = WorkingHoursEnum::DAILY_WORKING_HOURS;
+        // 半日あたりの時間数を取得
+        $half_day_working_hours = WorkingHoursEnum::HALF_DAY_WORKING_HOURS;
         return view('admin.employee.create')->with([
             'bases' => $bases,
+            'daily_working_hours' => $daily_working_hours,
+            'half_day_working_hours' => $half_day_working_hours,
         ]);
     }
 

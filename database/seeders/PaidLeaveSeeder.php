@@ -21,8 +21,8 @@ class PaidLeaveSeeder extends Seeder
                 'paid_leave_granted_days'   => 10,
                 'paid_leave_remaining_days' => 8,
                 'paid_leave_used_days'      => 2,
-                'daily_working_hours'       => 6.25,
-                'half_day_working_hours'    => 3.75,
+                'daily_working_hours'       => 5.50,
+                'half_day_working_hours'    => 2.75,
             ]);
         });
     }

@@ -3,11 +3,8 @@
     'id',
     'required' => null,
     'items',
-    'optionValue',
-    'optionText',
     'value',
     'name',
-    'item',
     'tippy' => null,
 ])
 

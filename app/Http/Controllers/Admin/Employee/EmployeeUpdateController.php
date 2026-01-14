@@ -11,6 +11,8 @@ use App\Models\User;
 use App\Services\Admin\Employee\EmployeeUpdateService;
 // リクエスト
 use App\Http\Requests\Admin\Employee\EmployeeUpdateRequest;
+// 列挙
+use App\Enums\WorkingHoursEnum;
 // その他
 use Illuminate\Support\Facades\DB;
 
@@ -24,9 +26,15 @@ class EmployeeUpdateController extends Controller
         $employee = User::getSpecify($request->user_no)->firstOrFail();
         // 営業所を取得
         $bases = Base::getAll()->get();
+        // 1日あたりの時間数を取得
+        $daily_working_hours = WorkingHoursEnum::DAILY_WORKING_HOURS;
+        // 半日あたりの時間数を取得
+        $half_day_working_hours = WorkingHoursEnum::HALF_DAY_WORKING_HOURS;
         return view('admin.employee.update')->with([
             'employee' => $employee,
             'bases' => $bases,
+            'daily_working_hours' => $daily_working_hours,
+            'half_day_working_hours' => $half_day_working_hours,
         ]);
     }
 
