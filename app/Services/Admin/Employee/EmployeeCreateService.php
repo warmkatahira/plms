@@ -8,10 +8,15 @@ use App\Models\Base;
 use App\Models\PaidLeave;
 use App\Models\StatutoryLeave;
 use App\Models\EmployeeImport;
+use App\Models\EmployeeImportHistory;
+// サービス
+use App\Services\Common\ImportErrorCreateService;
 // 列挙
 use App\Enums\RoleEnum;
 use App\Enums\SystemEnum;
 use App\Enums\EmployeeCreateEnum;
+// 例外
+use App\Exceptions\EmployeeImportException;
 // その他
 use App\Mail\UserCreateNotificationMail;
 use Illuminate\Support\Facades\Mail;
@@ -83,7 +88,15 @@ class EmployeeCreateService
         // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
     }
 
-    public function importData($select_file)
+    // 選択したファイルのファイル名を取得
+    public function getImportOriginalFileName($select_file)
+    {
+        // 選択したデータのファイル名を取得
+        return $select_file->getClientOriginalName();
+    }
+
+    // 選択したファイルをストレージにインポート
+    public function importFile($select_file)
     {
         // ストレージに保存する際のファイル名を設定
         $save_file_name = 'employee_create_import_data.csv';
@@ -93,7 +106,8 @@ class EmployeeCreateService
         return Storage::disk('public')->path($save_file_path);
     }
 
-    public function checkHeader($save_file_path)
+    // インポートしたデータのヘッダーを確認
+    public function checkHeader($save_file_path, $import_original_file_name)
     {
         // 全データを取得
         $all_line = (new FastExcel)->import($save_file_path);
@@ -105,7 +119,7 @@ class EmployeeCreateService
         $header_ng_count = $this->checkRequireHeader($import_data_header, $require_header);
         // 0より大きい = 存在しないヘッダーがあるので、ここで処理を終了
         if($header_ng_count > 0){
-            throw new \RuntimeException('取り込んだファイルのヘッダーが正しくありません。');
+            throw new EmployeeImportException('取り込んだファイルのヘッダーが正しくありません。', '追加', null, $import_original_file_name);
         }
         // 1行のデータを格納する配列をセット
         $param = [];
@@ -149,7 +163,7 @@ class EmployeeCreateService
     }
 
     // 追加するデータを配列に格納（同時にバリデーションも実施）
-    public function setArrayImportData($save_file_path, $headers)
+    public function setArrayImportData($save_file_path, $headers, $import_original_file_name)
     {
         // データの情報を取得
         $all_line = (new FastExcel)->import($save_file_path);
@@ -178,9 +192,13 @@ class EmployeeCreateService
         }
         // バリデーション
         $validation_error = $this->commonValidation($create_data, $headers);
-        // エラーメッセージがあればバリデーションエラーを配列に格納
-        if(!empty($validation_error)){
-            return compact('validation_error');
+        // バリデーションエラーにnull以外があれば、エラー情報を出力
+        if(count(array_filter($validation_error)) != 0){
+            // インスタンス化
+            $ImportErrorCreateService   = new ImportErrorCreateService;
+            // エラー情報のファイルを作成
+            $error_file_name = $ImportErrorCreateService->createImportError('従業員取込エラー', $validation_error);
+            throw new EmployeeImportException("データが正しくないため、取り込みできませんでした。", '追加', $error_file_name, $import_original_file_name);
         }
         return compact('create_data', 'validation_error');
     }
@@ -332,7 +350,7 @@ class EmployeeCreateService
     // バリデーション実施
     public function processValidation($params, $rules, $messages, $attributes)
     {
-        // 配列をセット
+        // バリデーションエラーを格納する配列を初期化
         $validation_error = [];
         // バリデーション実施
         $validator = Validator::make($params, $rules, $messages, $attributes);
@@ -383,5 +401,16 @@ class EmployeeCreateService
             // アカウント発行通知メールを送信
             $this->sendMail($user, $password);
         }
+    }
+
+    // employee_import_historiesテーブルへ追加
+    public function createEmployeeImportHistory($import_original_file_name, $import_type, $error_file_name, $message)
+    {
+        EmployeeImportHistory::create([
+            'import_file_name'  => $import_original_file_name,
+            'import_type'       => $import_type,
+            'error_file_name'   => $error_file_name,
+            'message'           => $message,
+        ]);
     }
 }

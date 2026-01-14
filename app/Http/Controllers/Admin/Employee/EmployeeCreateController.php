@@ -10,6 +10,8 @@ use App\Models\Base;
 use App\Services\Admin\Employee\EmployeeCreateService;
 // リクエスト
 use App\Http\Requests\Admin\Employee\EmployeeCreateRequest;
+// 例外
+use App\Exceptions\EmployeeImportException;
 // その他
 use Illuminate\Support\Facades\DB;
 use Carbon\CarbonImmutable;
@@ -50,36 +52,41 @@ class EmployeeCreateController extends Controller
 
     public function import(Request $request)
     {
+        // インスタンス化
+        $EmployeeCreateService = new EmployeeCreateService;
         try {
-            DB::transaction(function () use ($request) {
+            DB::transaction(function () use ($request, $EmployeeCreateService) {
                 // 現在の日時を取得
                 $nowDate = CarbonImmutable::now();
-                // インスタンス化
-                $EmployeeCreateService = new EmployeeCreateService;
-                // 選択したデータをストレージにインポート
-                $save_file_path = $EmployeeCreateService->importData($request->file('select_file'));
+                // 選択したファイルのファイル名を取得
+                $import_original_file_name = $EmployeeCreateService->getImportOriginalFileName($request->file('select_file'));
+                // 選択したファイルをストレージにインポート
+                $save_file_path = $EmployeeCreateService->importFile($request->file('select_file'));
                 // インポートしたデータのヘッダーを確認
-                $headers = $EmployeeCreateService->checkHeader($save_file_path);
+                $headers = $EmployeeCreateService->checkHeader($save_file_path, $import_original_file_name);
                 // 追加するデータを配列に格納（同時にバリデーションも実施）
-                $data = $EmployeeCreateService->setArrayImportData($save_file_path, $headers);
-                // バリデーションエラー配列の中にnull以外があれば、エラー情報を出力
-                if (count(array_filter($data['validation_error'])) != 0) {
-                    // セッションにエラー情報を格納
-                    session(['tracking_no_upload_error' => array(['エラー情報' => $data['validation_error'], 'アップロード日時' => $nowDate])]);
-                    throw new \Exception('データが正しくないため、アップロードできませんでした。');
-                }
+                $data = $EmployeeCreateService->setArrayImportData($save_file_path, $headers, $import_original_file_name);
                 // インポートテーブルに追加
                 $EmployeeCreateService->createArrayImportData($data['create_data']);
                 // 従業員を追加
                 $EmployeeCreateService->createEmployeeByImport();
+                // employee_import_historiesテーブルへ追加
+                $EmployeeCreateService->createEmployeeImportHistory($import_original_file_name, '追加', null, null);
             });
-        } catch (\Exception $e) {
-            return redirect()->back()->with([
+        } catch (EmployeeImportException $e) {
+            // 渡された内容を取得
+            $message                    = $e->getMessage();
+            $import_type                = $e->getImportType();
+            $error_file_name            = $e->getErrorFileName();
+            $import_original_file_name  = $e->getImportOriginalFileName();
+            // employee_import_historiesテーブルへ追加
+            $EmployeeCreateService->createEmployeeImportHistory($import_original_file_name, $import_type, $error_file_name, $message);
+            return redirect()->route('employee_import_history.index')->with([
                 'alert_type' => 'error',
                 'alert_message' => $e->getMessage(),
             ]);
         }
-        return redirect()->back()->with([
+        return redirect()->route('employee_import_history.index')->with([
             'alert_type' => 'success',
             'alert_message' => '従業員追加(取込)が完了しました。',
         ]);

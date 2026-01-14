@@ -9,7 +9,11 @@
         <x-form.select label="営業所名" id="base_id" name="base_id" :value="$form_mode === 'update' ? $employee->base_id : null" :items="$bases" optionValue="base_id" optionText="base_name" required="true" />
         <x-form.input type="tel" label="従業員番号" id="employee_no" name="employee_no" :value="$form_mode === 'update' ? $employee->employee_no : null" required="true" />
         <x-form.input type="text" label="氏名" id="user_name" name="user_name" :value="$form_mode === 'update' ? $employee->user_name : null" required="true" />
-        <x-form.input type="text" label="ユーザーID" id="user_id" name="user_id" :value="$form_mode === 'update' ? $employee->user_id : null" required="true" />
+        @if($form_mode === 'create')
+            <x-form.input type="tel" label="ユーザーID" id="user_id" name="user_id" :value="null" required="true" />
+        @else
+            <x-form.p label="ユーザーID" :value="$employee->user_id" grayedOut="true" />
+        @endif
         <x-form.input type="tel" label="保有日数" id="paid_leave_granted_days" name="paid_leave_granted_days" :value="$form_mode === 'update' ? $employee->paid_leave->paid_leave_granted_days : null" required="true" />
         <x-form.input type="tel" label="残日数" id="paid_leave_remaining_days" name="paid_leave_remaining_days" :value="$form_mode === 'update' ? $employee->paid_leave->paid_leave_remaining_days : null" required="true" />
         <x-form.input type="tel" label="取得日数" id="paid_leave_used_days" name="paid_leave_used_days" :value="$form_mode === 'update' ? $employee->paid_leave->paid_leave_used_days : null" required="true" />
