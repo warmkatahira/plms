@@ -36,6 +36,7 @@ class EmployeeDownloadService
                         "'".$employee->employee_no,
                         $employee->user_name,
                         $employee->user_id,
+                        '',
                         $employee->paid_leave_granted_days,
                         $employee->paid_leave_remaining_days,
                         $employee->paid_leave_used_days,

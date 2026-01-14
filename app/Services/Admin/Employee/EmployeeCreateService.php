@@ -33,8 +33,6 @@ class EmployeeCreateService
     // 従業員を追加
     public function createEmployee($request)
     {
-        // 初期ログインパスワードを取得（英数字12桁）
-        $password = Str::random(12);
         // 従業員を追加
         $user = User::create([
             'status'                                        => $request->status,
@@ -42,14 +40,14 @@ class EmployeeCreateService
             'employee_no'                                   => $request->employee_no,
             'user_name'                                     => $request->user_name,
             'user_id'                                       => $request->user_id,
+            'password'                                      => Hash::make($request->password),
             'is_auto_update_statutory_leave_remaining_days' => $request->is_auto_update_statutory_leave_remaining_days,
             'role_id'                                       => RoleEnum::USER,
-            'password'                                      => Hash::make($password),
         ]);
         // 有給関連テーブルへレコード追加
         $this->createPaidLeave($user, $request);
         // アカウント発行通知メールを送信
-        $this->sendMail($user, $password);
+        //$this->sendMail($user, $password);
     }
 
     // 有給関連テーブルへレコード追加
@@ -275,6 +273,9 @@ class EmployeeCreateService
                 case 'user_id':
                     $rules += ['*.'.$column => 'required|string|max:20|unique:users,user_id'];
                     break;
+                case 'password':
+                    $rules += ['*.'.$column => 'required|string|max:20'];
+                    break;
                 case 'paid_leave_granted_days':
                 case 'paid_leave_remaining_days':
                 case 'paid_leave_used_days':
@@ -315,6 +316,7 @@ class EmployeeCreateService
             'employee_no.max'               => ':attribute（:input）は:max文字以内で入力して下さい。',
             'user_name.max'                 => ':attribute（:input）は:max文字以内で入力して下さい。',
             'user_id.max'                   => ':attribute（:input）は:max文字以内で入力して下さい。',
+            'password.max'                  => ':attribute（:input）は:max文字以内で入力して下さい。',
             'max'                           => ':attribute（:input）は:max以下で入力して下さい。',
             'min'                           => ':attribute（:input）は:min以上で入力して下さい。',
             'boolean'                       => ':attribute（:input）が正しくありません。',
@@ -333,6 +335,7 @@ class EmployeeCreateService
             '*.employee_no'                                     => '従業員番号',
             '*.user_name'                                       => '氏名',
             '*.user_id'                                         => 'ユーザーID',
+            '*.password'                                        => 'パスワード',
             '*.paid_leave_granted_days'                         => '保有日数',
             '*.paid_leave_remaining_days'                       => '残日数',
             '*.paid_leave_used_days'                            => '取得日数',
@@ -383,8 +386,6 @@ class EmployeeCreateService
     {
         // 追加する情報の分だけループ処理
         foreach(EmployeeImport::all() as $employee_import){
-            // 初期ログインパスワードを取得（英数字12桁）
-            $password = Str::random(12);
             // 従業員を追加
             $user = User::create([
                 'status'                                        => $employee_import->status,
@@ -392,14 +393,14 @@ class EmployeeCreateService
                 'employee_no'                                   => $employee_import->employee_no,
                 'user_name'                                     => $employee_import->user_name,
                 'user_id'                                       => $employee_import->user_id,
+                'password'                                      => Hash::make($employee_import->password),
                 'is_auto_update_statutory_leave_remaining_days' => $employee_import->is_auto_update_statutory_leave_remaining_days,
                 'role_id'                                       => RoleEnum::USER,
-                'password'                                      => Hash::make($password),
             ]);
             // 有給関連テーブルへレコード追加
             $this->createPaidLeave($user, $employee_import);
             // アカウント発行通知メールを送信
-            $this->sendMail($user, $password);
+            //$this->sendMail($user, $password);
         }
     }
 

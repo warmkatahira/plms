@@ -15,6 +15,7 @@ class EmployeeImport extends Model
         'employee_no',
         'user_name',
         'user_id',
+        'password',
         'paid_leave_granted_days',
         'paid_leave_remaining_days',
         'paid_leave_used_days',

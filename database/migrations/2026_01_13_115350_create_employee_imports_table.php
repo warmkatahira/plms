@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('employee_no', 4);
             $table->string('user_name', 20);
             $table->string('user_id', 20);
+            $table->string('password', 20);
             $table->decimal('paid_leave_granted_days', 4, 1);
             $table->decimal('paid_leave_remaining_days', 4, 1);
             $table->decimal('paid_leave_used_days', 4, 1);

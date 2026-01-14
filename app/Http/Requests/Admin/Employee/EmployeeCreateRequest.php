@@ -37,6 +37,7 @@ class EmployeeCreateRequest extends BaseRequest
             'employee_no'                                   => 'required|string|max:4|unique:users,employee_no',
             'user_name'                                     => 'required|string|max:20',
             'user_id'                                       => 'required|string|max:20|unique:users,user_id',
+            'password'                                      => 'required|string|max:20',
             'paid_leave_granted_days'                       => 'required|numeric|min:0|max:20|regex:/^\d+(\.5)?$/',
             'paid_leave_remaining_days'                     => 'required|numeric|min:0|max:20|regex:/^\d+(\.5)?$/',
             'paid_leave_used_days'                          => 'required|numeric|min:0|max:20|regex:/^\d+(\.5)?$/',
