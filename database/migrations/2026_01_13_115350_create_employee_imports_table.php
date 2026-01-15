@@ -13,21 +13,21 @@ return new class extends Migration
     {
         Schema::create('employee_imports', function (Blueprint $table) {
             $table->increments('employee_import_id');
-            $table->boolean('status');
+            $table->boolean('status')->default(true);
             $table->string('short_base_name', 10);
             $table->string('employee_no', 4);
             $table->string('user_name', 20);
             $table->string('user_id', 20);
-            $table->string('password', 20);
-            $table->decimal('paid_leave_granted_days', 4, 1);
-            $table->decimal('paid_leave_remaining_days', 4, 1);
-            $table->decimal('paid_leave_used_days', 4, 1);
-            $table->decimal('daily_working_hours', 4, 2);
-            $table->decimal('half_day_working_hours', 4, 2);
-            $table->boolean('is_auto_update_statutory_leave_remaining_days');
-            $table->date('statutory_leave_expiration_date');
-            $table->decimal('statutory_leave_days', 4, 1);
-            $table->decimal('statutory_leave_remaining_days', 4, 1);
+            $table->string('password', 255);
+            $table->decimal('paid_leave_granted_days', 4, 1)->nullable();
+            $table->decimal('paid_leave_remaining_days', 4, 1)->nullable();
+            $table->decimal('paid_leave_used_days', 4, 1)->nullable();
+            $table->decimal('daily_working_hours', 4, 2)->nullable();
+            $table->decimal('half_day_working_hours', 4, 2)->nullable();
+            $table->boolean('is_auto_update_statutory_leave_remaining_days')->default(false);
+            $table->date('statutory_leave_expiration_date')->nullable();
+            $table->decimal('statutory_leave_days', 4, 1)->nullable();
+            $table->decimal('statutory_leave_remaining_days', 4, 1)->nullable();
             $table->timestamps();
         });
     }

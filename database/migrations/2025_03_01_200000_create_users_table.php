@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('user_name', 20)->nullable();
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password', 255);
             $table->boolean('status')->default(false);
             $table->boolean('is_auto_update_statutory_leave_remaining_days')->default(false);
             $table->string('role_id', 20)->default('user');

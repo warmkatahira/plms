@@ -221,7 +221,7 @@ class EmployeeCreateService
     {
         // 特定のキーのみ値の調整を行う
         switch($key){
-            case '従業員番号':
+            case '社員CD':
                 // シングルクォーテーションを取り除いている
                 $adjustment_value = str_replace(array("'"), "", $value);
                 break;
@@ -230,7 +230,7 @@ class EmployeeCreateService
                 // 無効を「0」、有効を「1」に変換
                 $adjustment_value = $value === '無効' ? 0 : ($value === '有効' ? 1 : $value);
                 break;
-            case '省略営業所名':
+            case '営業所':
                 // 省略営業所名から営業所IDに変換
                 $adjustment_value = Base::getBaseIdByShortBaseName($value);
                 break;
@@ -278,7 +278,7 @@ class EmployeeCreateService
             switch ($column){
                 case 'status':
                 case 'is_auto_update_statutory_leave_remaining_days':
-                    $rules += ['*.'.$column => 'required|boolean'];
+                    $rules += ['*.'.$column => 'nullable|boolean'];
                     break;
                 case 'short_base_name':
                     $rules += ['*.'.$column => 'required|exists:bases,base_id'];
@@ -293,7 +293,7 @@ class EmployeeCreateService
                     $rules += ['*.'.$column => 'required|string|max:20|unique:users,user_id'];
                     break;
                 case 'password':
-                    $rules += ['*.'.$column => 'required|string|max:20'];
+                    $rules += ['*.'.$column => 'required|string|max:255'];
                     break;
                 case 'paid_leave_granted_days':
                 case 'paid_leave_remaining_days':
@@ -302,7 +302,7 @@ class EmployeeCreateService
                 case 'statutory_leave_remaining_days':
                     $rules += [
                         '*.' . $column => [
-                            'required',
+                            'nullable',
                             'numeric',
                             'min:0',
                             'max:20',
@@ -313,7 +313,7 @@ class EmployeeCreateService
                 case 'daily_working_hours':
                     $rules += [
                         '*.' . $column => [
-                            'required',
+                            'nullable',
                             Rule::in(array_keys(WorkingHoursEnum::DAILY_WORKING_HOURS)),
                         ],
                     ];
@@ -321,13 +321,13 @@ class EmployeeCreateService
                 case 'half_day_working_hours':
                     $rules += [
                         '*.' . $column => [
-                            'required',
+                            'nullable',
                             Rule::in(array_keys(WorkingHoursEnum::HALF_DAY_WORKING_HOURS)),
                         ],
                     ];
                     break;
                 case 'statutory_leave_expiration_date':
-                    $rules += ['*.'.$column => 'required|date_format:Y/m/d'];
+                    $rules += ['*.'.$column => 'nullable|date_format:Y/m/d'];
                     break;
                 default:
                     break;
@@ -353,10 +353,10 @@ class EmployeeCreateService
         // バリデーションエラー項目を定義
         $attributes = [
             '*.status'                                          => 'ステータス',
-            '*.short_base_name'                                 => '省略営業所名',
-            '*.employee_no'                                     => '従業員番号',
-            '*.user_name'                                       => '氏名',
-            '*.user_id'                                         => 'ユーザーID',
+            '*.short_base_name'                                 => '営業所',
+            '*.employee_no'                                     => '社員CD',
+            '*.user_name'                                       => '社員名',
+            '*.user_id'                                         => 'ID',
             '*.password'                                        => 'パスワード',
             '*.paid_leave_granted_days'                         => '保有日数',
             '*.paid_leave_remaining_days'                       => '残日数',
@@ -410,14 +410,13 @@ class EmployeeCreateService
         foreach(EmployeeImport::all() as $employee_import){
             // 従業員を追加
             $user = User::create([
-                'status'                                        => $employee_import->status,
-                'base_id'                                       => $employee_import->short_base_name,
-                'employee_no'                                   => $employee_import->employee_no,
-                'user_name'                                     => $employee_import->user_name,
-                'user_id'                                       => $employee_import->user_id,
-                'password'                                      => Hash::make($employee_import->password),
-                'is_auto_update_statutory_leave_remaining_days' => $employee_import->is_auto_update_statutory_leave_remaining_days,
-                'role_id'                                       => RoleEnum::USER,
+                'status'        => $employee_import->status,
+                'base_id'       => $employee_import->short_base_name,
+                'employee_no'   => $employee_import->employee_no,
+                'user_name'     => $employee_import->user_name,
+                'user_id'       => $employee_import->user_id,
+                'password'      => Hash::make($employee_import->password),
+                'role_id'       => RoleEnum::USER,
             ]);
             // 有給関連テーブルへレコード追加
             $this->createPaidLeave($user, $employee_import);

@@ -6,40 +6,20 @@ enum EmployeeCreateEnum
 {
     // 従業員追加に必要なカラムを定義
     const REQUIRE_HEADER = [
-        'ステータス',
-        '省略営業所名',
-        '従業員番号',
-        '氏名',
-        'ユーザーID',
+        '社員CD',
+        '社員名',
+        'ID',
         'パスワード',
-        '保有日数',
-        '残日数',
-        '取得日数',
-        '1日あたりの時間数',
-        '半日あたりの時間数',
-        '義務残日数自動更新',
-        '義務期限日',
-        '義務日数',
-        '義務残日数',
+        '営業所',
     ];
 
     // 英語カラム変換用
     const EN_CHANGE_LIST = [
-        'ステータス'            => 'status',
-        '省略営業所名'          => 'short_base_name',
-        '従業員番号'            => 'employee_no',
-        '氏名'                  => 'user_name',
-        'ユーザーID'            => 'user_id',
-        'パスワード'            => 'password',
-        '保有日数'              => 'paid_leave_granted_days',
-        '残日数'                => 'paid_leave_remaining_days',
-        '取得日数'              => 'paid_leave_used_days',
-        '1日あたりの時間数'     => 'daily_working_hours',
-        '半日あたりの時間数'    => 'half_day_working_hours',
-        '義務残日数自動更新'    => 'is_auto_update_statutory_leave_remaining_days',
-        '義務期限日'            => 'statutory_leave_expiration_date',
-        '義務日数'              => 'statutory_leave_days',
-        '義務残日数'            => 'statutory_leave_remaining_days',
+        '社員CD'        => 'employee_no',
+        '社員名'        => 'user_name',
+        'ID'            => 'user_id',
+        'パスワード'    => 'password',
+        '営業所'        => 'short_base_name',
     ];
 
     public static function column_en_change($column)
