@@ -124,10 +124,10 @@ class EmployeeCreateService
         // システムに定義している必須ヘッダーを取得
         $require_header = EmployeeCreateEnum::REQUIRE_HEADER;
         // ヘッダーが存在するか確認
-        $header_ng_count = $this->checkRequireHeader($import_data_header, $require_header);
-        // 0より大きい = 存在しないヘッダーがあるので、ここで処理を終了
-        if($header_ng_count > 0){
-            throw new EmployeeImportException('取り込んだファイルのヘッダーが正しくありません。', '追加', null, $import_original_file_name);
+        $result = $this->checkRequireHeader($import_data_header, $require_header);
+        // Nullではない = 相違があるので、ここで処理を終了
+        if(!is_null($result)){
+            throw new EmployeeImportException($result, '追加', null, $import_original_file_name);
         }
         // 1行のデータを格納する配列をセット
         $param = [];
@@ -147,20 +147,17 @@ class EmployeeCreateService
     // ヘッダーが存在するか確認
     public function checkRequireHeader($import_data_header, $require_header)
     {
-        // ヘッダーが存在しなかった場合にカウントする変数をセット
-        $header_ng_count = 0;
         // ヘッダーの分だけループ処理
         foreach($require_header as $header){
             // ヘッダーが存在するか確認
             $result = $this->checkValueExists($import_data_header, $header);
             // nullではない場合
             if(!is_null($result)){
-                dd($result);
-                // カウントアップ
-                $header_ng_count++;
+                // NG結果を返す
+                return $result;
             }
         }
-        return $header_ng_count;
+        return null;
     }
 
     // 配列の値が存在しているか確認
