@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Services\Admin\EmployeeImportHistory;
+namespace App\Services\Admin\ImportHistory;
 
 // モデル
-use App\Models\EmployeeImportHistory;
+use App\Models\ImportHistory;
 // その他
 use Illuminate\Support\Facades\DB;
 use Carbon\CarbonImmutable;
 
-class EmployeeImportHistorySearchService
+class ImportHistorySearchService
 {
     // セッションを削除
     public function deleteSession()
@@ -37,7 +37,7 @@ class EmployeeImportHistorySearchService
     public function getSearchResult()
     {
         // クエリをセット
-        $query = EmployeeImportHistory::query();
+        $query = ImportHistory::query();
         // 取込日の条件がある場合
         if(session('search_import_date') != null){
             // 条件を指定して取得

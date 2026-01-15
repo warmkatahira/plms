@@ -88,9 +88,9 @@ class User extends Authenticatable
         return [
             'ステータス',
             '省略営業所名',
-            '従業員番号',
-            '氏名',
-            'ユーザーID',
+            '社員CD',
+            '社員名',
+            'ID',
             'パスワード',
             '保有日数',
             '残日数',

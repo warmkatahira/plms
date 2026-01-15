@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class EmployeeImport extends Model
 {
     // 主キーカラムを変更
-    protected $primaryKey = 'employee_import_id';
+    protected $primaryKey = 'import_id';
     // 操作可能なカラムを定義
     protected $fillable = [
         'status',

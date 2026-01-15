@@ -7,9 +7,10 @@
                         <th class="font-thin py-1 px-2 text-center">操作</th>
                     @endcan
                     <th class="font-thin py-1 px-2 text-center">ステータス</th>
-                    <th class="font-thin py-1 px-2 text-center">営業所名</th>
-                    <th class="font-thin py-1 px-2 text-center">従業員番号</th>
-                    <th class="font-thin py-1 px-2 text-center">氏名</th>
+                    <th class="font-thin py-1 px-2 text-center">営業所</th>
+                    <th class="font-thin py-1 px-2 text-center">社員CD</th>
+                    <th class="font-thin py-1 px-2 text-center">社員名</th>
+                    <th class="font-thin py-1 px-2 text-center">ID</th>
                     <th class="font-thin py-1 px-2 text-center">保有日数</th>
                     <th class="font-thin py-1 px-2 text-center">残日数</th>
                     <th class="font-thin py-1 px-2 text-center">取得日数</th>
@@ -43,6 +44,7 @@
                                 <span class="pl-2">{{ $employee->user_name }}</span>
                             </div>
                         </td>
+                        <td class="py-1 px-2 border">{{ $employee->user_id }}</td>
                         <x-admin.employee.info :value="$employee->paid_leave_granted_days" digit="1" format="number" />
                         <x-admin.employee.info :value="$employee->paid_leave_remaining_days" digit="1" format="number" />
                         <x-admin.employee.info :value="$employee->paid_leave_used_days" digit="1" format="number" />

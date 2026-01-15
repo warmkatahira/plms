@@ -78,8 +78,8 @@ class EmployeeCreateController extends Controller
                 $EmployeeCreateService->createArrayImportData($data['create_data']);
                 // 従業員を追加
                 $EmployeeCreateService->createEmployeeByImport();
-                // employee_import_historiesテーブルへ追加
-                $EmployeeCreateService->createEmployeeImportHistory($import_original_file_name, '追加', null, null);
+                // import_historiesテーブルへ追加
+                $EmployeeCreateService->createImportHistory($import_original_file_name, '追加', null, null);
             });
         } catch (EmployeeImportException $e) {
             // 渡された内容を取得
@@ -87,14 +87,14 @@ class EmployeeCreateController extends Controller
             $import_type                = $e->getImportType();
             $error_file_name            = $e->getErrorFileName();
             $import_original_file_name  = $e->getImportOriginalFileName();
-            // employee_import_historiesテーブルへ追加
-            $EmployeeCreateService->createEmployeeImportHistory($import_original_file_name, $import_type, $error_file_name, $message);
-            return redirect()->route('employee_import_history.index')->with([
+            // import_historiesテーブルへ追加
+            $EmployeeCreateService->createImportHistory($import_original_file_name, $import_type, $error_file_name, $message);
+            return redirect()->route('import_history.index')->with([
                 'alert_type' => 'error',
                 'alert_message' => $e->getMessage(),
             ]);
         }
-        return redirect()->route('employee_import_history.index')->with([
+        return redirect()->route('import_history.index')->with([
             'alert_type' => 'success',
             'alert_message' => '従業員追加(取込)が完了しました。',
         ]);

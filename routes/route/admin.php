@@ -7,8 +7,8 @@ use App\Http\Controllers\Admin\Employee\EmployeeController;
 use App\Http\Controllers\Admin\Employee\EmployeeDownloadController;
 use App\Http\Controllers\Admin\Employee\EmployeeCreateController;
 use App\Http\Controllers\Admin\Employee\EmployeeUpdateController;
-// +-+-+-+-+-+-+-+- 従業員取込履歴 +-+-+-+-+-+-+-+-
-use App\Http\Controllers\Admin\EmployeeImportHistory\EmployeeImportHistoryController;
+// +-+-+-+-+-+-+-+- 取込履歴 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\Admin\ImportHistory\ImportHistoryController;
 
 Route::middleware('common')->group(function (){
     Route::middleware(['base_admin_check'])->group(function () {
@@ -32,8 +32,8 @@ Route::middleware('common')->group(function (){
         });
     });
     Route::middleware(['admin_check'])->group(function () {
-        // +-+-+-+-+-+-+-+- 従業員取込履歴 +-+-+-+-+-+-+-+-
-        Route::controller(EmployeeImportHistoryController::class)->prefix('employee_import_history')->name('employee_import_history.')->group(function(){
+        // +-+-+-+-+-+-+-+- 取込履歴 +-+-+-+-+-+-+-+-
+        Route::controller(ImportHistoryController::class)->prefix('import_history')->name('import_history.')->group(function(){
             Route::get('', 'index')->name('index');
         });
     });

@@ -8,7 +8,7 @@ use App\Models\Base;
 use App\Models\PaidLeave;
 use App\Models\StatutoryLeave;
 use App\Models\EmployeeImport;
-use App\Models\EmployeeImportHistory;
+use App\Models\ImportHistory;
 // サービス
 use App\Services\Common\ImportErrorCreateService;
 // 列挙
@@ -424,10 +424,10 @@ class EmployeeCreateService
         }
     }
 
-    // employee_import_historiesテーブルへ追加
-    public function createEmployeeImportHistory($import_original_file_name, $import_type, $error_file_name, $message)
+    // import_historiesテーブルへ追加
+    public function createImportHistory($import_original_file_name, $import_type, $error_file_name, $message)
     {
-        EmployeeImportHistory::create([
+        ImportHistory::create([
             'import_file_name'  => $import_original_file_name,
             'import_type'       => $import_type,
             'error_file_name'   => $error_file_name,

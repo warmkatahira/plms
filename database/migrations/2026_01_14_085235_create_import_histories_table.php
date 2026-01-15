@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employee_import_histories', function (Blueprint $table) {
-            $table->increments('employee_import_history_id');
+        Schema::create('import_histories', function (Blueprint $table) {
+            $table->increments('import_history_id');
             $table->string('import_file_name', 255);
             $table->string('import_type', 10);
             $table->string('error_file_name', 255)->nullable();
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employee_import_histories');
+        Schema::dropIfExists('import_histories');
     }
 };
