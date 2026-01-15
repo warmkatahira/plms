@@ -57,7 +57,8 @@ class EmployeeSearchService
         // クエリをセット
         $query = User::join('paid_leaves', 'paid_leaves.user_no', 'users.user_no')
                     ->join('statutory_leaves', 'statutory_leaves.user_no', 'users.user_no')
-                    ->with('base');
+                    ->with('base')
+                    ->where('role_id', RoleEnum::USER);
         // ステータスの条件がある場合
         if(session('search_status') != null){
             // 条件を指定して取得
