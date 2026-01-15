@@ -422,6 +422,8 @@ class EmployeeCreateService
             $this->createPaidLeave($user, $employee_import);
             // アカウント発行通知メールを送信
             //$this->sendMail($user, $password);
+            // テーブルをクリア
+            EmployeeImport::query()->delete();
         }
     }
 
