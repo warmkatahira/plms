@@ -41,9 +41,15 @@ class StatutoryLeaveUpdateController extends Controller
                 // インポートテーブルに追加
                 $StatutoryLeaveUpdateService->createArrayImportData($data['create_data']);
                 // 義務情報を更新
-                $StatutoryLeaveUpdateService->updateStatutoryLeave();
+                $error_file_name = $StatutoryLeaveUpdateService->updateStatutoryLeave();
+                // 表示するメッセージを調整
+                if(is_null($error_file_name)){
+                    $message = null;
+                }else{
+                    $message = '更新できなかった従業員が存在します。';
+                }
                 // import_historiesテーブルへ追加
-                $ImportHistoryCreateService->createImportHistory($import_original_file_name, ImportEnum::IMPORT_PROCESS_STATUTORY_LEAVE, ImportEnum::IMPORT_TYPE_UPDATE, null, null);
+                $ImportHistoryCreateService->createImportHistory($import_original_file_name, ImportEnum::IMPORT_PROCESS_STATUTORY_LEAVE, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $message);
             });
         } catch (ImportException $e) {
             // 渡された内容を取得

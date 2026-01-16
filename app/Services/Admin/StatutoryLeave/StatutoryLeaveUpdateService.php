@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\StatutoryLeaveImport;
 // サービス
 use App\Services\Common\ImportErrorCreateService;
+use App\Services\Common\NotUpdateInfoCreateService;
 // 列挙
 use App\Enums\StatutoryLeaveUpdateEnum;
 use App\Enums\ImportEnum;
@@ -200,10 +201,22 @@ class StatutoryLeaveUpdateService
     // 義務情報を更新
     public function updateStatutoryLeave()
     {
+        // 更新対象でステータスが無効の従業員情報を格納する配列を初期化
+        $not_update_employees = [];
         // 更新する情報の分だけループ処理
         foreach(StatutoryLeaveImport::all() as $statutory_leave_import){
             // 従業員を取得
-            $employee = User::where('employee_no', $statutory_leave_import->employee_no)->first();
+            $employee = User::where('employee_no', $statutory_leave_import->employee_no)->lockForUpdate()->first();
+            // ステータスが無効の場合
+            if(!$employee->status){
+                // 配列に追加
+                $not_update_employees[] = [
+                    $employee->employee_no,
+                    $employee->user_name,
+                ];
+                // 次のループ処理へ
+                continue;
+            }
             // 義務情報を更新
             $employee->statutory_leave->update([
                 'statutory_leave_expiration_date'   => $statutory_leave_import->statutory_leave_expiration_date,
@@ -211,5 +224,13 @@ class StatutoryLeaveUpdateService
                 'statutory_leave_remaining_days'    => $statutory_leave_import->statutory_leave_remaining_days,
             ]);
         }
+        // 配列が空ではない場合
+        if(!empty($not_update_employees)){
+            // インスタンス化
+            $NotUpdateInfoCreateService = new NotUpdateInfoCreateService;
+            // 更新しなかった従業員情報を出力
+            return $NotUpdateInfoCreateService->createNotUpdateInfo($not_update_employees);
+        }
+        return null;
     }
 }
