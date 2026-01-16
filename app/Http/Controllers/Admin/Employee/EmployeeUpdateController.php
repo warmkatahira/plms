@@ -55,7 +55,7 @@ class EmployeeUpdateController extends Controller
         }
         return redirect()->route('employee.index')->with([
             'alert_type' => 'success',
-            'alert_message' => '従業員を更新しました。',
+            'alert_message' => '従業員更新が完了しました。',
         ]);
     }
 }

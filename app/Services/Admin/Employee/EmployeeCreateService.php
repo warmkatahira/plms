@@ -8,16 +8,18 @@ use App\Models\Base;
 use App\Models\PaidLeave;
 use App\Models\StatutoryLeave;
 use App\Models\EmployeeImport;
-use App\Models\ImportHistory;
 // サービス
 use App\Services\Common\ImportErrorCreateService;
+// ヘルパー
+use App\Helpers\ColumnChangeHelper;
 // 列挙
 use App\Enums\RoleEnum;
 use App\Enums\SystemEnum;
 use App\Enums\EmployeeCreateEnum;
 use App\Enums\WorkingHoursEnum;
+use App\Enums\ImportEnum;
 // 例外
-use App\Exceptions\EmployeeImportException;
+use App\Exceptions\ImportException;
 // その他
 use App\Mail\UserCreateNotificationMail;
 use Illuminate\Support\Facades\Mail;
@@ -26,7 +28,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Rap2hpoutre\FastExcel\FastExcel;
-use Illuminate\Support\Facades\Storage;
 use Carbon\CarbonImmutable;
 use Illuminate\Validation\Rule;
 
@@ -88,86 +89,6 @@ class EmployeeCreateService
         // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
     }
 
-    // 選択したファイルのファイル名を取得
-    public function getImportOriginalFileName($select_file)
-    {
-        // 選択したデータのファイル名を取得
-        return $select_file->getClientOriginalName();
-    }
-
-    // 選択したファイルをストレージにインポート
-    public function importFile($select_file)
-    {
-        // 選択したデータの拡張子を取得（例: csv, xlsx）
-        $extension = $select_file->getClientOriginalExtension();
-        // ストレージに保存する際のファイル名を設定
-        $save_file_name = 'employee_create_import_data.'.$extension;
-        // ファイルを保存して保存先のパスを取得
-        $save_file_path = Storage::disk('public')->putFileAs('import/', $select_file, $save_file_name);
-        // パスを返す
-        return Storage::disk('public')->path($save_file_path);
-    }
-
-    // インポートしたデータのヘッダーを確認
-    public function checkHeader($save_file_path, $import_original_file_name)
-    {
-        // 選択したデータの拡張子を取得（例: csv, xlsx）
-        $extension = strtolower(pathinfo($import_original_file_name, PATHINFO_EXTENSION));
-        // 全データを取得
-        $all_line = (new FastExcel)->import($save_file_path);
-        // インポートしたデータのヘッダーを取得
-        if($extension === 'csv'){
-            $import_data_header = array_keys(mb_convert_encoding($all_line[0], 'UTF-8', 'ASCII, JIS, UTF-8, SJIS-win'));
-        }else{
-            $import_data_header = array_keys($all_line[0]);
-        }
-        // システムに定義している必須ヘッダーを取得
-        $require_header = EmployeeCreateEnum::REQUIRE_HEADER;
-        // ヘッダーが存在するか確認
-        $result = $this->checkRequireHeader($import_data_header, $require_header);
-        // Nullではない = 相違があるので、ここで処理を終了
-        if(!is_null($result)){
-            throw new EmployeeImportException($result, '追加', null, $import_original_file_name);
-        }
-        // 1行のデータを格納する配列をセット
-        $param = [];
-        // 追加先テーブルのカラム名に合わせて配列を整理
-        foreach($import_data_header as $header){
-            // 英語カラムを定義している配列から取得
-            $en_column = EmployeeCreateEnum::column_en_change($header);
-            // カラムが空ではない場合
-            if($en_column != ''){
-                // 配列に変換した英語カラムを格納
-                $param[] = $en_column;
-            }
-        }
-        return $param;
-    }
-
-    // ヘッダーが存在するか確認
-    public function checkRequireHeader($import_data_header, $require_header)
-    {
-        // ヘッダーの分だけループ処理
-        foreach($require_header as $header){
-            // ヘッダーが存在するか確認
-            $result = $this->checkValueExists($import_data_header, $header);
-            // nullではない場合
-            if(!is_null($result)){
-                // NG結果を返す
-                return $result;
-            }
-        }
-        return null;
-    }
-
-    // 配列の値が存在しているか確認
-    public function checkValueExists($array, $value) {
-        // 存在したら「true」、存在しなかったら「false」
-        $result = in_array($value, $array);
-        // 存在しなかったら、エラーを返す
-        return !$result ? 'ヘッダーに「'.$value.'」がありません。' : null;
-    }
-
     // 追加するデータを配列に格納（同時にバリデーションも実施）
     public function setArrayImportData($save_file_path, $headers, $import_original_file_name)
     {
@@ -188,7 +109,7 @@ class EmployeeCreateService
             // 追加先テーブルのカラム名に合わせて配列を整理
             foreach($line as $key => $value){
                 // 英語カラムを定義している配列から取得
-                $en_column = EmployeeCreateEnum::column_en_change($key);
+                $en_column = ColumnChangeHelper::column_en_change($key, EmployeeCreateEnum::EN_CHANGE_LIST);
                 // カラムが空ではない場合
                 if($en_column != ''){
                     // 値の調整を行う
@@ -208,7 +129,7 @@ class EmployeeCreateService
             $ImportErrorCreateService   = new ImportErrorCreateService;
             // エラー情報のファイルを作成
             $error_file_name = $ImportErrorCreateService->createImportError('従業員取込エラー', $validation_error);
-            throw new EmployeeImportException("データが正しくないため、取り込みできませんでした。", '追加', $error_file_name, $import_original_file_name);
+            throw new ImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_TYPE_CREATE, $error_file_name, $import_original_file_name);
         }
         return compact('create_data', 'validation_error');
     }
@@ -422,16 +343,5 @@ class EmployeeCreateService
             // テーブルをクリア
             EmployeeImport::query()->delete();
         }
-    }
-
-    // import_historiesテーブルへ追加
-    public function createImportHistory($import_original_file_name, $import_type, $error_file_name, $message)
-    {
-        ImportHistory::create([
-            'import_file_name'  => $import_original_file_name,
-            'import_type'       => $import_type,
-            'error_file_name'   => $error_file_name,
-            'message'           => $message,
-        ]);
     }
 }

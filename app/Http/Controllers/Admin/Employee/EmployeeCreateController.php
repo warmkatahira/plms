@@ -8,12 +8,16 @@ use Illuminate\Http\Request;
 use App\Models\Base;
 // サービス
 use App\Services\Admin\Employee\EmployeeCreateService;
+use App\Services\Common\ImportHistoryCreateService;
+use App\Services\Common\ImportService;
 // リクエスト
 use App\Http\Requests\Admin\Employee\EmployeeCreateRequest;
 // 例外
-use App\Exceptions\EmployeeImportException;
+use App\Exceptions\ImportException;
 // 列挙
 use App\Enums\WorkingHoursEnum;
+use App\Enums\EmployeeCreateEnum;
+use App\Enums\ImportEnum;
 // その他
 use Illuminate\Support\Facades\DB;
 use Carbon\CarbonImmutable;
@@ -54,24 +58,27 @@ class EmployeeCreateController extends Controller
         }
         return redirect()->route('employee.index')->with([
             'alert_type' => 'success',
-            'alert_message' => '従業員を追加しました。',
+            'alert_message' => '従業員追加(入力)が完了しました。',
         ]);
     }
 
     public function import(Request $request)
     {
         // インスタンス化
-        $EmployeeCreateService = new EmployeeCreateService;
+        $ImportHistoryCreateService = new ImportHistoryCreateService;
         try {
-            DB::transaction(function () use ($request, $EmployeeCreateService) {
+            DB::transaction(function () use ($request, $ImportHistoryCreateService) {
+                // インスタンス化
+                $EmployeeCreateService = new EmployeeCreateService;
+                $ImportService = new ImportService;
                 // 現在の日時を取得
                 $nowDate = CarbonImmutable::now();
                 // 選択したファイルのファイル名を取得
-                $import_original_file_name = $EmployeeCreateService->getImportOriginalFileName($request->file('select_file'));
+                $import_original_file_name = $ImportService->getImportOriginalFileName($request->file('select_file'));
                 // 選択したファイルをストレージにインポート
-                $save_file_path = $EmployeeCreateService->importFile($request->file('select_file'));
+                $save_file_path = $ImportService->importFile($request->file('select_file'), 'employee_create_import_data');
                 // インポートしたデータのヘッダーを確認
-                $headers = $EmployeeCreateService->checkHeader($save_file_path, $import_original_file_name);
+                $headers = $ImportService->checkHeader($save_file_path, $import_original_file_name, EmployeeCreateEnum::REQUIRE_HEADER, EmployeeCreateEnum::EN_CHANGE_LIST, ImportEnum::IMPORT_TYPE_CREATE);
                 // 追加するデータを配列に格納（同時にバリデーションも実施）
                 $data = $EmployeeCreateService->setArrayImportData($save_file_path, $headers, $import_original_file_name);
                 // インポートテーブルに追加
@@ -79,16 +86,16 @@ class EmployeeCreateController extends Controller
                 // 従業員を追加
                 $EmployeeCreateService->createEmployeeByImport();
                 // import_historiesテーブルへ追加
-                $EmployeeCreateService->createImportHistory($import_original_file_name, '追加', null, null);
+                $ImportHistoryCreateService->createImportHistory($import_original_file_name, ImportEnum::IMPORT_TYPE_CREATE, null, null);
             });
-        } catch (EmployeeImportException $e) {
+        } catch (ImportException $e) {
             // 渡された内容を取得
             $message                    = $e->getMessage();
             $import_type                = $e->getImportType();
             $error_file_name            = $e->getErrorFileName();
             $import_original_file_name  = $e->getImportOriginalFileName();
             // import_historiesテーブルへ追加
-            $EmployeeCreateService->createImportHistory($import_original_file_name, $import_type, $error_file_name, $message);
+            $ImportHistoryCreateService->createImportHistory($import_original_file_name, $import_type, $error_file_name, $message);
             return redirect()->route('import_history.index')->with([
                 'alert_type' => 'error',
                 'alert_message' => $e->getMessage(),

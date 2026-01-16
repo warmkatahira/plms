@@ -4,7 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 
-class EmployeeImportException extends Exception
+class ImportException extends Exception
 {
     protected $import_type;
     protected $error_file_name;

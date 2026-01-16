@@ -21,14 +21,4 @@ enum EmployeeCreateEnum
         'パスワード'    => 'password',
         '営業所'        => 'short_base_name',
     ];
-
-    public static function column_en_change($column)
-    {
-        // 配列に定義されている項目であれば、値を返す
-        if(array_key_exists($column, self::EN_CHANGE_LIST)){
-            return self::EN_CHANGE_LIST[$column];
-        }
-        // 存在していない場合は、空を返す
-        return '';
-    }
 }

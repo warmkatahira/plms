@@ -37,7 +37,8 @@
         },
         "files": [
             "app/Helpers/BooleanDisplayHelper.php",
-            "app/Helpers/UnregisterdDisplayHelper.php"
+            "app/Helpers/UnregisterdDisplayHelper.php",
+            "app/Helpers/ColumnChangeHelper.php"
         ]
     },
     "autoload-dev": {
