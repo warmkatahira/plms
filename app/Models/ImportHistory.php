@@ -11,6 +11,7 @@ class ImportHistory extends Model
     // 操作可能なカラムを定義
     protected $fillable = [
         'import_file_name',
+        'import_process',
         'import_type',
         'error_file_name',
         'message',

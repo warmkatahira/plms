@@ -17,9 +17,9 @@
                     <th class="font-thin py-1 px-2 text-center">1日あたりの<br>時間数</th>
                     <th class="font-thin py-1 px-2 text-center">半日あたりの<br>時間数</th>
                     <th class="font-thin py-1 px-2 text-center">義務残日数<br>自動更新</th>
-                    <th class="font-thin py-1 px-2 text-center">義務期限日</th>
-                    <th class="font-thin py-1 px-2 text-center">義務日数</th>
-                    <th class="font-thin py-1 px-2 text-center">義務残日数</th>
+                    <th class="font-thin py-1 px-2 text-center">義務の期限</th>
+                    <th class="font-thin py-1 px-2 text-center">義務の日数</th>
+                    <th class="font-thin py-1 px-2 text-center">義務の残日数</th>
                     <th class="font-thin py-1 px-2 text-center">最終更新日時</th>
                 </tr>
             </thead>

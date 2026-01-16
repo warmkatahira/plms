@@ -50,11 +50,11 @@ class BaseRequest extends FormRequest
             'paid_leave_granted_days'                       => '保有日数',
             'paid_leave_remaining_days'                     => '残日数',
             'paid_leave_used_days'                          => '取得日数',
-            'statutory_leave_days'                          => '義務日数',
-            'statutory_leave_remaining_days'                => '義務残日数',
+            'statutory_leave_days'                          => '義務の日数',
+            'statutory_leave_remaining_days'                => '義務の残日数',
             'daily_working_hours'                           => '1日あたりの時間数',
             'half_day_working_hours'                        => '半日あたりの時間数',
-            'statutory_leave_expiration_date'               => '義務期限日',
+            'statutory_leave_expiration_date'               => '義務の期限',
         ];
     }
 }

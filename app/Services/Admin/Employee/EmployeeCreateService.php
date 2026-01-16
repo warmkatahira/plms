@@ -129,7 +129,7 @@ class EmployeeCreateService
             $ImportErrorCreateService   = new ImportErrorCreateService;
             // エラー情報のファイルを作成
             $error_file_name = $ImportErrorCreateService->createImportError('従業員取込エラー', $validation_error);
-            throw new ImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_TYPE_CREATE, $error_file_name, $import_original_file_name);
+            throw new ImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_PROCESS_EMPLOYEE, ImportEnum::IMPORT_TYPE_CREATE, $error_file_name, $import_original_file_name);
         }
         return compact('create_data', 'validation_error');
     }
@@ -152,7 +152,7 @@ class EmployeeCreateService
                 // 省略営業所名から営業所IDに変換
                 $adjustment_value = Base::getBaseIdByShortBaseName($value);
                 break;
-            case '義務期限日':
+            case '義務の期限':
                 if($value === '' || $value === null){
                     $adjustment_value = null;
                     break;
@@ -216,6 +216,16 @@ class EmployeeCreateService
                 case 'paid_leave_granted_days':
                 case 'paid_leave_remaining_days':
                 case 'paid_leave_used_days':
+                    $rules += [
+                        '*.' . $column => [
+                            'nullable',
+                            'numeric',
+                            'min:0',
+                            'max:20',
+                            'regex:/^\d+(\.0|\.5)?$/'
+                        ],
+                    ];
+                    break;
                 case 'statutory_leave_days':
                 case 'statutory_leave_remaining_days':
                     $rules += [
@@ -223,7 +233,7 @@ class EmployeeCreateService
                             'nullable',
                             'numeric',
                             'min:0',
-                            'max:20',
+                            'max:5',
                             'regex:/^\d+(\.0|\.5)?$/'
                         ],
                     ];
@@ -262,7 +272,7 @@ class EmployeeCreateService
             'min'                           => ':attribute（:input）は:min以上で入力して下さい。',
             'boolean'                       => ':attribute（:input）が正しくありません。',
             'exists'                        => ':attribute（:input）はシステムに存在しません。',
-            'integer'                       => ':attribute（:input）は数値で入力して下さい。',
+            'numeric'                       => ':attribute（:input）は数値で入力して下さい。',
             'unique'                        => ':attribute（:input）は既に使用されています。',
             'regex'                         => ':attribute（:input）は0.5刻みで入力して下さい。',
             'date_format'                   => ':attribute（:input）はyyyy/mm/dd形式で入力して下さい。',
@@ -282,9 +292,9 @@ class EmployeeCreateService
             '*.daily_working_hours'                             => '1日あたりの時間数',
             '*.half_day_working_hours'                          => '半日あたりの時間数',
             '*.is_auto_update_statutory_leave_remaining_days'   => '義務残日数自動更新',
-            '*.statutory_leave_expiration_date'                 => '義務期限日',
-            '*.statutory_leave_days'                            => '義務日数',
-            '*.statutory_leave_remaining_days'                  => '義務残日数',
+            '*.statutory_leave_expiration_date'                 => '義務の期限',
+            '*.statutory_leave_days'                            => '義務の日数',
+            '*.statutory_leave_remaining_days'                  => '義務の残日数',
         ];
         // バリデーション実施
         return $this->processValidation($params, $rules, $messages, $attributes);

@@ -86,16 +86,17 @@ class EmployeeCreateController extends Controller
                 // 従業員を追加
                 $EmployeeCreateService->createEmployeeByImport();
                 // import_historiesテーブルへ追加
-                $ImportHistoryCreateService->createImportHistory($import_original_file_name, ImportEnum::IMPORT_TYPE_CREATE, null, null);
+                $ImportHistoryCreateService->createImportHistory($import_original_file_name, ImportEnum::IMPORT_PROCESS_EMPLOYEE, ImportEnum::IMPORT_TYPE_CREATE, null, null);
             });
         } catch (ImportException $e) {
             // 渡された内容を取得
             $message                    = $e->getMessage();
+            $import_process             = $e->getImportProcess();
             $import_type                = $e->getImportType();
             $error_file_name            = $e->getErrorFileName();
             $import_original_file_name  = $e->getImportOriginalFileName();
             // import_historiesテーブルへ追加
-            $ImportHistoryCreateService->createImportHistory($import_original_file_name, $import_type, $error_file_name, $message);
+            $ImportHistoryCreateService->createImportHistory($import_original_file_name, $import_process, $import_type, $error_file_name, $message);
             return redirect()->route('import_history.index')->with([
                 'alert_type' => 'error',
                 'alert_message' => $e->getMessage(),

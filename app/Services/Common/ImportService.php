@@ -2,6 +2,8 @@
 
 namespace App\Services\Common;
 
+// 列挙
+use App\Enums\ImportEnum;
 // 例外
 use App\Exceptions\ImportException;
 // ヘルパー
@@ -51,7 +53,7 @@ class ImportService
         $result = $this->checkRequireHeader($import_data_header, $require_header);
         // Nullではない = 相違があるので、ここで処理を終了
         if(!is_null($result)){
-            throw new ImportException($result, $import_type, null, $import_original_file_name);
+            throw new ImportException($result, ImportEnum::IMPORT_PROCESS_EMPLOYEE, $import_type, null, $import_original_file_name);
         }
         // 1行のデータを格納する配列をセット
         $param = [];

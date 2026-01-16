@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('statutory_leaves', function (Blueprint $table) {
-            $table->increments('paid_leave_id');
+            $table->increments('statutory_leave_id');
             $table->unsignedInteger('user_no');
             $table->date('statutory_leave_expiration_date')->nullable();
             $table->decimal('statutory_leave_days', 4, 1)->nullable();
