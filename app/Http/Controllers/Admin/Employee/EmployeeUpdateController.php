@@ -23,7 +23,7 @@ class EmployeeUpdateController extends Controller
         // ページヘッダーをセッションに格納
         session(['page_header' => '従業員更新']);
         // 従業員を取得
-        $employee = User::getSpecify($request->user_no)->firstOrFail();
+        $employee = User::findOrFail($request->user_no);
         // 営業所を取得
         $bases = Base::getAll()->get();
         // 1日あたりの時間数を取得

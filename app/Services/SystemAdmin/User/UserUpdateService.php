@@ -11,7 +11,7 @@ class UserUpdateService
     public function updateUser($request)
     {
         // ユーザーを取得
-        $user = User::getSpecify($request->user_no)->lockForUpdate()->first();
+        $user = User::find($request->user_no)->lockForUpdate()->first();
         // 更新
         $user->update([
             'status'                                        => $request->status,
