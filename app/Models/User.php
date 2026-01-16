@@ -41,11 +41,6 @@ class User extends Authenticatable
     {
         return self::orderBy('user_no', 'asc');
     }
-    // 指定したレコードを取得
-    public static function getSpecify($user_no)
-    {
-        return self::where('user_no', $user_no);
-    }
     // rolesテーブルとのリレーション
     public function role()
     {
