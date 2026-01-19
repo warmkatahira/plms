@@ -19,7 +19,7 @@ class ProfileImageUpdateService
     public function deleteCurrentImage()
     {
         // ユーザーを取得
-        $user = User::find(Auth::user()->user_no)->first();
+        $user = User::find(Auth::user()->user_no);
         // 現在設定されているプロフィール画像ファイル名を取得
         $profile_image_path = storage_path('app/public/profile_images/' . $user->profile_image_file_name);
         // 現在設定されているプロフィール画像が存在しているかつ、初期画像以外なら削除

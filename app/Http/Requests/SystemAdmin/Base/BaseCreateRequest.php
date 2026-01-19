@@ -25,6 +25,7 @@ class BaseCreateRequest extends BaseRequest
         return [
             'base_id'               => 'required|string|max:10|unique:bases,base_id',
             'base_name'             => 'required|string|max:20|unique:bases,base_name',
+            'short_base_name'       => 'required|string|max:10|unique:bases,short_base_name',
             'sort_order'            => 'required|integer|min:1|max:100',
         ];
     }

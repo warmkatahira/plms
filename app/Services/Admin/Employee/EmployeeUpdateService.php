@@ -13,7 +13,7 @@ class EmployeeUpdateService
     public function updateEmployee($request)
     {
         // 従業員を更新
-        User::find($request->user_no)->update([
+        User::where('user_no', $request->user_no)->update([
             'status'                                        => $request->status,
             'base_id'                                       => $request->base_id,
             'employee_no'                                   => $request->employee_no,

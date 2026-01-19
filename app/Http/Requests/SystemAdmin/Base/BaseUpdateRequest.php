@@ -24,6 +24,7 @@ class BaseUpdateRequest extends BaseRequest
     {
         return [
             'base_name'             => 'required|string|max:20|unique:bases,base_name,'.$this->base_id.',base_id',
+            'short_base_name'       => 'required|string|max:10|unique:bases,short_base_name,'.$this->base_id.',base_id',
             'sort_order'            => 'required|integer|min:1|max:100',
         ];
     }

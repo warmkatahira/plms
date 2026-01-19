@@ -16,7 +16,7 @@ class DashboardController extends Controller
         // ページヘッダーをセッションに格納
         session(['page_header' => 'ダッシュボード']);
         // 自身の情報を取得
-        $employee = User::find(Auth::user()->user_no)->with(['base', 'paid_leave', 'statutory_leave'])->first();
+        $employee = User::find(Auth::user()->user_no)->with(['base', 'paid_leave', 'statutory_leave']);
         return view('dashboard')->with([
             'employee' => $employee,
         ]);

@@ -39,6 +39,7 @@ class BaseRequest extends FormRequest
             // 営業所情報
             'base_id'               => '営業所ID',
             'base_name'             => '営業所名',
+            'short_base_name'       => '省略営業所名',
             // ユーザー情報
             'user_id'                                       => 'ユーザーID',
             'employee_no'                                   => '従業員番号',

@@ -12,7 +12,7 @@ class ProfileUpdateService
     // プロフィールを更新
     public function updateProfile($request)
     {
-        User::find(Auth::user()->user_no)->update([
+        User::where('user_no', $request->user_no)->update([
             'last_name'     => $request->last_name,
             'first_name'    => $request->first_name,
             'email'         => $request->email,

@@ -12,6 +12,7 @@
             <x-form.p label="営業所ID" :value="$base->base_id" grayedOut="true" />
         @endif
         <x-form.input type="text" label="営業所名" id="base_name" name="base_name" :value="$form_mode === 'update' ? $base->base_name : null" required="true" />
+        <x-form.input type="text" label="省略営業所名" id="short_base_name" name="short_base_name" :value="$form_mode === 'update' ? $base->short_base_name : null" required="true" />
         <x-form.input type="text" label="並び順" id="sort_order" name="sort_order" :value="$form_mode === 'update' ? $base->sort_order : null" required="true" />
     </div>
     @if($form_mode === 'update')
