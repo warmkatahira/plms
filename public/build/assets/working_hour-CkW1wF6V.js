@@ -1,0 +1,1 @@
+import{s as o}from"./loading-CLXJ3Lsj.js";$(".working_hour_delete_enter").on("click",function(){window.confirm("削除を実行しますか？")===!0&&(o(),$("#working_hour_id").val($(this).data("working-hour-id")),$("#working_hour_delete_form").submit())});

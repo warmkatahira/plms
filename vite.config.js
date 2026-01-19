@@ -32,6 +32,7 @@ export default defineConfig({
                 // システム管理
                 'resources/js/system_admin/base/base.js',
                 'resources/js/system_admin/user/user.js',
+                'resources/js/system_admin/working_hour/working_hour.js',
                 // プロフィール
                 'resources/js/profile/profile.js',
                 'resources/sass/profile/profile.scss',

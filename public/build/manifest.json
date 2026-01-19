@@ -106,6 +106,15 @@
       "resources/js/loading.js"
     ]
   },
+  "resources/js/system_admin/working_hour/working_hour.js": {
+    "file": "assets/working_hour-CkW1wF6V.js",
+    "name": "working_hour",
+    "src": "resources/js/system_admin/working_hour/working_hour.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/loading.js"
+    ]
+  },
   "resources/js/toggle_component.js": {
     "file": "assets/toggle_component-BnAgP1sN.js",
     "name": "toggle_component",

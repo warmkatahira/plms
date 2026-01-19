@@ -7,3 +7,4 @@
         <x-system-admin.working_hour.list :workingHours="$half_day_working_hours" :workingType="WorkingHourEnum::WORKING_TYPE_HALF" />
     </div>
 </x-app-layout>
+@vite(['resources/js/system_admin/working_hour/working_hour.js'])

@@ -56,6 +56,8 @@ class BaseRequest extends FormRequest
             'daily_working_hours'                           => '1日あたりの時間数',
             'half_day_working_hours'                        => '半日あたりの時間数',
             'statutory_leave_expiration_date'               => '義務の期限',
+            // 勤務時間数
+            'working_hour_id'                               => '勤務時間数',
         ];
     }
 }
