@@ -6,6 +6,7 @@
                     <th class="font-thin py-1 px-2 text-center">操作</th>
                     <th class="font-thin py-1 px-2 text-center">勤務区分</th>
                     <th class="font-thin py-1 px-2 text-center">勤務時間数</th>
+                    <th class="font-thin py-1 px-2 text-center">適用従業員数</th>
                 </tr>
             </thead>
             <tbody class="bg-white">
@@ -18,6 +19,11 @@
                         </td>
                         <td class="py-1 px-2 border text-center">{{ WorkingHourEnum::get_working_type_jp($working_hour->working_type) }}</td>
                         <td class="py-1 px-2 border text-right">{{ $working_hour->working_hour }}</td>
+                        @if($workingType === WorkingHourEnum::WORKING_TYPE_DAILY)
+                            <td class="py-1 px-2 border text-right">{{ $working_hour->getPaidLeaveRecord($working_hour->working_hour, $workingType, WorkingHourEnum::DAILY_WORKING_HOURS) }}</td>
+                        @elseif($workingType === WorkingHourEnum::WORKING_TYPE_HALF)
+                            <td class="py-1 px-2 border text-right">{{ $working_hour->getPaidLeaveRecord($working_hour->working_hour, $workingType, WorkingHourEnum::HALF_DAY_WORKING_HOURS) }}</td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>

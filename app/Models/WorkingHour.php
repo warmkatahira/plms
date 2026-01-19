@@ -28,4 +28,12 @@ class WorkingHour extends Model
         return self::where('working_type', WorkingHourEnum::WORKING_TYPE_HALF)
                     ->orderBy('working_hour', 'asc');
     }
+    // 
+    public static function getPaidLeaveRecord($working_hour, $working_type, $column)
+    {
+        return self::join('paid_leaves', 'paid_leaves.'.$column, 'working_hour')
+                    ->where('working_type', $working_type)
+                    ->where('working_hour', $working_hour)
+                    ->count();
+    }
 }
