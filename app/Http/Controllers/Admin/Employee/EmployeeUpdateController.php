@@ -7,12 +7,11 @@ use Illuminate\Http\Request;
 // モデル
 use App\Models\Base;
 use App\Models\User;
+use App\Models\WorkingHour;
 // サービス
 use App\Services\Admin\Employee\EmployeeUpdateService;
 // リクエスト
 use App\Http\Requests\Admin\Employee\EmployeeUpdateRequest;
-// 列挙
-use App\Enums\WorkingHoursEnum;
 // その他
 use Illuminate\Support\Facades\DB;
 
@@ -27,9 +26,9 @@ class EmployeeUpdateController extends Controller
         // 営業所を取得
         $bases = Base::getAll()->get();
         // 1日あたりの時間数を取得
-        $daily_working_hours = WorkingHoursEnum::DAILY_WORKING_HOURS;
+        $daily_working_hours = WorkingHour::getDailyWorkingHours()->get();
         // 半日あたりの時間数を取得
-        $half_day_working_hours = WorkingHoursEnum::HALF_DAY_WORKING_HOURS;
+        $half_day_working_hours = WorkingHour::getHalfDayWorkingHours()->get();
         return view('admin.employee.update')->with([
             'employee' => $employee,
             'bases' => $bases,

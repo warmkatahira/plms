@@ -12,6 +12,8 @@ use App\Http\Controllers\SystemAdmin\Base\BaseUpdateController;
 use App\Http\Controllers\SystemAdmin\User\UserController;
 use App\Http\Controllers\SystemAdmin\User\UserCreateController;
 use App\Http\Controllers\SystemAdmin\User\UserUpdateController;
+// +-+-+-+-+-+-+-+- 勤務時間数 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\SystemAdmin\WorkingHour\WorkingHourController;
 // +-+-+-+-+-+-+-+- 操作ログ +-+-+-+-+-+-+-+-
 use App\Http\Controllers\SystemAdmin\OperationLog\OperationLogController;
 use App\Http\Controllers\SystemAdmin\OperationLog\OperationLogDownloadController;
@@ -45,6 +47,10 @@ Route::middleware('common')->group(function (){
         Route::controller(UserUpdateController::class)->prefix('user_update')->name('user_update.')->group(function(){
             Route::get('', 'index')->name('index');
             Route::post('update', 'update')->name('update');
+        });
+        // +-+-+-+-+-+-+-+- 勤務時間数 +-+-+-+-+-+-+-+-
+        Route::controller(WorkingHourController::class)->prefix('working_hour')->name('working_hour.')->group(function(){
+            Route::get('', 'index')->name('index');
         });
         // +-+-+-+-+-+-+-+- 操作ログ +-+-+-+-+-+-+-+-
         Route::controller(OperationLogController::class)->prefix('operation_log')->name('operation_log.')->group(function(){

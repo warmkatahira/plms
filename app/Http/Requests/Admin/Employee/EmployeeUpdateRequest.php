@@ -7,7 +7,7 @@ use App\Http\Requests\BaseRequest;
 // その他
 use Illuminate\Validation\Rule;
 // 列挙
-use App\Enums\WorkingHoursEnum;
+use App\Enums\WorkingHourEnum;
 
 class EmployeeUpdateRequest extends BaseRequest
 {
@@ -46,8 +46,8 @@ class EmployeeUpdateRequest extends BaseRequest
             'paid_leave_used_days'                          => ['nullable','numeric','min:0','max:20','regex:/^\d+(\.0|\.5)?$/'],
             'statutory_leave_days'                          => ['nullable','numeric','min:0','max:5','regex:/^\d+(\.0|\.5)?$/'],
             'statutory_leave_remaining_days'                => ['nullable','numeric','min:0','max:5','regex:/^\d+(\.0|\.5)?$/'],
-            'daily_working_hours'                           => ['nullable',Rule::in(array_keys(WorkingHoursEnum::DAILY_WORKING_HOURS)),],
-            'half_day_working_hours'                        => ['nullable',Rule::in(array_keys(WorkingHoursEnum::HALF_DAY_WORKING_HOURS)),],
+            'daily_working_hours'                           => ['nullable',Rule::exists('working_hours', 'working_hour')->where('working_type', WorkingHourEnum::WORKING_TYPE_DAILY),],
+            'half_day_working_hours'                        => ['nullable',Rule::exists('working_hours', 'working_hour')->where('working_type', WorkingHourEnum::WORKING_TYPE_HALF),],
             'statutory_leave_expiration_date'               => 'nullable|date_format:Y-m-d',
             'is_auto_update_statutory_leave_remaining_days' => 'nullable|boolean',
         ];

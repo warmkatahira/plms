@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PaidLeaveSeeder::class,
             StatutoryLeaveSeeder::class,
+            WorkingHourSeeder::class,
         ]);
     }
 }

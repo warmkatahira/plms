@@ -16,7 +16,7 @@ use App\Helpers\ColumnChangeHelper;
 use App\Enums\RoleEnum;
 use App\Enums\SystemEnum;
 use App\Enums\EmployeeCreateEnum;
-use App\Enums\WorkingHoursEnum;
+use App\Enums\WorkingHourEnum;
 use App\Enums\ImportEnum;
 // 例外
 use App\Exceptions\ImportException;
@@ -242,7 +242,7 @@ class EmployeeCreateService
                     $rules += [
                         '*.' . $column => [
                             'nullable',
-                            Rule::in(array_keys(WorkingHoursEnum::DAILY_WORKING_HOURS)),
+                            Rule::exists('working_hours', 'working_hour')->where('working_type', WorkingHourEnum::WORKING_TYPE_DAILY),
                         ],
                     ];
                     break;
@@ -250,7 +250,7 @@ class EmployeeCreateService
                     $rules += [
                         '*.' . $column => [
                             'nullable',
-                            Rule::in(array_keys(WorkingHoursEnum::HALF_DAY_WORKING_HOURS)),
+                            Rule::exists('working_hours', 'working_hour')->where('working_type', WorkingHourEnum::WORKING_TYPE_HALF),
                         ],
                     ];
                     break;
