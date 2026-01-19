@@ -58,6 +58,8 @@ class BaseRequest extends FormRequest
             'statutory_leave_expiration_date'               => '義務の期限',
             // 勤務時間数
             'working_hour_id'                               => '勤務時間数',
+            'working_type'                                  => '勤務区分',
+            'working_hour'                                  => '勤務時間数',
         ];
     }
 }

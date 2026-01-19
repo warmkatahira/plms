@@ -14,7 +14,6 @@
                     <tr class="text-left cursor-default whitespace-nowrap hover:bg-theme-sub group">
                         <td class="py-1 px-2 border">
                             <div class="flex flex-row gap-5">
-                                <a href="{{ route('user_update.index', ['working_hour_id' => $working_hour->working_hour_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">更新</a>
                                 <button type="button" class="btn working_hour_delete_enter bg-btn-cancel text-white py-1 px-2" data-working-hour-id="{{ $working_hour->working_hour_id }}">削除</button>
                             </div>
                         </td>

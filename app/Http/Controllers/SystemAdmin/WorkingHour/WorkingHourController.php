@@ -17,7 +17,7 @@ class WorkingHourController extends Controller
         $daily_working_hours = WorkingHour::getDailyWorkingHours()->get();
         // 半日あたりの時間数を取得
         $half_day_working_hours = WorkingHour::getHalfDayWorkingHours()->get();
-        return view('system_admin.workiing_hour.index')->with([
+        return view('system_admin.working_hour.index')->with([
             'daily_working_hours' => $daily_working_hours,
             'half_day_working_hours' => $half_day_working_hours,
         ]);
