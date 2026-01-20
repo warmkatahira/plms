@@ -18,13 +18,10 @@ export default defineConfig({
                 'resources/sass/navigation.scss',
                 'resources/js/dropdown.js',
                 'resources/js/image_fade_in.js',
-                'resources/js/toggle_component.js',
-                'resources/js/clipboard_copy.js',
                 'resources/sass/dropdown.scss',
                 'resources/sass/height_adjustment.scss',
                 'resources/sass/welcome.scss',
                 'resources/sass/common.scss',
-                'resources/sass/clipboard_copy.scss',
                 // 認証
                 'resources/js/auth/register.js',
                 // 管理

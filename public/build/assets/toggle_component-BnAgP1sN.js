@@ -1,1 +1,0 @@
-$(".toggle_components_btn").on("click",function(){const s=$(this),n=s.closest("tr").next(".order_item_components");n.toggleClass("hidden"),n.hasClass("hidden")?s.html('<i class="las la-plus"></i>').removeClass("bg-btn-close").addClass("bg-btn-open"):s.html('<i class="las la-minus"></i>').removeClass("bg-btn-open").addClass("bg-btn-close")});

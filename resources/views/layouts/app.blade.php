@@ -32,7 +32,6 @@
             'resources/sass/dropdown.scss',
             'resources/sass/profile/profile_image.scss',
             'resources/sass/height_adjustment.scss',
-            'resources/sass/clipboard_copy.scss',
         ])
 
         <!-- Scripts -->
@@ -45,8 +44,6 @@
             'resources/js/search_date.js',
             'resources/js/image_fade_in.js',
             'resources/js/file_select.js',
-            'resources/js/toggle_component.js',
-            'resources/js/clipboard_copy.js',
         ])
 
         <!-- Select2 -->

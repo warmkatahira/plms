@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-DtFh4k54.css",
+    "file": "assets/app-vnCayPZM.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -27,12 +27,6 @@
     "imports": [
       "resources/js/loading.js"
     ]
-  },
-  "resources/js/clipboard_copy.js": {
-    "file": "assets/clipboard_copy-Dw1cwY2C.js",
-    "name": "clipboard_copy",
-    "src": "resources/js/clipboard_copy.js",
-    "isEntry": true
   },
   "resources/js/common.js": {
     "file": "assets/common-DYSTgVaS.js",
@@ -107,24 +101,13 @@
     ]
   },
   "resources/js/system_admin/working_hour/working_hour.js": {
-    "file": "assets/working_hour-CkW1wF6V.js",
+    "file": "assets/working_hour-BOTitX25.js",
     "name": "working_hour",
     "src": "resources/js/system_admin/working_hour/working_hour.js",
     "isEntry": true,
     "imports": [
       "resources/js/loading.js"
     ]
-  },
-  "resources/js/toggle_component.js": {
-    "file": "assets/toggle_component-BnAgP1sN.js",
-    "name": "toggle_component",
-    "src": "resources/js/toggle_component.js",
-    "isEntry": true
-  },
-  "resources/sass/clipboard_copy.scss": {
-    "file": "assets/clipboard_copy-By54nvTO.css",
-    "src": "resources/sass/clipboard_copy.scss",
-    "isEntry": true
   },
   "resources/sass/common.scss": {
     "file": "assets/common-C_Ek5JKF.css",
