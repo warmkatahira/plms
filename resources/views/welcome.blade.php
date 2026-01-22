@@ -49,7 +49,7 @@
             <!-- ログインボタン -->
             <div class="flex flex-col">
                 @guest
-                    <a href="{{ route('login') }}" class="btn md:ml-auto md:mr-10 rounded-md bg-theme-main text-center py-5 w-full md:w-48 mt-5 md:mt-0 text-2xl md:text-sm">ログイン</a>
+                    <a href="{{ route('login') }}" class="btn md:ml-auto md:mr-10 rounded-md bg-theme-main text-center md:py-5 py-10 mx-5 md:w-48 mt-5 md:mt-0 text-2xl md:text-sm">ログイン</a>
                 @endguest
             </div>
             <!-- ロゴ -->
