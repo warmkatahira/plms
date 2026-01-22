@@ -14,6 +14,15 @@
                         </label>
                     </div>
                 </form>
+                <form method="POST" action="{{ route('paid_leave_update.import') }}" id="paid_leave_update_import_form" enctype="multipart/form-data" class="m-0">
+                    @csrf
+                    <div class="flex select_file dropdown-content-element">
+                        <label class="text-xs cursor-pointer">
+                            <i class="las la-upload la-lg mr-1"></i>有給情報更新(取込)
+                            <input type="file" name="select_file" class="hidden">
+                        </label>
+                    </div>
+                </form>
                 <form method="POST" action="{{ route('statutory_leave_update.import') }}" id="statutory_leave_update_import_form" enctype="multipart/form-data" class="m-0">
                     @csrf
                     <div class="flex select_file dropdown-content-element">

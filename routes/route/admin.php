@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\Employee\EmployeeCreateController;
 use App\Http\Controllers\Admin\Employee\EmployeeUpdateController;
 // +-+-+-+-+-+-+-+- 義務情報更新 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Admin\StatutoryLeave\StatutoryLeaveUpdateController;
+// +-+-+-+-+-+-+-+- 有給情報更新 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\Admin\PaidLeave\PaidLeaveUpdateController;
 // +-+-+-+-+-+-+-+- 取込履歴 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Admin\ImportHistory\ImportHistoryController;
 
@@ -39,6 +41,10 @@ Route::middleware('common')->group(function (){
             });
             // +-+-+-+-+-+-+-+- 義務情報更新 +-+-+-+-+-+-+-+-
             Route::controller(StatutoryLeaveUpdateController::class)->prefix('statutory_leave_update')->name('statutory_leave_update.')->group(function(){
+                Route::post('import', 'import')->name('import');
+            });
+            // +-+-+-+-+-+-+-+- 有給情報更新 +-+-+-+-+-+-+-+-
+            Route::controller(PaidLeaveUpdateController::class)->prefix('paid_leave_update')->name('paid_leave_update.')->group(function(){
                 Route::post('import', 'import')->name('import');
             });
         });

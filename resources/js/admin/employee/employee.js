@@ -33,6 +33,8 @@ $('.select_file input[type=file]').on("change",function(){
     // フォームIDによってメッセージを可変
     if(form_id === 'employee_create_import_form'){
         message = '従業員追加(取込)を実行しますか？';
+    }else if(form_id === 'paid_leave_update_import_form'){
+        message = '有給情報更新(取込)を実行しますか？';
     }else if(form_id === 'statutory_leave_update_import_form'){
         message = '義務情報更新(取込)を実行しますか？';
     }
