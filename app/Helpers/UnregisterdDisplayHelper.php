@@ -9,7 +9,7 @@ if (! function_exists('displayCheckIfUnregisterd')) {
                 'class' => 'text-center',
             ];
         }
-        if($format === 'number'){
+        if($format === 'number' || $format === 'day' || $format === 'hour'){
             return [
                 'value' => number_format($value, $digit),
                 'class' => 'text-right',
