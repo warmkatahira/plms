@@ -62,7 +62,7 @@ class StatutoryLeaveUpdateService
             $ImportErrorCreateService   = new ImportErrorCreateService;
             // エラー情報のファイルを作成
             $error_file_name = $ImportErrorCreateService->createImportError('従業員取込エラー', $validation_error);
-            throw new ImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $import_original_file_name);
+            throw new ImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_PROCESS_STATUTORY_LEAVE, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $import_original_file_name);
         }
         return compact('create_data', 'validation_error');
     }
