@@ -6,73 +6,51 @@ enum OperationLogEnum
 {
     // 操作ログの記録を行わないパスを定義
     const NO_OPERATION_RECORD_PATH = [
-        // ダッシュボード
-        'dashboard',
-        'dashboard/ajax_get_chart_data',
-        // 受注
-        'order_import',
-        // 出荷
-        'order_document',
-        'shipping_work_end',
-        'shipping_work_end',
-        'shipping_inspection',
-        // 商品
-        'item',
-        'set_item',
-        'item_upload',
-        // 在庫
-        'input_stock_operation',
-        'input_stock_operation_enter',
-        'stock_history',
-        // 設定
-        // システム管理
-        'base',
-        'base_create',
+        // 従業員一覧
+        'employee_update',
+        'employee_create',
+        // 営業所
         'base_update',
-        'user',
+        'base_create',
+        // ユーザー
         'user_update',
+        'user_create',
+        // 勤務時間数
+        'working_hour_create',
+        // 操作ログ
         'operation_log',
         'operation_log_download/download',
     ];
 
     // パスの日本語変換用
     const PATH_JP_CHANGE_LIST = [
-        // 受注
-        'order_import/import'                               => '受注取込',
-        'order_mgt'                                         => '受注管理',
-        'shipping_work_start/enter'                         => '出荷作業開始',
-        'order_detail'                                      => '受注詳細',
-        'order_detail_update/shipping_method'               => '配送方法更新',
-        'order_delete/delete'                               => '受注削除',
-        // 出荷
-        'shipping_mgt'                                      => '出荷管理',
-        'total_picking_list_create/create'                  => 'トータルピッキングリスト発行',
-        'kobetsu_picking_list_create/create'                => '個別ピッキングリスト発行',
-        'nifuda_create/create'                              => '荷札データ作成',
-        'nifuda_download/download'                          => '荷札データダウンロード',
-        'tracking_no_import/import'                         => '配送伝票番号取込',
-        'shipping_inspection/ajax_check_order_control_id'   => '出荷検品(受注管理IDスキャン)',
-        'shipping_inspection/ajax_check_tracking_no'        => '出荷検品(配送伝票番号スキャン)',
-        'shipping_inspection/ajax_check_item_id_code'       => '出荷検品(商品識別コードスキャン)',
-        'shipping_inspection/complete'                      => '出荷検品完了',
-        'shipping_actual_download/download'                 => '出荷実績ダウンロード',
-        'shipping_work_end_history'                         => '出荷完了履歴',
-        'shipping_work_end/enter'                           => '出荷完了',
-        'shipping_history'                                  => '出荷履歴',
-        // 商品
-        'item_download/download'                => '商品ダウンロード',
-        'item_upload/upload'                    => '商品アップロード',
-        // 在庫
-        'stock/index_by_item'                   => '在庫(商品別)',
-        'stock/index_by_stock'                  => '在庫(在庫別)',
-        'input_stock_operation_enter/enter'     => '入力在庫数操作',
-        'stock_history'                         => '在庫履歴',
-        'stock_download/download'               => '在庫ダウンロード',
-        // システム管理
-        'base_update/update'                    => '倉庫更新',
-        'base_create/create'                    => '倉庫追加',
-        'user_update/update'                    => 'ユーザー更新',
-        'profile'                               => 'プロフィール',
+        // ダッシュボード
+        'dashboard' => 'ダッシュボード',
+        // 従業員一覧
+        'employee'                      => '従業員一覧',
+        'employee_update/update'        => '従業員更新',
+        'employee_download/download'    => '従業員ダウンロード',
+        'employee_create/create'        => '従業員追加(入力)',
+        'employee_create/import'        => '従業員追加(取込)',
+        'paid_leave_update/import'      => '有給情報更新(取込)',
+        'statutory_leave_update/import' => '義務情報更新(取込)',
+        'other_update/import'           => 'その他情報更新(取込)',
+        // 権限
+        'role'                          => '権限',
+        // 営業所
+        'base'                          => '営業所',
+        'base_update/update'            => '営業所更新',
+        'base_create/create'            => '営業所追加',
+        // ユーザー
+        'user'                          => 'ユーザー',
+        'user_update/update'            => 'ユーザー更新',
+        'user_create/create'            => 'ユーザー追加',
+        // 勤務時間数
+        'working_hour'                  => '勤務時間数',
+        'working_hour_delete/delete'    => '勤務時間数削除',
+        'working_hour_create/create'    => '勤務時間数追加',
+        // 取込履歴
+        'import_history' => '取込履歴',
     ];
 
     // パスの日本語を取得
