@@ -1,6 +1,9 @@
 <x-app-layout>
     @if(Auth::user()->role_id === RoleEnum::USER)
         <div class="grid grid-cols-12 gap-3">
+            <div class="col-span-12 md:hidden bg-white rounded-xl shadow-lg p-4">
+                <p class="text-2xl font-bold text-gray-800 text-center">{{ Auth::user()->user_name }}<span class="text-base font-normal text-gray-400 pl-3">さん</span></p>
+            </div>
             <div class="col-span-12 grid grid-cols-12 gap-3">
                 <x-dashboard.info-div label="有給保有日数" :value="$employee->paid_leave->paid_leave_granted_days" format="day" />
                 <x-dashboard.info-div label="有給残日数" :value="$employee->paid_leave->paid_leave_remaining_days" format="day" />
