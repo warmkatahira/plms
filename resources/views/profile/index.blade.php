@@ -10,8 +10,8 @@
             @csrf
             <div class="flex flex-col mt-5">
                 <x-form.p label="営業所名" :value="$user->base->base_name" />
-                <x-form.p label="従業員番号" :value="$user->employee_no" />
-                <x-form.p label="氏名" :value="$user->user_name" />
+                <x-form.p label="社員CD" :value="$user->employee_no" />
+                <x-form.p label="社員名" :value="$user->user_name" />
             </div>
         </form>
         <div class="flex flex-row gap-10 mt-5">
