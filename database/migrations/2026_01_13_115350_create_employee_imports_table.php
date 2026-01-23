@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('employee_imports', function (Blueprint $table) {
             $table->increments('employee_import_id');
             $table->boolean('status')->default(true);
-            $table->string('short_base_name', 10);
+            $table->string('short_base_name', 10)->nullable();
             $table->string('employee_no', 4);
-            $table->string('user_name', 20);
-            $table->string('user_id', 20);
-            $table->string('password', 255);
+            $table->string('user_name', 20)->nullable();
+            $table->string('user_id', 20)->nullable();
+            $table->string('password', 255)->nullable();
             $table->decimal('paid_leave_granted_days', 4, 1)->nullable();
             $table->decimal('paid_leave_remaining_days', 4, 1)->nullable();
             $table->decimal('paid_leave_used_days', 4, 1)->nullable();

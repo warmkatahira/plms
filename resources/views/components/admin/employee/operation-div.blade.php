@@ -32,6 +32,15 @@
                         </label>
                     </div>
                 </form>
+                <form method="POST" action="{{ route('other_update.import') }}" id="other_update_import_form" enctype="multipart/form-data" class="m-0">
+                    @csrf
+                    <div class="flex select_file dropdown-content-element">
+                        <label class="text-xs cursor-pointer">
+                            <i class="las la-upload la-lg mr-1"></i>その他情報更新(取込)
+                            <input type="file" name="select_file" class="hidden">
+                        </label>
+                    </div>
+                </form>
             @endcan
         </div>
     </div>

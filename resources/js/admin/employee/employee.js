@@ -37,6 +37,8 @@ $('.select_file input[type=file]').on("change",function(){
         message = '有給情報更新(取込)を実行しますか？';
     }else if(form_id === 'statutory_leave_update_import_form'){
         message = '義務情報更新(取込)を実行しますか？';
+    }else if(form_id === 'other_update_import_form'){
+        message = 'その他情報更新(取込)を実行しますか？';
     }
     // 処理を実行するか確認
     const result = window.confirm(message);

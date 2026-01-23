@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Services\Admin\StatutoryLeave;
+namespace App\Services\Admin\Other;
 
 // モデル
 use App\Models\User;
-use App\Models\StatutoryLeaveImport;
+use App\Models\EmployeeImport;
 // サービス
 use App\Services\Common\ImportErrorCreateService;
 use App\Services\Common\NotUpdateInfoCreateService;
 // 列挙
-use App\Enums\StatutoryLeaveUpdateEnum;
+use App\Enums\OtherUpdateEnum;
 use App\Enums\ImportEnum;
+use App\Enums\WorkingHourEnum;
 // 例外
 use App\Exceptions\ImportException;
 // ヘルパー
@@ -19,8 +20,9 @@ use App\Helpers\ColumnChangeHelper;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Illuminate\Support\Facades\Validator;
 use Carbon\CarbonImmutable;
+use Illuminate\Validation\Rule;
 
-class StatutoryLeaveUpdateService
+class OtherUpdateService
 {
     // 追加するデータを配列に格納（同時にバリデーションも実施）
     public function setArrayImportData($save_file_path, $headers, $import_original_file_name)
@@ -32,7 +34,7 @@ class StatutoryLeaveUpdateService
         // 配列をセット
         $create_data = [];
         // 取得したレコードの分だけループ
-        foreach ($all_line as $line){
+        foreach($all_line as $index => $line){
             // UTF-8形式に変換した1行分のデータを取得
             if($extension === 'csv'){
                 $line = mb_convert_encoding($line, 'UTF-8', 'ASCII, JIS, UTF-8, SJIS-win');
@@ -42,7 +44,7 @@ class StatutoryLeaveUpdateService
             // 追加先テーブルのカラム名に合わせて配列を整理
             foreach($line as $key => $value){
                 // 英語カラムを定義している配列から取得
-                $en_column = ColumnChangeHelper::column_en_change($key, StatutoryLeaveUpdateEnum::EN_CHANGE_LIST);
+                $en_column = ColumnChangeHelper::column_en_change($key, OtherUpdateEnum::EN_CHANGE_LIST);
                 // カラムが空ではない場合
                 if($en_column != ''){
                     // 値の調整を行う
@@ -61,8 +63,8 @@ class StatutoryLeaveUpdateService
             // インスタンス化
             $ImportErrorCreateService   = new ImportErrorCreateService;
             // エラー情報のファイルを作成
-            $error_file_name = $ImportErrorCreateService->createImportError(ImportEnum::IMPORT_PROCESS_STATUTORY_LEAVE . '取込エラー', $validation_error);
-            throw new ImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_PROCESS_STATUTORY_LEAVE, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $import_original_file_name);
+            $error_file_name = $ImportErrorCreateService->createImportError(ImportEnum::IMPORT_PROCESS_OTHER.'取込エラー', $validation_error);
+            throw new ImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_PROCESS_OTHER, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $import_original_file_name);
         }
         return compact('create_data', 'validation_error');
     }
@@ -76,31 +78,9 @@ class StatutoryLeaveUpdateService
                 // シングルクォーテーションを取り除いている
                 $adjustment_value = str_replace(array("'"), "", $value);
                 break;
-            case '義務の期限':
-                if($value === '' || $value === null){
-                    $adjustment_value = null;
-                    break;
-                }
-                try {
-                    $date = null;
-                    if ($value instanceof \DateTimeInterface) {
-                        $date = CarbonImmutable::instance($value);
-                    } else {
-                        foreach (['Y/m/d', 'Y/n/j'] as $format) {
-                            try {
-                                $date = CarbonImmutable::createFromFormat($format, (string) $value);
-                                break; // 成功したら抜ける
-                            } catch (\Exception $e) {
-                                // 次のフォーマットへ
-                            }
-                        }
-                    }
-                    $adjustment_value = $date
-                        ? $date->format('Y/m/d')
-                        : $value; // 変換不可 → バリデーションへ
-                } catch (\Exception $e) {
-                    $adjustment_value = $value;
-                }
+            case '義務残日数自動更新':
+                // 無効を「0」、有効を「1」に変換
+                $adjustment_value = $value === '無効' ? 0 : ($value === '有効' ? 1 : $value);
                 break;
             default:
                 // 何もしない
@@ -121,20 +101,24 @@ class StatutoryLeaveUpdateService
                 case 'employee_no':
                     $rules += ['*.'.$column => 'required|string|exists:users,employee_no'];
                     break;
-                case 'statutory_leave_days':
-                case 'statutory_leave_remaining_days':
+                case 'daily_working_hours':
                     $rules += [
                         '*.' . $column => [
                             'required',
-                            'numeric',
-                            'min:0',
-                            'max:5',
-                            'regex:/^\d+(\.0|\.5)?$/'
+                            Rule::exists('working_hours', 'working_hour')->where('working_type', WorkingHourEnum::WORKING_TYPE_DAILY),
                         ],
                     ];
                     break;
-                case 'statutory_leave_expiration_date':
-                    $rules += ['*.'.$column => 'required|date_format:Y/m/d'];
+                case 'half_day_working_hours':
+                    $rules += [
+                        '*.' . $column => [
+                            'required',
+                            Rule::exists('working_hours', 'working_hour')->where('working_type', WorkingHourEnum::WORKING_TYPE_HALF),
+                        ],
+                    ];
+                    break;
+                case 'is_auto_update_statutory_leave_remaining_days':
+                    $rules += ['*.'.$column => 'required|boolean'];
                     break;
                 default:
                     break;
@@ -143,19 +127,15 @@ class StatutoryLeaveUpdateService
         // バリデーションエラーメッセージを定義
         $messages = [
             'required'                      => ':attributeは必須です。',
-            'max'                           => ':attribute（:input）は:max以下で入力して下さい。',
-            'min'                           => ':attribute（:input）は:min以上で入力して下さい。',
             'exists'                        => ':attribute（:input）はシステムに存在しません。',
-            'numeric'                       => ':attribute（:input）は数値で入力して下さい。',
-            'regex'                         => ':attribute（:input）は0.5刻みで入力して下さい。',
-            'date_format'                   => ':attribute（:input）はyyyy/mm/dd形式で入力して下さい。',
+            'boolean'                       => ':attribute（:input）が正しくありません。',
         ];
         // バリデーションエラー項目を定義
         $attributes = [
             '*.employee_no'                                     => '社員CD',
-            '*.statutory_leave_expiration_date'                 => '義務の期限',
-            '*.statutory_leave_days'                            => '義務の日数',
-            '*.statutory_leave_remaining_days'                  => '義務の残日数',
+            '*.daily_working_hours'                             => '1日あたりの時間数',
+            '*.half_day_working_hours'                          => '半日あたりの時間数',
+            '*.is_auto_update_statutory_leave_remaining_days'   => '義務残日数自動更新',
         ];
         // バリデーション実施
         return $this->processValidation($params, $rules, $messages, $attributes);
@@ -185,22 +165,22 @@ class StatutoryLeaveUpdateService
     public function createArrayImportData($create_data)
     {
         // テーブルをロック
-        StatutoryLeaveImport::select()->lockForUpdate()->get();
+        EmployeeImport::select()->lockForUpdate()->get();
         // 追加先のテーブルをクリア
-        StatutoryLeaveImport::query()->delete();
+        EmployeeImport::query()->delete();
         // 追加用の配列に入っている情報をテーブルに追加
-        StatutoryLeaveImport::insert($create_data);
+        EmployeeImport::insert($create_data);
     }
 
-    // 義務情報を更新
-    public function updateStatutoryLeave()
+    // その他情報を更新
+    public function updateOther()
     {
         // 更新対象でステータスが無効の従業員情報を格納する配列を初期化
         $not_update_employees = [];
         // 更新する情報の分だけループ処理
-        foreach(StatutoryLeaveImport::all() as $statutory_leave_import){
+        foreach(EmployeeImport::all() as $employee_import){
             // 従業員を取得
-            $employee = User::where('employee_no', $statutory_leave_import->employee_no)->lockForUpdate()->first();
+            $employee = User::where('employee_no', $employee_import->employee_no)->lockForUpdate()->first();
             // ステータスが無効の場合
             if(!$employee->status){
                 // 配列に追加
@@ -211,11 +191,13 @@ class StatutoryLeaveUpdateService
                 // 次のループ処理へ
                 continue;
             }
-            // 義務情報を更新
-            $employee->statutory_leave->update([
-                'statutory_leave_expiration_date'   => $statutory_leave_import->statutory_leave_expiration_date,
-                'statutory_leave_days'              => $statutory_leave_import->statutory_leave_days,
-                'statutory_leave_remaining_days'    => $statutory_leave_import->statutory_leave_remaining_days,
+            // その他情報を更新
+            $employee->update([
+                'is_auto_update_statutory_leave_remaining_days' => $employee_import->is_auto_update_statutory_leave_remaining_days,
+            ]);
+            $employee->paid_leave->update([
+                'daily_working_hours'       => $employee_import->daily_working_hours,
+                'half_day_working_hours'    => $employee_import->half_day_working_hours,
             ]);
         }
         // 配列が空ではない場合

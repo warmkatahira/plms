@@ -122,7 +122,6 @@ class PaidLeaveUpdateService
         // バリデーションエラーメッセージを定義
         $messages = [
             'required'                      => ':attributeは必須です。',
-            'employee_no.max'               => ':attribute（:input）は:max文字以内で入力して下さい。',
             'max'                           => ':attribute（:input）は:max以下で入力して下さい。',
             'min'                           => ':attribute（:input）は:min以上で入力して下さい。',
             'exists'                        => ':attribute（:input）はシステムに存在しません。',

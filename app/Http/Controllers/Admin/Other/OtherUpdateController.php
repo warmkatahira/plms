@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Admin\PaidLeave;
+namespace App\Http\Controllers\Admin\Other;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // サービス
-use App\Services\Admin\PaidLeave\PaidLeaveUpdateService;
+use App\Services\Admin\Other\OtherUpdateService;
 use App\Services\Common\ImportHistoryCreateService;
 use App\Services\Common\ImportService;
 // 例外
 use App\Exceptions\ImportException;
 // 列挙
-use App\Enums\PaidLeaveUpdateEnum;
+use App\Enums\OtherUpdateEnum;
 use App\Enums\ImportEnum;
 // その他
 use Illuminate\Support\Facades\DB;
 use Carbon\CarbonImmutable;
 
-class PaidLeaveUpdateController extends Controller
+class OtherUpdateController extends Controller
 {
     public function import(Request $request)
     {
@@ -26,22 +26,22 @@ class PaidLeaveUpdateController extends Controller
         try {
             DB::transaction(function () use ($request, $ImportHistoryCreateService) {
                 // インスタンス化
-                $PaidLeaveUpdateService = new PaidLeaveUpdateService;
+                $OtherUpdateService = new OtherUpdateService;
                 $ImportService = new ImportService;
                 // 現在の日時を取得
                 $nowDate = CarbonImmutable::now();
                 // 選択したファイルのファイル名を取得
                 $import_original_file_name = $ImportService->getImportOriginalFileName($request->file('select_file'));
                 // 選択したファイルをストレージにインポート
-                $save_file_path = $ImportService->importFile($request->file('select_file'), 'paid_leave_update_import_data');
+                $save_file_path = $ImportService->importFile($request->file('select_file'), 'other_update_import_data');
                 // インポートしたデータのヘッダーを確認
-                $headers = $ImportService->checkHeader($save_file_path, $import_original_file_name, PaidLeaveUpdateEnum::REQUIRE_HEADER, PaidLeaveUpdateEnum::EN_CHANGE_LIST, ImportEnum::IMPORT_TYPE_UPDATE);
+                $headers = $ImportService->checkHeader($save_file_path, $import_original_file_name, OtherUpdateEnum::REQUIRE_HEADER, OtherUpdateEnum::EN_CHANGE_LIST, ImportEnum::IMPORT_TYPE_UPDATE);
                 // 追加するデータを配列に格納（同時にバリデーションも実施）
-                $data = $PaidLeaveUpdateService->setArrayImportData($save_file_path, $headers, $import_original_file_name);
+                $data = $OtherUpdateService->setArrayImportData($save_file_path, $headers, $import_original_file_name);
                 // インポートテーブルに追加
-                $PaidLeaveUpdateService->createArrayImportData($data['create_data']);
-                // 有給情報を更新
-                $error_file_name = $PaidLeaveUpdateService->updatePaidLeave();
+                $OtherUpdateService->createArrayImportData($data['create_data']);
+                // その他情報を更新
+                $error_file_name = $OtherUpdateService->updateOther();
                 // 表示するメッセージを調整
                 if(is_null($error_file_name)){
                     $message = null;
@@ -49,7 +49,7 @@ class PaidLeaveUpdateController extends Controller
                     $message = '更新できなかった従業員が存在します。';
                 }
                 // import_historiesテーブルへ追加
-                $ImportHistoryCreateService->createImportHistory($import_original_file_name, ImportEnum::IMPORT_PROCESS_PAID_LEAVE, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $message);
+                $ImportHistoryCreateService->createImportHistory($import_original_file_name, ImportEnum::IMPORT_PROCESS_OTHER, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $message);
             });
         } catch (ImportException $e) {
             // 渡された内容を取得
@@ -67,7 +67,7 @@ class PaidLeaveUpdateController extends Controller
         }
         return redirect()->route('import_history.index')->with([
             'alert_type' => 'success',
-            'alert_message' => '有給情報更新(取込)が完了しました。',
+            'alert_message' => 'その他情報更新(取込)が完了しました。',
         ]);
     }
 }
