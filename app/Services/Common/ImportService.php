@@ -88,8 +88,16 @@ class ImportService
 
     // 配列の値が存在しているか確認
     public function checkValueExists($array, $value) {
-        // 存在したら「true」、存在しなかったら「false」
-        $result = in_array($value, $array);
+        // ヘッダーの分だけループ処理
+        foreach($array as $header){
+            // 改行で分割
+            $lines = preg_split("/\r\n|\n|\r/", $header);
+            // 必須として定義しているヘッダーが存在している場合
+            if(in_array($value, $lines, true)){
+                // nullを返す
+                return null;
+            }
+        }
         // 存在しなかったら、エラーを返す
         return !$result ? 'ヘッダーに「'.$value.'」がありません。' : null;
     }

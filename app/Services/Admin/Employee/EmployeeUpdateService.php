@@ -6,6 +6,8 @@ namespace App\Services\Admin\Employee;
 use App\Models\User;
 use App\Models\PaidLeave;
 use App\Models\StatutoryLeave;
+// その他
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeUpdateService
 {
@@ -20,6 +22,14 @@ class EmployeeUpdateService
             'user_name'                                     => $request->user_name,
             'is_auto_update_statutory_leave_remaining_days' => $request->is_auto_update_statutory_leave_remaining_days,
         ]);
+        // パスワードの入力がある場合
+        if(isset($request->password)){
+            // パスワードを変更して、パスワード変更必須にする
+            User::where('user_no', $request->user_no)->update([
+                'password'                  => Hash::make($request->password),
+                'must_change_password'      => 1,
+            ]);
+        }
         // 有給管理テーブルを更新
         PaidLeave::where('user_no', $request->user_no)->update([
             'paid_leave_granted_days'   => $request->paid_leave_granted_days,

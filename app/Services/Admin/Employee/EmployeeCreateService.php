@@ -128,7 +128,7 @@ class EmployeeCreateService
             // インスタンス化
             $ImportErrorCreateService   = new ImportErrorCreateService;
             // エラー情報のファイルを作成
-            $error_file_name = $ImportErrorCreateService->createImportError('従業員取込エラー', $validation_error);
+            $error_file_name = $ImportErrorCreateService->createImportError(ImportEnum::IMPORT_PROCESS_EMPLOYEE.'取込エラー', $validation_error);
             throw new ImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_PROCESS_EMPLOYEE, ImportEnum::IMPORT_TYPE_CREATE, $error_file_name, $import_original_file_name);
         }
         return compact('create_data', 'validation_error');
@@ -208,10 +208,10 @@ class EmployeeCreateService
                     $rules += ['*.'.$column => 'required|string|max:20'];
                     break;
                 case 'user_id':
-                    $rules += ['*.'.$column => 'required|string|max:20|unique:users,user_id'];
+                    $rules += ['*.'.$column => 'required|string|max:20|unique:users,user_id|regex:/^[a-zA-Z0-9]+$/'];
                     break;
                 case 'password':
-                    $rules += ['*.'.$column => 'required|string|max:255'];
+                    $rules += ['*.'.$column => 'required|string|max:20|regex:/^[a-zA-Z0-9]+$/'];
                     break;
                 case 'paid_leave_granted_days':
                 case 'paid_leave_remaining_days':
@@ -268,13 +268,18 @@ class EmployeeCreateService
             'user_name.max'                 => ':attribute（:input）は:max文字以内で入力して下さい。',
             'user_id.max'                   => ':attribute（:input）は:max文字以内で入力して下さい。',
             'password.max'                  => ':attribute（:input）は:max文字以内で入力して下さい。',
+            'password.regex'                => ':attribute（:input）は半角英数字のみで入力して下さい。',
             'max'                           => ':attribute（:input）は:max以下で入力して下さい。',
             'min'                           => ':attribute（:input）は:min以上で入力して下さい。',
             'boolean'                       => ':attribute（:input）が正しくありません。',
             'exists'                        => ':attribute（:input）はシステムに存在しません。',
             'numeric'                       => ':attribute（:input）は数値で入力して下さい。',
             'unique'                        => ':attribute（:input）は既に使用されています。',
-            'regex'                         => ':attribute（:input）は0.5刻みで入力して下さい。',
+            'paid_leave_granted_days.regex' => ':attribute（:input）は0.5刻みで入力して下さい。',
+            'paid_leave_remaining_days.regex' => ':attribute（:input）は0.5刻みで入力して下さい。',
+            'paid_leave_used_days.regex'    => ':attribute（:input）は0.5刻みで入力して下さい。',
+            'statutory_leave_days.regex'    => ':attribute（:input）は0.5刻みで入力して下さい。',
+            'statutory_leave_remaining_days.regex' => ':attribute（:input）は0.5刻みで入力して下さい。',
             'date_format'                   => ':attribute（:input）はyyyy/mm/dd形式で入力して下さい。',
             'in'                            => ':attribute（:input）が正しくありません。',
         ];

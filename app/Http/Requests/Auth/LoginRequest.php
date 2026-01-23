@@ -86,9 +86,9 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => ":attributeは必須です。",
-            'max' => ":attributeは:max文字以内で入力して下さい。",
-            'regex' => ':attributeは英数字のみで入力して下さい。',
+            'required'  => ":attributeは必須です。",
+            'max'       => ":attributeは:max文字以内で入力して下さい。",
+            'regex'     => ':attributeは半角英数字のみで入力して下さい。',
         ];
     }
 

@@ -16,6 +16,8 @@
         @endif
         @if($form_mode === 'create')
             <x-form.input type="tel" label="パスワード" id="password" name="password" :value="null" required="true" />
+        @elseif($form_mode === 'update')
+            <x-form.input type="tel" label="パスワード" id="password" name="password" :value="null" />
         @endif
         <x-form.input type="tel" label="保有日数" id="paid_leave_granted_days" name="paid_leave_granted_days" :value="$form_mode === 'update' ? $employee->paid_leave->paid_leave_granted_days : null" />
         <x-form.input type="tel" label="残日数" id="paid_leave_remaining_days" name="paid_leave_remaining_days" :value="$form_mode === 'update' ? $employee->paid_leave->paid_leave_remaining_days : null" />

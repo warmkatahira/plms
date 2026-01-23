@@ -41,6 +41,7 @@ class EmployeeUpdateRequest extends BaseRequest
             'base_id'                                       => 'required|exists:bases,base_id',
             'employee_no'                                   => 'required|string|max:4|unique:users,employee_no,'.$this->user_no.',user_no',
             'user_name'                                     => 'required|string|max:20',
+            'password'                                      => 'nullable|string|max:20|regex:/^[a-zA-Z0-9]+$/',
             'paid_leave_granted_days'                       => ['nullable','numeric','min:0','max:20','regex:/^\d+(\.0|\.5)?$/'],
             'paid_leave_remaining_days'                     => ['nullable','numeric','min:0','max:20','regex:/^\d+(\.0|\.5)?$/'],
             'paid_leave_used_days'                          => ['nullable','numeric','min:0','max:20','regex:/^\d+(\.0|\.5)?$/'],
@@ -56,6 +57,7 @@ class EmployeeUpdateRequest extends BaseRequest
     public function messages()
     {
         return array_merge(parent::messages(), [
+            'password.regex'                        => ':attributeは半角英数字のみで入力して下さい。',
             'paid_leave_granted_days.regex'         => ":attributeは0.5刻みで入力して下さい。",
             'paid_leave_remaining_days.regex'       => ":attributeは0.5刻みで入力して下さい。",
             'paid_leave_used_days.regex'            => ":attributeは0.5刻みで入力して下さい。",

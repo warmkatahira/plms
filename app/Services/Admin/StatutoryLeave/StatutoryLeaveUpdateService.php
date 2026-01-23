@@ -61,7 +61,7 @@ class StatutoryLeaveUpdateService
             // インスタンス化
             $ImportErrorCreateService   = new ImportErrorCreateService;
             // エラー情報のファイルを作成
-            $error_file_name = $ImportErrorCreateService->createImportError('従業員取込エラー', $validation_error);
+            $error_file_name = $ImportErrorCreateService->createImportError(ImportEnum::IMPORT_PROCESS_STATUTORY_LEAVE . '取込エラー', $validation_error);
             throw new ImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_PROCESS_STATUTORY_LEAVE, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $import_original_file_name);
         }
         return compact('create_data', 'validation_error');
@@ -121,9 +121,6 @@ class StatutoryLeaveUpdateService
                 case 'employee_no':
                     $rules += ['*.'.$column => 'required|string|exists:users,employee_no'];
                     break;
-                case 'user_name':
-                    $rules += ['*.'.$column => 'required|string|max:20'];
-                    break;
                 case 'statutory_leave_days':
                 case 'statutory_leave_remaining_days':
                     $rules += [
@@ -147,7 +144,6 @@ class StatutoryLeaveUpdateService
         $messages = [
             'required'                      => ':attributeは必須です。',
             'employee_no.max'               => ':attribute（:input）は:max文字以内で入力して下さい。',
-            'user_name.max'                 => ':attribute（:input）は:max文字以内で入力して下さい。',
             'max'                           => ':attribute（:input）は:max以下で入力して下さい。',
             'min'                           => ':attribute（:input）は:min以上で入力して下さい。',
             'exists'                        => ':attribute（:input）はシステムに存在しません。',
@@ -158,7 +154,6 @@ class StatutoryLeaveUpdateService
         // バリデーションエラー項目を定義
         $attributes = [
             '*.employee_no'                                     => '社員CD',
-            '*.user_name'                                       => '社員名',
             '*.statutory_leave_expiration_date'                 => '義務の期限',
             '*.statutory_leave_days'                            => '義務の日数',
             '*.statutory_leave_remaining_days'                  => '義務の残日数',

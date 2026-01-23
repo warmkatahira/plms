@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('statutory_leave_imports', function (Blueprint $table) {
+        Schema::create('paid_leave_imports', function (Blueprint $table) {
             $table->increments('statutory_leave_import_id');
             $table->string('employee_no', 4);
-            $table->date('statutory_leave_expiration_date');
-            $table->decimal('statutory_leave_days', 4, 1);
-            $table->decimal('statutory_leave_remaining_days', 4, 1);
+            $table->decimal('paid_leave_granted_days', 4, 1);
+            $table->decimal('paid_leave_used_days', 4, 1);
+            $table->decimal('paid_leave_remaining_days', 4, 1);
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('statutory_leave_imports');
+        Schema::dropIfExists('paid_leave_imports');
     }
 };

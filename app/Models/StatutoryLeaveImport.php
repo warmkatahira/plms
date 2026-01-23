@@ -11,7 +11,6 @@ class StatutoryLeaveImport extends Model
     // 操作可能なカラムを定義
     protected $fillable = [
         'employee_no',
-        'user_name',
         'statutory_leave_expiration_date',
         'statutory_leave_days',
         'statutory_leave_remaining_days',

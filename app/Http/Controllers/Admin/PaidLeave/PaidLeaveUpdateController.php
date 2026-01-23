@@ -49,7 +49,7 @@ class PaidLeaveUpdateController extends Controller
                     $message = '更新できなかった従業員が存在します。';
                 }
                 // import_historiesテーブルへ追加
-                $ImportHistoryCreateService->createImportHistory($import_original_file_name, ImportEnum::IMPORT_PROCESS_STATUTORY_LEAVE, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $message);
+                $ImportHistoryCreateService->createImportHistory($import_original_file_name, ImportEnum::IMPORT_PROCESS_PAID_LEAVE, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $message);
             });
         } catch (ImportException $e) {
             // 渡された内容を取得

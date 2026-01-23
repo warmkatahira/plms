@@ -32,10 +32,17 @@ class PaidLeaveUpdateService
         // 配列をセット
         $create_data = [];
         // 取得したレコードの分だけループ
-        foreach ($all_line as $line){
+        foreach($all_line as $index => $line){
             // UTF-8形式に変換した1行分のデータを取得
             if($extension === 'csv'){
                 $line = mb_convert_encoding($line, 'UTF-8', 'ASCII, JIS, UTF-8, SJIS-win');
+            }
+            // indexを3で割った際の余りを取得
+            $pos = $index % 3;
+            // 余りが1か2の場合(1人 = 3行構成の内の2行目と3行目を意味する)
+            if($pos === 1 || $pos === 2){
+                // 次のループ処理へ
+                continue;
             }
             // 1行のデータを格納する配列をセット
             $param = [];
@@ -61,7 +68,7 @@ class PaidLeaveUpdateService
             // インスタンス化
             $ImportErrorCreateService   = new ImportErrorCreateService;
             // エラー情報のファイルを作成
-            $error_file_name = $ImportErrorCreateService->createImportError('従業員取込エラー', $validation_error);
+            $error_file_name = $ImportErrorCreateService->createImportError(ImportEnum::IMPORT_PROCESS_PAID_LEAVE.'取込エラー', $validation_error);
             throw new ImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_PROCESS_PAID_LEAVE, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $import_original_file_name);
         }
         return compact('create_data', 'validation_error');
@@ -75,32 +82,6 @@ class PaidLeaveUpdateService
             case '社員CD':
                 // シングルクォーテーションを取り除いている
                 $adjustment_value = str_replace(array("'"), "", $value);
-                break;
-            case '義務の期限':
-                if($value === '' || $value === null){
-                    $adjustment_value = null;
-                    break;
-                }
-                try {
-                    $date = null;
-                    if ($value instanceof \DateTimeInterface) {
-                        $date = CarbonImmutable::instance($value);
-                    } else {
-                        foreach (['Y/m/d', 'Y/n/j'] as $format) {
-                            try {
-                                $date = CarbonImmutable::createFromFormat($format, (string) $value);
-                                break; // 成功したら抜ける
-                            } catch (\Exception $e) {
-                                // 次のフォーマットへ
-                            }
-                        }
-                    }
-                    $adjustment_value = $date
-                        ? $date->format('Y/m/d')
-                        : $value; // 変換不可 → バリデーションへ
-                } catch (\Exception $e) {
-                    $adjustment_value = $value;
-                }
                 break;
             default:
                 // 何もしない
@@ -121,23 +102,18 @@ class PaidLeaveUpdateService
                 case 'employee_no':
                     $rules += ['*.'.$column => 'required|string|exists:users,employee_no'];
                     break;
-                case 'user_name':
-                    $rules += ['*.'.$column => 'required|string|max:20'];
-                    break;
-                case 'paid_leave_days':
+                case 'paid_leave_granted_days':
+                case 'paid_leave_used_days':
                 case 'paid_leave_remaining_days':
                     $rules += [
                         '*.' . $column => [
                             'required',
                             'numeric',
                             'min:0',
-                            'max:5',
+                            'max:20',
                             'regex:/^\d+(\.0|\.5)?$/'
                         ],
                     ];
-                    break;
-                case 'paid_leave_expiration_date':
-                    $rules += ['*.'.$column => 'required|date_format:Y/m/d'];
                     break;
                 default:
                     break;
@@ -147,21 +123,18 @@ class PaidLeaveUpdateService
         $messages = [
             'required'                      => ':attributeは必須です。',
             'employee_no.max'               => ':attribute（:input）は:max文字以内で入力して下さい。',
-            'user_name.max'                 => ':attribute（:input）は:max文字以内で入力して下さい。',
             'max'                           => ':attribute（:input）は:max以下で入力して下さい。',
             'min'                           => ':attribute（:input）は:min以上で入力して下さい。',
             'exists'                        => ':attribute（:input）はシステムに存在しません。',
             'numeric'                       => ':attribute（:input）は数値で入力して下さい。',
             'regex'                         => ':attribute（:input）は0.5刻みで入力して下さい。',
-            'date_format'                   => ':attribute（:input）はyyyy/mm/dd形式で入力して下さい。',
         ];
         // バリデーションエラー項目を定義
         $attributes = [
-            '*.employee_no'                                     => '社員CD',
-            '*.user_name'                                       => '社員名',
-            '*.paid_leave_expiration_date'                 => '義務の期限',
-            '*.paid_leave_days'                            => '義務の日数',
-            '*.paid_leave_remaining_days'                  => '義務の残日数',
+            '*.employee_no'                 => '社員CD',
+            '*.paid_leave_granted_days'     => '保有日数',
+            '*.paid_leave_used_days'        => '取得日数',
+            '*.paid_leave_remaining_days'   => '残日数',
         ];
         // バリデーション実施
         return $this->processValidation($params, $rules, $messages, $attributes);
@@ -198,7 +171,7 @@ class PaidLeaveUpdateService
         PaidLeaveImport::insert($create_data);
     }
 
-    // 義務情報を更新
+    // 有給情報を更新
     public function updatePaidLeave()
     {
         // 更新対象でステータスが無効の従業員情報を格納する配列を初期化
@@ -217,11 +190,31 @@ class PaidLeaveUpdateService
                 // 次のループ処理へ
                 continue;
             }
-            // 義務情報を更新
+            // 現在の取得日数を取得
+            $current_paid_leave_used_days = $employee->paid_leave->paid_leave_used_days;
+            // 有給情報を更新
             $employee->paid_leave->update([
-                'paid_leave_expiration_date'   => $paid_leave_import->paid_leave_expiration_date,
-                'paid_leave_days'              => $paid_leave_import->paid_leave_days,
-                'paid_leave_remaining_days'    => $paid_leave_import->paid_leave_remaining_days,
+                'paid_leave_granted_days'   => $paid_leave_import->paid_leave_granted_days,
+                'paid_leave_used_days'      => $paid_leave_import->paid_leave_used_days,
+                'paid_leave_remaining_days' => $paid_leave_import->paid_leave_remaining_days,
+            ]);
+            // 取得日数が更新前より増えていない場合(有給を取得していない場合)
+            if($paid_leave_import->paid_leave_used_days <= $current_paid_leave_used_days){
+                continue;
+            }
+            // 現在の義務の残日数を取得
+            $current_statutory_leave_remaining_days = $employee->statutory_leave->statutory_leave_remaining_days;
+            // 義務残日数自動更新が「有効」ではないまたは、義務の残日数が0の場合
+            if(!$employee->is_auto_update_statutory_leave_remaining_days || $current_statutory_leave_remaining_days == 0){
+                continue;
+            }
+            // 今回の更新によって増えている日数を取得
+            $used_days = $paid_leave_import->paid_leave_used_days - $current_paid_leave_used_days;
+            // 更新する義務の残日数を取得(0未満にならないようにしている)
+            $after_remaining = max(0, $current_statutory_leave_remaining_days - $used_days);
+            // 義務の残日数を更新
+            $employee->statutory_leave->update([
+                'statutory_leave_remaining_days' => $after_remaining,
             ]);
         }
         // 配列が空ではない場合
