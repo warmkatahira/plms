@@ -26,7 +26,7 @@ class OperationLogRecordMiddleware
             $logData = sprintf(
                 "User No: %s, User Name: %s, IP Address: %s, Method: %s, Path: %s, Params: %s",
                 Auth::user()->user_no,
-                Auth::user()->last_name . ' ' . Auth::user()->first_name,
+                Auth::user()->user_name,
                 $request->ip(),
                 $request->method(),
                 $request->path(),
