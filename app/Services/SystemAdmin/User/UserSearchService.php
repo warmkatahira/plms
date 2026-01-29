@@ -14,8 +14,8 @@ class UserSearchService
     {
         session()->forget([
             'search_status',
-            'search_base_id',
             'search_user_name',
+            'search_owned_vehicle',
         ]);
     }
 
@@ -31,8 +31,8 @@ class UserSearchService
         // 「search」なら検索が実行されているので、検索条件をセット
         if($request->search_type === 'search'){
             session(['search_status' => $request->search_status]);
-            session(['search_base_id' => $request->search_base_id]);
             session(['search_user_name' => $request->search_user_name]);
+            session(['search_owned_vehicle' => $request->search_owned_vehicle]);
         }
     }
 
@@ -40,22 +40,31 @@ class UserSearchService
     public function getSearchResult()
     {
         // クエリをセット
-        $query = User::with('base');
+        $query = User::with(['role', 'vehicles']);
         // ステータスの条件がある場合
         if(session('search_status') != null){
             // 条件を指定して取得
             $query = $query->where('status', session('search_status'));
         }
-        // 営業所IDの条件がある場合
-        if (session('search_base_id') != null) {
-            $query = $query->where('base_id', session('search_base_id'));
-        }
         // 氏名の条件がある場合
         if(session('search_user_name') != null){
             // 条件を指定して取得
-            $query = $query->where('user_name', 'LIKE', '%'.session('search_user_name').'%');
+            $query = $query->where(function ($q) {
+                $q->where('last_name', 'LIKE', '%' . session('search_user_name') . '%')
+                    ->orWhere('first_name', 'LIKE', '%' . session('search_user_name') . '%');
+            });
+        }
+        // 所有車両の条件がある場合
+        if(session('search_owned_vehicle') != null){
+            if(session('search_owned_vehicle')){
+                // 車両を1台以上持っているユーザー
+                $query = $query->whereHas('vehicles');
+            }else{
+                // 車両を持っていないユーザー
+                $query = $query->whereDoesntHave('vehicles');
+            }
         }
         // 並び替えを実施
-        return $query->orderBy('employee_no', 'asc');
+        return $query->orderBy('user_no', 'asc');
     }
 }

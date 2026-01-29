@@ -39,6 +39,11 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::Class, 'role_id', 'role_id');
     }
+    // vehiclesテーブルとのリレーション
+    public function vehicles()
+    {
+        return $this->hasMany(Vehicle::class, 'user_no', 'user_no');
+    }
     // 氏名を返すアクセサ
     public function getFullNameAttribute()
     {

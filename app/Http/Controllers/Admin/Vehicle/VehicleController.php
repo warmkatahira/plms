@@ -19,7 +19,7 @@ class VehicleController extends Controller
     public function index(Request $request)
     {
         // ページヘッダーをセッションに格納
-        session(['page_header' => '車両一覧']);
+        session(['page_header' => '車両']);
         // インスタンス化
         $VehicleSearchService = new VehicleSearchService;
         // セッションを削除

@@ -12,7 +12,7 @@
                 <x-navigation-btn label="管理" icon="las la-users-cog" openCloseKey="system_admin" />
                 <div class="navigation-content hidden">
                     @can('admin_check')
-                        <x-navigation-btn route="vehicle.index" label="車両一覧" isLeftMargin="true" isRightMargin="true" />
+                        <x-navigation-btn route="vehicle.index" label="車両" isLeftMargin="true" isRightMargin="true" />
                     @endcan
                 </div>
             </div>
