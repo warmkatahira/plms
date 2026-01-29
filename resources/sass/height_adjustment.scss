@@ -3,28 +3,10 @@
     display: none;
 }
 
-// 従業員のリスト用
-.employee_list {
-    width: 100%;
-    height: calc(100vh - 125px);
-}
-
-// 取込履歴のリスト用
-.vehicle_list {
-    width: 100%;
-    height: calc(100vh - 125px);
-}
-
 // 権限のリスト用
 .role_list {
     width: 100%;
     height: calc(100vh - 80px);
-}
-
-// 営業所のリスト用
-.base_list {
-    width: 100%;
-    height: calc(100vh - 125px);
 }
 
 // ユーザーのリスト用
@@ -33,8 +15,8 @@
     height: calc(100vh - 125px);
 }
 
-// 勤務時間数のリスト用
-.working_hour_list {
+// 車両のリスト用
+.vehicle_list {
     width: 100%;
     height: calc(100vh - 125px);
 }

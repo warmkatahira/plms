@@ -14,12 +14,12 @@ class RoleController extends Controller
         // ページヘッダーをセッションに格納
         session(['page_header' => '権限']);
         // 権限を取得(ユーザーのステータスがtrueのレコード数も取得)
-        $roles = Role::getAll()
-                    ->withCount([
+        $roles = Role::withCount([
                         'users as active_users_count' => function ($query) {
                             $query->where('status', true);
                         }
                     ])
+                    ->orderBy('sort_order', 'asc')
                     ->get();
         return view('system_admin.role.index')->with([
             'roles' => $roles,

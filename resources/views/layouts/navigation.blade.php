@@ -25,14 +25,8 @@
                     @can('system_admin_check')
                         <x-navigation-btn route="role.index" label="権限" isLeftMargin="true" isRightMargin="true" />
                     @endcan
-                    @can('admin_check')
-                        <x-navigation-btn route="base.index" label="営業所" isLeftMargin="true" isRightMargin="true" />
-                    @endcan
                     @can('system_admin_check')
                         <x-navigation-btn route="user.index" label="ユーザー" isLeftMargin="true" isRightMargin="true" />
-                    @endcan
-                    @can('admin_check')
-                        <x-navigation-btn route="working_hour.index" label="勤務時間数" isLeftMargin="true" isRightMargin="true" />
                     @endcan
                     @can('system_admin_check')
                         <x-navigation-btn route="operation_log.index" label="操作ログ" isLeftMargin="true" isRightMargin="true" />
