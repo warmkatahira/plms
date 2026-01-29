@@ -13,4 +13,9 @@ class VehicleType extends Model
         'vehicle_type',
         'sort_order',
     ];
+    // 並び替えて取得
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('sort_order', 'asc');
+    }
 }

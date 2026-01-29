@@ -17,6 +17,8 @@ class VehicleSearchService
     {
         session()->forget([
             'search_is_active',
+            'search_vehicle_type_id',
+            'search_vehicle_category_id',
         ]);
     }
 
@@ -32,6 +34,8 @@ class VehicleSearchService
         // 「search」なら検索が実行されているので、検索条件をセット
         if($request->search_type === 'search'){
             session(['search_is_active' => $request->search_is_active]);
+            session(['search_vehicle_type_id' => $request->search_vehicle_type_id]);
+            session(['search_vehicle_category_id' => $request->search_vehicle_category_id]);
         }
     }
 
@@ -44,6 +48,16 @@ class VehicleSearchService
         if(session('search_is_active') != null){
             // 条件を指定して取得
             $query = $query->where('is_active', session('search_is_active'));
+        }
+        // 車両区分の条件がある場合
+        if(session('search_vehicle_type_id') != null){
+            // 条件を指定して取得
+            $query = $query->where('vehicle_type_id', session('search_vehicle_type_id'));
+        }
+        // 車両種別の条件がある場合
+        if(session('search_vehicle_category_id') != null){
+            // 条件を指定して取得
+            $query = $query->where('vehicle_category_id', session('search_vehicle_category_id'));
         }
         // 並び替えを実施
         return $query->orderBy('vehicle_id', 'asc');

@@ -25,7 +25,6 @@ export default defineConfig({
                 // 認証
                 'resources/js/auth/register.js',
                 // 管理
-                'resources/js/admin/employee/employee.js',
                 // システム管理
                 'resources/js/system_admin/user/user.js',
                 // プロフィール

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 // モデル
 use App\Models\User;
 use App\Models\Role;
-use App\Models\Base;
 // サービス
 use App\Services\SystemAdmin\User\UserCreateService;
 // リクエスト

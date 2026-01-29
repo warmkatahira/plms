@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // モデル
 use App\Models\User;
-use App\Models\Base;
+use App\Models\VehicleType;
+use App\Models\VehicleCategory;
 // サービス
 use App\Services\Admin\Vehicle\VehicleSearchService;
 // トレイト
@@ -30,8 +31,14 @@ class VehicleController extends Controller
         $result = $VehicleSearchService->getSearchResult();
         // ページネーションを実施
         $vehicles = $this->setPagination($result);
+        // 車両区分を取得
+        $vehicle_types = VehicleType::ordered()->get();
+        // 車両種別を取得
+        $vehicle_categories = VehicleCategory::ordered()->get();
         return view('admin.vehicle.index')->with([
             'vehicles' => $vehicles,
+            'vehicle_types' => $vehicle_types,
+            'vehicle_categories' => $vehicle_categories,
         ]);
     }
 }

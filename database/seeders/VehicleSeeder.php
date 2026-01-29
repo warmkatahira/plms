@@ -30,7 +30,7 @@ class VehicleSeeder extends Seeder
             'vehicle_color'         => 'オレンジ',
             'vehicle_number'        => '2021',
             'vehicle_capacity'      => 5,
-            'vehicle_memo'          => '',
+            'vehicle_memo'          => '本社管理',
         ]);
         Vehicle::create([
             'user_no'               => 1,
