@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('vehicle_number', 4);
             $table->unsignedTinyInteger('vehicle_capacity');
             $table->string('vehicle_memo', 50)->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
             // 外部キー
             $table->foreign('user_no')->references('user_no')->on('users')->cascadeOnUpdate();

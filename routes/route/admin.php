@@ -10,14 +10,8 @@ use App\Http\Controllers\Admin\Employee\EmployeeDownloadController;
 use App\Http\Controllers\Admin\Employee\EmployeeCreateController;
 // +-+-+-+-+-+-+-+- 従業員更新 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Admin\Employee\EmployeeUpdateController;
-// +-+-+-+-+-+-+-+- 義務情報更新 +-+-+-+-+-+-+-+-
-use App\Http\Controllers\Admin\StatutoryLeave\StatutoryLeaveUpdateController;
-// +-+-+-+-+-+-+-+- 有給情報更新 +-+-+-+-+-+-+-+-
-use App\Http\Controllers\Admin\PaidLeave\PaidLeaveUpdateController;
-// +-+-+-+-+-+-+-+- その他情報更新 +-+-+-+-+-+-+-+-
-use App\Http\Controllers\Admin\Other\OtherUpdateController;
 // +-+-+-+-+-+-+-+- 取込履歴 +-+-+-+-+-+-+-+-
-use App\Http\Controllers\Admin\ImportHistory\ImportHistoryController;
+use App\Http\Controllers\Admin\Vehicle\VehicleController;
 
 Route::middleware('common')->group(function (){
     Route::middleware(['base_admin_check'])->group(function () {
@@ -41,23 +35,11 @@ Route::middleware('common')->group(function (){
                 Route::get('', 'index')->name('index');
                 Route::post('update', 'update')->name('update');
             });
-            // +-+-+-+-+-+-+-+- 義務情報更新 +-+-+-+-+-+-+-+-
-            Route::controller(StatutoryLeaveUpdateController::class)->prefix('statutory_leave_update')->name('statutory_leave_update.')->group(function(){
-                Route::post('import', 'import')->name('import');
-            });
-            // +-+-+-+-+-+-+-+- 有給情報更新 +-+-+-+-+-+-+-+-
-            Route::controller(PaidLeaveUpdateController::class)->prefix('paid_leave_update')->name('paid_leave_update.')->group(function(){
-                Route::post('import', 'import')->name('import');
-            });
-            // +-+-+-+-+-+-+-+- その他情報更新 +-+-+-+-+-+-+-+-
-            Route::controller(OtherUpdateController::class)->prefix('other_update')->name('other_update.')->group(function(){
-                Route::post('import', 'import')->name('import');
-            });
         });
     });
     Route::middleware(['admin_check'])->group(function () {
-        // +-+-+-+-+-+-+-+- 取込履歴 +-+-+-+-+-+-+-+-
-        Route::controller(ImportHistoryController::class)->prefix('import_history')->name('import_history.')->group(function(){
+        // +-+-+-+-+-+-+-+- 車両一覧 +-+-+-+-+-+-+-+-
+        Route::controller(VehicleController::class)->prefix('vehicle')->name('vehicle.')->group(function(){
             Route::get('', 'index')->name('index');
         });
     });

@@ -11,9 +11,8 @@
              <div class="flex flex-col gap-0.5">
                 <x-navigation-btn label="管理" icon="las la-users-cog" openCloseKey="system_admin" />
                 <div class="navigation-content hidden">
-                    <x-navigation-btn route="import_history.index" label="従業員一覧" isLeftMargin="true" isRightMargin="true" />
                     @can('admin_check')
-                        <x-navigation-btn route="import_history.index" label="取込履歴" isLeftMargin="true" isRightMargin="true" />
+                        <x-navigation-btn route="vehicle.index" label="車両一覧" isLeftMargin="true" isRightMargin="true" />
                     @endcan
                 </div>
             </div>
