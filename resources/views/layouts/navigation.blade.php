@@ -1,7 +1,7 @@
 <div id="navigation-bar">
     <div id="navigation_top_div" class="flex flex-col sticky top-0 z-[999] bg-theme-sub">
         <!-- ロゴ -->
-        <img id="logo" src="{{ asset('image/calendar.svg') }}">
+        <img id="logo" src="{{ asset('image/norunavi_logo_horizontal.svg') }}">
         <!-- 顧客名 -->
         <p class="text-center pt-2 cursor-default">{{ SystemEnum::CUSTOMER_NAME_JP }}</p>
         <!-- システム名 -->
@@ -15,7 +15,7 @@
              <div class="flex flex-col gap-0.5">
                 <x-navigation-btn label="管理" icon="las la-users-cog" openCloseKey="system_admin" />
                 <div class="navigation-content hidden">
-                    <x-navigation-btn route="employee.index" label="従業員一覧" isLeftMargin="true" isRightMargin="true" />
+                    <x-navigation-btn route="import_history.index" label="従業員一覧" isLeftMargin="true" isRightMargin="true" />
                     @can('admin_check')
                         <x-navigation-btn route="import_history.index" label="取込履歴" isLeftMargin="true" isRightMargin="true" />
                     @endcan

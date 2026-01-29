@@ -57,6 +57,7 @@
 
 .navigation-btn-div > a:hover,
 .navigation-btn-div > p:hover {
+    color: white;
     background-color: color.$main;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
@@ -71,7 +72,7 @@
 }
 #logo {
     cursor: default;
-    width: 60px;
+    width: 80px;
 }
 
 /*  アイコン用  */

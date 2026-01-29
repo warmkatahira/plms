@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-B7gH20gB.css",
+    "file": "assets/app-DRA_1zWM.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -115,7 +115,7 @@
     "isEntry": true
   },
   "resources/sass/dropdown.scss": {
-    "file": "assets/dropdown-Btmm3snA.css",
+    "file": "assets/dropdown-e02BljP7.css",
     "src": "resources/sass/dropdown.scss",
     "isEntry": true
   },
@@ -130,7 +130,7 @@
     "isEntry": true
   },
   "resources/sass/navigation.scss": {
-    "file": "assets/navigation-k583uMTY.css",
+    "file": "assets/navigation-DjgP34ZA.css",
     "src": "resources/sass/navigation.scss",
     "isEntry": true
   },
@@ -150,7 +150,7 @@
     "isEntry": true
   },
   "resources/sass/welcome.scss": {
-    "file": "assets/welcome-B1j0PQwc.css",
+    "file": "assets/welcome-BMzhljxz.css",
     "src": "resources/sass/welcome.scss",
     "isEntry": true
   }
