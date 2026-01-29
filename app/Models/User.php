@@ -39,6 +39,11 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::Class, 'role_id', 'role_id');
     }
+    // 氏名を返すアクセサ
+    public function getFullNameAttribute()
+    {
+        return $this->last_name . ' '. $this->first_name;
+    }
 
     /**
      * The attributes that should be hidden for serialization.

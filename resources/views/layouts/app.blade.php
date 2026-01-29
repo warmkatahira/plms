@@ -78,7 +78,7 @@
                 <!-- ページヘッダー -->
                 <x-page-header />
                 <!-- プロフィール -->
-                <a class="btn tippy_profile ml-auto" href="{{ route('profile.index') }}" data-full-name="{{ Auth::user()->user_name }}">
+                <a class="btn tippy_profile ml-auto" href="{{ route('profile.index') }}" data-full-name="{{ Auth::user()->last_name .' '. Auth::user()->first_name  }}">
                     <img id="profile" class="profile_image_navigation" src="{{ asset('storage/profile_images/' . Auth::user()->profile_image_file_name) }}">
                 </a>
             </div>
