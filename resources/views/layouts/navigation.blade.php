@@ -2,10 +2,6 @@
     <div id="navigation_top_div" class="flex flex-col sticky top-0 z-[999] bg-theme-sub">
         <!-- ロゴ -->
         <img id="logo" src="{{ asset('image/norunavi_logo_horizontal.svg') }}">
-        <!-- 顧客名 -->
-        <p class="text-center pt-2 cursor-default">{{ SystemEnum::CUSTOMER_NAME_JP }}</p>
-        <!-- システム名 -->
-        <p class="text-center cursor-default">{{ SystemEnum::SYSTEM_NAME_JP }}</p>
     </div>
     <div class="flex flex-col gap-3 pt-7 pl-5">
         <!-- ダッシュボード -->
