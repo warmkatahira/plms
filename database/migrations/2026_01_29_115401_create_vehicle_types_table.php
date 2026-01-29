@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('working_hours', function (Blueprint $table) {
-            $table->increments('working_hour_id');
-            $table->string('working_type', 5);
-            $table->decimal('working_hour', 4, 2);
+        Schema::create('vehicle_types', function (Blueprint $table) {
+            $table->increments('vehicle_type_id');
+            $table->string('vehicle_type', 10)->unique();
+            $table->unsignedTinyInteger('sort_order')->default(100);
             $table->timestamps();
-            // 複合UNIQUE制約
-            $table->unique(['working_type', 'working_hour'], 'working_hours_type_hour_unique');
         });
     }
 
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('working_hours');
+        Schema::dropIfExists('vehicle_types');
     }
 };

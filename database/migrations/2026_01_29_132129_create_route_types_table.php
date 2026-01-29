@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table){
-            $table->string('role_id', 20)->primary();
-            $table->string('role_name', 20);
-            $table->unsignedInteger('sort_order')->default(100);
+        Schema::create('route_types', function (Blueprint $table) {
+            $table->increments('route_type_id');
+            $table->string('route_type', 10)->unique();
+            $table->unsignedTinyInteger('sort_order')->default(100);
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('route_types');
     }
 };

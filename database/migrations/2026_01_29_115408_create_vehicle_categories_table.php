@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bases', function (Blueprint $table){
-            $table->string('base_id', 10)->primary();
-            $table->string('base_name', 20)->unique();
-            $table->string('short_base_name', 10)->unique();
-            $table->unsignedInteger('sort_order')->default(100);
+        Schema::create('vehicle_categories', function (Blueprint $table) {
+            $table->increments('vehicle_category_id');
+            $table->string('vehicle_category', 10)->unique();
+            $table->unsignedTinyInteger('sort_order')->default(100);
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bases');
+        Schema::dropIfExists('vehicle_categories');
     }
 };

@@ -16,13 +16,11 @@ class UserSeeder extends Seeder
     {
         User::create([
             'user_id'               => 'katahira',
-            'employee_no'           => '0134',
-            'user_name'             => '片平 貴順',
-            'email'                 => 't.katahira@warm.co.jp',
+            'last_name'             => '片平',
+            'first_name'            => '貴順',
             'password'              => bcrypt('katahira134'),
-            'status'                => true,
             'role_id'               => 'system_admin',
-            'base_id'               => 'honsha',
+            'chatwork_id'           => '3281641',
             'must_change_password'  => false,
         ]);
         User::factory()->count(20)->create();

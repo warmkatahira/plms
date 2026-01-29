@@ -14,15 +14,14 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table){
             $table->increments('user_no');
             $table->string('user_id', 20)->unique();
-            $table->string('employee_no', 4);
-            $table->string('user_name', 20)->nullable();
+            $table->string('last_name', 10);
+            $table->string('first_name', 10);
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 255);
-            $table->boolean('status')->default(false);
-            $table->boolean('is_auto_update_statutory_leave_remaining_days')->default(false);
-            $table->string('role_id', 20)->default('user');
-            $table->string('base_id', 10);
+            $table->boolean('status')->default(true);
+            $table->string('role_id', 20);
+            $table->string('chatwork_id', 10)->nullable();
             $table->string('profile_image_file_name', 50)->default('no_image.png');
             $table->boolean('must_change_password')->default(true);
             $table->timestamp('last_login_at')->nullable();
@@ -30,7 +29,6 @@ return new class extends Migration
             $table->timestamps();
             // 外部キー
             $table->foreign('role_id')->references('role_id')->on('roles')->cascadeOnUpdate();
-            $table->foreign('base_id')->references('base_id')->on('bases')->cascadeOnUpdate();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table){

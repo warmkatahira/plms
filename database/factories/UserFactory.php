@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 // モデル
 use App\Models\User;
-use App\Models\Base;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -28,12 +27,10 @@ class UserFactory extends Factory
     {
         return [
             'user_id'               => $this->faker->unique()->userName(),
-            'employee_no'           => $this->faker->numberBetween(1000, 9999),
-            'user_name'             => $this->faker->name('ja_JP'),
+            'last_name'             => $this->faker->lastName('ja_JP'),
+            'first_name'            => $this->faker->firstName('ja_JP'),
             'password'              => bcrypt('password'),
-            'status'                => true,
-            'role_id'               => 'user',
-            'base_id'               => Base::inRandomOrder()->value('base_id'),
+            'role_id'               => 'part',
             'must_change_password'  => false,
         ];
     }

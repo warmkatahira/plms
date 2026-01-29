@@ -16,11 +16,6 @@ class Role extends Model
         'role_name',
         'sort_order',
     ];
-    // 全てのレコードを取得
-    public static function getAll()
-    {
-        return self::orderBy('sort_order', 'asc');
-    }
     // usersテーブルとのリレーション
     public function users()
     {

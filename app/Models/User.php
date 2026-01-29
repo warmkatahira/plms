@@ -24,81 +24,20 @@ class User extends Authenticatable
     // 操作可能なカラムを定義
     protected $fillable = [
         'user_id',
-        'employee_no',
-        'user_name',
-        'email',
+        'last_name',
+        'first_name',
         'password',
         'status',
-        'is_auto_update_statutory_leave_remaining_days',
         'role_id',
-        'base_id',
+        'chatwork_id',
         'profile_image_file_name',
         'must_change_password',
         'last_login_at',
     ];
-    // 全てのレコードを取得
-    public static function getAll()
-    {
-        return self::orderBy('user_no', 'asc');
-    }
     // rolesテーブルとのリレーション
     public function role()
     {
         return $this->belongsTo(Role::Class, 'role_id', 'role_id');
-    }
-    // basesテーブルとのリレーション
-    public function base()
-    {
-        return $this->belongsTo(Base::Class, 'base_id', 'base_id');
-    }
-    // paid_leavesテーブルとのリレーション
-    public function paid_leave()
-    {
-        return $this->hasOne(PaidLeave::Class, 'user_no', 'user_no');
-    }
-    // statutory_leavesテーブルとのリレーション
-    public function statutory_leave()
-    {
-        return $this->hasOne(StatutoryLeave::Class, 'user_no', 'user_no');
-    }
-    // 「status」に基づいて、有効 or 無効を返すアクセサ
-    public function getStatusTextAttribute(): string
-    {
-        return $this->status ? '有効' : '無効';
-    }
-    // 「is_auto_update_statutory_leave_remaining_days」に基づいて、有効 or 無効を返すアクセサ
-    public function getIsAutoUpdateStatutoryLeaveRemainingDaysTextAttribute(): string
-    {
-        return $this->is_auto_update_statutory_leave_remaining_days ? '有効' : '無効';
-    }
-    // パスワードリセットの通知をカスタマイズ
-    public function sendPasswordResetNotification($token)
-    {
-        $url = url("reset-password/{$token}");
-        $this->notify(new UserResetPasswordNotification($url));
-    }
-    // ダウンロード時のヘッダーを定義
-    public static function downloadHeader()
-    {
-        return [
-            'ステータス',
-            '省略営業所名',
-            '営業所名',
-            '社員CD',
-            '社員名',
-            'ID',
-            'パスワード',
-            '保有日数',
-            '残日数',
-            '取得日数',
-            '1日あたりの時間数',
-            '半日あたりの時間数',
-            '義務残日数自動更新',
-            '義務の期限',
-            '義務の日数',
-            '義務の残日数',
-            '最終更新日時',
-        ];
     }
 
     /**

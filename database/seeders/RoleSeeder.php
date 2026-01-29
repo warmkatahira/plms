@@ -25,13 +25,13 @@ class RoleSeeder extends Seeder
             'sort_order'    => 2,
         ]);
         Role::create([
-            'role_id'       => 'base_admin',
-            'role_name'     => '所長',
+            'role_id'       => 'employee',
+            'role_name'     => '社員',
             'sort_order'    => 3,
         ]);
         Role::create([
-            'role_id'       => 'user',
-            'role_name'     => '一般',
+            'role_id'       => 'part',
+            'role_name'     => 'パート',
             'sort_order'    => 4,
         ]);
     }

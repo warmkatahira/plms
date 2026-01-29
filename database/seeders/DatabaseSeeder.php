@@ -15,11 +15,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RoleSeeder::class,
-            BaseSeeder::class,
             UserSeeder::class,
-            PaidLeaveSeeder::class,
-            StatutoryLeaveSeeder::class,
-            WorkingHourSeeder::class,
+            VehicleTypeSeeder::class,
+            VehicleCategorySeeder::class,
+            VehicleSeeder::class,
+            RouteTypeSeeder::class,
         ]);
     }
 }
