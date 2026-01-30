@@ -15,4 +15,9 @@ class BoardingLocation extends Model
         'is_active',
         'sort_order',
     ];
+    // 主キーで検索するスコープ
+    public function scopeByPk($query, $id)
+    {
+        return $query->whereKey($id);
+    }
 }

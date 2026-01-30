@@ -32,7 +32,7 @@ class BoardingLocationUpdateRequest extends BaseRequest
     {
         return [
             'boarding_location_id'  => 'required|exists:boarding_locations,boarding_location_id',
-            'location_name'         => 'required|string|max:10|unique:boarding_locations,location_name',
+            'location_name'         => 'required|string|max:10|unique:boarding_locations,location_name,'.$this->boarding_location_id.',boarding_location_id',
             'location_memo'         => 'nullable|string|max:50',
             'is_active'             => 'required|boolean',
             'sort_order'            => 'required|integer|min:1|max:200',

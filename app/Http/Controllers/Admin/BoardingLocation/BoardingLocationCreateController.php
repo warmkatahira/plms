@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // モデル
 use App\Models\User;
-use App\Models\BoardingLocationType;
-use App\Models\BoardingLocationCategory;
 // 列挙
 use App\Enums\RoleEnum;
 // サービス
@@ -22,17 +20,8 @@ class BoardingLocationCreateController extends Controller
     public function index(Request $request)
     {
         // ページヘッダーをセッションに格納
-        session(['page_header' => '車両追加']);
-        // ユーザーを取得
-        $users = User::where('role_id', '!=', RoleEnum::PART)->get();
-        // 車両区分を取得
-        $vehicle_types = BoardingLocationType::ordered()->get();
-        // 車両種別を取得
-        $vehicle_categories = BoardingLocationCategory::ordered()->get();
-        return view('admin.vehicle.create')->with([
-            'users' => $users,
-            'vehicle_types' => $vehicle_types,
-            'vehicle_categories' => $vehicle_categories,
+        session(['page_header' => '乗降場所追加']);
+        return view('admin.boarding_location.create')->with([
         ]);
     }
 
@@ -42,7 +31,7 @@ class BoardingLocationCreateController extends Controller
             DB::transaction(function () use ($request){
                 // インスタンス化
                 $BoardingLocationCreateService = new BoardingLocationCreateService;
-                // 車両を追加
+                // 乗降場所を追加
                 $BoardingLocationCreateService->createBoardingLocation($request);
             });
         } catch (\Exception $e){
@@ -53,7 +42,7 @@ class BoardingLocationCreateController extends Controller
         }
         return redirect(session('back_url_1'))->with([
             'alert_type' => 'success',
-            'alert_message' => '車両を追加しました。',
+            'alert_message' => '乗降場所を追加しました。',
         ]);
     }
 }

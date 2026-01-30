@@ -1,0 +1,1 @@
+import{s as o}from"./loading-CLXJ3Lsj.js";$("#boarding_location_create_enter").on("click",function(){window.confirm("乗降場所追加を実行しますか？")===!0&&(o(),$("#boarding_location_form").submit())});$("#boarding_location_update_enter").on("click",function(){window.confirm("乗降場所更新を実行しますか？")===!0&&(o(),$("#boarding_location_form").submit())});

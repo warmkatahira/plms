@@ -4,6 +4,15 @@
     "src": "resources/css/app.css",
     "isEntry": true
   },
+  "resources/js/admin/boarding_location/boarding_location.js": {
+    "file": "assets/boarding_location-CCIcCVUh.js",
+    "name": "boarding_location",
+    "src": "resources/js/admin/boarding_location/boarding_location.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/loading.js"
+    ]
+  },
   "resources/js/admin/vehicle/vehicle.js": {
     "file": "assets/vehicle-B-Qx-4_R.js",
     "name": "vehicle",
@@ -102,7 +111,7 @@
     "isEntry": true
   },
   "resources/sass/height_adjustment.scss": {
-    "file": "assets/height_adjustment-CV2XtsCw.css",
+    "file": "assets/height_adjustment-BOcEtKEH.css",
     "src": "resources/sass/height_adjustment.scss",
     "isEntry": true
   },

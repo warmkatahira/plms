@@ -7,6 +7,7 @@
                     <th class="font-thin py-1 px-2 text-center">利用可否</th>
                     <th class="font-thin py-1 px-2 text-center">場所名</th>
                     <th class="font-thin py-1 px-2 text-center">場所メモ</th>
+                    <th class="font-thin py-1 px-2 text-center">並び順</th>
                     <th class="font-thin py-1 px-2 text-center">最終更新日時</th>
                 </tr>
             </thead>
@@ -23,6 +24,7 @@
                         </td>
                         <td class="py-1 px-2 border">{{ $boarding_location->location_name }}</td>
                         <td class="py-1 px-2 border">{{ $boarding_location->location_memo }}</td>
+                        <td class="py-1 px-2 border text-right">{{ number_format($boarding_location->sort_order) }}</td>
                         <td class="py-1 px-2 border">{{ CarbonImmutable::parse($boarding_location->updated_at)->isoFormat('YYYY年MM月DD日(ddd) HH時mm分ss秒').'('.CarbonImmutable::parse($boarding_location->updated_at)->diffForHumans().')' }}</td>
                     </tr>
                 @endforeach
