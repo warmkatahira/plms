@@ -24,7 +24,9 @@
                                 <a href="{{ route('vehicle_update.index', ['vehicle_id' => $vehicle->vehicle_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">更新</a>
                             </div>
                         </td>
-                        <td class="py-1 px-2 border text-center">{{ $vehicle->is_active_text }}</td>
+                        <td class="py-1 px-2 border text-center">
+                            <x-list.status :value="$vehicle->is_active" label1="利用可" label0="利用不可" />
+                        </td>
                         <td class="py-1 px-2 border text-center">{{ $vehicle->vehicle_type->vehicle_type }}</td>
                         <td class="py-1 px-2 border text-center">{{ $vehicle->vehicle_category->vehicle_category }}</td>
                         <td class="py-1 px-2 border text-center">{{ $vehicle->owner }}</td>

@@ -130,7 +130,6 @@ return [
         'CarbonImmutable'           => Carbon\CarbonImmutable::class,
         'SystemEnum'                => App\Enums\SystemEnum::class,
         'RoleEnum'                  => App\Enums\RoleEnum::class,
-        'WorkingHourEnum'           => App\Enums\WorkingHourEnum::class,
         'PDF'                       => Barryvdh\DomPDF\Facade::class,
         'DNS1D'                     => Milon\Barcode\Facades\DNS1DFacade::class, // barcode
         'DNS2D'                     => Milon\Barcode\Facades\DNS2DFacade::class, // barcode

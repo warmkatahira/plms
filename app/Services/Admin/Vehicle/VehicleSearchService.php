@@ -6,6 +6,7 @@ namespace App\Services\Admin\Vehicle;
 use App\Models\Vehicle;
 // 列挙
 use App\Enums\RoleEnum;
+use App\Enums\VehicleEnum;
 // その他
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -63,8 +64,14 @@ class VehicleSearchService
         }
         // 送迎可能人数の条件がある場合
         if(session('search_vehicle_capacity') != null){
-            // 条件を指定して取得
-            $query = $query->where('vehicle_capacity', '>=', session('search_vehicle_capacity'));
+            // 「4人以下」の場合
+            if(session('search_vehicle_capacity') == VehicleEnum::VEHICLE_CAPACITY_4){
+                $query = $query->where('vehicle_capacity', '<=', 4);
+            }
+            // 「5人以上」の場合
+            if(session('search_vehicle_capacity') == VehicleEnum::VEHICLE_CAPACITY_5){
+                $query = $query->where('vehicle_capacity', '>=', 5);
+            }
         }
         // 並び替えを実施
         return $query->orderBy('vehicle_id', 'asc');

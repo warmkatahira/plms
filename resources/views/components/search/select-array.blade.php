@@ -2,12 +2,7 @@
     'label',
     'id',
     'name',
-    'required' => null,
     'items',
-    'optionValue',
-    'optionText',
-    'value',
-    'item',
 ])
 
 <div class="flex flex-col">
@@ -15,7 +10,7 @@
     <select id="{{ $id }}" name="{{ $name }}" class="search_element rounded border-gray-400 text-xs">
         <option value=""></option>
         @foreach($items as $key => $item)
-            <option value="{{ $key }}" @if(session($id) === $key) selected @endif>{{ $item }}</option>
+            <option value="{{ $key }}" @selected((string)session($id) === (string)$key)>{{ $item }}</option>
         @endforeach
     </select>
 </div>

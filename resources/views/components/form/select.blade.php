@@ -20,7 +20,7 @@
     <select id="{{ $id }}" name="{{ $name }}" class="w-full text-sm border border-gray-400">
         <option value=""></option>
         @foreach($items as $item)
-            <option value="{{ $item->$optionValue }}" @if((string) old($id, $value) === (string) $item->$optionValue) selected @endif>{{ $item->$optionText }}</option>
+            <option value="{{ $item->$optionValue }}" @selected((string)old($id, $value) === (string)$item->$optionValue)>{{ $item->$optionText }}</option>
         @endforeach
     </select>
 </div>

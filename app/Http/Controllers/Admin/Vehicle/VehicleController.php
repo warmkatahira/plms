@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\VehicleType;
 use App\Models\VehicleCategory;
+// 列挙
+use App\Enums\VehicleEnum;
 // サービス
 use App\Services\Admin\Vehicle\VehicleSearchService;
 // トレイト
@@ -35,10 +37,13 @@ class VehicleController extends Controller
         $vehicle_types = VehicleType::ordered()->get();
         // 車両種別を取得
         $vehicle_categories = VehicleCategory::ordered()->get();
+        // 送迎可能人数の検索条件を取得
+        $vehicle_capacity_conditions = VehicleEnum::VEHICLE_CAPACITY_CONDITION_LIST;
         return view('admin.vehicle.index')->with([
             'vehicles' => $vehicles,
             'vehicle_types' => $vehicle_types,
             'vehicle_categories' => $vehicle_categories,
+            'vehicle_capacity_conditions' => $vehicle_capacity_conditions,
         ]);
     }
 }

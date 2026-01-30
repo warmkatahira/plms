@@ -17,7 +17,7 @@
     </label>
     <select id="{{ $id }}" name="{{ $name }}" class="w-full text-sm border border-gray-400">
         <option value=""></option>
-        <option value="1" @if((string) old($name, $value) === '1') selected @endif>{{ $label1 }}</option>
-        <option value="0" @if((string) old($name, $value) === '0') selected @endif>{{ $label0 }}</option>
+        <option value="1" @selected((string)old($name, $value) === '1')>{{ $label1 }}</option>
+        <option value="0" @selected((string)old($name, $value) === '0')>{{ $label0 }}</option>
     </select>
 </div>
