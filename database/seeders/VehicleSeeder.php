@@ -21,7 +21,7 @@ class VehicleSeeder extends Seeder
             'vehicle_color'         => '白',
             'vehicle_number'        => '2025',
             'vehicle_capacity'      => 15,
-            'vehicle_memo'          => '',
+            'vehicle_memo'          => null,
         ]);
         Vehicle::create([
             'vehicle_type_id'       => 1,
@@ -40,7 +40,7 @@ class VehicleSeeder extends Seeder
             'vehicle_color'         => 'シルバー',
             'vehicle_number'        => '4319',
             'vehicle_capacity'      => 2,
-            'vehicle_memo'          => '',
+            'vehicle_memo'          => null,
         ]);
     }
 }

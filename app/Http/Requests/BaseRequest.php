@@ -18,7 +18,7 @@ class BaseRequest extends FormRequest
             'mimes'                             => ":attributeは:values形式のみ許可されています。",
             'boolean'                           => ":attributeが正しくありません。",
             'exists'                            => ":attributeがシステムに存在しません。",
-            'integer'                           => ":attributeは数値で入力して下さい。",
+            'integer'                           => ":attributeは数値(整数)で入力して下さい。",
             'email'                             => "有効なメールアドレスを入力して下さい。",
             'unique'                            => ":attributeは既に使用されています。",
             'confirmed'                         => ":attributeが確認用と一致しません。",
@@ -36,30 +36,23 @@ class BaseRequest extends FormRequest
         return [
             // 共通
             'sort_order'            => '並び順',
-            // 営業所情報
-            'base_id'               => '営業所ID',
-            'base_name'             => '営業所名',
-            'short_base_name'       => '省略営業所名',
+            // 車両
+            'vehicle_id'            => '車両',
+            'vehicle_type_id'       => '車両区分',
+            'vehicle_category_id'   => '車両種別',
+            'vehicle_name'          => '車両名',
+            'vehicle_color'         => '車両色',
+            'vehicle_number'        => '車両ナンバー',
+            'vehicle_capacity'      => '送迎可能人数',
+            'vehicle_memo'          => '車両メモ',
+            'owner'                 => '所有者',
             // ユーザー情報
-            'user_id'                                       => 'ユーザーID',
-            'employee_no'                                   => '従業員番号',
-            'user_name'                                     => '氏名',
-            'password'                                      => 'パスワード',
-            'status'                                        => 'ステータス',
-            'is_auto_update_statutory_leave_remaining_days' => '義務残日数自動更新',
-            // 有給関連情報
-            'paid_leave_granted_days'                       => '保有日数',
-            'paid_leave_remaining_days'                     => '残日数',
-            'paid_leave_used_days'                          => '取得日数',
-            'statutory_leave_days'                          => '義務の日数',
-            'statutory_leave_remaining_days'                => '義務の残日数',
-            'daily_working_hours'                           => '1日あたりの時間数',
-            'half_day_working_hours'                        => '半日あたりの時間数',
-            'statutory_leave_expiration_date'               => '義務の期限',
-            // 勤務時間数
-            'working_hour_id'                               => '勤務時間数',
-            'working_type'                                  => '勤務区分',
-            'working_hour'                                  => '勤務時間数',
+            'user_no'               => 'ユーザー',
+            'user_id'               => 'ユーザーID',
+            'last_name'             => '姓',
+            'first_name'            => '名',
+            'password'              => 'パスワード',
+            'status'                => 'ステータス',
         ];
     }
 }

@@ -20,6 +20,11 @@ class Vehicle extends Model
         'vehicle_memo',
         'is_active',
     ];
+    // 主キーで検索するスコープ
+    public function scopeByPk($query, $id)
+    {
+        return $query->whereKey($id);
+    }
     // usersテーブルとのリレーション
     public function user()
     {

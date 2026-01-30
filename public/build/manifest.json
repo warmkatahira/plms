@@ -4,6 +4,15 @@
     "src": "resources/css/app.css",
     "isEntry": true
   },
+  "resources/js/admin/vehicle/vehicle.js": {
+    "file": "assets/vehicle-B0pzWSWc.js",
+    "name": "vehicle",
+    "src": "resources/js/admin/vehicle/vehicle.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/loading.js"
+    ]
+  },
   "resources/js/app.js": {
     "file": "assets/app-Bo-u61x1.js",
     "name": "app",
