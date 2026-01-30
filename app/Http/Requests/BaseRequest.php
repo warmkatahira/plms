@@ -25,6 +25,7 @@ class BaseRequest extends FormRequest
             'date'                              => ":attributeが日付ではありません。",
             'max'                               => ":attributeは:max文字以下で入力して下さい。",
             'min'                               => ":attributeは:min文字以上で入力して下さい。",
+            'sort_order.min'                    => ":attributeは:min以上で入力して下さい。",
             'sort_order.max'                    => ":attributeは:max以下で入力して下さい。",
             'in'                                => ":attributeが正しくありません。",
             'numeric'                           => ":attributeは数値で入力して下さい。",
@@ -46,6 +47,10 @@ class BaseRequest extends FormRequest
             'vehicle_capacity'      => '送迎可能人数',
             'vehicle_memo'          => '車両メモ',
             'owner'                 => '所有者',
+            // 乗降場所
+            'boarding_location_id'  => '乗降場所',
+            'location_name'         => '場所名',
+            'location_memo'         => '場所メモ',
             // ユーザー情報
             'user_no'               => 'ユーザー',
             'user_id'               => 'ユーザーID',

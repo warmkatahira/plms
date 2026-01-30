@@ -9,7 +9,6 @@ use App\Enums\RoleEnum;
 use App\Enums\VehicleEnum;
 // その他
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 
 class VehicleSearchService
 {

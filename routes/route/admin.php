@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Vehicle\VehicleController;
 use App\Http\Controllers\Admin\Vehicle\VehicleCreateController;
 use App\Http\Controllers\Admin\Vehicle\VehicleUpdateController;
+// +-+-+-+-+-+-+-+- 乗降場所 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationController;
+use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationCreateController;
+use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationUpdateController;
 
 Route::middleware('common')->group(function (){
     Route::middleware(['admin_check'])->group(function () {
@@ -18,6 +22,18 @@ Route::middleware('common')->group(function (){
             Route::post('create', 'create')->name('create');
         });
         Route::controller(VehicleUpdateController::class)->prefix('vehicle_update')->name('vehicle_update.')->group(function(){
+            Route::get('', 'index')->name('index');
+            Route::post('update', 'update')->name('update');
+        });
+        // +-+-+-+-+-+-+-+- 乗降場所 +-+-+-+-+-+-+-+-
+        Route::controller(BoardingLocationController::class)->prefix('boarding_location')->name('boarding_location.')->group(function(){
+            Route::get('', 'index')->name('index');
+        });
+        Route::controller(BoardingLocationCreateController::class)->prefix('boarding_location_create')->name('boarding_location_create.')->group(function(){
+            Route::get('', 'index')->name('index');
+            Route::post('create', 'create')->name('create');
+        });
+        Route::controller(BoardingLocationUpdateController::class)->prefix('boarding_location_update')->name('boarding_location_update.')->group(function(){
             Route::get('', 'index')->name('index');
             Route::post('update', 'update')->name('update');
         });

@@ -26,6 +26,7 @@ export default defineConfig({
                 'resources/js/auth/register.js',
                 // 管理
                 'resources/js/admin/vehicle/vehicle.js',
+                'resources/js/admin/boarding_location/boarding_location.js',
                 // システム管理
                 'resources/js/system_admin/user/user.js',
                 // プロフィール

@@ -13,6 +13,7 @@
                 <div class="navigation-content hidden">
                     @can('admin_check')
                         <x-navigation-btn route="vehicle.index" label="車両" isLeftMargin="true" isRightMargin="true" />
+                        <x-navigation-btn route="boarding_location.index" label="乗降場所" isLeftMargin="true" isRightMargin="true" />
                     @endcan
                 </div>
             </div>
