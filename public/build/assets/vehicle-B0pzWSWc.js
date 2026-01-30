@@ -1,1 +1,0 @@
-import{s as e}from"./loading-CLXJ3Lsj.js";$("#vehicle_create_enter").on("click",function(){window.confirm("車両追加を実行しますか？")===!0&&(e(),$("#vehicle_form").submit())});$("#vehicle_update_enter").on("click",function(){window.confirm("車両更新を実行しますか？")===!0&&(e(),$("#vehicle_form").submit())});
