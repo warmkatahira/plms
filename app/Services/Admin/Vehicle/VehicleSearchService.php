@@ -19,6 +19,7 @@ class VehicleSearchService
             'search_is_active',
             'search_vehicle_type_id',
             'search_vehicle_category_id',
+            'search_vehicle_capacity',
         ]);
     }
 
@@ -36,6 +37,7 @@ class VehicleSearchService
             session(['search_is_active' => $request->search_is_active]);
             session(['search_vehicle_type_id' => $request->search_vehicle_type_id]);
             session(['search_vehicle_category_id' => $request->search_vehicle_category_id]);
+            session(['search_vehicle_capacity' => $request->search_vehicle_capacity]);
         }
     }
 
@@ -58,6 +60,11 @@ class VehicleSearchService
         if(session('search_vehicle_category_id') != null){
             // 条件を指定して取得
             $query = $query->where('vehicle_category_id', session('search_vehicle_category_id'));
+        }
+        // 送迎可能人数の条件がある場合
+        if(session('search_vehicle_capacity') != null){
+            // 条件を指定して取得
+            $query = $query->where('vehicle_capacity', '>=', session('search_vehicle_capacity'));
         }
         // 並び替えを実施
         return $query->orderBy('vehicle_id', 'asc');

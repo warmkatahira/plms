@@ -6,7 +6,7 @@
     <div class="flex flex-col gap-3 pt-7 pl-5">
         <!-- ダッシュボード -->
         <x-navigation-btn route="dashboard.index" label="ダッシュボード" icon="las la-home" isRightMargin="true" />
-        @can('base_admin_check')
+        @can('admin_check')
             <!-- 管理 -->
              <div class="flex flex-col gap-0.5">
                 <x-navigation-btn label="管理" icon="las la-users-cog" openCloseKey="system_admin" />

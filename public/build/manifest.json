@@ -4,15 +4,6 @@
     "src": "resources/css/app.css",
     "isEntry": true
   },
-  "resources/js/admin/employee/employee.js": {
-    "file": "assets/employee-BeK8crjL.js",
-    "name": "employee",
-    "src": "resources/js/admin/employee/employee.js",
-    "isEntry": true,
-    "imports": [
-      "resources/js/loading.js"
-    ]
-  },
   "resources/js/app.js": {
     "file": "assets/app-Bo-u61x1.js",
     "name": "app",
@@ -82,28 +73,10 @@
     "src": "resources/js/search_date.js",
     "isEntry": true
   },
-  "resources/js/system_admin/base/base.js": {
-    "file": "assets/base-BU6vc1zC.js",
-    "name": "base",
-    "src": "resources/js/system_admin/base/base.js",
-    "isEntry": true,
-    "imports": [
-      "resources/js/loading.js"
-    ]
-  },
   "resources/js/system_admin/user/user.js": {
     "file": "assets/user-B-UMQN71.js",
     "name": "user",
     "src": "resources/js/system_admin/user/user.js",
-    "isEntry": true,
-    "imports": [
-      "resources/js/loading.js"
-    ]
-  },
-  "resources/js/system_admin/working_hour/working_hour.js": {
-    "file": "assets/working_hour-BOTitX25.js",
-    "name": "working_hour",
-    "src": "resources/js/system_admin/working_hour/working_hour.js",
     "isEntry": true,
     "imports": [
       "resources/js/loading.js"
@@ -120,7 +93,7 @@
     "isEntry": true
   },
   "resources/sass/height_adjustment.scss": {
-    "file": "assets/height_adjustment-jqgEhyuz.css",
+    "file": "assets/height_adjustment-CV2XtsCw.css",
     "src": "resources/sass/height_adjustment.scss",
     "isEntry": true
   },

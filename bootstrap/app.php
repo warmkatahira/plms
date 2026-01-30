@@ -8,7 +8,6 @@ use Illuminate\Auth\Middleware\Authenticate;
 use App\Http\Middleware\CheckUserStatusMiddleware;
 use App\Http\Middleware\SystemAdminCheckMiddleware;
 use App\Http\Middleware\AdminCheckMiddleware;
-use App\Http\Middleware\BaseAdminCheckMiddleware;
 use App\Http\Middleware\OperationLogRecordMiddleware;
 use App\Http\Middleware\NavigationRouteCheckMiddleware;
 use App\Http\Middleware\ForcePasswordChangeMiddleware;
@@ -39,8 +38,6 @@ return Application::configure(basePath: dirname(__DIR__))
             'system_admin_check' => SystemAdminCheckMiddleware::class,
             // 権限「admin」チェック
             'admin_check' => AdminCheckMiddleware::class,
-            // 権限「base_admin」チェック
-            'base_admin_check' => BaseAdminCheckMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions){
