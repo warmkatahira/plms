@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\Vehicle\VehicleUpdateController;
 use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationController;
 use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationCreateController;
 use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationUpdateController;
+// +-+-+-+-+-+-+-+- ルート +-+-+-+-+-+-+-+-
+use App\Http\Controllers\Admin\Route\RouteController;
 
 Route::middleware('common')->group(function (){
     Route::middleware(['admin_check'])->group(function () {
@@ -36,6 +38,10 @@ Route::middleware('common')->group(function (){
         Route::controller(BoardingLocationUpdateController::class)->prefix('boarding_location_update')->name('boarding_location_update.')->group(function(){
             Route::get('', 'index')->name('index');
             Route::post('update', 'update')->name('update');
+        });
+        // +-+-+-+-+-+-+-+- ルート +-+-+-+-+-+-+-+-
+        Route::controller(RouteController::class)->prefix('route')->name('route.')->group(function(){
+            Route::get('', 'index')->name('index');
         });
     });
 });

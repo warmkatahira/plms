@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-DRA_1zWM.css",
+    "file": "assets/app-BG6FVORR.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -12,6 +12,12 @@
     "imports": [
       "resources/js/loading.js"
     ]
+  },
+  "resources/js/admin/route/route.js": {
+    "file": "assets/route-l0sNRNKZ.js",
+    "name": "route",
+    "src": "resources/js/admin/route/route.js",
+    "isEntry": true
   },
   "resources/js/admin/vehicle/vehicle.js": {
     "file": "assets/vehicle-B-Qx-4_R.js",
@@ -111,7 +117,7 @@
     "isEntry": true
   },
   "resources/sass/height_adjustment.scss": {
-    "file": "assets/height_adjustment-BdyiVSje.css",
+    "file": "assets/height_adjustment-B0poVveG.css",
     "src": "resources/sass/height_adjustment.scss",
     "isEntry": true
   },

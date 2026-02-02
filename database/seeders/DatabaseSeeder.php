@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             VehicleSeeder::class,
             RouteTypeSeeder::class,
             BoardingLocationSeeder::class,
+            RouteSeeder::class,
         ]);
     }
 }

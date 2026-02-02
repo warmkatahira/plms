@@ -1,1 +1,0 @@
-.disable_scrollbar::-webkit-scrollbar{display:none}.role_list{width:100%;height:calc(100vh - 80px)}.user_list,.vehicle_list,.boarding_location_list{width:100%;height:calc(100vh - 125px)}.vehicle_type_list,.vehicle_category_list,.route_type_list{width:100%;height:calc(100vh - 80px)}.operation_log_list{width:100%;height:calc(100vh - 125px)}

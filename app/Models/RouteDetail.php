@@ -16,4 +16,9 @@ class RouteDetail extends Model
         'arrival_time',
         'departure_time',
     ];
+    // boarding_locationsテーブルとのリレーション
+    public function boarding_location()
+    {
+        return $this->belongsTo(BoardingLocation::class, 'boarding_location_id', 'boarding_location_id');
+    }
 }

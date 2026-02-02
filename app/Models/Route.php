@@ -16,4 +16,20 @@ class Route extends Model
         'is_active',
         'sort_order',
     ];
+    // route_detailsテーブルとのリレーション
+    public function route_details()
+    {
+        return $this->hasMany(RouteDetail::class, 'route_id', 'route_id')
+                    ->orderBy('stop_order', 'asc');
+    }
+    // route_typesテーブルとのリレーション
+    public function route_type()
+    {
+        return $this->belongsTo(RouteType::class, 'route_type_id', 'route_type_id');
+    }
+    // vehicle_categoriesテーブルとのリレーション
+    public function vehicle_category()
+    {
+        return $this->belongsTo(VehicleCategory::class, 'vehicle_category_id', 'vehicle_category_id');
+    }
 }

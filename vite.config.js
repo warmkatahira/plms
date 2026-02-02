@@ -27,6 +27,7 @@ export default defineConfig({
                 // 管理
                 'resources/js/admin/vehicle/vehicle.js',
                 'resources/js/admin/boarding_location/boarding_location.js',
+                'resources/js/admin/route/route.js',
                 // システム管理
                 'resources/js/system_admin/user/user.js',
                 // プロフィール
