@@ -13,4 +13,14 @@ class RouteType extends Model
         'route_type',
         'sort_order',
     ];
+    // 並び替えて取得
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('sort_order', 'asc');
+    }
+    // routesテーブルとのリレーション
+    public function routes()
+    {
+        return $this->hasMany(Route::class, 'route_type_id', 'route_type_id');
+    }
 }

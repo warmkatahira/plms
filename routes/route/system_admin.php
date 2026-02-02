@@ -8,6 +8,12 @@ use App\Http\Controllers\SystemAdmin\Role\RoleController;
 use App\Http\Controllers\SystemAdmin\User\UserController;
 use App\Http\Controllers\SystemAdmin\User\UserCreateController;
 use App\Http\Controllers\SystemAdmin\User\UserUpdateController;
+// +-+-+-+-+-+-+-+- 車両区分 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\SystemAdmin\VehicleType\VehicleTypeController;
+// +-+-+-+-+-+-+-+- 車両種別 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\SystemAdmin\VehicleCategory\VehicleCategoryController;
+// +-+-+-+-+-+-+-+- ルート区分 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\SystemAdmin\RouteType\RouteTypeController;
 // +-+-+-+-+-+-+-+- 操作ログ +-+-+-+-+-+-+-+-
 use App\Http\Controllers\SystemAdmin\OperationLog\OperationLogController;
 use App\Http\Controllers\SystemAdmin\OperationLog\OperationLogDownloadController;
@@ -29,6 +35,18 @@ Route::middleware('common')->group(function (){
         Route::controller(UserUpdateController::class)->prefix('user_update')->name('user_update.')->group(function(){
             Route::get('', 'index')->name('index');
             Route::post('update', 'update')->name('update');
+        });
+        // +-+-+-+-+-+-+-+- 車両区分 +-+-+-+-+-+-+-+-
+        Route::controller(VehicleTypeController::class)->prefix('vehicle_type')->name('vehicle_type.')->group(function(){
+            Route::get('', 'index')->name('index');
+        });
+        // +-+-+-+-+-+-+-+- 車両種別 +-+-+-+-+-+-+-+-
+        Route::controller(VehicleCategoryController::class)->prefix('vehicle_category')->name('vehicle_category.')->group(function(){
+            Route::get('', 'index')->name('index');
+        });
+        // +-+-+-+-+-+-+-+- ルート区分 +-+-+-+-+-+-+-+-
+        Route::controller(RouteTypeController::class)->prefix('route_type')->name('route_type.')->group(function(){
+            Route::get('', 'index')->name('index');
         });
         // +-+-+-+-+-+-+-+- 操作ログ +-+-+-+-+-+-+-+-
         Route::controller(OperationLogController::class)->prefix('operation_log')->name('operation_log.')->group(function(){

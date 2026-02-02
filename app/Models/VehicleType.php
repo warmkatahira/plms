@@ -18,4 +18,9 @@ class VehicleType extends Model
     {
         return $query->orderBy('sort_order', 'asc');
     }
+    // vehiclesテーブルとのリレーション
+    public function vehicles()
+    {
+        return $this->hasMany(Vehicle::class, 'vehicle_type_id', 'vehicle_type_id');
+    }
 }

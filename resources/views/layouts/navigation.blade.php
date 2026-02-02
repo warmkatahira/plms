@@ -25,11 +25,10 @@
                 <div class="navigation-content hidden">
                     @can('system_admin_check')
                         <x-navigation-btn route="role.index" label="権限" isLeftMargin="true" isRightMargin="true" />
-                    @endcan
-                    @can('system_admin_check')
                         <x-navigation-btn route="user.index" label="ユーザー" isLeftMargin="true" isRightMargin="true" />
-                    @endcan
-                    @can('system_admin_check')
+                        <x-navigation-btn route="vehicle_type.index" label="車両区分" isLeftMargin="true" isRightMargin="true" />
+                        <x-navigation-btn route="vehicle_category.index" label="車両種別" isLeftMargin="true" isRightMargin="true" />
+                        <x-navigation-btn route="route_type.index" label="ルート区分" isLeftMargin="true" isRightMargin="true" />
                         <x-navigation-btn route="operation_log.index" label="操作ログ" isLeftMargin="true" isRightMargin="true" />
                     @endcan
                 </div>

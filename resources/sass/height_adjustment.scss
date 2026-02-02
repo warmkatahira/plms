@@ -26,6 +26,24 @@
     height: calc(100vh - 125px);
 }
 
+// 車両区分のリスト用
+.vehicle_type_list {
+    width: 100%;
+    height: calc(100vh - 80px);
+}
+
+// 車両種別のリスト用
+.vehicle_category_list {
+    width: 100%;
+    height: calc(100vh - 80px);
+}
+
+// ルート区分のリスト用
+.route_type_list {
+    width: 100%;
+    height: calc(100vh - 80px);
+}
+
 // 操作ログのリスト用
 .operation_log_list {
     width: 100%;
