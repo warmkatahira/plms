@@ -6,6 +6,7 @@ namespace App\Services\Admin\Route;
 use App\Models\Route;
 // その他
 use Illuminate\Support\Facades\DB;
+use Carbon\CarbonImmutable;
 
 class RouteSearchService
 {
@@ -51,5 +52,35 @@ class RouteSearchService
         }
         // 並び替えを実施
         return $query->orderBy('sort_order', 'asc');
+    }
+
+    // 所要時間を取得
+    public function getRequiredMinutes($routes)
+    {
+        // ★ ページ内データだけ加工
+        $routes->getCollection()->each(function ($route) {
+
+            $details = $route->route_details
+                ->sortBy('stop_order')
+                ->values();
+
+            $details->each(function ($detail, $index) use ($details) {
+                $next = $details->get($index + 1);
+
+                if ($next) {
+                    $detail->required_minutes =
+                        CarbonImmutable::parse($detail->departure_time)
+                            ->diffInMinutes(
+                                CarbonImmutable::parse($next->departure_time)
+                            );
+                } else {
+                    $detail->required_minutes = null;
+                }
+            });
+
+            // 並び替えた詳細を戻す
+            $route->setRelation('route_details', $details);
+        });
+        return $routes;
     }
 }

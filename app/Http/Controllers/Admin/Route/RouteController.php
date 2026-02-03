@@ -31,6 +31,8 @@ class RouteController extends Controller
         $result = $RouteSearchService->getSearchResult();
         // ページネーションを実施
         $routes = $this->setPagination($result);
+        // 所要時間を取得
+        $routes = $RouteSearchService->getRequiredMinutes($routes);
         // ルート区分を取得
         $route_types = RouteType::ordered()->get();
         return view('admin.route.index')->with([
