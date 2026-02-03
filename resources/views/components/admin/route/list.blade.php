@@ -39,6 +39,7 @@
                                     <thead>
                                         <tr class="text-left bg-black text-white">
                                             <th class="font-thin py-1 px-2 border border-black text-center">場所名</th>
+                                            <th class="font-thin py-1 px-2 border border-black text-center">場所名メモ</th>
                                             <th class="font-thin py-1 px-2 border border-black text-center">停車順番</th>
                                             <th class="font-thin py-1 px-2 border border-black text-center">出発時刻</th>
                                             <th class="font-thin py-1 px-2 border border-black text-center">次の地点まで</th>
@@ -48,6 +49,7 @@
                                         @foreach($route->route_details as $route_detail)
                                             <tr class="hover:bg-theme-sub">
                                                 <td class="py-1 px-2 border border-black">{{ $route_detail->boarding_location->location_name }}</td>
+                                                <td class="py-1 px-2 border border-black">{{ $route_detail->boarding_location->location_memo }}</td>
                                                 <td class="py-1 px-2 border border-black text-right">{{ $route_detail->stop_order }}</td>
                                                 <td class="py-1 px-2 border border-black text-center">{{ CarbonImmutable::parse($route_detail->departure_time)->format('H:i') }}</td>
                                                 <td class="py-1 px-2 border border-black text-center">
