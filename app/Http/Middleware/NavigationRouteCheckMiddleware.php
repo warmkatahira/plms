@@ -19,10 +19,14 @@ class NavigationRouteCheckMiddleware
         $route_prefix = '';
         // 現在のルート名を取得
         $route_name = $request->route()->getName();
+        // ルート名が「route_detail_update.index」の場合
+        if($route_name === 'route_detail_update.index'){
+            $route_prefix = 'route.index';
         // ルート名に「update」か「create」が含まれている場合
-        if(strpos($route_name, 'update') !== false || strpos($route_name, 'create') !== false){
+        }elseif(strpos($route_name, 'update') !== false || strpos($route_name, 'create') !== false){
             // 「_update」と「_create」を置換して削除
             $route_prefix = str_replace(['_update', '_create'], '', $route_name);
+        // 上記以外の場合
         }else{
             // 現在のルート名を変数に格納
             $route_prefix = $route_name;
