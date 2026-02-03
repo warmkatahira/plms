@@ -57,27 +57,25 @@ class RouteSearchService
     // 所要時間を取得
     public function getRequiredMinutes($routes)
     {
-        // ★ ページ内データだけ加工
+        // ルートの分だけループ処理
         $routes->getCollection()->each(function ($route) {
-
-            $details = $route->route_details
-                ->sortBy('stop_order')
-                ->values();
-
+            // ルート詳細を取得
+            $details = $route->route_details->sortBy('stop_order')->values();
+            // ルート詳細の分だけループ処理
             $details->each(function ($detail, $index) use ($details) {
+                // 次の停車場所を取得
                 $next = $details->get($index + 1);
-
-                if ($next) {
-                    $detail->required_minutes =
-                        CarbonImmutable::parse($detail->departure_time)
-                            ->diffInMinutes(
-                                CarbonImmutable::parse($next->departure_time)
-                            );
+                // 次の停車場所があるか・ないかで処理を分岐
+                if($next){
+                    // 次の停車場所がある場合
+                    // 差分を格納
+                    $detail->required_minutes = CarbonImmutable::parse($detail->departure_time)->diffInMinutes(CarbonImmutable::parse($next->departure_time));
                 } else {
+                    // 次の停車場所がない場合
+                    // nullを格納
                     $detail->required_minutes = null;
                 }
             });
-
             // 並び替えた詳細を戻す
             $route->setRelation('route_details', $details);
         });
