@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationUpdateController
 use App\Http\Controllers\Admin\Route\RouteController;
 use App\Http\Controllers\Admin\Route\RouteCreateController;
 use App\Http\Controllers\Admin\Route\RouteUpdateController;
+// +-+-+-+-+-+-+-+- ルート詳細 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\Admin\RouteDetail\RouteDetailUpdateController;
 
 Route::middleware('common')->group(function (){
     Route::middleware(['admin_check'])->group(function () {
@@ -51,6 +53,12 @@ Route::middleware('common')->group(function (){
         });
         Route::controller(RouteUpdateController::class)->prefix('route_update')->name('route_update.')->group(function(){
             Route::get('', 'index')->name('index');
+            Route::post('update', 'update')->name('update');
+        });
+        // +-+-+-+-+-+-+-+- ルート詳細 +-+-+-+-+-+-+-+-
+        Route::controller(RouteDetailUpdateController::class)->prefix('route_detail_update')->name('route_detail_update.')->group(function(){
+            Route::get('', 'index')->name('index');
+            Route::get('ajax_validation', 'ajax_validation');
             Route::post('update', 'update')->name('update');
         });
     });

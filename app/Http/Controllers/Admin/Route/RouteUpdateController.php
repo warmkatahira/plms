@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // モデル
 use App\Models\Route;
-use App\Models\BoardingLocation;
 use App\Models\RouteType;
 use App\Models\VehicleCategory;
 // サービス
@@ -24,15 +23,12 @@ class RouteUpdateController extends Controller
         session(['page_header' => 'ルート更新']);
         // ルートを取得
         $route = Route::byPk($request->route_id)->first();
-        // 乗降場所を取得
-        $boarding_locations = BoardingLocation::ordered()->get();
         // ルート区分を取得
         $route_types = RouteType::ordered()->get();
         // 車両種別を取得
         $vehicle_categories = VehicleCategory::ordered()->get();
         return view('admin.route.update')->with([
             'route' => $route,
-            'boarding_locations' => $boarding_locations,
             'route_types' => $route_types,
             'vehicle_categories' => $vehicle_categories,
         ]);

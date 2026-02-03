@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin\Route;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // モデル
-use App\Models\BoardingLocation;
 use App\Models\RouteType;
 use App\Models\VehicleCategory;
 // サービス
@@ -21,14 +20,11 @@ class RouteCreateController extends Controller
     {
         // ページヘッダーをセッションに格納
         session(['page_header' => 'ルート追加']);
-        // 乗降場所を取得
-        $boarding_locations = BoardingLocation::ordered()->get();
         // ルート区分を取得
         $route_types = RouteType::ordered()->get();
         // 車両種別を取得
         $vehicle_categories = VehicleCategory::ordered()->get();
         return view('admin.route.create')->with([
-            'boarding_locations' => $boarding_locations,
             'route_types' => $route_types,
             'vehicle_categories' => $vehicle_categories,
         ]);

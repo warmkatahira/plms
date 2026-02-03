@@ -29,6 +29,7 @@ class BaseRequest extends FormRequest
             'sort_order.max'                    => ":attributeは:max以下で入力して下さい。",
             'in'                                => ":attributeが正しくありません。",
             'numeric'                           => ":attributeは数値で入力して下さい。",
+            'distinct'                          => ":attributeに同じ値があります。",
         ];
     }
 
@@ -54,6 +55,8 @@ class BaseRequest extends FormRequest
             // ルート
             'route_type_id'         => 'ルート区分',
             'route_name'            => 'ルート名',
+            'stop_order'            => '停車順番',
+            'departure_time'        => '出発時刻',
             // ユーザー情報
             'user_no'               => 'ユーザー',
             'user_id'               => 'ユーザーID',
