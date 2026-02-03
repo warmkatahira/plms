@@ -51,6 +51,9 @@ class BaseRequest extends FormRequest
             'boarding_location_id'  => '乗降場所',
             'location_name'         => '場所名',
             'location_memo'         => '場所メモ',
+            // ルート
+            'route_type_id'         => 'ルート区分',
+            'route_name'            => 'ルート名',
             // ユーザー情報
             'user_no'               => 'ユーザー',
             'user_id'               => 'ユーザーID',

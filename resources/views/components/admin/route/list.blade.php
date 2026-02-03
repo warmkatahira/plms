@@ -18,7 +18,7 @@
                     <tr class="text-left cursor-default whitespace-nowrap hover:bg-theme-sub group @if(!$route->is_active) bg-common-disabled @endif">
                         <td class="py-1 px-2 border">
                             <div class="flex flex-row gap-5">
-                                <a href="" class="btn bg-btn-enter text-white py-1 px-2">更新</a>
+                                <a href="{{ route('route_update.index', ['route_id' => $route->route_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">更新</a>
                                 <button type="button" class="btn route_toggle_components_btn bg-btn-open text-white py-1 px-2">ルート詳細を表示</button>
                             </div>
                         </td>

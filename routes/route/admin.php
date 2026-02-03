@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationCreateController
 use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationUpdateController;
 // +-+-+-+-+-+-+-+- ルート +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Admin\Route\RouteController;
+use App\Http\Controllers\Admin\Route\RouteCreateController;
+use App\Http\Controllers\Admin\Route\RouteUpdateController;
 
 Route::middleware('common')->group(function (){
     Route::middleware(['admin_check'])->group(function () {
@@ -42,6 +44,14 @@ Route::middleware('common')->group(function (){
         // +-+-+-+-+-+-+-+- ルート +-+-+-+-+-+-+-+-
         Route::controller(RouteController::class)->prefix('route')->name('route.')->group(function(){
             Route::get('', 'index')->name('index');
+        });
+        Route::controller(RouteCreateController::class)->prefix('route_create')->name('route_create.')->group(function(){
+            Route::get('', 'index')->name('index');
+            Route::post('create', 'create')->name('create');
+        });
+        Route::controller(RouteUpdateController::class)->prefix('route_update')->name('route_update.')->group(function(){
+            Route::get('', 'index')->name('index');
+            Route::post('update', 'update')->name('update');
         });
     });
 });

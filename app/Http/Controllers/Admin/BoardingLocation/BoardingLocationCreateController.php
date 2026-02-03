@@ -4,10 +4,6 @@ namespace App\Http\Controllers\Admin\BoardingLocation;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-// モデル
-use App\Models\User;
-// 列挙
-use App\Enums\RoleEnum;
 // サービス
 use App\Services\Admin\BoardingLocation\BoardingLocationCreateService;
 // リクエスト

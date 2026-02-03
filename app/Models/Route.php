@@ -16,6 +16,11 @@ class Route extends Model
         'is_active',
         'sort_order',
     ];
+    // 主キーで検索するスコープ
+    public function scopeByPk($query, $id)
+    {
+        return $query->whereKey($id);
+    }
     // route_detailsテーブルとのリレーション
     public function route_details()
     {

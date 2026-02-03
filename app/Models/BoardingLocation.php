@@ -20,4 +20,9 @@ class BoardingLocation extends Model
     {
         return $query->whereKey($id);
     }
+    // 並び替えて取得
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('sort_order', 'asc');
+    }
 }
