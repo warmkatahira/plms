@@ -3,7 +3,7 @@
     <div class="flex flex-col gap-y-2 p-3 bg-white min-w-60 text-xs border border-black">
         <x-search.select-boolean label="利用可否" id="search_is_active" name="search_is_active" label1="有効" label0="無効" />
         <x-search.select label="ルート区分" id="search_route_type_id" name="search_route_type_id" :selectItems="$routeTypes" optionValue="route_type_id" optionText="route_type" />
-        <x-search.input type="text" label="場所名" id="search_location_name" name="search_location_name" />
+        <x-search.select label="車両種別" id="search_vehicle_category_id" name="search_vehicle_category_id" :selectItems="$vehicleCategories" optionValue="vehicle_category_id" optionText="vehicle_category" />
         <input type="hidden" id="search_type" name="search_type" value="default">
         <div class="flex flex-row">
             <!-- 検索ボタン -->

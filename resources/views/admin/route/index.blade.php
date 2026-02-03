@@ -4,7 +4,7 @@
         <x-pagination :pages="$routes" />
     </div>
     <div class="flex flex-row gap-x-5 items-start">
-        <x-admin.route.search route="route.index" :routeTypes="$route_types" />
+        <x-admin.route.search route="route.index" :routeTypes="$route_types" :vehicleCategories="$vehicle_categories" />
         <x-admin.route.list :routes="$routes" />
     </div>
 </x-app-layout>

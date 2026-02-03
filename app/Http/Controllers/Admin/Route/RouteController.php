@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // モデル
 use App\Models\RouteType;
+use App\Models\VehicleCategory;
 // 列挙
 use App\Enums\RouteEnum;
 // サービス
@@ -35,9 +36,12 @@ class RouteController extends Controller
         $routes = $RouteSearchService->getRequiredMinutes($routes);
         // ルート区分を取得
         $route_types = RouteType::ordered()->get();
+        // 車両種別を取得
+        $vehicle_categories = VehicleCategory::ordered()->get();
         return view('admin.route.index')->with([
             'routes' => $routes,
             'route_types' => $route_types,
+            'vehicle_categories' => $vehicle_categories,
         ]);
     }
 }
