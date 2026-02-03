@@ -26,7 +26,8 @@ class RouteDetailUpdateRequest extends BaseRequest
             'route_id'                  => 'required|exists:routes,route_id',
             'boarding_location_id.*'    => 'required|exists:boarding_locations,boarding_location_id',
             'stop_order.*'              => 'required|integer|min:1|max:100|distinct',
-            'departure_time.*'          => ['required','regex:/^\d{2}:\d{2}(:\d{2})?$/','distinct'],
+            'departure_time.*'          => ['nullable','regex:/^\d{2}:\d{2}(:\d{2})?$/','distinct','required_without:arrival_time.*'],
+            'arrival_time.*'            => ['nullable','regex:/^\d{2}:\d{2}(:\d{2})?$/','distinct','required_without:departure_time.*'],
         ];
     }
 
@@ -36,6 +37,7 @@ class RouteDetailUpdateRequest extends BaseRequest
             'stop_order.*.min'              => ":attributeは:min以上で入力して下さい。",
             'stop_order.*.max'              => ":attributeは:max以内で入力して下さい。",
             'regex'                         => ":attributeは時刻を入力して下さい。",
+            'required_without'              => "出発時刻か到着時刻のどちらかは入力して下さい。",
         ]);
     }
 
@@ -45,6 +47,7 @@ class RouteDetailUpdateRequest extends BaseRequest
             'boarding_location_id.*'    => '乗降場所',
             'stop_order.*'              => '停車順番',
             'departure_time.*'          => '出発時刻',
+            'arrival_time.*'            => '到着時刻',
         ]);
     }
 }

@@ -33,19 +33,21 @@ class RouteSeeder extends Seeder
             'route_id'              => 1,
             'boarding_location_id'  => 5,
             'stop_order'            => 2,
-            'departure_time'        => '08:50',
+            'arrival_time'          => '08:50',
+            'departure_time'        => '08:51',
         ]);
         RouteDetail::create([
             'route_id'              => 1,
             'boarding_location_id'  => 2,
             'stop_order'            => 3,
-            'departure_time'        => '08:53',
+            'arrival_time'          => '08:54',
+            'departure_time'        => '08:55',
         ]);
         RouteDetail::create([
             'route_id'              => 1,
             'boarding_location_id'  => 1,
             'stop_order'            => 4,
-            'departure_time'        => '09:08',
+            'arrival_time'          => '09:10',
         ]);
 
         Route::create([
@@ -65,19 +67,21 @@ class RouteSeeder extends Seeder
             'route_id'              => 2,
             'boarding_location_id'  => 5,
             'stop_order'            => 2,
-            'departure_time'        => '09:50',
+            'arrival_time'          => '09:50',
+            'departure_time'        => '09:51',
         ]);
         RouteDetail::create([
             'route_id'              => 2,
             'boarding_location_id'  => 2,
             'stop_order'            => 3,
-            'departure_time'        => '09:53',
+            'arrival_time'          => '09:54',
+            'departure_time'        => '09:55',
         ]);
         RouteDetail::create([
             'route_id'              => 2,
             'boarding_location_id'  => 1,
             'stop_order'            => 4,
-            'departure_time'        => '10:08',
+            'arrival_time'          => '10:10',
         ]);
 
     }

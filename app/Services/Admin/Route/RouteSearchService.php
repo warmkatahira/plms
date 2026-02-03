@@ -75,8 +75,8 @@ class RouteSearchService
                 // 次の停車場所があるか・ないかで処理を分岐
                 if($next){
                     // 次の停車場所がある場合
-                    // 差分を格納
-                    $detail->required_minutes = CarbonImmutable::parse($detail->departure_time)->diffInMinutes(CarbonImmutable::parse($next->departure_time));
+                    // 差分を格納(出発から次の到着までの差分)
+                    $detail->required_minutes = CarbonImmutable::parse($detail->departure_time)->diffInMinutes(CarbonImmutable::parse($next->arrival_time));
                 } else {
                     // 次の停車場所がない場合
                     // nullを格納

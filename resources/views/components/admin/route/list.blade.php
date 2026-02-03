@@ -36,23 +36,44 @@
                     <tr class="route_detail_components hidden">
                         <td colspan="7" class="p-0">
                             <div class="inline-block">
-                                <table class="text-xs border border-gray-300">
+                                <table class="text-xs border border-gray-300 mb-3">
                                     <thead>
                                         <tr class="text-left bg-black text-white">
                                             <th class="font-thin py-1 px-2 border border-black text-center">場所名</th>
                                             <th class="font-thin py-1 px-2 border border-black text-center">場所名メモ</th>
                                             <th class="font-thin py-1 px-2 border border-black text-center">停車順番</th>
-                                            <th class="font-thin py-1 px-2 border border-black text-center">出発時刻</th>
+                                            <th class="font-thin py-1 px-2 border border-black text-center">到着 → 出発</th>
                                             <th class="font-thin py-1 px-2 border border-black text-center">次の地点まで</th>
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white">
                                         @foreach($route->route_details as $route_detail)
+                                            @php
+                                                $dep = $route_detail->departure_time 
+                                                    ? CarbonImmutable::parse($route_detail->departure_time)->format('H:i')
+                                                    : null;
+
+                                                $arr = $route_detail->arrival_time
+                                                    ? CarbonImmutable::parse($route_detail->arrival_time)->format('H:i')
+                                                    : null;
+                                            @endphp
                                             <tr class="hover:bg-theme-sub">
                                                 <td class="py-1 px-2 border border-black">{{ $route_detail->boarding_location->location_name }}</td>
                                                 <td class="py-1 px-2 border border-black">{{ $route_detail->boarding_location->location_memo }}</td>
                                                 <td class="py-1 px-2 border border-black text-right">{{ $route_detail->stop_order }}</td>
-                                                <td class="py-1 px-2 border border-black text-center">{{ CarbonImmutable::parse($route_detail->departure_time)->format('H:i') }}</td>
+                                                <td class="py-1 px-2 border border-black text-center">
+                                                    @if($arr && $dep)
+                                                        <span class="text-orange-700 font-medium">{{ $arr }} 着</span>
+                                                        <span class="mx-1">→</span>
+                                                        <span class="text-blue-700 font-medium">{{ $dep }} 発</span>
+                                                    @elseif($arr)
+                                                        <span class="text-orange-700 font-medium">{{ $arr }} 着</span>
+                                                    @elseif($dep)
+                                                        <span class="text-blue-700 font-medium">{{ $dep }} 発</span>
+                                                    @else
+                                                        <span class="text-gray-400">—</span>
+                                                    @endif
+                                                </td>
                                                 <td class="py-1 px-2 border border-black text-center">
                                                     @if($route_detail->required_minutes !== null)
                                                         <span class="inline-flex justify-center items-center bg-blue-100 text-blue-700 border border-blue-400 rounded px-2 py-0.5 text-xs w-12 tabular-nums">

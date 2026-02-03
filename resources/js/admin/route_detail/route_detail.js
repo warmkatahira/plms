@@ -109,6 +109,9 @@ function collectValidationData()
         stop_order: $("input[name='stop_order[]']").map(function () {
             return $(this).val();
         }).get(),
+        arrival_time: $("input[name='arrival_time[]']").map(function () {
+            return $(this).val();
+        }).get(),
         departure_time: $("input[name='departure_time[]']").map(function () {
             return $(this).val();
         }).get(),

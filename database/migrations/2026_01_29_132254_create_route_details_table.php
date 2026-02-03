@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedInteger('boarding_location_id');
             $table->unsignedTinyInteger('stop_order');
             $table->time('arrival_time')->nullable();
-            $table->time('departure_time');
+            $table->time('departure_time')->nullable();
             $table->timestamps();
             // 外部キー
             $table->foreign('route_id')->references('route_id')->on('routes')->cascadeOnUpdate();
