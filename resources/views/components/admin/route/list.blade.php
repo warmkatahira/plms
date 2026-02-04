@@ -21,6 +21,7 @@
                                 <a href="{{ route('route_update.index', ['route_id' => $route->route_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">ルートを更新</a>
                                 <a href="{{ route('route_detail_update.index', ['route_id' => $route->route_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">ルート詳細を更新</a>
                                 <button type="button" class="btn route_toggle_components_btn bg-btn-open text-white py-1 px-2">ルート詳細を表示</button>
+                                <button type="button" class="btn route_delete_enter bg-btn-cancel text-white py-1 px-2" data-route-id="{{ $route->route_id }}">削除</button>
                             </div>
                         </td>
                         <td class="py-1 px-2 border text-center">
@@ -28,7 +29,7 @@
                         </td>
                         <td class="py-1 px-2 border text-center">{{ $route->route_type->route_type }}</td>
                         <td class="py-1 px-2 border text-center">{{ $route->vehicle_category->vehicle_category }}</td>
-                        <td class="py-1 px-2 border">{{ $route->route_name }}</td>
+                        <td class="py-1 px-2 border route_name">{{ $route->route_name }}</td>
                         <td class="py-1 px-2 border text-right">{{ number_format($route->route_details->count()) }}</td>
                         <td class="py-1 px-2 border text-right">{{ number_format($route->sort_order) }}</td>
                         <td class="py-1 px-2 border">{{ CarbonImmutable::parse($route->updated_at)->isoFormat('YYYY年MM月DD日(ddd) HH時mm分ss秒').'('.CarbonImmutable::parse($route->updated_at)->diffForHumans().')' }}</td>
@@ -95,3 +96,7 @@
         </table>
     </div>
 </div>
+<form method="POST" action="{{ route('route_delete.delete') }}" id="route_delete_form" class="hidden">
+    @csrf
+    <input type="hidden" id="route_id" name="route_id">
+</form>

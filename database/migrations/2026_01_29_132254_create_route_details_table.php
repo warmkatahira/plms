@@ -20,7 +20,7 @@ return new class extends Migration
             $table->time('departure_time')->nullable();
             $table->timestamps();
             // 外部キー
-            $table->foreign('route_id')->references('route_id')->on('routes')->cascadeOnUpdate();
+            $table->foreign('route_id')->references('route_id')->on('routes')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('boarding_location_id')->references('boarding_location_id')->on('boarding_locations')->cascadeOnUpdate();
         });
     }

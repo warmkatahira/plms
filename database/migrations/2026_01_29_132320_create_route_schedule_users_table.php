@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedInteger('user_no');
             $table->timestamps();
             // 外部キー
-            $table->foreign('route_schedule_detail_id')->references('route_schedule_detail_id')->on('route_schedule_details')->cascadeOnUpdate();
+            $table->foreign('route_schedule_detail_id')->references('route_schedule_detail_id')->on('route_schedule_details')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('user_no')->references('user_no')->on('users')->cascadeOnUpdate();
         });
     }

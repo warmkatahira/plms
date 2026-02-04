@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationUpdateController
 use App\Http\Controllers\Admin\Route\RouteController;
 use App\Http\Controllers\Admin\Route\RouteCreateController;
 use App\Http\Controllers\Admin\Route\RouteUpdateController;
+use App\Http\Controllers\Admin\Route\RouteDeleteController;
 // +-+-+-+-+-+-+-+- ルート詳細 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Admin\RouteDetail\RouteDetailUpdateController;
 
@@ -54,6 +55,9 @@ Route::middleware('common')->group(function (){
         Route::controller(RouteUpdateController::class)->prefix('route_update')->name('route_update.')->group(function(){
             Route::get('', 'index')->name('index');
             Route::post('update', 'update')->name('update');
+        });
+        Route::controller(RouteDeleteController::class)->prefix('route_delete')->name('route_delete.')->group(function(){
+            Route::post('delete', 'delete')->name('delete');
         });
         // +-+-+-+-+-+-+-+- ルート詳細 +-+-+-+-+-+-+-+-
         Route::controller(RouteDetailUpdateController::class)->prefix('route_detail_update')->name('route_detail_update.')->group(function(){

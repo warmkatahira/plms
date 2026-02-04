@@ -22,7 +22,7 @@ return new class extends Migration
             $table->time('departure_time');
             $table->timestamps();
             // 外部キー
-            $table->foreign('route_schedule_id')->references('route_schedule_id')->on('route_schedules')->cascadeOnUpdate();
+            $table->foreign('route_schedule_id')->references('route_schedule_id')->on('route_schedules')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 

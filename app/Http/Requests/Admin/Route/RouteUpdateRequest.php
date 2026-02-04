@@ -31,6 +31,7 @@ class RouteUpdateRequest extends BaseRequest
     public function rules(): array
     {
         return [
+            'route_id'              => 'required|exists:routes,route_id',
             'route_type_id'         => 'required|exists:route_types,route_type_id',
             'vehicle_category_id'   => 'required|exists:vehicle_categories,vehicle_category_id',
             'route_name'            => 'required|string|max:20|unique:routes,route_name,'.$this->route_id.',route_id',
