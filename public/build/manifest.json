@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-BngF1v3V.css",
+    "file": "assets/app-BGPNmNhr.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -23,7 +23,7 @@
     ]
   },
   "resources/js/admin/route_detail/route_detail.js": {
-    "file": "assets/route_detail-Sdw8XZ4H.js",
+    "file": "assets/route_detail-CPX2fa1i.js",
     "name": "route_detail",
     "src": "resources/js/admin/route_detail/route_detail.js",
     "isEntry": true,

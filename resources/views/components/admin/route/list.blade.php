@@ -42,7 +42,7 @@
                                             <th class="font-thin py-1 px-2 border border-black text-center">場所名</th>
                                             <th class="font-thin py-1 px-2 border border-black text-center">場所名メモ</th>
                                             <th class="font-thin py-1 px-2 border border-black text-center">停車順番</th>
-                                            <th class="font-thin py-1 px-2 border border-black text-center">到着 → 出発</th>
+                                            <th class="font-thin py-1 px-2 border border-black text-center">着 → 発</th>
                                             <th class="font-thin py-1 px-2 border border-black text-center">次の地点まで</th>
                                         </tr>
                                     </thead>
