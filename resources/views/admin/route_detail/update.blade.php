@@ -29,18 +29,17 @@
                 </div>
             @endforeach
             @if ($route->route_details->isEmpty())
-                <div class="detail_div p-5 bg-white rounded-lg mt-3">
+                <div class="route_detail_div p-5 bg-white rounded-lg mt-3">
                     <div class="flex justify-between items-center">
-                        <p class="text-base">ルート詳細</p>
+                        <p class="text-base">ルート詳細 1</p>
                     </div>
                     <div class="flex flex-row text-xs gap-5 mt-3">
-                        <div class="flex flex-row w-3/12">
-                            <x-admin.route-detail.select label="乗降場所" name="boarding_location_id" :items="$boarding_locations" />
-                            <x-admin.route-detail.input type="tel" label="停車順番" name="stop_order" :index="$index" :value="null" />
-                            <x-admin.route-detail.input type="time" label="到着時刻" name="arrival_time" :index="$index" :value="null" />
-                            <x-admin.route-detail.input type="time" label="出発時刻" name="departure_time" :index="$index" :value="null" />
+                        <div class="flex flex-row w-10/12 gap-2">
+                            <x-admin.route-detail.select label="乗降場所" name="boarding_location_id" :items="$boarding_locations" optionValue="boarding_location_id" optionText="location_name" />
+                            <x-admin.route-detail.input type="tel" label="停車順番" name="stop_order" />
+                            <x-admin.route-detail.input type="time" label="到着時刻" name="arrival_time" />
+                            <x-admin.route-detail.input type="time" label="出発時刻" name="departure_time" />
                         </div>
-                        
                     </div>
                 </div>
             @endif

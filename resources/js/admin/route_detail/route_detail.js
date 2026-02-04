@@ -1,12 +1,12 @@
 import start_loading from '../../loading';
 
-// 条件番号を振り直し、削除ボタンの表示・非表示を制御
+// ルート詳細番号を振り直し、削除ボタンの表示・非表示を制御
 function updateConditionLabels() {
     // route_detail_divの数を取得
     const total = $('.route_detail_div').length;
     // route_detail_divの分だけループ処理
     $('.route_detail_div').each(function (index) {
-        // 条件1、条件2... と番号を更新
+        // ルート詳細1、ルート詳細2... と番号を更新
         $(this).find('p.text-base').text('ルート詳細 ' + (index + 1));
         // 削除ボタンがなければ追加
         let $deleteBtn = $(this).find('.delete_route_detail_btn');
@@ -16,7 +16,7 @@ function updateConditionLabels() {
             );
             $deleteBtn = $(this).find('.delete_route_detail_btn');
         }
-        // 条件が1つだけなら削除ボタン非表示、それ以外は表示
+        // ルート詳細が1つだけなら削除ボタン非表示、それ以外は表示
         if(total === 1){
             $deleteBtn.hide();
         }else{
@@ -25,7 +25,7 @@ function updateConditionLabels() {
     });
 }
 
-// 条件追加処理
+// ルート詳細追加処理
 $('#add_route_detail_btn').on('click', function () {
     // 最後にあるroute_detail_divを取得して複製
     const $last = $('.route_detail_div').last();
@@ -38,7 +38,7 @@ $('#add_route_detail_btn').on('click', function () {
     updateConditionLabels();
 });
 
-// 条件削除処理
+// ルート詳細削除処理
 $('#route_detail_wrapper').on('click', '.delete_route_detail_btn', function () {
     $(this).closest('.route_detail_div').remove();
     updateConditionLabels();
@@ -78,10 +78,10 @@ $('#route_detail_update_enter').on("click",function(){
                 let validation_errors = '';
                 // ここで画面にエラーメッセージ表示など処理
                 $.each(errors, function(index, value) {
-                    // index が "column_name.0" のような形式であることを想定
+                    // index が "stop_order.0" のような形式であることを想定
                     // .数字の部分を正規表現で抽出
                     const match = index.match(/\.(\d+)$/);
-                    // 数字に+1する（これが条件XのXの部分となる）
+                    // 数字に+1する（これがルート詳細XのXの部分となる）
                     const number = parseInt(match[1], 10) + 1;
                     // 変数にエラー情報を格納
                     validation_errors += `ルート詳細 ${number}: ${value[0]}\n`;
@@ -94,7 +94,9 @@ $('#route_detail_update_enter').on("click",function(){
     });
 });
 
-$(document).on('change', 'input[name="departure_time[]"]', function () {
+// 出発時刻と到着時刻を変更した場合
+$(document).on('change', 'input[name="departure_time[]"], input[name="arrival_time[]"]', function () {
+    // valueを更新する
     $(this).attr('value', $(this).val());
 });
 

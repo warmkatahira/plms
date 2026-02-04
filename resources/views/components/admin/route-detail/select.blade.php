@@ -3,8 +3,8 @@
     'name',
     'items',
     'index' => null,
-    'optionValue',
-    'optionText',
+    'optionValue' => null,
+    'optionText' => null,
     'value' => null,
 ])
 
