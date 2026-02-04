@@ -20,8 +20,8 @@
                             <div class="flex flex-row gap-5">
                                 <a href="{{ route('route_update.index', ['route_id' => $route->route_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">ルートを更新</a>
                                 <a href="{{ route('route_detail_update.index', ['route_id' => $route->route_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">ルート詳細を更新</a>
-                                <button type="button" class="btn route_toggle_components_btn bg-btn-open text-white py-1 px-2">ルート詳細を表示</button>
                                 <button type="button" class="btn route_delete_enter bg-btn-cancel text-white py-1 px-2" data-route-id="{{ $route->route_id }}">削除</button>
+                                <button type="button" class="btn route_toggle_components_btn bg-btn-open text-white py-1 px-2">ルート詳細を表示</button>
                             </div>
                         </td>
                         <td class="py-1 px-2 border text-center">
