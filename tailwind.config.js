@@ -26,6 +26,7 @@ export default {
                 btn: {
                     'enter'         : "#3b82f6",
                     'cancel'        : "#ef4444",
+                    'copy'          : "#b8860b",
                     'check'         : "#f9f1e4",
                     'open'          : "#16a34a",
                     'close'         : "#ea580c",

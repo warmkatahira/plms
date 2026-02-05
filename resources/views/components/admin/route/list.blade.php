@@ -20,6 +20,7 @@
                             <div class="flex flex-row gap-5">
                                 <a href="{{ route('route_update.index', ['route_id' => $route->route_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">ルートを更新</a>
                                 <a href="{{ route('route_detail_update.index', ['route_id' => $route->route_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">ルート詳細を更新</a>
+                                <button type="button" class="btn route_copy_enter bg-btn-copy text-white py-1 px-2" data-route-id="{{ $route->route_id }}">複製</button>
                                 <button type="button" class="btn route_delete_enter bg-btn-cancel text-white py-1 px-2" data-route-id="{{ $route->route_id }}">削除</button>
                                 <button type="button" class="btn route_toggle_components_btn bg-btn-open text-white py-1 px-2">ルート詳細を表示</button>
                             </div>
@@ -95,5 +96,9 @@
 </div>
 <form method="POST" action="{{ route('route_delete.delete') }}" id="route_delete_form" class="hidden">
     @csrf
-    <input type="hidden" id="route_id" name="route_id">
+    <input type="hidden" id="route_id_at_delete" name="route_id">
+</form>
+<form method="POST" action="{{ route('route_copy.copy') }}" id="route_copy_form" class="hidden">
+    @csrf
+    <input type="hidden" id="route_id_at_copy" name="route_id">
 </form>

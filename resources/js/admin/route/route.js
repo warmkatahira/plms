@@ -35,8 +35,29 @@ $('.route_delete_enter').on("click",function(){
         if(result == true){
             start_loading();
             // 削除対象のルートIDを要素にセット
-            $('#route_id').val($(this).data('route-id'));
+            $('#route_id_at_delete').val($(this).data('route-id'));
             $("#route_delete_form").submit();
+        }
+    } catch (e) {
+        alert(e.message);
+    }
+});
+
+// 複製ボタンが押下されたら
+$('.route_copy_enter').on("click",function(){
+    // 複製ボタンが押下された要素の親のtrタグを取得
+    const tr = $(this).closest('tr');
+    // 複製しようとしている要素のルート名を取得
+    const route_name = tr.find('.route_name').text();
+    try {
+        // 処理を実行するか確認
+        const result = window.confirm("ルートを複製しますか？\n\n" + 'ルート名：' + route_name);
+        // 「はい」が押下されたらsubmit、「いいえ」が押下されたら処理キャンセル
+        if(result == true){
+            start_loading();
+            // 複製対象のルートIDを要素にセット
+            $('#route_id_at_copy').val($(this).data('route-id'));
+            $("#route_copy_form").submit();
         }
     } catch (e) {
         alert(e.message);

@@ -53,6 +53,7 @@ class BaseRequest extends FormRequest
             'location_name'         => '場所名',
             'location_memo'         => '場所メモ',
             // ルート
+            'route_id'              => 'ルート',
             'route_type_id'         => 'ルート区分',
             'route_name'            => 'ルート名',
             'stop_order'            => '停車順番',

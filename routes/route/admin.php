@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\Route\RouteController;
 use App\Http\Controllers\Admin\Route\RouteCreateController;
 use App\Http\Controllers\Admin\Route\RouteUpdateController;
 use App\Http\Controllers\Admin\Route\RouteDeleteController;
+use App\Http\Controllers\Admin\Route\RouteCopyController;
 use App\Http\Controllers\Admin\Route\RouteDownloadController;
 // +-+-+-+-+-+-+-+- ルート詳細 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Admin\RouteDetail\RouteDetailUpdateController;
@@ -67,6 +68,9 @@ Route::middleware('common')->group(function (){
         });
         Route::controller(RouteDeleteController::class)->prefix('route_delete')->name('route_delete.')->group(function(){
             Route::post('delete', 'delete')->name('delete');
+        });
+        Route::controller(RouteCopyController::class)->prefix('route_copy')->name('route_copy.')->group(function(){
+            Route::post('copy', 'copy')->name('copy');
         });
         Route::controller(RouteDownloadController::class)->prefix('route_download')->name('route_download.')->group(function(){
             Route::get('download', 'download')->name('download');
