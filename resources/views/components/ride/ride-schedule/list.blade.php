@@ -34,8 +34,8 @@
                         <td class="py-1 px-2 border">{{ $ride->vehicle->vehicle_name }}</td>
                         <td class="py-1 px-2 border">{{ $ride->ride_memo }}</td>
                         <td class="py-1 px-2 border text-right">{{ number_format($ride->vehicle->vehicle_capacity) }}</td>
-                        <td class="py-1 px-2 border text-right">{{ number_format(10) }}</td>
-                        <td class="py-1 px-2 border text-right">{{ number_format($ride->vehicle->vehicle_capacity - 10) }}</td>
+                        <td class="py-1 px-2 border text-right">{{ number_format(3) }}</td>
+                        <td class="py-1 px-2 border text-right">{{ number_format($ride->vehicle->vehicle_capacity - 3) }}</td>
                         <td class="py-1 px-2 border">{{ CarbonImmutable::parse($ride->updated_at)->isoFormat('YYYY年MM月DD日(ddd) HH時mm分ss秒').'('.CarbonImmutable::parse($ride->updated_at)->diffForHumans().')' }}</td>
                     </tr>
                 @endforeach
