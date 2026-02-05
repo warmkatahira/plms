@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RouteScheduleDetail extends Model
+class RideDetail extends Model
 {
     // 主キーカラムを変更
-    protected $primaryKey = 'route_schedule_detail_id';
+    protected $primaryKey = 'ride_detail_id';
     // 操作可能なカラムを定義
     protected $fillable = [
-        'route_schedule_id',
+        'ride_id',
         'boarding_location_id',
         'location_name',
         'location_memo',

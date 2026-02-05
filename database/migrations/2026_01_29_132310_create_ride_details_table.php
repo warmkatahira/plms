@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('route_schedule_details', function (Blueprint $table) {
-            $table->increments('route_schedule_detail_id');
-            $table->unsignedInteger('route_schedule_id');
+        Schema::create('ride_details', function (Blueprint $table) {
+            $table->increments('ride_detail_id');
+            $table->unsignedInteger('ride_id');
             $table->unsignedInteger('boarding_location_id');
             $table->string('location_name', 10);
             $table->string('location_memo', 50)->nullable();
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->time('departure_time');
             $table->timestamps();
             // 外部キー
-            $table->foreign('route_schedule_id')->references('route_schedule_id')->on('route_schedules')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('ride_id')->references('ride_id')->on('rides')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('route_schedule_details');
+        Schema::dropIfExists('ride_details');
     }
 };

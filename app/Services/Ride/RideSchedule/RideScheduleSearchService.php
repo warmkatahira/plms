@@ -3,7 +3,7 @@
 namespace App\Services\Ride\RideSchedule;
 
 // モデル
-use App\Models\RouteSchedule;
+use App\Models\Ride;
 // その他
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +14,6 @@ class RideScheduleSearchService
     {
         session()->forget([
             'search_is_active',
-            'search_location_name',
         ]);
     }
 
@@ -30,7 +29,6 @@ class RideScheduleSearchService
         // 「search」なら検索が実行されているので、検索条件をセット
         if($request->search_type === 'search'){
             session(['search_is_active' => $request->search_is_active]);
-            session(['search_location_name' => $request->search_location_name]);
         }
     }
 
@@ -38,18 +36,13 @@ class RideScheduleSearchService
     public function getSearchResult()
     {
         // クエリをセット
-        $query = RouteSchedule::with(['route_type', 'user', 'vehicle']);
-        // 利用可否の条件がある場合
+        $query = Ride::with(['route_type', 'user', 'vehicle']);
+        // 運行状況の条件がある場合
         if(session('search_is_active') != null){
             // 条件を指定して取得
             $query = $query->where('is_active', session('search_is_active'));
         }
-        // 場所名の条件がある場合
-        if(session('search_location_name') != null){
-            // 条件を指定して取得
-            $query = $query->where('location_name', 'LIKE', '%' . session('search_location_name') . '%');
-        }
         // 並び替えを実施
-        return $query->orderBy('schedule_date', 'asc')->orderBy('route_schedule_id', 'asc');
+        return $query->orderBy('schedule_date', 'asc')->orderBy('ride_id', 'asc');
     }
 }

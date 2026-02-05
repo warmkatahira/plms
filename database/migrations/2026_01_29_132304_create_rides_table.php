@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('route_schedules', function (Blueprint $table) {
-            $table->increments('route_schedule_id');
+        Schema::create('rides', function (Blueprint $table) {
+            $table->increments('ride_id');
             $table->unsignedInteger('route_type_id');
             $table->date('schedule_date');
             $table->unsignedInteger('driver_user_no');
             $table->unsignedInteger('use_vehicle_id');
-            $table->string('route_schedule_memo', 50)->nullable();
+            $table->string('ride_memo', 50)->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
             // 外部キー
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('route_schedules');
+        Schema::dropIfExists('rides');
     }
 };

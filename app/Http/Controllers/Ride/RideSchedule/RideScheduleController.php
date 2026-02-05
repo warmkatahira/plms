@@ -16,7 +16,7 @@ class RideScheduleController extends Controller
     public function index(Request $request)
     {
         // ページヘッダーをセッションに格納
-        session(['page_header' => '送迎']);
+        session(['page_header' => '送迎予定']);
         // インスタンス化
         $RideScheduleSearchService = new RideScheduleSearchService;
         // セッションを削除
@@ -26,9 +26,9 @@ class RideScheduleController extends Controller
         // 検索結果を取得
         $result = $RideScheduleSearchService->getSearchResult();
         // ページネーションを実施
-        $route_schedules = $this->setPagination($result);
+        $rides = $this->setPagination($result);
         return view('ride.ride_schedule.index')->with([
-            'route_schedules' => $route_schedules,
+            'rides' => $rides,
         ]);
     }
 }
