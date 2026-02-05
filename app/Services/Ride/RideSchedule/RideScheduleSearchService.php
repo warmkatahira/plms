@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services\RideSchedule\RideSchedule;
+namespace App\Services\Ride\RideSchedule;
 
 // モデル
-use App\Models\RideSchedule;
+use App\Models\RouteSchedule;
 // その他
 use Illuminate\Support\Facades\DB;
 
@@ -38,7 +38,7 @@ class RideScheduleSearchService
     public function getSearchResult()
     {
         // クエリをセット
-        $query = RideSchedule::query();
+        $query = RouteSchedule::with(['route_type', 'user', 'vehicle']);
         // 利用可否の条件がある場合
         if(session('search_is_active') != null){
             // 条件を指定して取得
@@ -50,6 +50,6 @@ class RideScheduleSearchService
             $query = $query->where('location_name', 'LIKE', '%' . session('search_location_name') . '%');
         }
         // 並び替えを実施
-        return $query->orderBy('sort_order', 'asc');
+        return $query->orderBy('schedule_date', 'asc')->orderBy('route_schedule_id', 'asc');
     }
 }

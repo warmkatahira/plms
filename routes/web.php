@@ -15,7 +15,7 @@ use App\Http\Controllers\Welcome\WelcomeController;
 require __DIR__.'/auth.php';
 // 作成したルートファイルをインクルード
 require __DIR__.'/route/dashboard.php';
-require __DIR__.'/route/ride_schedule.php';
+require __DIR__.'/route/ride.php';
 require __DIR__.'/route/admin.php';
 require __DIR__.'/route/system_admin.php';
 require __DIR__.'/route/profile.php';

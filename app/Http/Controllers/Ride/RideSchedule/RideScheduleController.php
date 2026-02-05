@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\RideSchedule\RideSchedule;
+namespace App\Http\Controllers\Ride\RideSchedule;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // サービス
-use App\Services\RideSchedule\RideSchedule\RideScheduleSearchService;
+use App\Services\Ride\RideSchedule\RideScheduleSearchService;
 // トレイト
 use App\Traits\PaginatesResultsTrait;
 
@@ -26,9 +26,9 @@ class RideScheduleController extends Controller
         // 検索結果を取得
         $result = $RideScheduleSearchService->getSearchResult();
         // ページネーションを実施
-        $ride_schedules = $this->setPagination($result);
-        return view('ride_schedule.ride_schedule.index')->with([
-            'ride_schedules' => $ride_schedules,
+        $route_schedules = $this->setPagination($result);
+        return view('ride.ride_schedule.index')->with([
+            'route_schedules' => $route_schedules,
         ]);
     }
 }

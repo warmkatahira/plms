@@ -3,6 +3,12 @@
     display: none;
 }
 
+// 送迎予定のリスト用
+.ride_schedule_list {
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
 // 権限のリスト用
 .role_list {
     width: 100%;
@@ -20,6 +26,7 @@
     width: 100%;
     height: calc(100vh - 125px);
 }
+
 // 乗降場所のリスト用
 .boarding_location_list {
     width: 100%;

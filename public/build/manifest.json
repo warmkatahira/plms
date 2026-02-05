@@ -94,6 +94,12 @@
       "resources/js/loading.js"
     ]
   },
+  "resources/js/ride/ride_schedule/ride_schedule.js": {
+    "file": "assets/ride_schedule-l0sNRNKZ.js",
+    "name": "ride_schedule",
+    "src": "resources/js/ride/ride_schedule/ride_schedule.js",
+    "isEntry": true
+  },
   "resources/js/search.js": {
     "file": "assets/search-CDUhy24g.js",
     "name": "search",
@@ -129,7 +135,7 @@
     "isEntry": true
   },
   "resources/sass/height_adjustment.scss": {
-    "file": "assets/height_adjustment-B0poVveG.css",
+    "file": "assets/height_adjustment-Cf8z4XGT.css",
     "src": "resources/sass/height_adjustment.scss",
     "isEntry": true
   },
