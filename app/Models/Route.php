@@ -37,4 +37,27 @@ class Route extends Model
     {
         return $this->belongsTo(VehicleCategory::class, 'vehicle_category_id', 'vehicle_category_id');
     }
+    // 有効/無効の文字列を返すアクセサ
+    public function getIsActiveTextAttribute()
+    {
+        return $this->is_active ? '有効' : '無効';
+    }
+    // ダウンロード時のヘッダーを定義
+    public static function downloadHeader()
+    {
+        return [
+            '有効/無効',
+            'ルート区分',
+            '車両種別',
+            'ルート名',
+            '乗降場所数',
+            '並び順',
+            '最終更新日時',
+            '場所名',
+            '場所メモ',
+            '停車順番',
+            '着　→　発',
+            '次の地点まで',
+        ];
+    }
 }

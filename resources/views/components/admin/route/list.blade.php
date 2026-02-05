@@ -50,13 +50,10 @@
                                     <tbody class="bg-white">
                                         @foreach($route->route_details as $route_detail)
                                             @php
-                                                $dep = $route_detail->departure_time 
-                                                    ? CarbonImmutable::parse($route_detail->departure_time)->format('H:i')
-                                                    : null;
-
-                                                $arr = $route_detail->arrival_time
-                                                    ? CarbonImmutable::parse($route_detail->arrival_time)->format('H:i')
-                                                    : null;
+                                                // 出発時刻を取得
+                                                $dep = $route_detail->departure_time ? CarbonImmutable::parse($route_detail->departure_time)->format('H:i') : null;
+                                                // 到着時刻を取得
+                                                $arr = $route_detail->arrival_time ? CarbonImmutable::parse($route_detail->arrival_time)->format('H:i') : null;
                                             @endphp
                                             <tr class="hover:bg-theme-sub">
                                                 <td class="py-1 px-2 border border-black">{{ $route_detail->boarding_location->location_name }}</td>

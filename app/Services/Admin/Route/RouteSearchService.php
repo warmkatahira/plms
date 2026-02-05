@@ -64,28 +64,45 @@ class RouteSearchService
     // 所要時間を取得
     public function getRequiredMinutes($routes)
     {
-        // ルートの分だけループ処理
-        $routes->getCollection()->each(function ($route) {
-            // ルート詳細を取得
-            $details = $route->route_details->sortBy('stop_order')->values();
-            // ルート詳細の分だけループ処理
-            $details->each(function ($detail, $index) use ($details) {
-                // 次の停車場所を取得
-                $next = $details->get($index + 1);
-                // 次の停車場所があるか・ないかで処理を分岐
-                if($next){
-                    // 次の停車場所がある場合
-                    // 差分を格納(出発から次の到着までの差分)
-                    $detail->required_minutes = CarbonImmutable::parse($detail->departure_time)->diffInMinutes(CarbonImmutable::parse($next->arrival_time));
-                } else {
-                    // 次の停車場所がない場合
-                    // nullを格納
-                    $detail->required_minutes = null;
-                }
+        // Builder / Collection / Paginator のいずれが来ても動くようにする分岐
+
+        // ページネーション（LengthAwarePaginator）が渡ってきた場合
+        if ($routes instanceof \Illuminate\Pagination\LengthAwarePaginator) {
+            // Paginator の「中身の Collection」だけを取り出して処理する
+            // ページネーション構造自体は壊さない
+            $routes->getCollection()->each(function ($route) {
+                $this->calcMinutesForRoute($route);
             });
-            // 並び替えた詳細を戻す
-            $route->setRelation('route_details', $details);
+            // 加工済みの Paginator をそのまま返す
+            return $routes;
+        }
+        // クエリビルダ（Builder）が渡ってきた場合
+        $routes = $routes instanceof \Illuminate\Database\Eloquent\Builder ? $routes->get() : $routes;
+        $routes->each(function ($route) {
+            $this->calcMinutesForRoute($route);
         });
+        // 加工済みの Collection を返す
         return $routes;
+    }
+
+    // 所要時間の計算処理
+    private function calcMinutesForRoute($route)
+    {
+        // ルート詳細を取得
+        $details = $route->route_details->sortBy('stop_order')->values();
+        // ルート詳細の分だけループ処理
+        $details->each(function ($detail, $index) use ($details) {
+            // 次の停車場所を取得
+            $next = $details->get($index + 1);
+            // 次の停車場所がある場合
+            if($next){
+                // 次の地点までの時間を取得
+                $detail->required_minutes = CarbonImmutable::parse($detail->departure_time)->diffInMinutes(CarbonImmutable::parse($next->arrival_time));
+            }else{
+                // nullを格納
+                $detail->required_minutes = null;
+            }
+        });
+        $route->setRelation('route_details', $details);
     }
 }
