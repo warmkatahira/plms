@@ -1,7 +1,7 @@
 <form method="GET" action="{{ route($route) }}" id="search_form">
     <p class="text-xs bg-black text-white py-1 text-center">検索条件</p>
     <div class="flex flex-col gap-y-2 p-3 bg-white min-w-60 text-xs border border-black">
-        <x-search.select-boolean label="利用可否" id="search_is_active" name="search_is_active" label1="有効" label0="無効" />
+        <x-search.select-boolean label="利用可否" id="search_is_active" name="search_is_active" label1="利用可" label0="利用不可" />
         <x-search.select label="ルート区分" id="search_route_type_id" name="search_route_type_id" :selectItems="$routeTypes" optionValue="route_type_id" optionText="route_type" />
         <x-search.select label="車両種別" id="search_vehicle_category_id" name="search_vehicle_category_id" :selectItems="$vehicleCategories" optionValue="vehicle_category_id" optionText="vehicle_category" />
         <input type="hidden" id="search_type" name="search_type" value="default">

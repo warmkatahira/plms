@@ -37,16 +37,16 @@ class Route extends Model
     {
         return $this->belongsTo(VehicleCategory::class, 'vehicle_category_id', 'vehicle_category_id');
     }
-    // 有効/無効の文字列を返すアクセサ
+    // 利用可否の文字列を返すアクセサ
     public function getIsActiveTextAttribute()
     {
-        return $this->is_active ? '有効' : '無効';
+        return $this->is_active ? '利用可' : '利用不可';
     }
     // ダウンロード時のヘッダーを定義
     public static function downloadHeader()
     {
         return [
-            '有効/無効',
+            '利用可否',
             'ルート区分',
             '車両種別',
             'ルート名',

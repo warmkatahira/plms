@@ -4,7 +4,7 @@
             <thead>
                 <tr class="text-left text-white bg-black whitespace-nowrap sticky top-0">
                     <th class="font-thin py-1 px-2 text-center">操作</th>
-                    <th class="font-thin py-1 px-2 text-center">有効/無効</th>
+                    <th class="font-thin py-1 px-2 text-center">利用可否</th>
                     <th class="font-thin py-1 px-2 text-center">ルート区分</th>
                     <th class="font-thin py-1 px-2 text-center">車両種別</th>
                     <th class="font-thin py-1 px-2 text-center">ルート名</th>
@@ -26,7 +26,7 @@
                             </div>
                         </td>
                         <td class="py-1 px-2 border text-center">
-                            <x-list.status :value="$route->is_active" label1="有効" label0="無効" />
+                            <x-list.status :value="$route->is_active" label1="利用可" label0="利用不可" />
                         </td>
                         <td class="py-1 px-2 border text-center">{{ $route->route_type->route_type }}</td>
                         <td class="py-1 px-2 border text-center">{{ $route->vehicle_category->vehicle_category }}</td>
