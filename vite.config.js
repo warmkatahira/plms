@@ -24,6 +24,8 @@ export default defineConfig({
                 'resources/sass/common.scss',
                 // 認証
                 'resources/js/auth/register.js',
+                // 送迎
+                'resources/js/schedule/route_schedule/route_schedule.js',
                 // 管理
                 'resources/js/admin/vehicle/vehicle.js',
                 'resources/js/admin/boarding_location/boarding_location.js',

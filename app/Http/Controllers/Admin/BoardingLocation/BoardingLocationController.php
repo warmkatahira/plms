@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin\BoardingLocation;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-// モデル
-use App\Models\BoardingLocation;
 // サービス
 use App\Services\Admin\BoardingLocation\BoardingLocationSearchService;
 // トレイト

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin\Vehicle;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // モデル
-use App\Models\User;
 use App\Models\VehicleType;
 use App\Models\VehicleCategory;
 // 列挙

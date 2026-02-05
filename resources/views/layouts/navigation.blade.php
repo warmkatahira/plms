@@ -7,31 +7,36 @@
         <!-- ダッシュボード -->
         <x-navigation-btn route="dashboard.index" label="ダッシュボード" icon="las la-home" isRightMargin="true" />
         @can('admin_check')
-            <!-- 管理 -->
+            <!-- 送迎 -->
              <div class="flex flex-col gap-0.5">
-                <x-navigation-btn label="管理" icon="las la-users-cog" openCloseKey="system_admin" />
+                <x-navigation-btn label="送迎" icon="las la-bus" openCloseKey="system_admin" />
                 <div class="navigation-content hidden">
-                    @can('admin_check')
-                        <x-navigation-btn route="vehicle.index" label="車両" isLeftMargin="true" isRightMargin="true" />
-                        <x-navigation-btn route="boarding_location.index" label="乗降場所" isLeftMargin="true" isRightMargin="true" />
-                        <x-navigation-btn route="route.index" label="ルート" isLeftMargin="true" isRightMargin="true" />
-                    @endcan
+                    <x-navigation-btn route="ride_schedule.index" label="送迎予定" isLeftMargin="true" isRightMargin="true" />
                 </div>
             </div>
         @endcan
         @can('admin_check')
+            <!-- 管理 -->
+             <div class="flex flex-col gap-0.5">
+                <x-navigation-btn label="管理" icon="las la-users-cog" openCloseKey="system_admin" />
+                <div class="navigation-content hidden">
+                    <x-navigation-btn route="vehicle.index" label="車両" isLeftMargin="true" isRightMargin="true" />
+                    <x-navigation-btn route="boarding_location.index" label="乗降場所" isLeftMargin="true" isRightMargin="true" />
+                    <x-navigation-btn route="route.index" label="ルート" isLeftMargin="true" isRightMargin="true" />
+                </div>
+            </div>
+        @endcan
+        @can('system_admin_check')
             <!-- システム管理 -->
              <div class="flex flex-col gap-0.5">
                 <x-navigation-btn label="システム管理" icon="las la-robot" openCloseKey="system_admin" />
                 <div class="navigation-content hidden">
-                    @can('system_admin_check')
-                        <x-navigation-btn route="role.index" label="権限" isLeftMargin="true" isRightMargin="true" />
-                        <x-navigation-btn route="user.index" label="ユーザー" isLeftMargin="true" isRightMargin="true" />
-                        <x-navigation-btn route="vehicle_type.index" label="車両区分" isLeftMargin="true" isRightMargin="true" />
-                        <x-navigation-btn route="vehicle_category.index" label="車両種別" isLeftMargin="true" isRightMargin="true" />
-                        <x-navigation-btn route="route_type.index" label="ルート区分" isLeftMargin="true" isRightMargin="true" />
-                        <x-navigation-btn route="operation_log.index" label="操作ログ" isLeftMargin="true" isRightMargin="true" />
-                    @endcan
+                    <x-navigation-btn route="role.index" label="権限" isLeftMargin="true" isRightMargin="true" />
+                    <x-navigation-btn route="user.index" label="ユーザー" isLeftMargin="true" isRightMargin="true" />
+                    <x-navigation-btn route="vehicle_type.index" label="車両区分" isLeftMargin="true" isRightMargin="true" />
+                    <x-navigation-btn route="vehicle_category.index" label="車両種別" isLeftMargin="true" isRightMargin="true" />
+                    <x-navigation-btn route="route_type.index" label="ルート区分" isLeftMargin="true" isRightMargin="true" />
+                    <x-navigation-btn route="operation_log.index" label="操作ログ" isLeftMargin="true" isRightMargin="true" />
                 </div>
             </div>
         @endcan
