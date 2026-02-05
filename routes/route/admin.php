@@ -6,10 +6,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Vehicle\VehicleController;
 use App\Http\Controllers\Admin\Vehicle\VehicleCreateController;
 use App\Http\Controllers\Admin\Vehicle\VehicleUpdateController;
+use App\Http\Controllers\Admin\Vehicle\VehicleDownloadController;
 // +-+-+-+-+-+-+-+- 乗降場所 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationController;
 use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationCreateController;
 use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationUpdateController;
+use App\Http\Controllers\Admin\BoardingLocation\BoardingLocationDownloadController;
 // +-+-+-+-+-+-+-+- ルート +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Admin\Route\RouteController;
 use App\Http\Controllers\Admin\Route\RouteCreateController;
@@ -32,6 +34,9 @@ Route::middleware('common')->group(function (){
             Route::get('', 'index')->name('index');
             Route::post('update', 'update')->name('update');
         });
+        Route::controller(VehicleDownloadController::class)->prefix('vehicle_download')->name('vehicle_download.')->group(function(){
+            Route::get('download', 'download')->name('download');
+        });
         // +-+-+-+-+-+-+-+- 乗降場所 +-+-+-+-+-+-+-+-
         Route::controller(BoardingLocationController::class)->prefix('boarding_location')->name('boarding_location.')->group(function(){
             Route::get('', 'index')->name('index');
@@ -43,6 +48,9 @@ Route::middleware('common')->group(function (){
         Route::controller(BoardingLocationUpdateController::class)->prefix('boarding_location_update')->name('boarding_location_update.')->group(function(){
             Route::get('', 'index')->name('index');
             Route::post('update', 'update')->name('update');
+        });
+        Route::controller(BoardingLocationDownloadController::class)->prefix('boarding_location_download')->name('boarding_location_download.')->group(function(){
+            Route::get('download', 'download')->name('download');
         });
         // +-+-+-+-+-+-+-+- ルート +-+-+-+-+-+-+-+-
         Route::controller(RouteController::class)->prefix('route')->name('route.')->group(function(){

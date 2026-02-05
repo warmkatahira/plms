@@ -17,6 +17,6 @@ enum SystemEnum
     // 顧客名とシステム名を結合して返す
     public static function getSystemTitle()
     {
-        return self::CUSTOMER_NAME_JP . ' ' . self::SYSTEM_NAME_JP;
+        return self::SYSTEM_NAME_JP;
     }
 }

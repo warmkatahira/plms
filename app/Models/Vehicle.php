@@ -50,4 +50,20 @@ class Vehicle extends Model
     {
         return $this->is_active ? '利用可' : '利用不可';
     }
+    // ダウンロード時のヘッダーを定義
+    public static function downloadHeader()
+    {
+        return [
+            '利用可否',
+            '車両区分',
+            '車両種別',
+            '所有者',
+            '車両名',
+            '車両色',
+            '車両ナンバー',
+            '送迎可能人数',
+            '車両メモ',
+            '最終更新日時',
+        ];
+    }
 }

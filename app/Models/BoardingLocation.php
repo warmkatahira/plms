@@ -25,4 +25,20 @@ class BoardingLocation extends Model
     {
         return $query->orderBy('sort_order', 'asc');
     }
+    // 利用可否の文字列を返すアクセサ
+    public function getIsActiveTextAttribute()
+    {
+        return $this->is_active ? '利用可' : '利用不可';
+    }
+    // ダウンロード時のヘッダーを定義
+    public static function downloadHeader()
+    {
+        return [
+            '利用可否',
+            '場所名',
+            '場所メモ',
+            '並び順',
+            '最終更新日時',
+        ];
+    }
 }
