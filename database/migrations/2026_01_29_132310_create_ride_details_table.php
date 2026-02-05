@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('location_memo', 50)->nullable();
             $table->unsignedTinyInteger('stop_order');
             $table->time('arrival_time')->nullable();
-            $table->time('departure_time');
+            $table->time('departure_time')->nullable();
             $table->timestamps();
             // 外部キー
             $table->foreign('ride_id')->references('ride_id')->on('rides')->cascadeOnUpdate()->cascadeOnDelete();
