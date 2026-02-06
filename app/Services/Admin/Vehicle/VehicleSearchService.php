@@ -61,7 +61,7 @@ class VehicleSearchService
             // 条件を指定して取得
             $query = $query->where('vehicle_category_id', session('search_vehicle_category_id'));
         }
-        // 送迎可能人数の条件がある場合
+        // 定員の条件がある場合
         if(session('search_vehicle_capacity') != null){
             // 「4人以下」の場合
             if(session('search_vehicle_capacity') == VehicleEnum::VEHICLE_CAPACITY_4){

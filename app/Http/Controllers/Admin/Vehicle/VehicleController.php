@@ -36,7 +36,7 @@ class VehicleController extends Controller
         $vehicle_types = VehicleType::ordered()->get();
         // 車両種別を取得
         $vehicle_categories = VehicleCategory::ordered()->get();
-        // 送迎可能人数の検索条件を取得
+        // 定員の検索条件を取得
         $vehicle_capacity_conditions = VehicleEnum::VEHICLE_CAPACITY_CONDITION_LIST;
         return view('admin.vehicle.index')->with([
             'vehicles' => $vehicles,

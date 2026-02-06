@@ -11,7 +11,7 @@
                     <th class="font-thin py-1 px-2 text-center">車両名</th>
                     <th class="font-thin py-1 px-2 text-center">車両色</th>
                     <th class="font-thin py-1 px-2 text-center">車両ナンバー</th>
-                    <th class="font-thin py-1 px-2 text-center">送迎可能人数</th>
+                    <th class="font-thin py-1 px-2 text-center">定員</th>
                     <th class="font-thin py-1 px-2 text-center">車両メモ</th>
                     <th class="font-thin py-1 px-2 text-center">最終更新日時</th>
                 </tr>

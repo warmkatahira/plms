@@ -46,7 +46,7 @@ class BaseRequest extends FormRequest
             'vehicle_name'          => '車両名',
             'vehicle_color'         => '車両色',
             'vehicle_number'        => '車両ナンバー',
-            'vehicle_capacity'      => '送迎可能人数',
+            'vehicle_capacity'      => '定員',
             'vehicle_memo'          => '車両メモ',
             'owner'                 => '所有者',
             // 乗降場所

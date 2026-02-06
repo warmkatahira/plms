@@ -12,7 +12,7 @@
         <x-form.input type="text" label="車両名" id="vehicle_name" name="vehicle_name" :value="$form_mode === 'update' ? $vehicle->vehicle_name : null" required="true" />
         <x-form.input type="text" label="車両色" id="vehicle_color" name="vehicle_color" :value="$form_mode === 'update' ? $vehicle->vehicle_color : null" required="true" />
         <x-form.input type="tel" label="車両ナンバー" id="vehicle_number" name="vehicle_number" :value="$form_mode === 'update' ? $vehicle->vehicle_number : null" required="true" />
-        <x-form.input type="tel" label="送迎可能人数" id="vehicle_capacity" name="vehicle_capacity" :value="$form_mode === 'update' ? $vehicle->vehicle_capacity : null" required="true" />
+        <x-form.input type="tel" label="定員" id="vehicle_capacity" name="vehicle_capacity" :value="$form_mode === 'update' ? $vehicle->vehicle_capacity : null" required="true" />
         <x-form.input type="text" label="車両メモ" id="vehicle_memo" name="vehicle_memo" :value="$form_mode === 'update' ? $vehicle->vehicle_memo : null" />
     </div>
     @if($form_mode === 'update')
