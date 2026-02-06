@@ -95,10 +95,13 @@
     ]
   },
   "resources/js/ride/ride_schedule/ride_schedule.js": {
-    "file": "assets/ride_schedule-l0sNRNKZ.js",
+    "file": "assets/ride_schedule-BeY8PO-A.js",
     "name": "ride_schedule",
     "src": "resources/js/ride/ride_schedule/ride_schedule.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "resources/js/loading.js"
+    ]
   },
   "resources/js/search.js": {
     "file": "assets/search-CDUhy24g.js",

@@ -25,6 +25,16 @@ class Vehicle extends Model
     {
         return $query->whereKey($id);
     }
+    // 並び替えて取得
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('vehicle_id', 'asc');
+    }
+    // 有効なレコードを取得
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
     // usersテーブルとのリレーション
     public function user()
     {

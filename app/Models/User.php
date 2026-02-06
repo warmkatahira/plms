@@ -29,11 +29,27 @@ class User extends Authenticatable
         'password',
         'status',
         'role_id',
+        'is_driver_eligible',
         'chatwork_id',
         'profile_image_file_name',
         'must_change_password',
         'last_login_at',
     ];
+    // 並び替えて取得
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('user_no', 'asc');
+    }
+    // 有効なレコードを取得
+    public function scopeActive($query)
+    {
+        return $query->where('status', true);
+    }
+    // ドライバー登録可のレコードを取得
+    public function scopeDriverEligible($query)
+    {
+        return $query->where('is_driver_eligible', true);
+    }
     // rolesテーブルとのリレーション
     public function role()
     {

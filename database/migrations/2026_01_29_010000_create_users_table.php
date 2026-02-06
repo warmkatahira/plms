@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password', 255);
             $table->boolean('status')->default(true);
             $table->string('role_id', 20);
+            $table->boolean('is_driver_eligible')->default(false);
             $table->string('chatwork_id', 10)->nullable();
             $table->string('profile_image_file_name', 50)->default('no_image.png');
             $table->boolean('must_change_password')->default(true);

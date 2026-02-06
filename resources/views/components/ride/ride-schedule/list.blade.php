@@ -21,7 +21,7 @@
                     <tr class="text-left cursor-default whitespace-nowrap hover:bg-theme-sub group">
                         <td class="py-1 px-2 border">
                             <div class="flex flex-row gap-5">
-                                <a href="" class="btn bg-btn-enter text-white py-1 px-2">更新</a>
+                                <a href="{{ route('ride_schedule_update.index', ['ride_id' => $ride->ride_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">更新</a>
                                 <button type="button" class="btn route_delete_enter bg-btn-cancel text-white py-1 px-2" data-route-schedule-id="{{ $ride->ride_id }}">削除</button>
                             </div>
                         </td>

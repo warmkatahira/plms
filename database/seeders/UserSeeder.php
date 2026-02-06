@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'first_name'            => '貴順',
             'password'              => bcrypt('katahira134'),
             'role_id'               => 'system_admin',
+            'is_driver_eligible'    => true,
             'chatwork_id'           => '3281641',
             'must_change_password'  => false,
         ]);

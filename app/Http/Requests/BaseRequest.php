@@ -58,6 +58,12 @@ class BaseRequest extends FormRequest
             'route_name'            => 'ルート名',
             'stop_order'            => '停車順番',
             'departure_time'        => '出発時刻',
+            // 送迎
+            'ride_id'               => '送迎予定',
+            'schedule_date'         => '送迎日',
+            'driver_user_no'        => 'ドライバー',
+            'use_vehicle_id'        => '使用車両',
+            'ride_memo'             => '送迎メモ',
             // ユーザー情報
             'user_no'               => 'ユーザー',
             'user_id'               => 'ユーザーID',

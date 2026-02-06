@@ -17,6 +17,11 @@ class Ride extends Model
         'ride_memo',
         'is_active',
     ];
+    // 主キーで検索するスコープ
+    public function scopeByPk($query, $id)
+    {
+        return $query->whereKey($id);
+    }
     // 運行状況の文字列を返すアクセサ
     public function getIsActiveTextAttribute()
     {
