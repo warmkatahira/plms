@@ -62,7 +62,7 @@
                         <td class="py-1 px-2 border">{{ CarbonImmutable::parse($ride->updated_at)->isoFormat('YYYY年MM月DD日(ddd) HH時mm分ss秒').'('.CarbonImmutable::parse($ride->updated_at)->diffForHumans().')' }}</td>
                     </tr>
                     <tr class="ride_detail_components hidden">
-                        <td colspan="10" class="p-0">
+                        <td colspan="11" class="p-0">
                             <div class="inline-block">
                                 <table class="text-xs border border-gray-300 mb-3">
                                     <thead>
