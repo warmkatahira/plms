@@ -1,17 +1,33 @@
-// ドロップダウンボタンがマウスオーバーされたら
-$('#dropdown').on("mouseover",function(){
-    // 表示
-    $('#dropdown-content').css('display', 'block');
+// +-+-+-+-+-+-+-+-+-+-+-+-+- メニュー用 +-+-+-+-+-+-+-+-+-+-+-+-+-
+
+// マウスオーバー時（表示）
+$(document).on("mouseover", ".dropdown-menu", function(){
+    $(this).find(".dropdown-menu-content").show();
 });
 
-// ドロップダウンボタンがマウスアウトされたら
-$('#dropdown').on("mouseout",function(){
-    // 非表示
-    $('#dropdown-content').css('display', 'none');
+// マウスアウト時（非表示）
+$(document).on("mouseout", ".dropdown-menu", function(){
+    $(this).find(".dropdown-menu-content").hide();
 });
 
-// ドロップダウンボタンがクリックされたら
-$('#dropdown').on("click", function () {
-    // 非表示
-    $('#dropdown-content').css('display', 'none');
+// クリック時（非表示）
+$(document).on("click", ".dropdown-menu", function(){
+    $(this).find(".dropdown-menu-content").hide();
+});
+
+// +-+-+-+-+-+-+-+-+-+-+-+-+- 操作用 +-+-+-+-+-+-+-+-+-+-+-+-+-
+
+// マウスオーバー時（表示）
+$(document).on("mouseover", ".dropdown-operation", function(){
+    $(this).find(".dropdown-operation-content").show();
+});
+
+// マウスアウト時（非表示）
+$(document).on("mouseout", ".dropdown-operation", function(){
+    $(this).find(".dropdown-operation-content").hide();
+});
+
+// クリック時（非表示）
+$(document).on("click", ".dropdown-operation", function(){
+    $(this).find(".dropdown-operation-content").hide();
 });

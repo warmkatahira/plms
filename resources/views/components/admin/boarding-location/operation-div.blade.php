@@ -1,9 +1,9 @@
 <div class="flex">
-    <div id="dropdown" class="dropdown">
-        <button id="dropdown_btn" class="dropdown_btn"><i class="las la-bars la-lg mr-1"></i>メニュー</button>
-        <div class="dropdown-content" id="dropdown-content">
-            <a href="{{ route('boarding_location_create.index') }}" class="dropdown-content-element"><i class="las la-plus la-lg mr-1"></i>乗降場所追加</a>
-            <a href="{{ route('boarding_location_download.download') }}" class="dropdown-content-element"><i class="las la-download la-lg mr-1"></i>ダウンロード</a>
+    <div class="dropdown-menu">
+        <button class="dropdown-menu-btn"><i class="las la-bars la-lg mr-1"></i>メニュー</button>
+        <div class="dropdown-menu-content">
+            <a href="{{ route('boarding_location_create.index') }}" class="dropdown-menu-content-element"><i class="las la-plus la-lg mr-1"></i>乗降場所追加</a>
+            <a href="{{ route('boarding_location_download.download') }}" class="dropdown-menu-content-element"><i class="las la-download la-lg mr-1"></i>ダウンロード</a>
         </div>
     </div>
 </div>

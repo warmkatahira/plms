@@ -63,3 +63,53 @@ $('.route_copy_enter').on("click",function(){
         alert(e.message);
     }
 });
+
+// ルート更新のツールチップ
+tippy('.tippy_route_update', {
+    content: 'ルート更新',
+    duration: 500,
+    maxWidth: 'none',
+    allowHTML: true,
+    placement: 'right',
+    theme: 'tippy_main_theme',
+});
+
+// ルート詳細更新のツールチップ
+tippy('.tippy_route_detail_update', {
+    content: 'ルート詳細更新',
+    duration: 500,
+    maxWidth: 'none',
+    allowHTML: true,
+    placement: 'right',
+    theme: 'tippy_main_theme',
+});
+
+// 複製のツールチップ
+tippy('.tippy_route_copy', {
+    content: '複製',
+    duration: 500,
+    maxWidth: 'none',
+    allowHTML: true,
+    placement: 'right',
+    theme: 'tippy_main_theme',
+});
+
+// 削除のツールチップ
+tippy('.tippy_route_delete', {
+    content: '削除',
+    duration: 500,
+    maxWidth: 'none',
+    allowHTML: true,
+    placement: 'right',
+    theme: 'tippy_main_theme',
+});
+
+// ルート詳細表示/非表示のツールチップ
+tippy('.tippy_route_detail_open_close', {
+    content: 'ルート詳細表示/非表示',
+    duration: 500,
+    maxWidth: 'none',
+    allowHTML: true,
+    placement: 'right',
+    theme: 'tippy_main_theme',
+});

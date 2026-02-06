@@ -18,11 +18,16 @@
                     <tr class="text-left cursor-default whitespace-nowrap hover:bg-theme-sub group @if(!$route->is_active) bg-common-disabled @endif">
                         <td class="py-1 px-2 border">
                             <div class="flex flex-row gap-5">
-                                <a href="{{ route('route_update.index', ['route_id' => $route->route_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">ルートを更新</a>
-                                <a href="{{ route('route_detail_update.index', ['route_id' => $route->route_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">ルート詳細を更新</a>
-                                <button type="button" class="btn route_copy_enter bg-btn-copy text-white py-1 px-2" data-route-id="{{ $route->route_id }}">複製</button>
-                                <button type="button" class="btn route_delete_enter bg-btn-cancel text-white py-1 px-2" data-route-id="{{ $route->route_id }}">削除</button>
                                 <button type="button" class="btn route_toggle_components_btn bg-btn-open text-white py-1 px-2">ルート詳細を表示</button>
+                                <div class="dropdown-operation">
+                                    <button class="dropdown-operation-btn"><i class="las la-ellipsis-v la-lg"></i></button>
+                                    <div class="dropdown-operation-content">
+                                        <a href="{{ route('route_update.index', ['route_id' => $route->route_id]) }}" class="dropdown-operation-content-element"><i class="las la-edit la-lg mr-1"></i>ルートを更新</a>
+                                        <a href="{{ route('route_detail_update.index', ['route_id' => $route->route_id]) }}" class="dropdown-operation-content-element"><i class="las la-edit la-lg mr-1"></i>ルート詳細を更新</a>
+                                        <button type="button" class="dropdown-operation-content-element route_copy_enter" data-route-id="{{ $route->route_id }}"><i class="las la-copy la-lg mr-1"></i>複製</button>
+                                        <button type="button" class="dropdown-operation-content-element route_delete_enter" data-route-id="{{ $route->route_id }}"><i class="las la-trash la-lg mr-1"></i>削除</button>
+                                    </div>
+                                </div>
                             </div>
                         </td>
                         <td class="py-1 px-2 border text-center">
