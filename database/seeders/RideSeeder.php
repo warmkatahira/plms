@@ -19,6 +19,7 @@ class RideSeeder extends Seeder
         Ride::create([
             'route_type_id'         => 1,
             'schedule_date'         => '2026-02-10',
+            'route_name'            => 'test便',
             'driver_user_no'        => 1,
             'use_vehicle_id'        => 2,
             'ride_memo'             => 'test',
@@ -58,17 +59,15 @@ class RideSeeder extends Seeder
             'stop_order'            => 4,
             'arrival_time'          => '09:10',
         ]);
+        for($i = 3; $i < 15; $i++){
+            RideUser::create([
+                'ride_detail_id'        => 1,
+                'user_no'               => $i,
+            ]);
+        }
         RideUser::create([
-            'ride_detail_id'        => 1,
-            'user_no'               => 2,
-        ]);
-        RideUser::create([
-            'ride_detail_id'        => 1,
-            'user_no'               => 3,
-        ]);
-        RideUser::create([
-            'ride_detail_id'        => 3,
-            'user_no'               => 4,
+            'ride_detail_id'        => 2,
+            'user_no'               => 20,
         ]);
     }
 }

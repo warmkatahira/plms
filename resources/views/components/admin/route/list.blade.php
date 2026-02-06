@@ -26,6 +26,7 @@
                                         <a href="{{ route('route_detail_update.index', ['route_id' => $route->route_id]) }}" class="dropdown-operation-content-element"><i class="las la-edit la-lg mr-1"></i>ルート詳細を更新</a>
                                         <button type="button" class="dropdown-operation-content-element route_copy_enter" data-route-id="{{ $route->route_id }}"><i class="las la-copy la-lg mr-1"></i>複製</button>
                                         <button type="button" class="dropdown-operation-content-element route_delete_enter" data-route-id="{{ $route->route_id }}"><i class="las la-trash la-lg mr-1"></i>削除</button>
+                                        <a href="{{ route('ride_schedule_create.index', ['route_id' => $route->route_id]) }}" class="dropdown-operation-content-element"><i class="las la-plus la-lg mr-1"></i>送迎予定を追加</a>
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +42,7 @@
                         <td class="py-1 px-2 border">{{ CarbonImmutable::parse($route->updated_at)->isoFormat('YYYY年MM月DD日(ddd) HH時mm分ss秒').'('.CarbonImmutable::parse($route->updated_at)->diffForHumans().')' }}</td>
                     </tr>
                     <tr class="route_detail_components hidden">
-                        <td colspan="7" class="p-0">
+                        <td colspan="5" class="p-0">
                             <div class="inline-block">
                                 <table class="text-xs border border-gray-300 mb-3">
                                     <thead>

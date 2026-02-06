@@ -42,3 +42,25 @@ $('.ride_schedule_delete_enter').on("click",function(){
         alert(e.message);
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    flatpickr("#schedule_date", {
+        mode: "multiple",
+        dateFormat: "Y-m-d",
+        locale: "ja",
+        showMonths: 1
+    });
+});
+
+// 利用者のツールチップ
+tippy('.tippy_ride_user', {
+    content(reference) {
+        const fullName = reference.getAttribute('data-full-name') + ' さん' || '';
+        return fullName;
+    },
+    duration: 500,
+    maxWidth: 'none',
+    allowHTML: true,
+    placement: 'right',
+    theme: 'tippy_main_theme',
+});

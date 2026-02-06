@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('ride_id');
             $table->unsignedInteger('route_type_id');
             $table->date('schedule_date');
+            $table->string('route_name', 20);
             $table->unsignedInteger('driver_user_no')->nullable();
             $table->unsignedInteger('use_vehicle_id')->nullable();
             $table->string('ride_memo', 50)->nullable();

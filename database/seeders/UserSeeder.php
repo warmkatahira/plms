@@ -24,6 +24,15 @@ class UserSeeder extends Seeder
             'chatwork_id'           => '3281641',
             'must_change_password'  => false,
         ]);
+        User::create([
+            'user_id'               => 'dirver-A',
+            'last_name'             => 'ドライバー',
+            'first_name'            => 'A',
+            'password'              => bcrypt('katahira134'),
+            'role_id'               => 'part',
+            'is_driver_eligible'    => true,
+            'must_change_password'  => false,
+        ]);
         User::factory()->count(20)->create();
     }
 }

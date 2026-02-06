@@ -1,3 +1,0 @@
-import{s as e}from"./loading-CLXJ3Lsj.js";$("#ride_schedule_create_enter").on("click",function(){window.confirm("送迎予定追加を実行しますか？")===!0&&(e(),$("#ride_schedule_form").submit())});$("#ride_schedule_update_enter").on("click",function(){window.confirm("送迎予定更新を実行しますか？")===!0&&(e(),$("#ride_schedule_form").submit())});$(".ride_schedule_delete_enter").on("click",function(){const i=$(this).closest("tr").find(".route_name").text();try{window.confirm(`送迎予定を削除しますか？
-
-ルート名：`+i)==!0&&(e(),$("#ride_id_at_delete").val($(this).data("route-id")),$("#ride_schedule_delete_form").submit())}catch(r){alert(r.message)}});

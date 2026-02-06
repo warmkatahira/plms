@@ -13,4 +13,9 @@ class RideUser extends Model
         'ride_detail_id',
         'user_no',
     ];
+    // usersテーブルとのリレーション
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_no', 'user_no');
+    }
 }

@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "chart.js": "^4.4.9",
-        "chartjs-plugin-datalabels": "^2.2.0"
+        "chartjs-plugin-datalabels": "^2.2.0",
+        "flatpickr": "^4.6.13"
     }
 }

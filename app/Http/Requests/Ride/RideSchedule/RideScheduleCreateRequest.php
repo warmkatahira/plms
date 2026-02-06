@@ -21,6 +21,14 @@ class RideScheduleCreateRequest extends BaseRequest
         $this->merge([
             'is_active' => $this->has('is_active') ? $this->input('is_active') : 0,
         ]);
+        // 送迎日を配列に変換
+        if($this->filled('schedule_date')){
+            $this->merge([
+                'schedule_dates' => array_filter(
+                    array_map('trim', explode(',', $this->schedule_date))
+                ),
+            ]);
+        }
     }
 
     /**
@@ -31,8 +39,8 @@ class RideScheduleCreateRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'route_type_id'         => 'required|exists:route_types,route_type_id',
-            'schedule_date'         => 'required|date',
+            'schedule_dates'        => 'required|array',
+            'schedule_dates.*'      => 'required|date',
             'driver_user_no'        => 'nullable|exists:users,user_no',
             'use_vehicle_id'        => 'nullable|exists:vehicles,vehicle_id',
             'ride_memo'             => 'nullable|string|max:50',

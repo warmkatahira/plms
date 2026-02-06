@@ -27,6 +27,8 @@ class RideScheduleController extends Controller
         $result = $RideScheduleSearchService->getSearchResult();
         // ページネーションを実施
         $rides = $this->setPagination($result);
+        // 所要時間を取得
+        $rides = $RideScheduleSearchService->getRequiredMinutes($rides);
         return view('ride.ride_schedule.index')->with([
             'rides' => $rides,
         ]);

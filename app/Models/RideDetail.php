@@ -18,4 +18,9 @@ class RideDetail extends Model
         'arrival_time',
         'departure_time',
     ];
+    // ride_usersテーブルとのリレーション
+    public function ride_users()
+    {
+        return $this->hasMany(RideUser::class, 'ride_detail_id', 'ride_detail_id');
+    }
 }

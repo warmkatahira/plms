@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Ride\RideSchedule;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // モデル
-use App\Models\RouteType;
 use App\Models\Vehicle;
 use App\Models\User;
+use App\Models\Route;
 // サービス
 use App\Services\Ride\RideSchedule\RideScheduleCreateService;
 // リクエスト
@@ -21,16 +21,16 @@ class RideScheduleCreateController extends Controller
     {
         // ページヘッダーをセッションに格納
         session(['page_header' => '送迎予定追加']);
-        // ルート区分を取得
-        $route_types = RouteType::ordered()->get();
+        // ルートを取得
+        $route = Route::byPk($request->route_id)->with(['route_details', 'route_type', 'vehicle_category'])->first();
         // 車両を取得
-        $vehicles = Vehicle::active()->ordered()->get();
+        $vehicles = Vehicle::active()->ofVehicleCategory($route->vehicle_category_id)->ordered()->get();
         // ドライバーユーザーを取得
         $users = User::driverEligible()->active()->ordered()->get();
         return view('ride.ride_schedule.create')->with([
-            'route_types' => $route_types,
             'vehicles' => $vehicles,
             'users' => $users,
+            'route' => $route,
         ]);
     }
 

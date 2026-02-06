@@ -2,6 +2,8 @@
     <p class="text-xs bg-black text-white py-1 text-center">検索条件</p>
     <div class="flex flex-col gap-y-2 p-3 bg-white min-w-60 text-xs border border-black">
         <x-search.select-boolean label="運行状況" id="search_is_active" name="search_is_active" label1="運行決定" label0="運行未定" />
+        <x-search.date-period type="date" label="送迎日" fromId="search_schedule_date_from" fromName="search_schedule_date_from" toId="search_schedule_date_to" toName="search_schedule_date_to" />
+        <x-search.select-boolean label="ドライバー" id="search_driver_status" name="search_driver_status" label1="確定" label0="未定" />
         <input type="hidden" id="search_type" name="search_type" value="default">
         <div class="flex flex-row">
             <!-- 検索ボタン -->

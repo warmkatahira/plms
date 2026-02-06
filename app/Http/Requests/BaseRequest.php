@@ -30,6 +30,7 @@ class BaseRequest extends FormRequest
             'in'                                => ":attributeが正しくありません。",
             'numeric'                           => ":attributeは数値で入力して下さい。",
             'distinct'                          => ":attributeに同じ値があります。",
+            'array'                             => ":attributeが正しくありません。",
         ];
     }
 
@@ -61,6 +62,8 @@ class BaseRequest extends FormRequest
             // 送迎
             'ride_id'               => '送迎予定',
             'schedule_date'         => '送迎日',
+            'schedule_dates'        => '送迎日',
+            'schedule_dates.*'      => '送迎日',
             'driver_user_no'        => 'ドライバー',
             'use_vehicle_id'        => '使用車両',
             'ride_memo'             => '送迎メモ',

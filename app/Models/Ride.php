@@ -12,6 +12,7 @@ class Ride extends Model
     protected $fillable = [
         'route_type_id',
         'schedule_date',
+        'route_name',
         'driver_user_no',
         'use_vehicle_id',
         'ride_memo',
@@ -41,5 +42,10 @@ class Ride extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'driver_user_no', 'user_no');
+    }
+    // ride_detailsテーブルとのリレーション
+    public function ride_details()
+    {
+        return $this->hasMany(RideDetail::class, 'ride_id', 'ride_id');
     }
 }

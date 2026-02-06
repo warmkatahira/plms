@@ -35,6 +35,11 @@ class Vehicle extends Model
     {
         return $query->where('is_active', true);
     }
+    // 指定したvehicle_category_idのレコードを取得
+    public function scopeOfVehicleCategory($query, $vehicle_category_id)
+    {
+        return $query->where('vehicle_category_id', $vehicle_category_id);
+    }
     // usersテーブルとのリレーション
     public function user()
     {

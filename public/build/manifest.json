@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-BGPNmNhr.css",
+    "file": "assets/app-Dvdja6ow.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -14,7 +14,7 @@
     ]
   },
   "resources/js/admin/route/route.js": {
-    "file": "assets/route-CF0omGPH.js",
+    "file": "assets/route-BgLz8NXl.js",
     "name": "route",
     "src": "resources/js/admin/route/route.js",
     "isEntry": true,
@@ -41,10 +41,13 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-Bo-u61x1.js",
+    "file": "assets/app-DiPva9d7.js",
     "name": "app",
     "src": "resources/js/app.js",
-    "isEntry": true
+    "isEntry": true,
+    "css": [
+      "assets/app-BsM4JrO0.css"
+    ]
   },
   "resources/js/auth/register.js": {
     "file": "assets/register-CUv0HFxH.js",
@@ -95,7 +98,7 @@
     ]
   },
   "resources/js/ride/ride_schedule/ride_schedule.js": {
-    "file": "assets/ride_schedule-BeY8PO-A.js",
+    "file": "assets/ride_schedule-BB-O0255.js",
     "name": "ride_schedule",
     "src": "resources/js/ride/ride_schedule/ride_schedule.js",
     "isEntry": true,
