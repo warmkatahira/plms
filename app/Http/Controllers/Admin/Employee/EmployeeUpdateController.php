@@ -22,18 +22,9 @@ class EmployeeUpdateController extends Controller
         // ページヘッダーをセッションに格納
         session(['page_header' => '従業員更新']);
         // 従業員を取得
-        $employee = User::findOrFail($request->user_no);
-        // 営業所を取得
-        $bases = Base::getAll()->get();
-        // 1日あたりの時間数を取得
-        $daily_working_hours = WorkingHour::getDailyWorkingHours()->get();
-        // 半日あたりの時間数を取得
-        $half_day_working_hours = WorkingHour::getHalfDayWorkingHours()->get();
+        $employee = User::with('base')->findOrFail($request->user_no);
         return view('admin.employee.update')->with([
             'employee' => $employee,
-            'bases' => $bases,
-            'daily_working_hours' => $daily_working_hours,
-            'half_day_working_hours' => $half_day_working_hours,
         ]);
     }
 
