@@ -8,7 +8,6 @@ enum OperationLogEnum
     const NO_OPERATION_RECORD_PATH = [
         // 従業員一覧
         'employee_update',
-        'employee_create',
         // 営業所
         'base_update',
         'base_create',
@@ -25,16 +24,11 @@ enum OperationLogEnum
     // パスの日本語変換用
     const PATH_JP_CHANGE_LIST = [
         // ダッシュボード
-        'dashboard' => 'ダッシュボード',
+        'dashboard'                     => 'ダッシュボード',
         // 従業員一覧
         'employee'                      => '従業員一覧',
         'employee_update/update'        => '従業員更新',
         'employee_download/download'    => '従業員ダウンロード',
-        'employee_create/create'        => '従業員追加(入力)',
-        'employee_create/import'        => '従業員追加(取込)',
-        'paid_leave_update/import'      => '有給情報更新(取込)',
-        'statutory_leave_update/import' => '義務情報更新(取込)',
-        'other_update/import'           => 'その他情報更新(取込)',
         // 権限
         'role'                          => '権限',
         // 営業所
@@ -45,12 +39,8 @@ enum OperationLogEnum
         'user'                          => 'ユーザー',
         'user_update/update'            => 'ユーザー更新',
         'user_create/create'            => 'ユーザー追加',
-        // 勤務時間数
-        'working_hour'                  => '勤務時間数',
-        'working_hour_delete/delete'    => '勤務時間数削除',
-        'working_hour_create/create'    => '勤務時間数追加',
         // 取込履歴
-        'import_history' => '取込履歴',
+        'import_history'                => '取込履歴',
     ];
 
     // パスの日本語を取得
