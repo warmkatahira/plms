@@ -83,6 +83,11 @@ class UserSearchService extends BaseFilterService
                     $q->where('base_id', $value);
                 });
             },
+            // 入社日
+            'filter_hire_date_from' => function ($query, $value) {
+                $query->whereDate('hire_date', '>=', session('filter_hire_date_from'))
+                    ->whereDate('hire_date', '<=', session('filter_hire_date_to'));
+            },
             // 勤続年数
             'filter_service_years' => function ($query, $value) {
                 $query->whereRaw("
@@ -124,7 +129,9 @@ class UserSearchService extends BaseFilterService
     // 無視するキー
     protected function ignoreKeys(): array
     {
-        return [];
+        return [
+            'filter_hire_date_to',
+        ];
     }
 
     // 並び替え

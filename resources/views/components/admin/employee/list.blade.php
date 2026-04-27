@@ -31,7 +31,7 @@
                     <x-filter.select id="filter_base_id" name="filter_base_id" :selectItems="$bases" optionValue="base_id" optionText="base_name" :disabled="!auth()->user()->can('admin_check')" />
                     <x-filter.input type="tel" id="filter_employee_no" name="filter_employee_no" />
                     <x-filter.input type="tel" id="filter_user_name" name="filter_user_name" />
-                    <x-filter.input type="date" id="filter_hire_date" name="filter_hire_date" />
+                    <x-filter.date-period type="date" fromId="filter_hire_date_from" fromName="filter_hire_date_from" toId="filter_hire_date_to" toName="filter_hire_date_to" />
                     <x-filter.input type="text" id="filter_service_years" name="filter_service_years" />
                     <x-filter.input type="month" id="filter_next_grant_year_month" name="filter_next_grant_year_month" />
                     <x-filter.input type="month" id="filter_used_days_reset_year_month" name="filter_used_days_reset_year_month" />
