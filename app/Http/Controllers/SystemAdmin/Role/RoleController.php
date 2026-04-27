@@ -17,7 +17,7 @@ class RoleController extends Controller
         $roles = Role::getAll()
                     ->withCount([
                         'users as active_users_count' => function ($query) {
-                            $query->where('status', true);
+                            $query->where('is_active', true);
                         }
                     ])
                     ->get();
