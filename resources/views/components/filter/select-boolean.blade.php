@@ -3,11 +3,12 @@
     'name',
     'label1',
     'label0',
+    'disabled' => false,
 ])
 
 <th class="px-3">
     <div class="flex flex-row items-center">
-        <select id="{{ $id }}" name="{{ $name }}" class="search_element rounded border-gray-400 text-xs font-thin mx-2 py-1">
+        <select id="{{ $id }}" name="{{ $name }}" class="search_element rounded border-gray-400 text-xs font-thin mx-2 py-1" @if($disabled) disabled class="opacity-50 cursor-not-allowed" @endif>
             <option value="" @if(is_null(session($name))) selected @endif></option>
             <option value="1" @if(session($name) === '1') selected @endif>{{ $label1 }}</option>
             <option value="0" @if(session($name) === '0') selected @endif>{{ $label0 }}</option>

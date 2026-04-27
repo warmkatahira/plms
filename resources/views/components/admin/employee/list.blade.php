@@ -27,8 +27,8 @@
                 </tr>
                 <tr class="filter-row sticky top-[28px] bg-white z-10">
                     <th></th>
-                    <x-filter.select-boolean id="filter_is_active" name="filter_is_active" label1="有効" label0="無効" />
-                    <x-filter.select id="filter_base_id" name="filter_base_id" :selectItems="$bases" optionValue="base_id" optionText="base_name" />
+                    <x-filter.select-boolean id="filter_is_active" name="filter_is_active" label1="有効" label0="無効" :disabled="!auth()->user()->can('admin_check')" />
+                    <x-filter.select id="filter_base_id" name="filter_base_id" :selectItems="$bases" optionValue="base_id" optionText="base_name" :disabled="!auth()->user()->can('admin_check')" />
                     <x-filter.input type="tel" id="filter_employee_no" name="filter_employee_no" />
                     <x-filter.input type="tel" id="filter_user_name" name="filter_user_name" />
                     <x-filter.input type="date" id="filter_hire_date" name="filter_hire_date" />

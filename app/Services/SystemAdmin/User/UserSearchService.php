@@ -6,16 +6,21 @@ namespace App\Services\SystemAdmin\User;
 use App\Models\User;
 // サービス
 use App\Services\Common\BaseFilterService;
+// 列挙
+use App\Enums\RoleEnum;
 // その他
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class UserSearchService extends BaseFilterService
 {
     // ベースクエリ
     protected function baseQuery()
     {
+        // ログインユーザーを取得
+        $auth_user = Auth::user();
         // クエリをセット
-        return User::with(['role', 'base'])
+        $query = User::with(['role', 'base'])
                     ->select('users.*')
                     ->selectRaw("
                         CONCAT(
@@ -23,6 +28,33 @@ class UserSearchService extends BaseFilterService
                             MOD(TIMESTAMPDIFF(MONTH, hire_date, NOW()), 12), 'ヶ月'
                         ) as service_years
                     ");
+        // base_adminの場合、有効かつ自分の営業所のみに絞る
+        if($auth_user->role_id === RoleEnum::BASE_ADMIN){
+            $query->where('is_active', true)
+                ->where('base_id', $auth_user->base_id);
+        }
+        return $query;
+    }
+
+    public function setSearchCondition($request)
+    {
+        // フィルター送信時かつfilter_is_activeが明示的に送られてきた場合はそのまま使う
+        if($request->process_type !== 'filter'){
+            // 初回アクセス時のみis_activeの初期値をtrueにセット
+            if (!session()->has('filter_is_active')) {
+                session(['filter_is_active' => '1']);
+            }
+        }
+        // base_adminの場合、フィルターに値をセット
+        $auth_user = Auth::user();
+        if($auth_user->role_id === RoleEnum::BASE_ADMIN){
+            session([
+                'filter_is_active' => '1',
+                'filter_base_id'   => $auth_user->base_id,
+            ]);
+        }
+        // 親クラスの処理を呼ぶ
+        parent::setSearchCondition($request);
     }
 
     // LIKEキー
