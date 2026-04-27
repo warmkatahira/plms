@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('import_histories', function (Blueprint $table) {
             $table->increments('import_history_id');
-            $table->string('import_file_name', 255)->nullable();
-            $table->string('import_process', 20);
-            $table->string('import_type', 10);
+            $table->string('import_employee_original_file_name', 255)->nullable();
+            $table->string('import_paid_leave_original_file_name', 255)->nullable();
             $table->string('error_file_name', 255)->nullable();
             $table->string('message', 255)->nullable();
             $table->timestamps();

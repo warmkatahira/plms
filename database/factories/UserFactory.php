@@ -27,14 +27,15 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id'               => $this->faker->unique()->userName(),
-            'employee_no'           => $this->faker->numberBetween(1000, 9999),
-            'user_name'             => $this->faker->name('ja_JP'),
-            'password'              => bcrypt('password'),
-            'status'                => true,
-            'role_id'               => 'user',
-            'base_id'               => Base::inRandomOrder()->value('base_id'),
-            'must_change_password'  => false,
+            'user_id'                       => $this->faker->unique()->userName(),
+            'employee_no'                   => $this->faker->unique()->numberBetween(1000, 9999),
+            'user_name'                     => $this->faker->name('ja_JP'),
+            'password'                      => bcrypt('password'),
+            'is_active'                     => true,
+            'role_id'                       => 'user',
+            'base_id'                       => Base::inRandomOrder()->value('base_id'),
+            'is_password_change_required'   => false,
+            'hire_date'                     => $this->faker->dateTimeBetween('2024-01-10', 'now')->format('Y-m-d'),
         ];
     }
 

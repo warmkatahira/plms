@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/js/search.js',
                 'resources/js/file_select.js',
                 'resources/js/search_date.js',
+                'resources/js/filter.js',
                 'resources/sass/loading.scss',
                 'resources/sass/navigation.scss',
                 'resources/js/dropdown.js',
@@ -26,6 +27,7 @@ export default defineConfig({
                 'resources/js/auth/register.js',
                 // 管理
                 'resources/js/admin/employee/employee.js',
+                'resources/js/admin/file_import/file_import.js',
                 // システム管理
                 'resources/js/system_admin/base/base.js',
                 'resources/js/system_admin/user/user.js',

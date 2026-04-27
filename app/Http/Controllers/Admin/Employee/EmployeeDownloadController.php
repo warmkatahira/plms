@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Employee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // サービス
-use App\Services\Admin\Employee\EmployeeSearchService;
+use App\Services\SystemAdmin\User\UserSearchService;
 use App\Services\Admin\Employee\EmployeeDownloadService;
 // その他
 use Carbon\CarbonImmutable;
@@ -17,10 +17,10 @@ class EmployeeDownloadController extends Controller
     public function download()
     {
         // インスタンス化
-        $EmployeeSearchService = new EmployeeSearchService;
+        $UserSearchService = new UserSearchService;
         $EmployeeDownloadService = new EmployeeDownloadService;
         // 検索結果を取得
-        $result = $EmployeeSearchService->getSearchResult();
+        $result = $UserSearchService->getSearchResult();
         // ダウンロードするデータを取得
         $response = $EmployeeDownloadService->getDownloadData($result);
         // ダウンロード処理

@@ -13,7 +13,7 @@ use App\Enums\OtherUpdateEnum;
 use App\Enums\ImportEnum;
 use App\Enums\WorkingHourEnum;
 // 例外
-use App\Exceptions\ImportException;
+use App\Exceptions\FileImportException;
 // ヘルパー
 use App\Helpers\ColumnChangeHelper;
 // その他
@@ -64,7 +64,7 @@ class OtherUpdateService
             $ImportErrorCreateService   = new ImportErrorCreateService;
             // エラー情報のファイルを作成
             $error_file_name = $ImportErrorCreateService->createImportError(ImportEnum::IMPORT_PROCESS_OTHER.'取込エラー', $validation_error);
-            throw new ImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_PROCESS_OTHER, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $import_original_file_name);
+            throw new FileImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_PROCESS_OTHER, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $import_original_file_name);
         }
         return compact('create_data', 'validation_error');
     }

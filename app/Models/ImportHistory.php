@@ -10,9 +10,8 @@ class ImportHistory extends Model
     protected $primaryKey = 'import_history_id';
     // 操作可能なカラムを定義
     protected $fillable = [
-        'import_file_name',
-        'import_process',
-        'import_type',
+        'import_employee_original_file_name',
+        'import_paid_leave_original_file_name',
         'error_file_name',
         'message',
     ];

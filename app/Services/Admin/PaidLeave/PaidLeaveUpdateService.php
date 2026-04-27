@@ -12,7 +12,7 @@ use App\Services\Common\NotUpdateInfoCreateService;
 use App\Enums\PaidLeaveUpdateEnum;
 use App\Enums\ImportEnum;
 // 例外
-use App\Exceptions\ImportException;
+use App\Exceptions\FileImportException;
 // ヘルパー
 use App\Helpers\ColumnChangeHelper;
 // その他
@@ -69,7 +69,7 @@ class PaidLeaveUpdateService
             $ImportErrorCreateService   = new ImportErrorCreateService;
             // エラー情報のファイルを作成
             $error_file_name = $ImportErrorCreateService->createImportError(ImportEnum::IMPORT_PROCESS_PAID_LEAVE.'取込エラー', $validation_error);
-            throw new ImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_PROCESS_PAID_LEAVE, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $import_original_file_name);
+            throw new FileImportException("データが正しくないため、取り込みできませんでした。", ImportEnum::IMPORT_PROCESS_PAID_LEAVE, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $import_original_file_name);
         }
         return compact('create_data', 'validation_error');
     }

@@ -4,7 +4,7 @@
         <x-pagination :pages="$users" />
     </div>
     <div class="flex flex-row gap-x-5 items-start">
-        <x-system-admin.user.search route="user.index" :bases="$bases" />
-        <x-system-admin.user.list :users="$users" />
+        <x-system-admin.user.list :users="$users" :bases="$bases" :roles="$roles" />
     </div>
 </x-app-layout>
+@vite(['resources/js/system_admin/user/user.js'])

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 // モデル
 use App\Models\User;
 use App\Models\Base;
+use App\Models\Role;
 // サービス
 use App\Services\SystemAdmin\User\UserSearchService;
 // トレイト
@@ -32,9 +33,12 @@ class UserController extends Controller
         $users = $this->setPagination($result);
         // 営業所を取得
         $bases = Base::getAll()->get();
+        // 権限を取得
+        $roles = Role::getAll()->get();
         return view('system_admin.user.index')->with([
             'users' => $users,
             'bases' => $bases,
+            'roles' => $roles,
         ]);
     }
 }

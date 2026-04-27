@@ -14,9 +14,8 @@ class BaseUpdateService
         $base = Base::where('base_id', $request->base_id)->lockForUpdate()->first();
         // 営業所を更新
         $base->update([
-            'base_name'             => $request->base_name,
-            'short_base_name'       => $request->short_base_name,
-            'sort_order'            => $request->sort_order,
+            'base_name'     => $request->base_name,
+            'sort_order'    => $request->sort_order,
         ]);
     }
 }

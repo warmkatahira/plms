@@ -4,8 +4,7 @@
         <x-pagination :pages="$employees" />
     </div>
     <div class="flex flex-row gap-x-5 items-start">
-        <x-admin.employee.search route="employee.index" :bases="$bases" />
-        <x-admin.employee.list :employees="$employees" />
+        <x-admin.employee.list  :employees="$employees" :bases="$bases" :roles="$roles" :grantTypes="$grant_types" />
     </div>
 </x-app-layout>
 @vite(['resources/js/admin/employee/employee.js'])

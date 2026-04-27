@@ -18,6 +18,8 @@ use App\Http\Controllers\Admin\PaidLeave\PaidLeaveUpdateController;
 use App\Http\Controllers\Admin\Other\OtherUpdateController;
 // +-+-+-+-+-+-+-+- 取込履歴 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Admin\ImportHistory\ImportHistoryController;
+// +-+-+-+-+-+-+-+- ファイル取込 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\Admin\FileImport\FileImportController;
 
 Route::middleware('common')->group(function (){
     Route::middleware(['base_admin_check'])->group(function () {
@@ -56,6 +58,11 @@ Route::middleware('common')->group(function (){
         });
     });
     Route::middleware(['admin_check'])->group(function () {
+        // +-+-+-+-+-+-+-+- ファイル取込 +-+-+-+-+-+-+-+-
+        Route::controller(FileImportController::class)->prefix('file_import')->name('file_import.')->group(function(){
+            Route::get('', 'index')->name('index');
+            Route::post('import', 'import')->name('import');
+        });
         // +-+-+-+-+-+-+-+- 取込履歴 +-+-+-+-+-+-+-+-
         Route::controller(ImportHistoryController::class)->prefix('import_history')->name('import_history.')->group(function(){
             Route::get('', 'index')->name('index');

@@ -9,7 +9,7 @@ use App\Services\Admin\PaidLeave\PaidLeaveUpdateService;
 use App\Services\Common\ImportHistoryCreateService;
 use App\Services\Common\ImportService;
 // 例外
-use App\Exceptions\ImportException;
+use App\Exceptions\FileImportException;
 // 列挙
 use App\Enums\PaidLeaveUpdateEnum;
 use App\Enums\ImportEnum;
@@ -51,7 +51,7 @@ class PaidLeaveUpdateController extends Controller
                 // import_historiesテーブルへ追加
                 $ImportHistoryCreateService->createImportHistory($import_original_file_name, ImportEnum::IMPORT_PROCESS_PAID_LEAVE, ImportEnum::IMPORT_TYPE_UPDATE, $error_file_name, $message);
             });
-        } catch (ImportException $e) {
+        } catch (FileImportException $e) {
             // 渡された内容を取得
             $message                    = $e->getMessage();
             $import_process             = $e->getImportProcess();

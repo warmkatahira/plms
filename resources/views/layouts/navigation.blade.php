@@ -17,6 +17,7 @@
                 <div class="navigation-content hidden">
                     <x-navigation-btn route="employee.index" label="従業員一覧" isLeftMargin="true" isRightMargin="true" />
                     @can('admin_check')
+                        <x-navigation-btn route="file_import.index" label="ファイル取込" isLeftMargin="true" isRightMargin="true" />
                         <x-navigation-btn route="import_history.index" label="取込履歴" isLeftMargin="true" isRightMargin="true" />
                     @endcan
                 </div>
@@ -35,9 +36,6 @@
                     @endcan
                     @can('system_admin_check')
                         <x-navigation-btn route="user.index" label="ユーザー" isLeftMargin="true" isRightMargin="true" />
-                    @endcan
-                    @can('admin_check')
-                        <x-navigation-btn route="working_hour.index" label="勤務時間数" isLeftMargin="true" isRightMargin="true" />
                     @endcan
                     @can('system_admin_check')
                         <x-navigation-btn route="operation_log.index" label="操作ログ" isLeftMargin="true" isRightMargin="true" />

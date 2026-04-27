@@ -18,7 +18,7 @@ class CheckUserStatusMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         // ステータスが1以外のユーザーはログインさせない
-        if(Auth::user()->status != 1){
+        if(Auth::user()->is_active != 1){
             session()->flash('alert_type', "error");
             session()->flash('alert_message', "使用できないユーザーです。");
             // ログアウトさせる

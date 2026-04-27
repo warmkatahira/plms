@@ -44,6 +44,7 @@
             'resources/js/search_date.js',
             'resources/js/image_fade_in.js',
             'resources/js/file_select.js',
+            'resources/js/filter.js',
         ])
 
         <!-- Select2 -->

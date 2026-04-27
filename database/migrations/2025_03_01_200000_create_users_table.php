@@ -14,18 +14,29 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table){
             $table->increments('user_no');
             $table->string('user_id', 20)->unique();
-            $table->string('employee_no', 4);
-            $table->string('user_name', 20)->nullable();
-            $table->string('email')->nullable();
+            $table->string('employee_no', 4)->unique();
+            $table->string('user_name', 30);
+            $table->string('email', 255)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 255);
-            $table->boolean('status')->default(false);
-            $table->boolean('is_auto_update_statutory_leave_remaining_days')->default(false);
+            $table->boolean('is_active')->default(false);
             $table->string('role_id', 20)->default('user');
-            $table->string('base_id', 10);
+            $table->string('base_id', 10)->nullable();
             $table->string('profile_image_file_name', 50)->default('no_image.png');
-            $table->boolean('must_change_password')->default(true);
+            $table->boolean('is_password_change_required')->default(true);
             $table->timestamp('last_login_at')->nullable();
+            $table->date('hire_date');
+            $table->string('next_grant_year_month', 6);
+            $table->string('work_days_per_week', 20)->nullable();
+            $table->decimal('carried_over_days', 3, 1)->nullable();
+            $table->decimal('granted_days', 3, 1)->nullable();
+            $table->decimal('used_days', 3, 1)->nullable()->default(0);
+            $table->date('required_deadline')->nullable();
+            $table->decimal('carried_over_required_days', 3, 1)->nullable();
+            $table->decimal('granted_required_days', 3, 1)->nullable();
+            $table->string('used_days_reset_year_month', 6)->nullable();
+            $table->unsignedTinyInteger('grant_type')->default(0);
+            $table->timestamp('paid_leave_updated_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
             // 外部キー

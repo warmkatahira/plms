@@ -26,8 +26,8 @@ class EmployeeUpdateService
         if(isset($request->password)){
             // パスワードを変更して、パスワード変更必須にする
             User::where('user_no', $request->user_no)->update([
-                'password'                  => Hash::make($request->password),
-                'must_change_password'      => 1,
+                'password'                      => Hash::make($request->password),
+                'is_password_change_required'   => true,
             ]);
         }
         // 有給管理テーブルを更新

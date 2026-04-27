@@ -14,7 +14,6 @@ class BaseCreateService
         Base::create([
             'base_id'               => $request->base_id,
             'base_name'             => $request->base_name,
-            'short_base_name'       => $request->short_base_name,
             'sort_order'            => $request->sort_order,
         ]);
     }
