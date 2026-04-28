@@ -205,6 +205,29 @@ class UserSeeder extends Seeder
             'grant_type'                    => 1,
             'paid_leave_updated_at'         => null,
         ]);
+        User::create([
+            'user_id'                       => '2ndssssaaaff',
+            'employee_no'                   => '666',
+            'user_name'                     => '9月入社で1回目=義務有、2回目=義有',
+            'email'                         => null,
+            'password'                      => bcrypt('11111111'),
+            'is_active'                     => true,
+            'role_id'                       => 'user',
+            'base_id'                       => 'honsha',
+            'is_password_change_required'   => false,
+            'hire_date'                     => '2025/09/01',
+            'next_grant_year_month'         => '202604',
+            'work_days_per_week'            => '標準（週所定労働日数が５日等の社員用）',
+            'carried_over_days'             => null,
+            'granted_days'                  => 10,
+            'used_days'                     => 2,
+            'required_deadline'             => '2027/02/28',
+            'carried_over_required_days'    => null,
+            'granted_required_days'         => 5,
+            'used_days_reset_year_month'    => '202704',
+            'grant_type'                    => 1,
+            'paid_leave_updated_at'         => null,
+        ]);
     }
 
     public function target_4()

@@ -126,12 +126,30 @@ class PaidLeaveUpdateService
                 })(),
                 // 2回目：当年義務日数を繰越義務日数に移動、当年義務日数を5に
                 GrantTypeEnum::FIRST => (function() use ($user, $required_deadline) {
+                    // 移動前の値を保持（=1回目の義務日数）
+                    $carried = $user->granted_required_days;
                     // 当年義務日数を繰越義務日数に更新
-                    $user->carried_over_required_days = $user->granted_required_days;
+                    $user->carried_over_required_days = $carried;
                     // 当年義務日数を5に更新
                     $user->granted_required_days = 5;
-                    // 義務期限を更新
-                    $user->required_deadline = $required_deadline;
+                    // 1回目が義務あり（carried > 0）なら使用日数で義務達成チェック
+                    if($carried){
+                        // 義務残日数を取得
+                        $remaining_required = $carried - $user->used_days;
+                        // 義務残日数がない場合
+                        if($remaining_required <= 0){
+                            $user->carried_over_required_days = 0;
+                        // 義務未達 → 繰越義務日数を残日数に更新
+                        }else{
+                            $user->carried_over_required_days = $remaining_required;
+                        }
+                        $user->used_days = 0;
+                        $user->required_deadline = $required_deadline;
+                    // 1回目が義務なし（carried = 0）なら使用日数をリセット
+                    }else{
+                        $user->used_days = 0;
+                        $user->required_deadline = $required_deadline;
+                    }
                 })(),
                 // 3回目以上：繰越義務日数をリセット、当年を5に
                 GrantTypeEnum::SECOND,
@@ -157,11 +175,20 @@ class PaidLeaveUpdateService
                     $user->carried_over_required_days = $carried;
                     // 当年義務日数をリセット
                     $user->granted_required_days = 0;
-                    // 義務残日数を算出（繰越義務日数 - 使用日数）
-                    $remaining_required = $carried - $user->used_days;
-                    // 義務残日数が0以下なら義務達成 → 期限をリセット
-                    if ($remaining_required <= 0) {
-                        $user->required_deadline = null;
+                    // 1回目が義務あり（carried > 0）なら使用日数で義務達成チェック
+                    if($carried){
+                        // 義務残日数を取得
+                        $remaining_required = $carried - $user->used_days;
+                        // 義務達成 → 使用日数と期限をリセット
+                        if($remaining_required <= 0){
+                            $user->used_days = 0;
+                            $user->carried_over_required_days = 0;
+                            $user->required_deadline = null;
+                        // 義務未達 → 使用日数をリセット、繰越義務日数を減らす
+                        }else{
+                            $user->carried_over_required_days = $remaining_required;
+                            $user->used_days = 0;
+                        }
                     }
                 })(),
                 // 3回目以上：繰越・当年義務日数・義務期限をリセット
