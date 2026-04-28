@@ -151,11 +151,18 @@ class PaidLeaveUpdateService
                 GrantTypeEnum::NONE => null,
                 // 2回目：当年義務日数を繰越義務日数に移動、義務期限をリセット
                 GrantTypeEnum::FIRST => (function() use ($user, $required_deadline) {
+                    // 移動前の値を保持
+                    $carried = $user->granted_required_days;
                     // 当年義務日数を繰越義務日数に更新
-                    $user->carried_over_required_days = $user->granted_required_days;
-                    // 当年義務日数と義務期限をリセット
+                    $user->carried_over_required_days = $carried;
+                    // 当年義務日数をリセット
                     $user->granted_required_days = 0;
-                    $user->required_deadline = null;
+                    // 義務残日数を算出（繰越義務日数 - 使用日数）
+                    $remaining_required = $carried - $user->used_days;
+                    // 義務残日数が0以下なら義務達成 → 期限をリセット
+                    if ($remaining_required <= 0) {
+                        $user->required_deadline = null;
+                    }
                 })(),
                 // 3回目以上：繰越・当年義務日数・義務期限をリセット
                 GrantTypeEnum::SECOND,

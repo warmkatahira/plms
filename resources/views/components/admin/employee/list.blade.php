@@ -63,8 +63,10 @@
                         <td class="py-1 px-2 border">{{ $employee->base?->base_name }}</td>
                         <td class="py-1 px-2 border text-center">{{ $employee->employee_no }}</td>
                         <td class="py-1 px-2 border">
-                            <img class="profile_image_normal image_fade_in_modal_open" src="{{ asset('storage/profile_images/'.$employee->profile_image_file_name) }}">
-                            {{ $employee->user_name }}
+                            <div class="flex items-center gap-1">
+                                <img class="profile_image_normal image_fade_in_modal_open flex-shrink-0" src="{{ asset('storage/profile_images/'.$employee->profile_image_file_name) }}">
+                                {{ $employee->user_name }}
+                            </div>
                         </td>
                         <td class="py-1 px-2 border text-center">{{ CarbonImmutable::parse($employee->hire_date)->isoFormat('YYYY年MM月DD日') }}</td>
                         <td class="py-1 px-2 border text-center">{{ $employee->service_years }}</td>
