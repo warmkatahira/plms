@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
         // 対象月=3月を反映する前時点の想定データ
         User::create([
             'user_id'                       => 'katahira',
-            'employee_no'                   => '134',
+            'employee_no'                   => '0134',
             'user_name'                     => '片平 貴順',
             'email'                         => 't.katahira@warm.co.jp',
             'password'                      => bcrypt('katahira134'),
@@ -46,7 +46,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'user_id'                       => 'nozomi',
-            'employee_no'                   => '228',
+            'employee_no'                   => '0228',
             'user_name'                     => '片平 希望',
             'email'                         => 'n.katahira@warm.co.jp',
             'password'                      => bcrypt('katahira228'),
@@ -69,7 +69,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'user_id'                       => 'yamamura',
-            'employee_no'                   => '234',
+            'employee_no'                   => '0234',
             'user_name'                     => '山村 祐一',
             'email'                         => 'y.yamamura@warm.co.jp',
             'password'                      => bcrypt('yamamura234'),
@@ -92,7 +92,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'user_id'                       => '2nd',
-            'employee_no'                   => '333',
+            'employee_no'                   => '0333',
             'user_name'                     => '2回目で週4から週5に変わる人',
             'email'                         => null,
             'password'                      => bcrypt('11111111'),
@@ -115,7 +115,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'user_id'                       => 'aaa',
-            'employee_no'                   => '334',
+            'employee_no'                   => '0334',
             'user_name'                     => '10月入社で1回目の人',
             'email'                         => null,
             'password'                      => bcrypt('11111111'),
@@ -138,7 +138,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'user_id'                       => 'aaab',
-            'employee_no'                   => '335',
+            'employee_no'                   => '0335',
             'user_name'                     => '10月入社で2回目の人',
             'email'                         => null,
             'password'                      => bcrypt('11111111'),
@@ -161,7 +161,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'user_id'                       => '2ndssss',
-            'employee_no'                   => '444',
+            'employee_no'                   => '0444',
             'user_name'                     => '2回目で週5から週2に変わる人',
             'email'                         => null,
             'password'                      => bcrypt('11111111'),
@@ -184,7 +184,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'user_id'                       => '2ndssssaaa',
-            'employee_no'                   => '555',
+            'employee_no'                   => '0555',
             'user_name'                     => '9月入社)2回目で週5から週2に変わる人',
             'email'                         => null,
             'password'                      => bcrypt('11111111'),
@@ -207,7 +207,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'user_id'                       => '2ndssssaaaff',
-            'employee_no'                   => '666',
+            'employee_no'                   => '0666',
             'user_name'                     => '9月入社で1回目=義務有、2回目=義有',
             'email'                         => null,
             'password'                      => bcrypt('11111111'),
@@ -235,7 +235,7 @@ class UserSeeder extends Seeder
         // 対象月=4月を反映する前時点の想定データ
         User::create([
             'user_id'                       => 'katahira',
-            'employee_no'                   => '134',
+            'employee_no'                   => '0134',
             'user_name'                     => '片平 貴順',
             'email'                         => 't.katahira@warm.co.jp',
             'password'                      => bcrypt('katahira134'),
@@ -258,7 +258,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'user_id'                       => 'nozomi',
-            'employee_no'                   => '228',
+            'employee_no'                   => '0228',
             'user_name'                     => '片平 希望',
             'email'                         => 'n.katahira@warm.co.jp',
             'password'                      => bcrypt('katahira228'),
@@ -281,7 +281,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'user_id'                       => 'yamamura',
-            'employee_no'                   => '234',
+            'employee_no'                   => '0234',
             'user_name'                     => '山村 祐一',
             'email'                         => 'y.yamamura@warm.co.jp',
             'password'                      => bcrypt('yamamura234'),

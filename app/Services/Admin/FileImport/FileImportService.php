@@ -144,6 +144,10 @@ class FileImportService
                 if($value === "") return null;
                 return is_string($value) ? ltrim($value, "'") : $value;
             }, $param);
+            // employee_noが4桁未満であれば先頭を0で埋める
+            if(!is_null($param['employee_no'])){
+                $param['employee_no'] = str_pad($param['employee_no'], 4, '0', STR_PAD_LEFT);
+            }
             // 従業員データの場合
             if(FileImportEnum::FILE_IMPORT_TYPE_EMPLOYEE === $file_import_type){
                 // 次回付与月を「令和 9年 4月」→「202504」形式に変換
