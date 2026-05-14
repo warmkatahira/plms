@@ -13,7 +13,7 @@
         @can('base_admin_check')
             <!-- 管理 -->
              <div class="flex flex-col gap-0.5">
-                <x-navigation-btn label="管理" icon="las la-users-cog" openCloseKey="system_admin" />
+                <x-navigation-btn label="管理" icon="las la-users-cog" openCloseKey="admin" />
                 <div class="navigation-content hidden">
                     <x-navigation-btn route="employee.index" label="従業員一覧" isLeftMargin="true" isRightMargin="true" />
                     @can('admin_check')

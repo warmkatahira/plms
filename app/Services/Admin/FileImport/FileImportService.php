@@ -8,6 +8,7 @@ use App\Models\FileImport;
 use App\Services\Common\ImportErrorCreateService;
 // 列挙
 use App\Enums\FileImportEnum;
+use App\Enums\IgnoreEmployeeEnum;
 // 例外
 use App\Exceptions\FileImportException;
 // その他
@@ -148,6 +149,10 @@ class FileImportService
             if(!is_null($param['employee_no'])){
                 $param['employee_no'] = str_pad($param['employee_no'], 4, '0', STR_PAD_LEFT);
             }
+            // 処理対象外の従業員番号はスキップ
+            if(in_array($param['employee_no'], IgnoreEmployeeEnum::getIgnoreEmployeeNos())){
+                continue;
+            }
             // 従業員データの場合
             if(FileImportEnum::FILE_IMPORT_TYPE_EMPLOYEE === $file_import_type){
                 // 次回付与月を「令和 9年 4月」→「202504」形式に変換
@@ -239,9 +244,9 @@ class FileImportService
                 'employee_no'                   => 'required|max:4',
                 'user_name'                     => 'required|max:30',
                 'base_info'                     => 'required|max:20',
-                'work_days_per_week'            => 'required|max:20',
+                'work_days_per_week'            => 'nullable|max:20',
                 'hire_date'                     => 'required|date',
-                'next_grant_year_month'         => 'required|max:6',
+                'next_grant_year_month'         => 'nullable|max:6',
                 'carried_over_remaining_days'   => 'nullable|decimal:0,1',
                 'granted_remaining_days'        => 'nullable|decimal:0,1',
             ];

@@ -1,0 +1,5035 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
+class UserProSeeder extends Seeder
+{
+    public function run(): void
+    {
+            DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => '0002',
+                'employee_no' => '0002',
+                'password' => Hash::make('warm0002'),
+                'user_name' => '村上　弘明',
+                'hire_date' => '2004-10-26',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => '0003',
+                'employee_no' => '0003',
+                'password' => Hash::make('warm0003'),
+                'user_name' => '村上　チエミ',
+                'hire_date' => '2004-10-26',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '0004',
+                'employee_no' => '0004',
+                'password' => Hash::make('warm0004'),
+                'user_name' => '猿渡　昌之',
+                'hire_date' => '2004-11-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '0005',
+                'employee_no' => '0005',
+                'password' => Hash::make('warm0005'),
+                'user_name' => '池田　博幸',
+                'hire_date' => '2005-01-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '0022',
+                'employee_no' => '0022',
+                'password' => Hash::make('warm0022'),
+                'user_name' => '永瀬　健',
+                'hire_date' => '2006-09-27',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '9.5',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => '0042',
+                'employee_no' => '0042',
+                'password' => Hash::make('warm0042'),
+                'user_name' => '並木　拓',
+                'hire_date' => '2008-02-12',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0043',
+                'employee_no' => '0043',
+                'password' => Hash::make('warm0043'),
+                'user_name' => '村上　裕也',
+                'hire_date' => '2008-02-25',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => '0046',
+                'employee_no' => '0046',
+                'password' => Hash::make('warm0046'),
+                'user_name' => '大泉　一弘',
+                'hire_date' => '2008-05-28',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '0055',
+                'employee_no' => '0055',
+                'password' => Hash::make('warm0055'),
+                'user_name' => '内海　俊平',
+                'hire_date' => '2009-10-21',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0061',
+                'employee_no' => '0061',
+                'password' => Hash::make('warm0061'),
+                'user_name' => '木村　康洋',
+                'hire_date' => '2009-11-09',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '0076',
+                'employee_no' => '0076',
+                'password' => Hash::make('warm0076'),
+                'user_name' => '里本　佳隆',
+                'hire_date' => '2011-09-12',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => '0086',
+                'employee_no' => '0086',
+                'password' => Hash::make('warm0086'),
+                'user_name' => '大塚　賢一',
+                'hire_date' => '2012-07-02',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0091',
+                'employee_no' => '0091',
+                'password' => Hash::make('warm0091'),
+                'user_name' => '森谷　元気',
+                'hire_date' => '2011-03-03',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '0094',
+                'employee_no' => '0094',
+                'password' => Hash::make('warm0094'),
+                'user_name' => '掛川　純也',
+                'hire_date' => '2013-09-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '0113',
+                'employee_no' => '0113',
+                'password' => Hash::make('warm0113'),
+                'user_name' => '金子　太治',
+                'hire_date' => '2015-03-16',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '0116',
+                'employee_no' => '0116',
+                'password' => Hash::make('warm0116'),
+                'user_name' => '羽場　隆',
+                'hire_date' => '2015-04-09',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '0118',
+                'employee_no' => '0118',
+                'password' => Hash::make('warm0118'),
+                'user_name' => '曽根田　裕也',
+                'hire_date' => '2015-06-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'HR',
+                'user_id' => '0132',
+                'employee_no' => '0132',
+                'password' => Hash::make('warm0132'),
+                'user_name' => '沖　直行',
+                'hire_date' => '2017-07-24',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+                        DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => 'katahira',
+                'employee_no' => '0134',
+                'password' => Hash::make('katahira134'),
+                'user_name' => '片平　貴順',
+                'hire_date' => '2017-09-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'role_id'   => 'system_admin',
+                'is_active' => true,
+                'is_password_change_required' => false,
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => '0135',
+                'employee_no' => '0135',
+                'password' => Hash::make('warm0135'),
+                'user_name' => '田村　拓海',
+                'hire_date' => '2017-09-19',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '0139',
+                'employee_no' => '0139',
+                'password' => Hash::make('warm0139'),
+                'user_name' => '永瀬　朱里',
+                'hire_date' => '2018-03-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '0147',
+                'employee_no' => '0147',
+                'password' => Hash::make('warm0147'),
+                'user_name' => '高崎　康幸',
+                'hire_date' => '2018-08-21',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '0165',
+                'employee_no' => '0165',
+                'password' => Hash::make('warm0165'),
+                'user_name' => '鈴木　宏幸',
+                'hire_date' => '2020-09-16',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '18',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0166',
+                'employee_no' => '0166',
+                'password' => Hash::make('warm0166'),
+                'user_name' => '瀬川　尚弘',
+                'hire_date' => '2020-10-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '16',
+                'granted_days' => '18',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => '0168',
+                'employee_no' => '0168',
+                'password' => Hash::make('warm0168'),
+                'user_name' => '池田　仁',
+                'hire_date' => '2020-12-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '13.5',
+                'granted_days' => '18',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '0172',
+                'employee_no' => '0172',
+                'password' => Hash::make('warm0172'),
+                'user_name' => '五月女　健',
+                'hire_date' => '2021-03-03',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '16',
+                'granted_days' => '18',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '0176',
+                'employee_no' => '0176',
+                'password' => Hash::make('warm0176'),
+                'user_name' => '南　伸一',
+                'hire_date' => '2020-07-12',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '18',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '0184',
+                'employee_no' => '0184',
+                'password' => Hash::make('warm0184'),
+                'user_name' => '井上　朗',
+                'hire_date' => '2021-11-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '9.5',
+                'granted_days' => '16',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '0185',
+                'employee_no' => '0185',
+                'password' => Hash::make('warm0185'),
+                'user_name' => '荻野　博之',
+                'hire_date' => '2021-12-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '14',
+                'granted_days' => '16',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => '0197',
+                'employee_no' => '0197',
+                'password' => Hash::make('warm0197'),
+                'user_name' => '伊藤　稔真',
+                'hire_date' => '2022-12-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '14',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '0199',
+                'employee_no' => '0199',
+                'password' => Hash::make('warm0199'),
+                'user_name' => '岩下　龍平',
+                'hire_date' => '2023-03-14',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '12',
+                'granted_days' => '14',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0203',
+                'employee_no' => '0203',
+                'password' => Hash::make('warm0203'),
+                'user_name' => '白井　滉大',
+                'hire_date' => '2023-05-08',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '12',
+                'granted_days' => '14',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '0204',
+                'employee_no' => '0204',
+                'password' => Hash::make('warm0204'),
+                'user_name' => '吉田　健太郎',
+                'hire_date' => '2023-10-11',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '8',
+                'granted_days' => '12',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0206',
+                'employee_no' => '0206',
+                'password' => Hash::make('warm0206'),
+                'user_name' => '篠原　翔太',
+                'hire_date' => '2023-11-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '0',
+                'granted_days' => '12',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => '0208',
+                'employee_no' => '0208',
+                'password' => Hash::make('warm0208'),
+                'user_name' => '村上　克也',
+                'hire_date' => '2023-11-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '12',
+                'granted_days' => '12',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '0213',
+                'employee_no' => '0213',
+                'password' => Hash::make('warm0213'),
+                'user_name' => '飛田　祥吾',
+                'hire_date' => '2024-06-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '7.5',
+                'granted_days' => '12',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '0218',
+                'employee_no' => '0218',
+                'password' => Hash::make('warm0218'),
+                'user_name' => '豊田　達也',
+                'hire_date' => '2024-10-09',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '4',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '0222',
+                'employee_no' => '0222',
+                'password' => Hash::make('warm0222'),
+                'user_name' => '矢田　喜裕',
+                'hire_date' => '2025-02-07',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '2',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '0225',
+                'employee_no' => '0225',
+                'password' => Hash::make('warm0225'),
+                'user_name' => '杉本　利彦',
+                'hire_date' => '2025-03-17',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '9',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '2',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0226',
+                'employee_no' => '0226',
+                'password' => Hash::make('warm0226'),
+                'user_name' => '星　孝志',
+                'hire_date' => '2025-03-17',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '7',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '0227',
+                'employee_no' => '0227',
+                'password' => Hash::make('warm0227'),
+                'user_name' => '秋山　拓也',
+                'hire_date' => '2025-04-21',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '4',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => '0228',
+                'employee_no' => '0228',
+                'password' => Hash::make('warm0228'),
+                'user_name' => '片平　希望',
+                'hire_date' => '2025-05-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '3',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '0230',
+                'employee_no' => '0230',
+                'password' => Hash::make('warm0230'),
+                'user_name' => '三国　純',
+                'hire_date' => '2025-06-16',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '7',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '0231',
+                'employee_no' => '0231',
+                'password' => Hash::make('warm0231'),
+                'user_name' => '渡部　洋',
+                'hire_date' => '2025-10-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '1',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '0',
+                'granted_days' => '10',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0232',
+                'employee_no' => '0232',
+                'password' => Hash::make('warm0232'),
+                'user_name' => '鈴木　莉希',
+                'hire_date' => '2025-11-01',
+                'next_grant_year_month' => '202605',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => '0234',
+                'employee_no' => '0234',
+                'password' => Hash::make('warm0234'),
+                'user_name' => '山村　祐一',
+                'hire_date' => '2025-11-17',
+                'next_grant_year_month' => '202605',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0235',
+                'employee_no' => '0235',
+                'password' => Hash::make('warm0235'),
+                'user_name' => '伊藤　良寛',
+                'hire_date' => '2026-01-01',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0236',
+                'employee_no' => '0236',
+                'password' => Hash::make('warm0236'),
+                'user_name' => '中西　亮太',
+                'hire_date' => '2026-01-01',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0237',
+                'employee_no' => '0237',
+                'password' => Hash::make('warm0237'),
+                'user_name' => '宮田　寿代',
+                'hire_date' => '2026-01-19',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0238',
+                'employee_no' => '0238',
+                'password' => Hash::make('warm0238'),
+                'user_name' => '近藤　修',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '0240',
+                'employee_no' => '0240',
+                'password' => Hash::make('warm0240'),
+                'user_name' => '水倉　陽介',
+                'hire_date' => '2026-02-16',
+                'next_grant_year_month' => '202608',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '0243',
+                'employee_no' => '0243',
+                'password' => Hash::make('warm0243'),
+                'user_name' => '堀池　美紀',
+                'hire_date' => '2026-03-17',
+                'next_grant_year_month' => '202609',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1007',
+                'employee_no' => '1007',
+                'password' => Hash::make('warm1007'),
+                'user_name' => '大木　千香美',
+                'hire_date' => '2005-03-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1029',
+                'employee_no' => '1029',
+                'password' => Hash::make('warm1029'),
+                'user_name' => '三浦　由美',
+                'hire_date' => '2005-07-07',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1043',
+                'employee_no' => '1043',
+                'password' => Hash::make('warm1043'),
+                'user_name' => '達磨　暁美',
+                'hire_date' => '2005-08-17',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1045',
+                'employee_no' => '1045',
+                'password' => Hash::make('warm1045'),
+                'user_name' => '杉田　志津枝',
+                'hire_date' => '2005-08-25',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '15',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1070',
+                'employee_no' => '1070',
+                'password' => Hash::make('warm1070'),
+                'user_name' => '米山　幸江',
+                'hire_date' => '2005-11-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1074',
+                'employee_no' => '1074',
+                'password' => Hash::make('warm1074'),
+                'user_name' => '小澤　千恵美',
+                'hire_date' => '2005-12-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1076',
+                'employee_no' => '1076',
+                'password' => Hash::make('warm1076'),
+                'user_name' => '鈴木　章子',
+                'hire_date' => '2005-12-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '15',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1114',
+                'employee_no' => '1114',
+                'password' => Hash::make('warm1114'),
+                'user_name' => '揚山　千恵子',
+                'hire_date' => '2006-06-26',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '15',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1153',
+                'employee_no' => '1153',
+                'password' => Hash::make('warm1153'),
+                'user_name' => '奥山　由美子',
+                'hire_date' => '2007-05-28',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1159',
+                'employee_no' => '1159',
+                'password' => Hash::make('warm1159'),
+                'user_name' => '渡部　圭進',
+                'hire_date' => '2007-06-11',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '1184',
+                'employee_no' => '1184',
+                'password' => Hash::make('warm1184'),
+                'user_name' => '五十嵐　康子',
+                'hire_date' => '2007-12-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1196',
+                'employee_no' => '1196',
+                'password' => Hash::make('warm1196'),
+                'user_name' => '佐藤　優子',
+                'hire_date' => '2008-05-26',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '15',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1207',
+                'employee_no' => '1207',
+                'password' => Hash::make('warm1207'),
+                'user_name' => '真壁　孝子',
+                'hire_date' => '2008-06-13',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '15',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1209',
+                'employee_no' => '1209',
+                'password' => Hash::make('warm1209'),
+                'user_name' => '並松　智子',
+                'hire_date' => '2008-06-24',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1241',
+                'employee_no' => '1241',
+                'password' => Hash::make('warm1241'),
+                'user_name' => '青山　弘',
+                'hire_date' => '2009-02-09',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1242',
+                'employee_no' => '1242',
+                'password' => Hash::make('warm1242'),
+                'user_name' => '磯野　陽一郎',
+                'hire_date' => '2009-02-09',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1273',
+                'employee_no' => '1273',
+                'password' => Hash::make('warm1273'),
+                'user_name' => '中野　恵太',
+                'hire_date' => '2009-10-13',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1309',
+                'employee_no' => '1309',
+                'password' => Hash::make('warm1309'),
+                'user_name' => '長野　正子',
+                'hire_date' => '2010-04-05',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1313',
+                'employee_no' => '1313',
+                'password' => Hash::make('warm1313'),
+                'user_name' => '池野　めぐみ',
+                'hire_date' => '2010-04-12',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => null,
+                'carried_over_days' => '11',
+                'granted_days' => '0',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '1380',
+                'employee_no' => '1380',
+                'password' => Hash::make('warm1380'),
+                'user_name' => '坂上　美香',
+                'hire_date' => '2011-09-26',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '1426',
+                'employee_no' => '1426',
+                'password' => Hash::make('warm1426'),
+                'user_name' => '金澤　幸人',
+                'hire_date' => '2012-05-28',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1427',
+                'employee_no' => '1427',
+                'password' => Hash::make('warm1427'),
+                'user_name' => '田辺　奈緒子',
+                'hire_date' => '2012-07-02',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1430',
+                'employee_no' => '1430',
+                'password' => Hash::make('warm1430'),
+                'user_name' => '井上　幸子',
+                'hire_date' => '2012-08-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1442',
+                'employee_no' => '1442',
+                'password' => Hash::make('warm1442'),
+                'user_name' => '井上　琴映',
+                'hire_date' => '2012-12-03',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1447',
+                'employee_no' => '1447',
+                'password' => Hash::make('warm1447'),
+                'user_name' => '伊藤　彰',
+                'hire_date' => '2013-02-04',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1451',
+                'employee_no' => '1451',
+                'password' => Hash::make('warm1451'),
+                'user_name' => '青沼　正美',
+                'hire_date' => '2013-03-05',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1453',
+                'employee_no' => '1453',
+                'password' => Hash::make('warm1453'),
+                'user_name' => '関東　恵美',
+                'hire_date' => '2013-03-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1458',
+                'employee_no' => '1458',
+                'password' => Hash::make('warm1458'),
+                'user_name' => '塩畑　里沙',
+                'hire_date' => '2013-04-10',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1494',
+                'employee_no' => '1494',
+                'password' => Hash::make('warm1494'),
+                'user_name' => '蓮見　美香',
+                'hire_date' => '2014-04-16',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '12',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1497',
+                'employee_no' => '1497',
+                'password' => Hash::make('warm1497'),
+                'user_name' => '蒲生　さち子',
+                'hire_date' => '2014-05-07',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '15',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1512',
+                'employee_no' => '1512',
+                'password' => Hash::make('warm1512'),
+                'user_name' => '飯塚　絵理',
+                'hire_date' => '2014-12-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '15',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1535',
+                'employee_no' => '1535',
+                'password' => Hash::make('warm1535'),
+                'user_name' => '浅田　祐美',
+                'hire_date' => '2015-04-20',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1539',
+                'employee_no' => '1539',
+                'password' => Hash::make('warm1539'),
+                'user_name' => '井澤　志保',
+                'hire_date' => '2015-05-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '10',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1541',
+                'employee_no' => '1541',
+                'password' => Hash::make('warm1541'),
+                'user_name' => '入江　和美',
+                'hire_date' => '2015-05-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1543',
+                'employee_no' => '1543',
+                'password' => Hash::make('warm1543'),
+                'user_name' => '中原　智穂',
+                'hire_date' => '2015-05-11',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1559',
+                'employee_no' => '1559',
+                'password' => Hash::make('warm1559'),
+                'user_name' => '佐藤　幸男',
+                'hire_date' => '2015-08-06',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1561',
+                'employee_no' => '1561',
+                'password' => Hash::make('warm1561'),
+                'user_name' => '角田　昂斗',
+                'hire_date' => '2015-08-24',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1570',
+                'employee_no' => '1570',
+                'password' => Hash::make('warm1570'),
+                'user_name' => '池田　美波',
+                'hire_date' => '2015-09-15',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1586',
+                'employee_no' => '1586',
+                'password' => Hash::make('warm1586'),
+                'user_name' => '島田　美幸',
+                'hire_date' => '2016-11-07',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '15',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1596',
+                'employee_no' => '1596',
+                'password' => Hash::make('warm1596'),
+                'user_name' => '大山　久美子',
+                'hire_date' => '2017-02-16',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '15',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1602',
+                'employee_no' => '1602',
+                'password' => Hash::make('warm1602'),
+                'user_name' => '野村　卓也',
+                'hire_date' => '2017-06-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1623',
+                'employee_no' => '1623',
+                'password' => Hash::make('warm1623'),
+                'user_name' => '大野　光枝',
+                'hire_date' => '2017-10-16',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'HR',
+                'user_id' => '1627',
+                'employee_no' => '1627',
+                'password' => Hash::make('warm1627'),
+                'user_name' => '沖　恭子',
+                'hire_date' => '2017-12-08',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => null,
+                'carried_over_days' => '7',
+                'granted_days' => '0',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'HR',
+                'user_id' => '1628',
+                'employee_no' => '1628',
+                'password' => Hash::make('warm1628'),
+                'user_name' => '金澤　枝美子',
+                'hire_date' => '2017-12-08',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => null,
+                'carried_over_days' => '7',
+                'granted_days' => '0',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1633',
+                'employee_no' => '1633',
+                'password' => Hash::make('warm1633'),
+                'user_name' => '志村　由美',
+                'hire_date' => '2018-02-15',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1634',
+                'employee_no' => '1634',
+                'password' => Hash::make('warm1634'),
+                'user_name' => '土屋　孝子',
+                'hire_date' => '2018-03-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '15',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1644',
+                'employee_no' => '1644',
+                'password' => Hash::make('warm1644'),
+                'user_name' => 'SAPKOTA DHURBA',
+                'hire_date' => '2018-04-02',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1650',
+                'employee_no' => '1650',
+                'password' => Hash::make('warm1650'),
+                'user_name' => '鈴木　明夫',
+                'hire_date' => '2018-05-24',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1652',
+                'employee_no' => '1652',
+                'password' => Hash::make('warm1652'),
+                'user_name' => '小林　真帆',
+                'hire_date' => '2018-07-02',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1662',
+                'employee_no' => '1662',
+                'password' => Hash::make('warm1662'),
+                'user_name' => '金杉　令子',
+                'hire_date' => '2019-01-28',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1670',
+                'employee_no' => '1670',
+                'password' => Hash::make('warm1670'),
+                'user_name' => '金谷　日出子',
+                'hire_date' => '2019-05-08',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '15',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1678',
+                'employee_no' => '1678',
+                'password' => Hash::make('warm1678'),
+                'user_name' => '安藤　久雄',
+                'hire_date' => '2019-07-17',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '20',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '1683',
+                'employee_no' => '1683',
+                'password' => Hash::make('warm1683'),
+                'user_name' => '深澤　凌理',
+                'hire_date' => '2019-12-23',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '13',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1695',
+                'employee_no' => '1695',
+                'password' => Hash::make('warm1695'),
+                'user_name' => '草薙　真由美',
+                'hire_date' => '2020-05-21',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '18',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1697',
+                'employee_no' => '1697',
+                'password' => Hash::make('warm1697'),
+                'user_name' => '宮川　敦',
+                'hire_date' => '2020-06-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '18',
+                'granted_days' => '20',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'HR',
+                'user_id' => '1702',
+                'employee_no' => '1702',
+                'password' => Hash::make('warm1702'),
+                'user_name' => '藤井　和子',
+                'hire_date' => '2020-07-13',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => null,
+                'carried_over_days' => '6',
+                'granted_days' => '0',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'HR',
+                'user_id' => '1703',
+                'employee_no' => '1703',
+                'password' => Hash::make('warm1703'),
+                'user_name' => '吉村　郁子',
+                'hire_date' => '2020-07-13',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => null,
+                'carried_over_days' => '6',
+                'granted_days' => '0',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1707',
+                'employee_no' => '1707',
+                'password' => Hash::make('warm1707'),
+                'user_name' => '谷　みつ美',
+                'hire_date' => '2020-09-02',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '13',
+                'granted_days' => '15',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1711',
+                'employee_no' => '1711',
+                'password' => Hash::make('warm1711'),
+                'user_name' => '横山　裕子',
+                'hire_date' => '2020-11-02',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '16',
+                'granted_days' => '18',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1714',
+                'employee_no' => '1714',
+                'password' => Hash::make('warm1714'),
+                'user_name' => '安　春艶',
+                'hire_date' => '2020-11-17',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が２日等の社員用）',
+                'carried_over_days' => '9',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1718',
+                'employee_no' => '1718',
+                'password' => Hash::make('warm1718'),
+                'user_name' => '関東　奈那',
+                'hire_date' => '2021-01-12',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '16',
+                'granted_days' => '18',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1725',
+                'employee_no' => '1725',
+                'password' => Hash::make('warm1725'),
+                'user_name' => '土井　晴彦',
+                'hire_date' => '2021-02-08',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '9',
+                'granted_days' => '10',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1731',
+                'employee_no' => '1731',
+                'password' => Hash::make('warm1731'),
+                'user_name' => '遠藤　郁恵',
+                'hire_date' => '2021-03-26',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '9',
+                'granted_days' => '13',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1740',
+                'employee_no' => '1740',
+                'password' => Hash::make('warm1740'),
+                'user_name' => '蓮見　健一',
+                'hire_date' => '2020-10-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '18',
+                'granted_days' => '18',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1749',
+                'employee_no' => '1749',
+                'password' => Hash::make('warm1749'),
+                'user_name' => '齋藤　久美子',
+                'hire_date' => '2021-06-14',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '16',
+                'granted_days' => '18',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1756',
+                'employee_no' => '1756',
+                'password' => Hash::make('warm1756'),
+                'user_name' => '中村　愛有美',
+                'hire_date' => '2021-09-07',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '12',
+                'granted_days' => '18',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1767',
+                'employee_no' => '1767',
+                'password' => Hash::make('warm1767'),
+                'user_name' => '藤正　千鶴',
+                'hire_date' => '2022-01-17',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が２日等の社員用）',
+                'carried_over_days' => '10',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1771',
+                'employee_no' => '1771',
+                'password' => Hash::make('warm1771'),
+                'user_name' => '山本　麻利子',
+                'hire_date' => '2022-03-02',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '14',
+                'granted_days' => '16',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1774',
+                'employee_no' => '1774',
+                'password' => Hash::make('warm1774'),
+                'user_name' => '福田　ひろみ',
+                'hire_date' => '2022-05-23',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '14',
+                'granted_days' => '16',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1777',
+                'employee_no' => '1777',
+                'password' => Hash::make('warm1777'),
+                'user_name' => '池田　聖美',
+                'hire_date' => '2022-06-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '8',
+                'granted_days' => '12',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1778',
+                'employee_no' => '1778',
+                'password' => Hash::make('warm1778'),
+                'user_name' => '門間　明子',
+                'hire_date' => '2022-06-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '14',
+                'granted_days' => '16',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1785',
+                'employee_no' => '1785',
+                'password' => Hash::make('warm1785'),
+                'user_name' => '板垣　ひかる',
+                'hire_date' => '2022-07-13',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '10',
+                'granted_days' => '12',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1792',
+                'employee_no' => '1792',
+                'password' => Hash::make('warm1792'),
+                'user_name' => '神場　明子',
+                'hire_date' => '2022-09-05',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '14',
+                'granted_days' => '16',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '1793',
+                'employee_no' => '1793',
+                'password' => Hash::make('warm1793'),
+                'user_name' => '片倉　陽子',
+                'hire_date' => '2022-09-12',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '8',
+                'granted_days' => '12',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1794',
+                'employee_no' => '1794',
+                'password' => Hash::make('warm1794'),
+                'user_name' => '岡本　重美',
+                'hire_date' => '2022-09-20',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '8',
+                'granted_days' => '9',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'HR',
+                'user_id' => '1797',
+                'employee_no' => '1797',
+                'password' => Hash::make('warm1797'),
+                'user_name' => '益田　宣子',
+                'hire_date' => '2022-09-20',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => null,
+                'carried_over_days' => '5',
+                'granted_days' => '0',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1798',
+                'employee_no' => '1798',
+                'password' => Hash::make('warm1798'),
+                'user_name' => '延井　美里',
+                'hire_date' => '2022-10-04',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1802',
+                'employee_no' => '1802',
+                'password' => Hash::make('warm1802'),
+                'user_name' => '石井　梨恵',
+                'hire_date' => '2022-12-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '12',
+                'granted_days' => '14',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1803',
+                'employee_no' => '1803',
+                'password' => Hash::make('warm1803'),
+                'user_name' => '内田　一浩',
+                'hire_date' => '2022-11-24',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '12',
+                'granted_days' => '14',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1814',
+                'employee_no' => '1814',
+                'password' => Hash::make('warm1814'),
+                'user_name' => '市川　利佳子',
+                'hire_date' => '2023-03-24',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '9',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'HR',
+                'user_id' => '1815',
+                'employee_no' => '1815',
+                'password' => Hash::make('warm1815'),
+                'user_name' => '小坂　恵子',
+                'hire_date' => '2023-04-12',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => null,
+                'carried_over_days' => '6',
+                'granted_days' => '0',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1816',
+                'employee_no' => '1816',
+                'password' => Hash::make('warm1816'),
+                'user_name' => '戸畑　明恵',
+                'hire_date' => '2023-04-05',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '14',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1817',
+                'employee_no' => '1817',
+                'password' => Hash::make('warm1817'),
+                'user_name' => '山見　真理',
+                'hire_date' => '2023-04-05',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '12',
+                'granted_days' => '14',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '1824',
+                'employee_no' => '1824',
+                'password' => Hash::make('warm1824'),
+                'user_name' => '佐々木　久美子',
+                'hire_date' => '2023-07-03',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1827',
+                'employee_no' => '1827',
+                'password' => Hash::make('warm1827'),
+                'user_name' => '佐々木　ちひろ',
+                'hire_date' => '2023-07-20',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1828',
+                'employee_no' => '1828',
+                'password' => Hash::make('warm1828'),
+                'user_name' => '薄　萌',
+                'hire_date' => '2023-08-22',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1831',
+                'employee_no' => '1831',
+                'password' => Hash::make('warm1831'),
+                'user_name' => '岡部　幸恵',
+                'hire_date' => '2023-09-19',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '1832',
+                'employee_no' => '1832',
+                'password' => Hash::make('warm1832'),
+                'user_name' => '木村　なつえ',
+                'hire_date' => '2023-09-19',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1833',
+                'employee_no' => '1833',
+                'password' => Hash::make('warm1833'),
+                'user_name' => '加藤　博文',
+                'hire_date' => '2023-09-06',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '9',
+                'granted_days' => '10',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1837',
+                'employee_no' => '1837',
+                'password' => Hash::make('warm1837'),
+                'user_name' => 'ﾃﾞﾗﾛｻ ﾏﾘｱ ｸﾘｽﾃｨｰﾅ ｲｶﾒﾝ',
+                'hire_date' => '2023-09-22',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '12',
+                'granted_days' => '14',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'honsha',
+                'user_id' => '1838',
+                'employee_no' => '1838',
+                'password' => Hash::make('warm1838'),
+                'user_name' => '鈴木　高広',
+                'hire_date' => '2023-10-02',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が２日等の社員用）',
+                'carried_over_days' => '4',
+                'granted_days' => '4',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1841',
+                'employee_no' => '1841',
+                'password' => Hash::make('warm1841'),
+                'user_name' => '阿部　裕治',
+                'hire_date' => '2023-10-05',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が２日等の社員用）',
+                'carried_over_days' => '4',
+                'granted_days' => '4',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1842',
+                'employee_no' => '1842',
+                'password' => Hash::make('warm1842'),
+                'user_name' => '阿部　精治',
+                'hire_date' => '2023-10-05',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => null,
+                'carried_over_days' => '2',
+                'granted_days' => '0',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1843',
+                'employee_no' => '1843',
+                'password' => Hash::make('warm1843'),
+                'user_name' => '依田　美咲',
+                'hire_date' => '2023-10-04',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '12',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1844',
+                'employee_no' => '1844',
+                'password' => Hash::make('warm1844'),
+                'user_name' => '谷内　郷美',
+                'hire_date' => '2023-10-05',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '8',
+                'granted_days' => '9',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1845',
+                'employee_no' => '1845',
+                'password' => Hash::make('warm1845'),
+                'user_name' => '有安　えみ',
+                'hire_date' => '2023-10-10',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1846',
+                'employee_no' => '1846',
+                'password' => Hash::make('warm1846'),
+                'user_name' => '望月　直美',
+                'hire_date' => '2023-10-10',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'HR',
+                'user_id' => '1847',
+                'employee_no' => '1847',
+                'password' => Hash::make('warm1847'),
+                'user_name' => '澤岡　孝子',
+                'hire_date' => '2023-10-13',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => null,
+                'carried_over_days' => '2',
+                'granted_days' => '0',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1848',
+                'employee_no' => '1848',
+                'password' => Hash::make('warm1848'),
+                'user_name' => '橘　亜津子',
+                'hire_date' => '2023-10-16',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '8',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1849',
+                'employee_no' => '1849',
+                'password' => Hash::make('warm1849'),
+                'user_name' => '川瀬　友視',
+                'hire_date' => '2023-10-17',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '0',
+                'granted_days' => '12',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1851',
+                'employee_no' => '1851',
+                'password' => Hash::make('warm1851'),
+                'user_name' => '福井　恵里',
+                'hire_date' => '2023-10-18',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1855',
+                'employee_no' => '1855',
+                'password' => Hash::make('warm1855'),
+                'user_name' => '伊関　亜紀子',
+                'hire_date' => '2023-11-07',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '8',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1857',
+                'employee_no' => '1857',
+                'password' => Hash::make('warm1857'),
+                'user_name' => '波多野　侑子',
+                'hire_date' => '2023-11-20',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '8',
+                'granted_days' => '9',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1858',
+                'employee_no' => '1858',
+                'password' => Hash::make('warm1858'),
+                'user_name' => '安田　晶美',
+                'hire_date' => '2023-11-27',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1861',
+                'employee_no' => '1861',
+                'password' => Hash::make('warm1861'),
+                'user_name' => 'マナーロマイラ・パラダ',
+                'hire_date' => '2023-12-11',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '9',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1864',
+                'employee_no' => '1864',
+                'password' => Hash::make('warm1864'),
+                'user_name' => '鈴木　由美',
+                'hire_date' => '2024-01-04',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '1',
+                'granted_required_days' => '0',
+                'required_deadline' => '2026-06-30',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1865',
+                'employee_no' => '1865',
+                'password' => Hash::make('warm1865'),
+                'user_name' => '七尾　宏希',
+                'hire_date' => '2024-01-24',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '8',
+                'granted_days' => '9',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1866',
+                'employee_no' => '1866',
+                'password' => Hash::make('warm1866'),
+                'user_name' => '五味渕　亜由美',
+                'hire_date' => '2024-01-22',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1868',
+                'employee_no' => '1868',
+                'password' => Hash::make('warm1868'),
+                'user_name' => '臼井　正人',
+                'hire_date' => '2024-02-05',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '9',
+                'used_days' => '0',
+                'carried_over_required_days' => '1',
+                'granted_required_days' => '0',
+                'required_deadline' => '2026-07-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1870',
+                'employee_no' => '1870',
+                'password' => Hash::make('warm1870'),
+                'user_name' => '土屋　尚之',
+                'hire_date' => '2024-03-11',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '12',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1872',
+                'employee_no' => '1872',
+                'password' => Hash::make('warm1872'),
+                'user_name' => '窪田　雅美',
+                'hire_date' => '2024-04-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '2',
+                'granted_required_days' => '0',
+                'required_deadline' => '2026-09-30',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1873',
+                'employee_no' => '1873',
+                'password' => Hash::make('warm1873'),
+                'user_name' => '小竹　高正',
+                'hire_date' => '2024-04-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '8',
+                'granted_days' => '9',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1874',
+                'employee_no' => '1874',
+                'password' => Hash::make('warm1874'),
+                'user_name' => '阿部　悠江',
+                'hire_date' => '2024-04-10',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1879',
+                'employee_no' => '1879',
+                'password' => Hash::make('warm1879'),
+                'user_name' => '與那城　楓佳',
+                'hire_date' => '2024-05-08',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '8',
+                'granted_days' => '9',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1881',
+                'employee_no' => '1881',
+                'password' => Hash::make('warm1881'),
+                'user_name' => '土屋　真奈',
+                'hire_date' => '2024-05-08',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '1882',
+                'employee_no' => '1882',
+                'password' => Hash::make('warm1882'),
+                'user_name' => '笠井　千鶴香',
+                'hire_date' => '2024-05-14',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '8',
+                'granted_days' => '9',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1885',
+                'employee_no' => '1885',
+                'password' => Hash::make('warm1885'),
+                'user_name' => '大須　聡美',
+                'hire_date' => '2024-06-03',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1887',
+                'employee_no' => '1887',
+                'password' => Hash::make('warm1887'),
+                'user_name' => '竹内　陶子',
+                'hire_date' => '2024-06-04',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '12',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1889',
+                'employee_no' => '1889',
+                'password' => Hash::make('warm1889'),
+                'user_name' => '太田　有子',
+                'hire_date' => '2024-06-17',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1890',
+                'employee_no' => '1890',
+                'password' => Hash::make('warm1890'),
+                'user_name' => '藤森　昌代',
+                'hire_date' => '2024-06-17',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '12',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1891',
+                'employee_no' => '1891',
+                'password' => Hash::make('warm1891'),
+                'user_name' => '師岡　晴美',
+                'hire_date' => '2024-08-24',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1892',
+                'employee_no' => '1892',
+                'password' => Hash::make('warm1892'),
+                'user_name' => 'SALAVERIA　MA　LEONORA　BRUN',
+                'hire_date' => '2024-08-23',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '11',
+                'granted_days' => '9',
+                'used_days' => '0',
+                'carried_over_required_days' => '4',
+                'granted_required_days' => '0',
+                'required_deadline' => '2027-01-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1893',
+                'employee_no' => '1893',
+                'password' => Hash::make('warm1893'),
+                'user_name' => '登坂　のぞみ',
+                'hire_date' => '2024-09-04',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が２日等の社員用）',
+                'carried_over_days' => '4',
+                'granted_days' => '4',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1894',
+                'employee_no' => '1894',
+                'password' => Hash::make('warm1894'),
+                'user_name' => 'SACRO　RUTH　BONOAN',
+                'hire_date' => '2024-09-02',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1895',
+                'employee_no' => '1895',
+                'password' => Hash::make('warm1895'),
+                'user_name' => '平野　清美',
+                'hire_date' => '2024-09-18',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '3',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '6',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1899',
+                'employee_no' => '1899',
+                'password' => Hash::make('warm1899'),
+                'user_name' => '李　暁輝',
+                'hire_date' => '2024-10-22',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1902',
+                'employee_no' => '1902',
+                'password' => Hash::make('warm1902'),
+                'user_name' => '萩原　由枝',
+                'hire_date' => '2024-11-18',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1903',
+                'employee_no' => '1903',
+                'password' => Hash::make('warm1903'),
+                'user_name' => '丸山　昭則',
+                'hire_date' => '2024-11-25',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1904',
+                'employee_no' => '1904',
+                'password' => Hash::make('warm1904'),
+                'user_name' => '師岡　利枝',
+                'hire_date' => '2024-12-09',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1906',
+                'employee_no' => '1906',
+                'password' => Hash::make('warm1906'),
+                'user_name' => '太田　智美',
+                'hire_date' => '2024-12-16',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '1907',
+                'employee_no' => '1907',
+                'password' => Hash::make('warm1907'),
+                'user_name' => '澤村　陽子',
+                'hire_date' => '2025-01-09',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '7',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1909',
+                'employee_no' => '1909',
+                'password' => Hash::make('warm1909'),
+                'user_name' => '坂井　千明',
+                'hire_date' => '2025-03-11',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '7',
+                'granted_days' => '11',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '1911',
+                'employee_no' => '1911',
+                'password' => Hash::make('warm1911'),
+                'user_name' => '工藤　真紀',
+                'hire_date' => '2025-03-03',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '7',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1912',
+                'employee_no' => '1912',
+                'password' => Hash::make('warm1912'),
+                'user_name' => '矢下　みき',
+                'hire_date' => '2025-03-10',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '7',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1914',
+                'employee_no' => '1914',
+                'password' => Hash::make('warm1914'),
+                'user_name' => '坪田　明恵',
+                'hire_date' => '2025-04-14',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '7',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1915',
+                'employee_no' => '1915',
+                'password' => Hash::make('warm1915'),
+                'user_name' => '三村　朋子',
+                'hire_date' => '2025-04-14',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1918',
+                'employee_no' => '1918',
+                'password' => Hash::make('warm1918'),
+                'user_name' => '伊東　不二子',
+                'hire_date' => '2025-04-21',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '7',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LS',
+                'user_id' => '1919',
+                'employee_no' => '1919',
+                'password' => Hash::make('warm1919'),
+                'user_name' => '松岡　玲央',
+                'hire_date' => '2025-05-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1920',
+                'employee_no' => '1920',
+                'password' => Hash::make('warm1920'),
+                'user_name' => '須永　結子',
+                'hire_date' => '2025-05-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1921',
+                'employee_no' => '1921',
+                'password' => Hash::make('warm1921'),
+                'user_name' => '關谷　みな美',
+                'hire_date' => '2025-05-13',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1922',
+                'employee_no' => '1922',
+                'password' => Hash::make('warm1922'),
+                'user_name' => '小池　光利',
+                'hire_date' => '2025-06-02',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1925',
+                'employee_no' => '1925',
+                'password' => Hash::make('warm1925'),
+                'user_name' => '國井　珠代',
+                'hire_date' => '2025-06-12',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1927',
+                'employee_no' => '1927',
+                'password' => Hash::make('warm1927'),
+                'user_name' => '吉本　絵理子',
+                'hire_date' => '2025-06-16',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '7',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1928',
+                'employee_no' => '1928',
+                'password' => Hash::make('warm1928'),
+                'user_name' => '小林　千香子',
+                'hire_date' => '2025-06-18',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が２日等の社員用）',
+                'carried_over_days' => '3',
+                'granted_days' => '4',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1929',
+                'employee_no' => '1929',
+                'password' => Hash::make('warm1929'),
+                'user_name' => '佐藤　麻衣子',
+                'hire_date' => '2025-06-16',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '7',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '2',
+                'granted_required_days' => '0',
+                'required_deadline' => '2026-11-30',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1932',
+                'employee_no' => '1932',
+                'password' => Hash::make('warm1932'),
+                'user_name' => '葛西　由佳',
+                'hire_date' => '2025-07-15',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '4',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1935',
+                'employee_no' => '1935',
+                'password' => Hash::make('warm1935'),
+                'user_name' => '櫻井　莉々華',
+                'hire_date' => '2025-08-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '10',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '5',
+                'granted_required_days' => '0',
+                'required_deadline' => '2027-01-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '1936',
+                'employee_no' => '1936',
+                'password' => Hash::make('warm1936'),
+                'user_name' => '菊地　千鶴',
+                'hire_date' => '2025-08-18',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => '10',
+                'granted_days' => '8',
+                'used_days' => '0',
+                'carried_over_required_days' => '5',
+                'granted_required_days' => '0',
+                'required_deadline' => '2027-01-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1938',
+                'employee_no' => '1938',
+                'password' => Hash::make('warm1938'),
+                'user_name' => '山口　ゆみ子',
+                'hire_date' => '2025-09-10',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1940',
+                'employee_no' => '1940',
+                'password' => Hash::make('warm1940'),
+                'user_name' => '栩内　直美',
+                'hire_date' => '2025-09-22',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '2',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '5',
+                'granted_days' => '6',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1942',
+                'employee_no' => '1942',
+                'password' => Hash::make('warm1942'),
+                'user_name' => '大山　未宇',
+                'hire_date' => '2025-10-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '1',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '0',
+                'granted_days' => '10',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1943',
+                'employee_no' => '1943',
+                'password' => Hash::make('warm1943'),
+                'user_name' => '関本　圭吾',
+                'hire_date' => '2025-10-01',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '1',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => '0',
+                'granted_days' => '10',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '5',
+                'required_deadline' => '2027-03-31',
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1944',
+                'employee_no' => '1944',
+                'password' => Hash::make('warm1944'),
+                'user_name' => '矢島　夏美',
+                'hire_date' => '2025-10-06',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '1',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '0',
+                'granted_days' => '5',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1946',
+                'employee_no' => '1946',
+                'password' => Hash::make('warm1946'),
+                'user_name' => '髙橋　未紗',
+                'hire_date' => '2025-10-09',
+                'next_grant_year_month' => '202704',
+                'used_days_reset_year_month' => '202704',
+                'grant_type' => '1',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => '0',
+                'granted_days' => '5',
+                'used_days' => '0',
+                'carried_over_required_days' => '0',
+                'granted_required_days' => '0',
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '2nd',
+                'user_id' => '1948',
+                'employee_no' => '1948',
+                'password' => Hash::make('warm1948'),
+                'user_name' => '佐藤　みゆき',
+                'hire_date' => '2025-11-04',
+                'next_grant_year_month' => '202605',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1949',
+                'employee_no' => '1949',
+                'password' => Hash::make('warm1949'),
+                'user_name' => '木村　里美',
+                'hire_date' => '2025-11-05',
+                'next_grant_year_month' => '202605',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1950',
+                'employee_no' => '1950',
+                'password' => Hash::make('warm1950'),
+                'user_name' => '石澤　純子',
+                'hire_date' => '2025-11-07',
+                'next_grant_year_month' => '202605',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '3rd',
+                'user_id' => '1951',
+                'employee_no' => '1951',
+                'password' => Hash::make('warm1951'),
+                'user_name' => '鈴木　麻美子',
+                'hire_date' => '2025-11-07',
+                'next_grant_year_month' => '202605',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1952',
+                'employee_no' => '1952',
+                'password' => Hash::make('warm1952'),
+                'user_name' => '前田　陽子',
+                'hire_date' => '2025-11-10',
+                'next_grant_year_month' => '202605',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1953',
+                'employee_no' => '1953',
+                'password' => Hash::make('warm1953'),
+                'user_name' => '松元　悠布',
+                'hire_date' => '2025-11-20',
+                'next_grant_year_month' => '202605',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が２日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1954',
+                'employee_no' => '1954',
+                'password' => Hash::make('warm1954'),
+                'user_name' => '井上　純',
+                'hire_date' => '2025-12-02',
+                'next_grant_year_month' => '202606',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1956',
+                'employee_no' => '1956',
+                'password' => Hash::make('warm1956'),
+                'user_name' => '鎌倉　瞳',
+                'hire_date' => '2025-12-04',
+                'next_grant_year_month' => '202606',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => '1st',
+                'user_id' => '1958',
+                'employee_no' => '1958',
+                'password' => Hash::make('warm1958'),
+                'user_name' => '關　美智子',
+                'hire_date' => '2025-12-08',
+                'next_grant_year_month' => '202606',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1959',
+                'employee_no' => '1959',
+                'password' => Hash::make('warm1959'),
+                'user_name' => '長岡　健一',
+                'hire_date' => '2025-12-11',
+                'next_grant_year_month' => '202606',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1960',
+                'employee_no' => '1960',
+                'password' => Hash::make('warm1960'),
+                'user_name' => '佐藤　昌代',
+                'hire_date' => '2025-12-15',
+                'next_grant_year_month' => '202606',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1961',
+                'employee_no' => '1961',
+                'password' => Hash::make('warm1961'),
+                'user_name' => '唐木　伸次',
+                'hire_date' => '2025-12-15',
+                'next_grant_year_month' => '202606',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1962',
+                'employee_no' => '1962',
+                'password' => Hash::make('warm1962'),
+                'user_name' => '八田　浩司',
+                'hire_date' => '2025-12-15',
+                'next_grant_year_month' => '202606',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LP',
+                'user_id' => '1963',
+                'employee_no' => '1963',
+                'password' => Hash::make('warm1963'),
+                'user_name' => '大清水　やよい',
+                'hire_date' => '2026-01-06',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1964',
+                'employee_no' => '1964',
+                'password' => Hash::make('warm1964'),
+                'user_name' => '細野　美香',
+                'hire_date' => '2026-01-16',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1967',
+                'employee_no' => '1967',
+                'password' => Hash::make('warm1967'),
+                'user_name' => '田島　亜矢',
+                'hire_date' => '2026-01-15',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'LC',
+                'user_id' => '1968',
+                'employee_no' => '1968',
+                'password' => Hash::make('warm1968'),
+                'user_name' => '金子　優姫',
+                'hire_date' => '2026-01-13',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1970',
+                'employee_no' => '1970',
+                'password' => Hash::make('warm1970'),
+                'user_name' => '山本　聡美',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1971',
+                'employee_no' => '1971',
+                'password' => Hash::make('warm1971'),
+                'user_name' => '山元　麻衣',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が２日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1972',
+                'employee_no' => '1972',
+                'password' => Hash::make('warm1972'),
+                'user_name' => '呉　雅慧',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1973',
+                'employee_no' => '1973',
+                'password' => Hash::make('warm1973'),
+                'user_name' => '伊東　糸路',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1974',
+                'employee_no' => '1974',
+                'password' => Hash::make('warm1974'),
+                'user_name' => '山本　友里',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が２日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1975',
+                'employee_no' => '1975',
+                'password' => Hash::make('warm1975'),
+                'user_name' => '黒田　静',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が１日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1976',
+                'employee_no' => '1976',
+                'password' => Hash::make('warm1976'),
+                'user_name' => '霜島　愛梨香',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1977',
+                'employee_no' => '1977',
+                'password' => Hash::make('warm1977'),
+                'user_name' => '川道　幸恵',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1978',
+                'employee_no' => '1978',
+                'password' => Hash::make('warm1978'),
+                'user_name' => '東　愛来',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1979',
+                'employee_no' => '1979',
+                'password' => Hash::make('warm1979'),
+                'user_name' => '小石　伸枝',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1980',
+                'employee_no' => '1980',
+                'password' => Hash::make('warm1980'),
+                'user_name' => '下園　千春',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1981',
+                'employee_no' => '1981',
+                'password' => Hash::make('warm1981'),
+                'user_name' => '玉井　恵美',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1982',
+                'employee_no' => '1982',
+                'password' => Hash::make('warm1982'),
+                'user_name' => '関口　理恵',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1983',
+                'employee_no' => '1983',
+                'password' => Hash::make('warm1983'),
+                'user_name' => '大石　千穂',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1985',
+                'employee_no' => '1985',
+                'password' => Hash::make('warm1985'),
+                'user_name' => '西東　和江',
+                'hire_date' => '2026-01-27',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が２日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1987',
+                'employee_no' => '1987',
+                'password' => Hash::make('warm1987'),
+                'user_name' => '中島　樹奈',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1988',
+                'employee_no' => '1988',
+                'password' => Hash::make('warm1988'),
+                'user_name' => '野口　利里子',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1989',
+                'employee_no' => '1989',
+                'password' => Hash::make('warm1989'),
+                'user_name' => '中村　佳代子',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1990',
+                'employee_no' => '1990',
+                'password' => Hash::make('warm1990'),
+                'user_name' => '赤坂　千恵',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1991',
+                'employee_no' => '1991',
+                'password' => Hash::make('warm1991'),
+                'user_name' => '手賀　花苗',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1992',
+                'employee_no' => '1992',
+                'password' => Hash::make('warm1992'),
+                'user_name' => '松本　和子',
+                'hire_date' => '2026-01-26',
+                'next_grant_year_month' => '202607',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1993',
+                'employee_no' => '1993',
+                'password' => Hash::make('warm1993'),
+                'user_name' => '伊藤　喜美子',
+                'hire_date' => '2026-02-02',
+                'next_grant_year_month' => '202608',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1995',
+                'employee_no' => '1995',
+                'password' => Hash::make('warm1995'),
+                'user_name' => '小暮　美那',
+                'hire_date' => '2026-02-02',
+                'next_grant_year_month' => '202608',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が３日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1996',
+                'employee_no' => '1996',
+                'password' => Hash::make('warm1996'),
+                'user_name' => '辻村　裕子',
+                'hire_date' => '2026-02-05',
+                'next_grant_year_month' => '202608',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が４日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1997',
+                'employee_no' => '1997',
+                'password' => Hash::make('warm1997'),
+                'user_name' => '一噌　悠太郎',
+                'hire_date' => '2026-03-02',
+                'next_grant_year_month' => '202609',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1998',
+                'employee_no' => '1998',
+                'password' => Hash::make('warm1998'),
+                'user_name' => '松橋　玲子',
+                'hire_date' => '2026-03-02',
+                'next_grant_year_month' => '202609',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '1999',
+                'employee_no' => '1999',
+                'password' => Hash::make('warm1999'),
+                'user_name' => '金山　海渡',
+                'hire_date' => '2026-03-16',
+                'next_grant_year_month' => '202609',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+
+            DB::table('users')->insert([
+                'base_id' => 'IMP',
+                'user_id' => '2000',
+                'employee_no' => '2000',
+                'password' => Hash::make('warm2000'),
+                'user_name' => '荒木　圭介',
+                'hire_date' => '2026-03-16',
+                'next_grant_year_month' => '202609',
+                'used_days_reset_year_month' => null,
+                'grant_type' => '0',
+                'work_days_per_week' => '標準（週所定労働日数が５日等の社員用）',
+                'carried_over_days' => null,
+                'granted_days' => null,
+                'used_days' => 0.0,
+                'carried_over_required_days' => null,
+                'granted_required_days' => null,
+                'required_deadline' => null,
+                'is_active' => true
+            ]);
+    }
+}
