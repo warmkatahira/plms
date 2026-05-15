@@ -23,23 +23,15 @@
                 </div>
             </div>
         @endcan
-        @can('admin_check')
+        @can('system_admin_check')
             <!-- システム管理 -->
              <div class="flex flex-col gap-0.5">
                 <x-navigation-btn label="システム管理" icon="las la-robot" openCloseKey="system_admin" />
                 <div class="navigation-content hidden">
-                    @can('system_admin_check')
-                        <x-navigation-btn route="role.index" label="権限" isLeftMargin="true" isRightMargin="true" />
-                    @endcan
-                    @can('admin_check')
-                        <x-navigation-btn route="base.index" label="営業所" isLeftMargin="true" isRightMargin="true" />
-                    @endcan
-                    @can('system_admin_check')
-                        <x-navigation-btn route="user.index" label="ユーザー" isLeftMargin="true" isRightMargin="true" />
-                    @endcan
-                    @can('system_admin_check')
-                        <x-navigation-btn route="operation_log.index" label="操作ログ" isLeftMargin="true" isRightMargin="true" />
-                    @endcan
+                     <x-navigation-btn route="role.index" label="権限" isLeftMargin="true" isRightMargin="true" />
+                    <x-navigation-btn route="base.index" label="営業所" isLeftMargin="true" isRightMargin="true" />
+                    <x-navigation-btn route="user.index" label="ユーザー" isLeftMargin="true" isRightMargin="true" />
+                    <x-navigation-btn route="operation_log.index" label="操作ログ" isLeftMargin="true" isRightMargin="true" />
                 </div>
             </div>
         @endcan

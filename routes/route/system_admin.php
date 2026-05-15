@@ -45,8 +45,6 @@ Route::middleware('common')->group(function (){
         Route::controller(OperationLogDownloadController::class)->prefix('operation_log_download')->name('operation_log_download.')->group(function(){
             Route::get('download', 'download')->name('download');
         });
-    });
-    Route::middleware(['admin_check'])->group(function () {
         // +-+-+-+-+-+-+-+- 営業所 +-+-+-+-+-+-+-+-
         Route::controller(BaseController::class)->prefix('base')->name('base.')->group(function(){
             Route::get('', 'index')->name('index');
