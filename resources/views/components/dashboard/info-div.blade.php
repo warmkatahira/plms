@@ -3,13 +3,13 @@
     'value',
     'format',
     'digit' => 1,
-    'usedDays' => false,
+    'isHighlight' => false,
 ])
 
 @php
     $result = displayCheckIfUnregisterd($value, $digit, $format);
     $class = 'bg-white';
-    if($usedDays){
+    if($isHighlight){
         $class = 'border border-red-500 bg-red-100';
     }
 @endphp

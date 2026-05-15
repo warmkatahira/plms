@@ -6,12 +6,12 @@
             </div>
             <div class="col-span-12 grid grid-cols-12 gap-3">
                 <x-dashboard.info-div label="保有日数" :value="$employee->total_days" format="day" />
-                <x-dashboard.info-div label="取得日数" :value="$employee->used_days" format="day" usedDays="true"  />
-                <x-dashboard.info-div label="残日数" :value="$employee->remaining_days" format="day" />
+                <x-dashboard.info-div label="取得日数" :value="$employee->used_days" format="day" />
+                <x-dashboard.info-div label="残日数" :value="$employee->remaining_days" format="day" isHighlight="true" />
             </diiv>
             <div class="col-span-12 grid grid-cols-12 gap-3">
                 <x-dashboard.info-div label="義務の日数" :value="$employee->total_required_days" format="day" />
-                <x-dashboard.info-div label="義務の残日数" :value="$employee->remaining_required_days" format="day" />
+                <x-dashboard.info-div label="義務の残日数" :value="$employee->remaining_required_days" format="day" isHighlight="true" />
                 <x-dashboard.info-div label="義務の期限" :value="$employee->required_deadline" format="date" />
             </diiv>
         </diiv>
