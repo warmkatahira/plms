@@ -45,15 +45,15 @@
     <body>
         <!-- アラート表示 -->
         <x-alert/>
-        <div class="flex flex-col md:flex-row md:items-start md:justify-between md:mx-10">
+        <div class="flex flex-col items-center justify-center min-h-screen">
             <!-- ロゴ -->
-            <div class="text-center md:text-left">
-                <img src="{{ asset('image/plms_logo.svg') }}" class="welcome_logo mx-auto md:mx-0">
+            <div class="text-center">
+                <img src="{{ asset('image/plms_logo.svg') }}" class="welcome_logo mx-auto">
             </div>
             <!-- ログインボタン -->
-            <div class="flex flex-col md:mt-5">
+            <div class="flex flex-col mt-5">
                 @guest
-                    <a href="{{ route('login') }}" class="btn md:ml-auto rounded-md bg-theme-main text-center md:py-5 py-10 mx-5 md:mx-0 md:w-48 mt-5 md:mt-0 text-2xl md:text-sm">ログイン</a>
+                    <a href="{{ route('login') }}" class="btn rounded-md bg-theme-main text-center py-5 w-48 mt-5 text-sm">ログイン</a>
                 @endguest
             </div>
         </div>
