@@ -18,17 +18,17 @@ class MailSendService
     {
         // 初回付与の従業員を取得
         $first_grant_employees = User::whereIn('employee_no', $grant_employees->pluck('employee_no'))
-                                    ->where('grant_type', GrantTypeEnum::FIRST)
-                                    ->with('base')
-                                    ->get();
+                                        ->where('grant_type', GrantTypeEnum::FIRST)
+                                        ->with('base')
+                                        ->get();
         // 初回付与の従業員がいない場合は、処理を抜ける
         if ($first_grant_employees->isEmpty()) return;
-        // adminを全員取得（営業所問わず）
-        $admin_emails = User::where('role_id', RoleEnum::ADMIN)
-                            ->where('is_active', true)
-                            ->whereNotNull('email')
-                            ->pluck('email')
-                            ->toArray();
+        // admin・system_adminを全員取得（営業所問わず）
+        $admin_emails = User::whereIn('role_id', [RoleEnum::ADMIN, RoleEnum::SYSTEM_ADMIN])
+                                ->where('is_active', true)
+                                ->whereNotNull('email')
+                                ->pluck('email')
+                                ->toArray();
         // 営業所ごとにグループ化
         $grouped_by_base = $first_grant_employees->groupBy('base_id');
         // 営業所の分だけループ処理
