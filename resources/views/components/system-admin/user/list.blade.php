@@ -49,7 +49,7 @@
                         <td class="py-1 px-2 border text-center">
                             <x-list.status :value="$user->is_active" label1="有効" label0="無効" />
                         </td>
-                        <td class="py-1 px-2 border">{{ $user->role->role_name }}</td>
+                        <td class="py-1 px-2 border text-center">{{ $user->role->role_name }}</td>
                         <td class="py-1 px-2 border text-center">
                             <x-list.status :value="$user->is_password_change_required" label1="必要" label0="不要" />
                         </td>

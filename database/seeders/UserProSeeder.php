@@ -16,6 +16,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0002',
                 'password' => Hash::make('warm0002'),
                 'user_name' => '村上　弘明',
+                'email' => 'h_murakami@warm.co.jp',
                 'hire_date' => '2004-10-26',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -27,6 +28,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'admin',
                 'is_active' => true
             ]);
 
@@ -36,6 +38,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0003',
                 'password' => Hash::make('warm0003'),
                 'user_name' => '村上　チエミ',
+                'email' => 'oki@warm.co.jp',
                 'hire_date' => '2004-10-26',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -47,6 +50,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'admin',
                 'is_active' => true
             ]);
 
@@ -56,6 +60,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0004',
                 'password' => Hash::make('warm0004'),
                 'user_name' => '猿渡　昌之',
+                'email' => 'saruwatari@warm.co.jp',
                 'hire_date' => '2004-11-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -76,6 +81,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0005',
                 'password' => Hash::make('warm0005'),
                 'user_name' => '池田　博幸',
+                'email' => 'ikeda@warm.co.jp',
                 'hire_date' => '2005-01-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -87,6 +93,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'base_admin',
                 'is_active' => true
             ]);
 
@@ -96,6 +103,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0022',
                 'password' => Hash::make('warm0022'),
                 'user_name' => '永瀬　健',
+                'email' => 't.nagase@warm.co.jp',
                 'hire_date' => '2006-09-27',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -107,6 +115,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'base_admin',
                 'is_active' => true
             ]);
 
@@ -116,6 +125,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0042',
                 'password' => Hash::make('warm0042'),
                 'user_name' => '並木　拓',
+                'email' => 'namiki@warm.co.jp',
                 'hire_date' => '2008-02-12',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -127,6 +137,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'admin',
                 'is_active' => true
             ]);
 
@@ -136,6 +147,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0043',
                 'password' => Hash::make('warm0043'),
                 'user_name' => '村上　裕也',
+                'email' => 'Y.MURAKAMI@warm.co.jp',
                 'hire_date' => '2008-02-25',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -147,6 +159,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'base_admin',
                 'is_active' => true
             ]);
 
@@ -156,6 +169,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0046',
                 'password' => Hash::make('warm0046'),
                 'user_name' => '大泉　一弘',
+                'email' => 'ooizumi@warm.co.jp',
                 'hire_date' => '2008-05-28',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -167,6 +181,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'admin',
                 'is_active' => true
             ]);
 
@@ -176,6 +191,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0055',
                 'password' => Hash::make('warm0055'),
                 'user_name' => '内海　俊平',
+                'email' => 'utsumi@warm.co.jp',
                 'hire_date' => '2009-10-21',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -196,6 +212,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0061',
                 'password' => Hash::make('warm0061'),
                 'user_name' => '木村　康洋',
+                'email' => 'kimura@warm.co.jp',
                 'hire_date' => '2009-11-09',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -207,6 +224,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'base_admin',
                 'is_active' => true
             ]);
 
@@ -216,6 +234,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0076',
                 'password' => Hash::make('warm0076'),
                 'user_name' => '里本　佳隆',
+                'email' => 'ty01@warm.co.jp',
                 'hire_date' => '2011-09-12',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -227,6 +246,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'base_admin',
                 'is_active' => true
             ]);
 
@@ -236,6 +256,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0086',
                 'password' => Hash::make('warm0086'),
                 'user_name' => '大塚　賢一',
+                'email' => 'k_otsuka@warm.co.jp',
                 'hire_date' => '2012-07-02',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -247,6 +268,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'admin',
                 'is_active' => true
             ]);
 
@@ -256,6 +278,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0091',
                 'password' => Hash::make('warm0091'),
                 'user_name' => '森谷　元気',
+                'email' => 'g.moriya@warm.co.jp',
                 'hire_date' => '2011-03-03',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -267,6 +290,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'base_admin',
                 'is_active' => true
             ]);
 
@@ -276,6 +300,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0094',
                 'password' => Hash::make('warm0094'),
                 'user_name' => '掛川　純也',
+                'email' => 'kakegawa@warm.co.jp',
                 'hire_date' => '2013-09-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -296,6 +321,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0113',
                 'password' => Hash::make('warm0113'),
                 'user_name' => '金子　太治',
+                'email' => 't.kaneko@warm.co.jp',
                 'hire_date' => '2015-03-16',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -316,6 +342,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0116',
                 'password' => Hash::make('warm0116'),
                 'user_name' => '羽場　隆',
+                'email' => 't.haba@warm.co.jp',
                 'hire_date' => '2015-04-09',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -336,6 +363,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0118',
                 'password' => Hash::make('warm0118'),
                 'user_name' => '曽根田　裕也',
+                'email' => 'soneda@warm.co.jp',
                 'hire_date' => '2015-06-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -347,6 +375,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'base_admin',
                 'is_active' => true
             ]);
 
@@ -356,6 +385,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0132',
                 'password' => Hash::make('warm0132'),
                 'user_name' => '沖　直行',
+                'email' => 'n.oki@warm.co.jp',
                 'hire_date' => '2017-07-24',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -367,6 +397,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'base_admin',
                 'is_active' => true
             ]);
 
@@ -399,6 +430,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0135',
                 'password' => Hash::make('warm0135'),
                 'user_name' => '田村　拓海',
+                'email' => 't.tamura@warm.co.jp',
                 'hire_date' => '2017-09-19',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -419,6 +451,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0139',
                 'password' => Hash::make('warm0139'),
                 'user_name' => '永瀬　朱里',
+                'email' => 'a.nagase@warm.co.jp',
                 'hire_date' => '2018-03-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -438,7 +471,8 @@ class UserProSeeder extends Seeder
                 'user_id' => '147',
                 'employee_no' => '0147',
                 'password' => Hash::make('warm0147'),
-                'user_name' => '高崎　康幸',
+                'user_name' => '髙﨑　康幸',
+                'email' => 'y.takasaki@warm.co.jp',
                 'hire_date' => '2018-08-21',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -459,6 +493,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0165',
                 'password' => Hash::make('warm0165'),
                 'user_name' => '鈴木　宏幸',
+                'email' => 'h.suzuki@warm.co.jp',
                 'hire_date' => '2020-09-16',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -479,6 +514,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0166',
                 'password' => Hash::make('warm0166'),
                 'user_name' => '瀬川　尚弘',
+                'email' => 'n.segawa@warm.co.jp',
                 'hire_date' => '2020-10-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -499,6 +535,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0168',
                 'password' => Hash::make('warm0168'),
                 'user_name' => '池田　仁',
+                'email' => 'j.ikeda@warm.co.jp',
                 'hire_date' => '2020-12-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -519,6 +556,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0172',
                 'password' => Hash::make('warm0172'),
                 'user_name' => '五月女　健',
+                'email' => 'k.saotome@warm.co.jp',
                 'hire_date' => '2021-03-03',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -539,6 +577,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0176',
                 'password' => Hash::make('warm0176'),
                 'user_name' => '南　伸一',
+                'email' => 's.minami@warm.co.jp',
                 'hire_date' => '2020-07-12',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -559,6 +598,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0184',
                 'password' => Hash::make('warm0184'),
                 'user_name' => '井上　朗',
+                'email' => 'a.inoue@warm.co.jp',
                 'hire_date' => '2021-11-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -579,6 +619,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0185',
                 'password' => Hash::make('warm0185'),
                 'user_name' => '荻野　博之',
+                'email' => 'h.ogino@warm.co.jp',
                 'hire_date' => '2021-12-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -590,6 +631,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'base_admin',
                 'is_active' => true
             ]);
 
@@ -599,6 +641,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0197',
                 'password' => Hash::make('warm0197'),
                 'user_name' => '伊藤　稔真',
+                'email' => 't.ito@warm.co.jp',
                 'hire_date' => '2022-12-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -619,6 +662,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0199',
                 'password' => Hash::make('warm0199'),
                 'user_name' => '岩下　龍平',
+                'email' => 'r.iwashita@warm.co.jp',
                 'hire_date' => '2023-03-14',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -630,6 +674,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'base_admin',
                 'is_active' => true
             ]);
 
@@ -639,6 +684,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0203',
                 'password' => Hash::make('warm0203'),
                 'user_name' => '白井　滉大',
+                'email' => 'k.shirai@warm.co.jp',
                 'hire_date' => '2023-05-08',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -679,6 +725,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0206',
                 'password' => Hash::make('warm0206'),
                 'user_name' => '篠原　翔太',
+                'email' => 's.shinohara@warm.co.jp',
                 'hire_date' => '2023-11-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -699,6 +746,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0208',
                 'password' => Hash::make('warm0208'),
                 'user_name' => '村上　克也',
+                'email' => 'k-murakami@warm.co.jp',
                 'hire_date' => '2023-11-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -710,6 +758,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'admin',
                 'is_active' => true
             ]);
 
@@ -719,6 +768,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0213',
                 'password' => Hash::make('warm0213'),
                 'user_name' => '飛田　祥吾',
+                'email' => 's.tobita@warm.co.jp',
                 'hire_date' => '2024-06-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -759,6 +809,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0222',
                 'password' => Hash::make('warm0222'),
                 'user_name' => '矢田　喜裕',
+                'email' => 'y.yada@warm.co.jp',
                 'hire_date' => '2025-02-07',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -779,6 +830,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0225',
                 'password' => Hash::make('warm0225'),
                 'user_name' => '杉本　利彦',
+                'email' => 't.sugimoto@warm.co.jp',
                 'hire_date' => '2025-03-17',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -799,6 +851,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0226',
                 'password' => Hash::make('warm0226'),
                 'user_name' => '星　孝志',
+                'email' => 't.hoshi@warm.co.jp',
                 'hire_date' => '2025-03-17',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -819,6 +872,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0227',
                 'password' => Hash::make('warm0227'),
                 'user_name' => '秋山　拓也',
+                'email' => 't.akiyama@warm.co.jp',
                 'hire_date' => '2025-04-21',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -851,6 +905,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'admin',
                 'is_active' => true
             ]);
 
@@ -860,6 +915,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0230',
                 'password' => Hash::make('warm0230'),
                 'user_name' => '三国　純',
+                'email' => 'j.mikuni@warm.co.jp',
                 'hire_date' => '2025-06-16',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -871,6 +927,7 @@ class UserProSeeder extends Seeder
                 'carried_over_required_days' => '0',
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
+                'role_id'   => 'base_admin',
                 'is_active' => true
             ]);
 
@@ -880,6 +937,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0231',
                 'password' => Hash::make('warm0231'),
                 'user_name' => '渡部　洋',
+                'email' => 'h.watanabe@warm.co.jp',
                 'hire_date' => '2025-10-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -900,6 +958,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0232',
                 'password' => Hash::make('warm0232'),
                 'user_name' => '鈴木　莉希',
+                'email' => 'r.suzuki@warm.co.jp',
                 'hire_date' => '2025-11-01',
                 'next_grant_year_month' => '202605',
                 'used_days_reset_year_month' => null,
@@ -920,6 +979,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0234',
                 'password' => Hash::make('warm0234'),
                 'user_name' => '山村　祐一',
+                'email' => 'y.yamamura@warm.co.jp',
                 'hire_date' => '2025-11-17',
                 'next_grant_year_month' => '202605',
                 'used_days_reset_year_month' => null,
@@ -940,6 +1000,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0235',
                 'password' => Hash::make('warm0235'),
                 'user_name' => '伊藤　良寛',
+                'email' => 'y.ito@warm.co.jp',
                 'hire_date' => '2026-01-01',
                 'next_grant_year_month' => '202607',
                 'used_days_reset_year_month' => null,
@@ -960,6 +1021,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0236',
                 'password' => Hash::make('warm0236'),
                 'user_name' => '中西　亮太',
+                'email' => 'r.nakanishi@warm.co.jp',
                 'hire_date' => '2026-01-01',
                 'next_grant_year_month' => '202607',
                 'used_days_reset_year_month' => null,
@@ -980,6 +1042,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0237',
                 'password' => Hash::make('warm0237'),
                 'user_name' => '宮田　寿代',
+                'email' => 's.miyata@warm.co.jp',
                 'hire_date' => '2026-01-19',
                 'next_grant_year_month' => '202607',
                 'used_days_reset_year_month' => null,
@@ -1040,6 +1103,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0243',
                 'password' => Hash::make('warm0243'),
                 'user_name' => '堀池　美紀',
+                'email' => 'm.horiike@warm.co.jp',
                 'hire_date' => '2026-03-17',
                 'next_grant_year_month' => '202609',
                 'used_days_reset_year_month' => null,
@@ -2600,6 +2664,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '1802',
                 'password' => Hash::make('warm1802'),
                 'user_name' => '石井　梨恵',
+                'email' => 'r.ishii@warm.co.jp',
                 'hire_date' => '2022-12-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -5033,5 +5098,9 @@ class UserProSeeder extends Seeder
                 'required_deadline' => null,
                 'is_active' => true
             ]);
+
+            DB::table('users')
+    ->where('user_name', 'not like', '%片平%')
+    ->update(['email' => null]);
     }
 }
