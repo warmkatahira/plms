@@ -50,7 +50,7 @@
                                 <span class="text-xs text-gray-400 w-8">{{ $ratio }}%</span>
                             </div>
                             {{-- 営業所内訳（トグル） --}}
-                            <div class="base-detail hidden mt-2 flex flex-col gap-1">
+                            <div class="base-detail mt-2 flex flex-col gap-1" style="display:none;">
                                 @foreach($data['bases'] as $base)
                                     <div class="flex justify-between items-center text-xs text-gray-500 bg-theme-sub rounded px-2 py-1">
                                         <span>{{ $base['base_name'] }}</span>

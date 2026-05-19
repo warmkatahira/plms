@@ -10,3 +10,13 @@ $('#remaining_required_days_enter').on("click",function(){
         $("#remaining_required_days_form").submit();
     }
 });
+
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const detail = btn.previousElementSibling;
+        const isHidden = detail.style.display === 'none';
+        detail.style.display = isHidden ? 'flex' : 'none';
+        btn.querySelector('.arrow').textContent = isHidden ? '▾' : '▸';
+        btn.querySelector('.label').textContent = isHidden ? '閉じる' : '営業所内訳を見る';
+    });
+});
