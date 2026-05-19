@@ -37,6 +37,7 @@ class MailSendService
             $base_admins = User::where('base_id', $base_id)
                                 ->where('role_id', RoleEnum::BASE_ADMIN)
                                 ->where('is_active', true)
+                                ->whereNotNull('email')
                                 ->get();
             // 従業員名一覧を作成
             $employee_names = $employees->pluck('user_name')->toArray();
