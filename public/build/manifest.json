@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-B7kpp1S5.css",
+    "file": "assets/app-CDn3Wrz3.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -17,6 +17,15 @@
     "file": "assets/file_import-DsbfSNDg.js",
     "name": "file_import",
     "src": "resources/js/admin/file_import/file_import.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/loading.js"
+    ]
+  },
+  "resources/js/admin/remaining_required_days/remaining_required_days.js": {
+    "file": "assets/remaining_required_days-BTGIS4Tb.js",
+    "name": "remaining_required_days",
+    "src": "resources/js/admin/remaining_required_days/remaining_required_days.js",
     "isEntry": true,
     "imports": [
       "resources/js/loading.js"

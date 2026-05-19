@@ -19,6 +19,7 @@
                     @can('admin_check')
                         <x-navigation-btn route="file_import.index" label="ファイル取込" isLeftMargin="true" isRightMargin="true" />
                         <x-navigation-btn route="import_history.index" label="取込履歴" isLeftMargin="true" isRightMargin="true" />
+                        <x-navigation-btn route="remaining_required_days.index" label="義務残通知" isLeftMargin="true" isRightMargin="true" />
                     @endcan
                 </div>
             </div>

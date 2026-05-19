@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\Employee\EmployeeDownloadController;
 use App\Http\Controllers\Admin\Employee\EmployeeCreateController;
 // +-+-+-+-+-+-+-+- 従業員更新 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Admin\Employee\EmployeeUpdateController;
+// +-+-+-+-+-+-+-+- 義務残通知 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\Admin\RemainingRequiredDays\RemainingRequiredDaysController;
 // +-+-+-+-+-+-+-+- 取込履歴 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Admin\ImportHistory\ImportHistoryController;
 // +-+-+-+-+-+-+-+- ファイル取込 +-+-+-+-+-+-+-+-
@@ -25,19 +27,6 @@ Route::middleware('common')->group(function (){
         Route::controller(EmployeeDownloadController::class)->prefix('employee_download')->name('employee_download.')->group(function(){
             Route::get('download', 'download')->name('download');
         });
-        Route::middleware(['admin_check'])->group(function () {
-            // +-+-+-+-+-+-+-+- 従業員追加 +-+-+-+-+-+-+-+-
-            Route::controller(EmployeeCreateController::class)->prefix('employee_create')->name('employee_create.')->group(function(){
-                Route::get('', 'index')->name('index');
-                Route::post('create', 'create')->name('create');
-                Route::post('import', 'import')->name('import');
-            });
-            // +-+-+-+-+-+-+-+- 従業員更新 +-+-+-+-+-+-+-+-
-            Route::controller(EmployeeUpdateController::class)->prefix('employee_update')->name('employee_update.')->group(function(){
-                Route::get('', 'index')->name('index');
-                Route::post('update', 'update')->name('update');
-            });
-        });
     });
     Route::middleware(['admin_check'])->group(function () {
         // +-+-+-+-+-+-+-+- ファイル取込 +-+-+-+-+-+-+-+-
@@ -48,6 +37,22 @@ Route::middleware('common')->group(function (){
         // +-+-+-+-+-+-+-+- 取込履歴 +-+-+-+-+-+-+-+-
         Route::controller(ImportHistoryController::class)->prefix('import_history')->name('import_history.')->group(function(){
             Route::get('', 'index')->name('index');
+        });
+        // +-+-+-+-+-+-+-+- 従業員追加 +-+-+-+-+-+-+-+-
+        Route::controller(EmployeeCreateController::class)->prefix('employee_create')->name('employee_create.')->group(function(){
+            Route::get('', 'index')->name('index');
+            Route::post('create', 'create')->name('create');
+            Route::post('import', 'import')->name('import');
+        });
+        // +-+-+-+-+-+-+-+- 従業員更新 +-+-+-+-+-+-+-+-
+        Route::controller(EmployeeUpdateController::class)->prefix('employee_update')->name('employee_update.')->group(function(){
+            Route::get('', 'index')->name('index');
+            Route::post('update', 'update')->name('update');
+        });
+        // +-+-+-+-+-+-+-+- 義務残通知 +-+-+-+-+-+-+-+-
+        Route::controller(RemainingRequiredDaysController::class)->prefix('remaining_required_days')->name('remaining_required_days.')->group(function(){
+            Route::get('', 'index')->name('index');
+            Route::post('enter', 'enter')->name('enter');
         });
     });
 });

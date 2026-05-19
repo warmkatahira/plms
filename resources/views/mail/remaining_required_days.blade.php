@@ -19,9 +19,9 @@
     <body style="font-family: 'Kosugi Maru';">
         <div style="font-size: 12px;">
             <p>※このメールは{{ config('app.name', 'Laravel') }}から自動配信されています。</p>
-            <p>以下の従業員に初回有給が付与されました。</p>
-            @foreach($employee_names as $name)
-                <p>・{{ $name }}</p>
+            <p>以下の従業員に義務残日数があります。</p>
+            @foreach($employee_list as $employee)
+                <p>・{{ $employee['user_name'] }}　残{{ $employee['remaining_required_days'] }}日</p>
             @endforeach
             <div>
                 <p>ログインURL：{{ config('app.url') }}</p>

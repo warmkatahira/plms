@@ -88,7 +88,7 @@ class User extends Authenticatable
     {
         return ($this->carried_over_required_days ?? 0) + ($this->granted_required_days ?? 0);
     }
-    // 義務日数残を返すアクセサ
+    // 義務残日数を返すアクセサ
     public function getRemainingRequiredDaysAttribute(): float
     {
         $remaining = $this->total_required_days - ($this->used_days ?? 0);

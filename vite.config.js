@@ -28,6 +28,7 @@ export default defineConfig({
                 // 管理
                 'resources/js/admin/employee/employee.js',
                 'resources/js/admin/file_import/file_import.js',
+                'resources/js/admin/remaining_required_days/remaining_required_days.js',
                 // システム管理
                 'resources/js/system_admin/base/base.js',
                 'resources/js/system_admin/user/user.js',
