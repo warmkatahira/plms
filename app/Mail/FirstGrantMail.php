@@ -19,7 +19,7 @@ class FirstGrantMail extends Mailable
      * Create a new message instance.
      */
     public function __construct(
-        public Collection $base_admins,
+        public string $base_name,
         public array $employee_names,
     ) {}
 
@@ -29,7 +29,7 @@ class FirstGrantMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: '初回有給付与のお知らせ',
+            subject: "初回有給付与のお知らせ（{$this->base_name}）",
         );
     }
 

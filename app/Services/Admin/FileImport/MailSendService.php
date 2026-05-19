@@ -19,9 +19,16 @@ class MailSendService
         // 初回付与の従業員を取得
         $first_grant_employees = User::whereIn('employee_no', $grant_employees->pluck('employee_no'))
                                     ->where('grant_type', GrantTypeEnum::FIRST)
+                                    ->with('base')
                                     ->get();
         // 初回付与の従業員がいない場合は、処理を抜ける
         if ($first_grant_employees->isEmpty()) return;
+        // adminを全員取得（営業所問わず）
+        $admin_emails = User::where('role_id', RoleEnum::ADMIN)
+                            ->where('is_active', true)
+                            ->whereNotNull('email')
+                            ->pluck('email')
+                            ->toArray();
         // 営業所ごとにグループ化
         $grouped_by_base = $first_grant_employees->groupBy('base_id');
         // 営業所の分だけループ処理
@@ -31,17 +38,21 @@ class MailSendService
                                 ->where('role_id', RoleEnum::BASE_ADMIN)
                                 ->where('is_active', true)
                                 ->get();
-            // 所長権限ユーザーがいない場合
-            if ($base_admins->isEmpty()) continue;
             // 従業員名一覧を作成
             $employee_names = $employees->pluck('user_name')->toArray();
-            // 送信先メールアドレスを作成（base_admin + メール登録済みの従業員）
-            $to_emails = $base_admins->pluck('email')
+            // 営業所名を取得
+            $base_name = $employees->first()->base?->base_name ?? '未設定';
+            // 送信先（admin全員 + 所長（いれば） + メール登録済みの本人）
+            $to_emails = collect($admin_emails)
+                            ->merge($base_admins->pluck('email'))
                             ->merge($employees->pluck('email')->filter())
                             ->unique()
                             ->toArray();
-            // base_admin全員にメール送信
-            Mail::to($to_emails)->send(new FirstGrantMail($base_admins, $employee_names));
+            // 宛先が存在する場合
+            if (!empty($to_emails)) {
+                // メール送信
+                Mail::to($to_emails)->send(new FirstGrantMail($base_name, $employee_names));
+            }
         }
     }
 }
