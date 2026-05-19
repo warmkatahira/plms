@@ -370,12 +370,13 @@ class UserProSeeder extends Seeder
                 'is_active' => true
             ]);
 
-                        DB::table('users')->insert([
+            DB::table('users')->insert([
                 'base_id' => 'honsha',
                 'user_id' => 'katahira',
                 'employee_no' => '0134',
                 'password' => Hash::make('katahira134'),
                 'user_name' => '片平　貴順',
+                'email' => 't.katahira@warm.co.jp',
                 'hire_date' => '2017-09-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',
@@ -838,6 +839,7 @@ class UserProSeeder extends Seeder
                 'employee_no' => '0228',
                 'password' => Hash::make('warm0228'),
                 'user_name' => '片平　希望',
+                'email' => 'n.katahira@warm.co.jp',
                 'hire_date' => '2025-05-01',
                 'next_grant_year_month' => '202704',
                 'used_days_reset_year_month' => '202704',

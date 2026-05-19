@@ -53,12 +53,10 @@ class PaidLeaveUpdateService
             $this->updateRequiredDays($user, $employee);
             // 付与区分の更新
             $this->updateGrantType($user);
-
-            // 
-
             // 更新値を保存
             $user->save();
         }
+        return $grant_employees;
     }
 
     // 次回付与年月の更新
