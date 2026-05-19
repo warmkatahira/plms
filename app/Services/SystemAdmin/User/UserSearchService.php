@@ -79,9 +79,13 @@ class UserSearchService extends BaseFilterService
             },
             // 営業所
             'filter_base_id' => function ($query, $value) {
-                $query->whereHas('base', function ($q) use ($value) {
-                    $q->where('base_id', $value);
-                });
+                if ($value === '__null__') {
+                    $query->whereNull('base_id');
+                } else {
+                    $query->whereHas('base', function ($q) use ($value) {
+                        $q->where('base_id', $value);
+                    });
+                }
             },
             // 入社日
             'filter_hire_date_from' => function ($query, $value) {

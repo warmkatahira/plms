@@ -56,7 +56,7 @@ class FileImportController extends Controller
                 // file_importsへデータを追加
                 $FileImportService->createArrayImportData($employee_create_data, $paid_leave_create_data);
                 // usersテーブルに存在しない従業員番号が取り込まれていれば、追加する
-                $UserCreateService->createUser();
+                $create_user_count = $UserCreateService->createUser();
                 // usersテーブルに存在していて今回の取り込みに存在していない従業員のis_activeを無効に更新
                 $missing_message = $UserUpdateService->deactivateMissingEmployees();
                 // 付与月ではない従業員の使用日数をカウントアップ
@@ -64,7 +64,15 @@ class FileImportController extends Controller
                 // 付与月の従業員の処理
                 $PaidLeaveUpdateService->processGrantMonth();
                 // import_historiesテーブルへ追加
-                $ImportHistoryCreateService->createImportHistory($employee_file_info['original_file_name'], $paid_leave_file_info['original_file_name'], null, $missing_message ? "以下の従業員を無効にしました。\n" . $missing_message : null);
+                $ImportHistoryCreateService->createImportHistory(
+                    $employee_file_info['original_file_name'],
+                    $paid_leave_file_info['original_file_name'],
+                    null,
+                    implode("\n", array_filter([
+                        $create_user_count > 0 ? "{$create_user_count}人の従業員を追加しました。" : null,
+                        $missing_message ? "以下の従業員を無効にしました。\n" . $missing_message : null,
+                    ]))  ?: null
+                );
             });
         } catch (FileImportException $e) {
             // 渡された内容を取得

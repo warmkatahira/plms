@@ -43,19 +43,22 @@
         <script src="https://unpkg.com/tippy.js@6"></script>
     </head>
     <body>
-        <!-- アラート表示 -->
         <x-alert/>
-        <div class="flex flex-col items-center justify-center min-h-screen">
-            <!-- ロゴ -->
-            <div class="text-center">
-                <img src="{{ asset('image/plms_logo.svg') }}" class="welcome_logo mx-auto">
+        {{-- PC：ロゴ中央・ボタン右上 --}}
+        @guest
+            <div class="hidden md:block absolute top-8 right-8">
+                <a href="{{ route('login') }}" class="btn rounded-md bg-theme-main text-center py-5 px-10 text-sm">ログイン</a>
             </div>
-            <!-- ログインボタン -->
-            <div class="flex flex-col mt-5">
-                @guest
-                    <a href="{{ route('login') }}" class="btn rounded-md bg-theme-main text-center py-5 w-48 mt-5 text-sm">ログイン</a>
-                @endguest
-            </div>
+        @endguest
+        <div class="hidden md:flex items-center justify-center min-h-screen pb-96">
+            <img src="{{ asset('image/plms_logo.svg') }}" class="welcome_logo">
+        </div>
+        {{-- スマホ：ロゴ上・ボタン下 --}}
+        <div class="flex md:hidden flex-col items-center min-h-screen px-8 pt-5 gap-8">
+            <img src="{{ asset('image/plms_logo.svg') }}" class="welcome_logo">
+            @guest
+                <a href="{{ route('login') }}" class="btn rounded-md bg-theme-main text-center w-full py-8 text-sm">ログイン</a>
+            @endguest
         </div>
     </body>
 </html>

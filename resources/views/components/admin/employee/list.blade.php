@@ -1,15 +1,15 @@
 <div class="disable_scrollbar flex flex-grow overflow-scroll">
     <div class="employee_list bg-white overflow-x-auto overflow-y-auto border border-gray-600">
         <table id="filter_table" class="text-xs" data-search-url="/employee" data-scroll-target=".employee_list">
-            <thead>
-                <tr class="text-left text-white bg-black whitespace-nowrap sticky top-0 h-7 z-10">
+            <thead class="sticky top-0 z-[21]">
+                <tr class="text-left text-white bg-black whitespace-nowrap h-7 z-10">
                     @can('admin_check')
                         <th class="font-thin py-1 px-2 text-center">操作</th>
                     @endcan
                     <th class="font-thin py-1 px-2 text-center">ステータス</th>
                     <th class="font-thin py-1 px-2 text-center">営業所</th>
                     <th class="font-thin py-1 px-2 text-center">従業員番号</th>
-                    <th class="font-thin py-1 px-2 text-center">氏名</th>
+                    <th class="font-thin py-1 px-2 text-center sticky w-[180px] min-w-[180px] left-0 z-[22] bg-black">氏名</th>
                     <th class="font-thin py-1 px-2 text-center">入社日</th>
                     <th class="font-thin py-1 px-2 text-center">勤続年数</th>
                     <th class="font-thin py-1 px-2 text-center">次回付与</th>
@@ -27,14 +27,14 @@
                     <th class="font-thin py-1 px-2 text-center">義務残日数</th>
                     <th class="font-thin py-1 px-2 text-center">義務期限</th>
                 </tr>
-                <tr class="filter-row sticky top-[28px] bg-white z-10">
+                <tr class="filter-row bg-white">
                     @can('admin_check')
                         <th></th>
                     @endcan
                     <x-filter.select-boolean id="filter_is_active" name="filter_is_active" label1="有効" label0="無効" :disabled="!auth()->user()->can('admin_check')" />
-                    <x-filter.select id="filter_base_id" name="filter_base_id" :selectItems="$bases" optionValue="base_id" optionText="base_name" :disabled="!auth()->user()->can('admin_check')" />
+                    <x-filter.select id="filter_base_id" name="filter_base_id" :selectItems="$bases" optionValue="base_id" optionText="base_name" :disabled="!auth()->user()->can('admin_check')" :includeNull="true" />
                     <x-filter.input type="tel" id="filter_employee_no" name="filter_employee_no" />
-                    <x-filter.input type="tel" id="filter_user_name" name="filter_user_name" />
+                    <x-filter.input type="tel" id="filter_user_name" name="filter_user_name" class="sticky w-[180px] min-w-[180px] left-0 z-[22] bg-white" />
                     <x-filter.date-period type="date" fromId="filter_hire_date_from" fromName="filter_hire_date_from" toId="filter_hire_date_to" toName="filter_hire_date_to" />
                     <x-filter.input type="text" id="filter_service_years" name="filter_service_years" />
                     <x-filter.input type="month" id="filter_next_grant_year_month" name="filter_next_grant_year_month" />
@@ -55,7 +55,7 @@
             </thead>
             <tbody class="bg-white">
                 @foreach($employees as $employee)
-                    <tr class="text-left cursor-default whitespace-nowrap @if(!$employee->is_active) bg-common-disabled @endif">
+                    <tr class="text-left cursor-default whitespace-nowrap @if(!$employee->is_active) bg-common-disabled @endif hover:bg-theme-sub group">
                         @can('admin_check')
                             <td class="py-1 px-2 border">
                                 <div class="flex flex-row gap-5">
@@ -68,7 +68,7 @@
                         </td>
                         <td class="py-1 px-2 border">{{ $employee->base?->base_name }}</td>
                         <td class="py-1 px-2 border text-center">{{ $employee->employee_no }}</td>
-                        <td class="py-1 px-2 border">
+                        <td class="py-1 px-2 border sticky w-[180px] min-w-[180px] left-0 z-[20] group-hover:bg-theme-sub {{ $employee->is_active ? 'bg-white' : 'bg-common-disabled' }}">
                             <div class="flex items-center gap-1">
                                 <img class="profile_image_normal image_fade_in_modal_open flex-shrink-0" src="{{ asset('storage/profile_images/'.$employee->profile_image_file_name) }}">
                                 {{ $employee->user_name }}

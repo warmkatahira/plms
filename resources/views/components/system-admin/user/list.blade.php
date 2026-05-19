@@ -16,7 +16,7 @@
                 </tr>
                 <tr class="filter-row sticky top-[28px] bg-white z-10">
                     <th></th>
-                    <x-filter.select id="filter_base_id" name="filter_base_id" :selectItems="$bases" optionValue="base_id" optionText="base_name" />
+                    <x-filter.select id="filter_base_id" name="filter_base_id" :selectItems="$bases" optionValue="base_id" optionText="base_name" :includeNull="true" />
                     <x-filter.input type="tel" id="filter_user_id" name="filter_user_id" />
                     <x-filter.input type="tel" id="filter_employee_no" name="filter_employee_no" />
                     <x-filter.input type="tel" id="filter_user_name" name="filter_user_name" />

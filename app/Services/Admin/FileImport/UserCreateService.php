@@ -44,11 +44,17 @@ class UserCreateService
                 'used_days_reset_year_month'    => $used_days_reset_year_month,
                 'grant_type'                    => GrantTypeEnum::NONE,
                 'role_id'                       => RoleEnum::USER,
-                'user_id'                       => $employee->employee_no,
+                'user_id'                       => (function($no) {
+                                                        $trimmed = ltrim($no, '0') ?: '0'; // 先頭の0を除去（全部0の場合は'0'）
+                                                        return strlen($trimmed) < 4
+                                                            ? str_pad($trimmed, 3, '0', STR_PAD_LEFT)
+                                                            : $trimmed;
+                                                    })($employee->employee_no),
                 'password'                      => Hash::make('warm'.$employee->employee_no),
                 'is_active'                     => true,
             ]);
         }
+        return count($new_employee_nos);
     }
 
     // 使用日数リセット年月を取得

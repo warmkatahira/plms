@@ -12,7 +12,7 @@ class UserProSeeder extends Seeder
     {
             DB::table('users')->insert([
                 'base_id' => 'honsha',
-                'user_id' => '0002',
+                'user_id' => '002',
                 'employee_no' => '0002',
                 'password' => Hash::make('warm0002'),
                 'user_name' => '村上　弘明',
@@ -32,7 +32,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'honsha',
-                'user_id' => '0003',
+                'user_id' => '003',
                 'employee_no' => '0003',
                 'password' => Hash::make('warm0003'),
                 'user_name' => '村上　チエミ',
@@ -52,7 +52,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => '2nd',
-                'user_id' => '0004',
+                'user_id' => '004',
                 'employee_no' => '0004',
                 'password' => Hash::make('warm0004'),
                 'user_name' => '猿渡　昌之',
@@ -72,7 +72,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => '3rd',
-                'user_id' => '0005',
+                'user_id' => '005',
                 'employee_no' => '0005',
                 'password' => Hash::make('warm0005'),
                 'user_name' => '池田　博幸',
@@ -92,7 +92,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LP',
-                'user_id' => '0022',
+                'user_id' => '022',
                 'employee_no' => '0022',
                 'password' => Hash::make('warm0022'),
                 'user_name' => '永瀬　健',
@@ -112,7 +112,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'honsha',
-                'user_id' => '0042',
+                'user_id' => '042',
                 'employee_no' => '0042',
                 'password' => Hash::make('warm0042'),
                 'user_name' => '並木　拓',
@@ -132,7 +132,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0043',
+                'user_id' => '043',
                 'employee_no' => '0043',
                 'password' => Hash::make('warm0043'),
                 'user_name' => '村上　裕也',
@@ -152,7 +152,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'honsha',
-                'user_id' => '0046',
+                'user_id' => '046',
                 'employee_no' => '0046',
                 'password' => Hash::make('warm0046'),
                 'user_name' => '大泉　一弘',
@@ -172,7 +172,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LS',
-                'user_id' => '0055',
+                'user_id' => '055',
                 'employee_no' => '0055',
                 'password' => Hash::make('warm0055'),
                 'user_name' => '内海　俊平',
@@ -192,7 +192,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0061',
+                'user_id' => '061',
                 'employee_no' => '0061',
                 'password' => Hash::make('warm0061'),
                 'user_name' => '木村　康洋',
@@ -212,7 +212,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => '1st',
-                'user_id' => '0076',
+                'user_id' => '076',
                 'employee_no' => '0076',
                 'password' => Hash::make('warm0076'),
                 'user_name' => '里本　佳隆',
@@ -232,7 +232,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'honsha',
-                'user_id' => '0086',
+                'user_id' => '086',
                 'employee_no' => '0086',
                 'password' => Hash::make('warm0086'),
                 'user_name' => '大塚　賢一',
@@ -252,7 +252,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0091',
+                'user_id' => '091',
                 'employee_no' => '0091',
                 'password' => Hash::make('warm0091'),
                 'user_name' => '森谷　元気',
@@ -272,7 +272,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LP',
-                'user_id' => '0094',
+                'user_id' => '094',
                 'employee_no' => '0094',
                 'password' => Hash::make('warm0094'),
                 'user_name' => '掛川　純也',
@@ -292,7 +292,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => '3rd',
-                'user_id' => '0113',
+                'user_id' => '113',
                 'employee_no' => '0113',
                 'password' => Hash::make('warm0113'),
                 'user_name' => '金子　太治',
@@ -312,7 +312,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LP',
-                'user_id' => '0116',
+                'user_id' => '116',
                 'employee_no' => '0116',
                 'password' => Hash::make('warm0116'),
                 'user_name' => '羽場　隆',
@@ -332,7 +332,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => '2nd',
-                'user_id' => '0118',
+                'user_id' => '118',
                 'employee_no' => '0118',
                 'password' => Hash::make('warm0118'),
                 'user_name' => '曽根田　裕也',
@@ -352,7 +352,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'HR',
-                'user_id' => '0132',
+                'user_id' => '132',
                 'employee_no' => '0132',
                 'password' => Hash::make('warm0132'),
                 'user_name' => '沖　直行',
@@ -394,7 +394,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'honsha',
-                'user_id' => '0135',
+                'user_id' => '135',
                 'employee_no' => '0135',
                 'password' => Hash::make('warm0135'),
                 'user_name' => '田村　拓海',
@@ -414,7 +414,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => '1st',
-                'user_id' => '0139',
+                'user_id' => '139',
                 'employee_no' => '0139',
                 'password' => Hash::make('warm0139'),
                 'user_name' => '永瀬　朱里',
@@ -434,7 +434,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => '1st',
-                'user_id' => '0147',
+                'user_id' => '147',
                 'employee_no' => '0147',
                 'password' => Hash::make('warm0147'),
                 'user_name' => '高崎　康幸',
@@ -454,7 +454,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => '1st',
-                'user_id' => '0165',
+                'user_id' => '165',
                 'employee_no' => '0165',
                 'password' => Hash::make('warm0165'),
                 'user_name' => '鈴木　宏幸',
@@ -474,7 +474,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0166',
+                'user_id' => '166',
                 'employee_no' => '0166',
                 'password' => Hash::make('warm0166'),
                 'user_name' => '瀬川　尚弘',
@@ -494,7 +494,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'honsha',
-                'user_id' => '0168',
+                'user_id' => '168',
                 'employee_no' => '0168',
                 'password' => Hash::make('warm0168'),
                 'user_name' => '池田　仁',
@@ -514,7 +514,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LS',
-                'user_id' => '0172',
+                'user_id' => '172',
                 'employee_no' => '0172',
                 'password' => Hash::make('warm0172'),
                 'user_name' => '五月女　健',
@@ -534,7 +534,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LC',
-                'user_id' => '0176',
+                'user_id' => '176',
                 'employee_no' => '0176',
                 'password' => Hash::make('warm0176'),
                 'user_name' => '南　伸一',
@@ -554,7 +554,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LP',
-                'user_id' => '0184',
+                'user_id' => '184',
                 'employee_no' => '0184',
                 'password' => Hash::make('warm0184'),
                 'user_name' => '井上　朗',
@@ -574,7 +574,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LC',
-                'user_id' => '0185',
+                'user_id' => '185',
                 'employee_no' => '0185',
                 'password' => Hash::make('warm0185'),
                 'user_name' => '荻野　博之',
@@ -594,7 +594,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'honsha',
-                'user_id' => '0197',
+                'user_id' => '197',
                 'employee_no' => '0197',
                 'password' => Hash::make('warm0197'),
                 'user_name' => '伊藤　稔真',
@@ -614,7 +614,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LC',
-                'user_id' => '0199',
+                'user_id' => '199',
                 'employee_no' => '0199',
                 'password' => Hash::make('warm0199'),
                 'user_name' => '岩下　龍平',
@@ -634,7 +634,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0203',
+                'user_id' => '203',
                 'employee_no' => '0203',
                 'password' => Hash::make('warm0203'),
                 'user_name' => '白井　滉大',
@@ -654,7 +654,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => '2nd',
-                'user_id' => '0204',
+                'user_id' => '204',
                 'employee_no' => '0204',
                 'password' => Hash::make('warm0204'),
                 'user_name' => '吉田　健太郎',
@@ -674,7 +674,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0206',
+                'user_id' => '206',
                 'employee_no' => '0206',
                 'password' => Hash::make('warm0206'),
                 'user_name' => '篠原　翔太',
@@ -694,7 +694,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'honsha',
-                'user_id' => '0208',
+                'user_id' => '208',
                 'employee_no' => '0208',
                 'password' => Hash::make('warm0208'),
                 'user_name' => '村上　克也',
@@ -714,7 +714,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LC',
-                'user_id' => '0213',
+                'user_id' => '213',
                 'employee_no' => '0213',
                 'password' => Hash::make('warm0213'),
                 'user_name' => '飛田　祥吾',
@@ -734,7 +734,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LC',
-                'user_id' => '0218',
+                'user_id' => '218',
                 'employee_no' => '0218',
                 'password' => Hash::make('warm0218'),
                 'user_name' => '豊田　達也',
@@ -754,7 +754,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LP',
-                'user_id' => '0222',
+                'user_id' => '222',
                 'employee_no' => '0222',
                 'password' => Hash::make('warm0222'),
                 'user_name' => '矢田　喜裕',
@@ -774,7 +774,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => '3rd',
-                'user_id' => '0225',
+                'user_id' => '225',
                 'employee_no' => '0225',
                 'password' => Hash::make('warm0225'),
                 'user_name' => '杉本　利彦',
@@ -794,7 +794,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0226',
+                'user_id' => '226',
                 'employee_no' => '0226',
                 'password' => Hash::make('warm0226'),
                 'user_name' => '星　孝志',
@@ -814,7 +814,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LP',
-                'user_id' => '0227',
+                'user_id' => '227',
                 'employee_no' => '0227',
                 'password' => Hash::make('warm0227'),
                 'user_name' => '秋山　拓也',
@@ -834,7 +834,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'honsha',
-                'user_id' => '0228',
+                'user_id' => '228',
                 'employee_no' => '0228',
                 'password' => Hash::make('warm0228'),
                 'user_name' => '片平　希望',
@@ -854,7 +854,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LS',
-                'user_id' => '0230',
+                'user_id' => '230',
                 'employee_no' => '0230',
                 'password' => Hash::make('warm0230'),
                 'user_name' => '三国　純',
@@ -874,7 +874,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'LC',
-                'user_id' => '0231',
+                'user_id' => '231',
                 'employee_no' => '0231',
                 'password' => Hash::make('warm0231'),
                 'user_name' => '渡部　洋',
@@ -894,7 +894,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0232',
+                'user_id' => '232',
                 'employee_no' => '0232',
                 'password' => Hash::make('warm0232'),
                 'user_name' => '鈴木　莉希',
@@ -914,7 +914,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'honsha',
-                'user_id' => '0234',
+                'user_id' => '234',
                 'employee_no' => '0234',
                 'password' => Hash::make('warm0234'),
                 'user_name' => '山村　祐一',
@@ -934,7 +934,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0235',
+                'user_id' => '235',
                 'employee_no' => '0235',
                 'password' => Hash::make('warm0235'),
                 'user_name' => '伊藤　良寛',
@@ -954,7 +954,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0236',
+                'user_id' => '236',
                 'employee_no' => '0236',
                 'password' => Hash::make('warm0236'),
                 'user_name' => '中西　亮太',
@@ -974,7 +974,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0237',
+                'user_id' => '237',
                 'employee_no' => '0237',
                 'password' => Hash::make('warm0237'),
                 'user_name' => '宮田　寿代',
@@ -994,7 +994,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0238',
+                'user_id' => '238',
                 'employee_no' => '0238',
                 'password' => Hash::make('warm0238'),
                 'user_name' => '近藤　修',
@@ -1014,7 +1014,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => '2nd',
-                'user_id' => '0240',
+                'user_id' => '240',
                 'employee_no' => '0240',
                 'password' => Hash::make('warm0240'),
                 'user_name' => '水倉　陽介',
@@ -1034,7 +1034,7 @@ class UserProSeeder extends Seeder
 
             DB::table('users')->insert([
                 'base_id' => 'IMP',
-                'user_id' => '0243',
+                'user_id' => '243',
                 'employee_no' => '0243',
                 'password' => Hash::make('warm0243'),
                 'user_name' => '堀池　美紀',
@@ -3168,7 +3168,7 @@ class UserProSeeder extends Seeder
                 'used_days' => '0',
                 'carried_over_required_days' => '1',
                 'granted_required_days' => '0',
-                'required_deadline' => '2026-06-30',
+                'required_deadline' => '2027-03-31',
                 'is_active' => true
             ]);
 
@@ -3228,7 +3228,7 @@ class UserProSeeder extends Seeder
                 'used_days' => '0',
                 'carried_over_required_days' => '1',
                 'granted_required_days' => '0',
-                'required_deadline' => '2026-07-31',
+                'required_deadline' => '2027-03-31',
                 'is_active' => true
             ]);
 
@@ -3268,7 +3268,7 @@ class UserProSeeder extends Seeder
                 'used_days' => '0',
                 'carried_over_required_days' => '2',
                 'granted_required_days' => '0',
-                'required_deadline' => '2026-09-30',
+                'required_deadline' => '2027-03-31',
                 'is_active' => true
             ]);
 
@@ -3488,7 +3488,7 @@ class UserProSeeder extends Seeder
                 'used_days' => '0',
                 'carried_over_required_days' => '4',
                 'granted_required_days' => '0',
-                'required_deadline' => '2027-01-31',
+                'required_deadline' => '2027-03-31',
                 'is_active' => true
             ]);
 
@@ -3948,7 +3948,7 @@ class UserProSeeder extends Seeder
                 'used_days' => '0',
                 'carried_over_required_days' => '2',
                 'granted_required_days' => '0',
-                'required_deadline' => '2026-11-30',
+                'required_deadline' => '2027-03-31',
                 'is_active' => true
             ]);
 
@@ -3988,7 +3988,7 @@ class UserProSeeder extends Seeder
                 'used_days' => '0',
                 'carried_over_required_days' => '5',
                 'granted_required_days' => '0',
-                'required_deadline' => '2027-01-31',
+                'required_deadline' => '2027-03-31',
                 'is_active' => true
             ]);
 
@@ -4008,7 +4008,7 @@ class UserProSeeder extends Seeder
                 'used_days' => '0',
                 'carried_over_required_days' => '5',
                 'granted_required_days' => '0',
-                'required_deadline' => '2027-01-31',
+                'required_deadline' => '2027-03-31',
                 'is_active' => true
             ]);
 
