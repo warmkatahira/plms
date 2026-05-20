@@ -19,7 +19,7 @@ class RemainingRequiredDaysMail extends Mailable
      * Create a new message instance.
      */
     public function __construct(
-        public Collection $base_admins,
+        public string $base_name,
         public Collection $employee_list,
     ) {}
 
@@ -29,7 +29,7 @@ class RemainingRequiredDaysMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: '有給義務残日数のお知らせ',
+            subject: "有給義務残日数のお知らせ（{$this->base_name}）",
         );
     }
 

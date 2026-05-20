@@ -32,7 +32,7 @@ class MailSendService
         // 営業所ごとにグループ化
         $grouped_by_base = $first_grant_employees->groupBy('base_id');
         // 営業所の分だけループ処理
-        foreach($grouped_by_base as $base_id => $employees){
+        foreach($grouped_by_base as $base_id => $base_employees){
             // その営業所の所長権限ユーザーを取得
             $base_admins = User::where('base_id', $base_id)
                                 ->where('role_id', RoleEnum::BASE_ADMIN)
@@ -40,13 +40,13 @@ class MailSendService
                                 ->whereNotNull('email')
                                 ->get();
             // 従業員名一覧を作成
-            $employee_names = $employees->pluck('user_name')->toArray();
+            $employee_names = $base_employees->pluck('user_name')->toArray();
             // 営業所名を取得
-            $base_name = $employees->first()->base?->base_name ?? '未設定';
+            $base_name = $base_employees->first()->base?->base_name ?? '未設定';
             // 送信先（admin全員 + 所長（いれば） + メール登録済みの本人）
             $to_emails = collect($admin_emails)
                             ->merge($base_admins->pluck('email'))
-                            ->merge($employees->pluck('email')->filter())
+                            ->merge($base_employees->pluck('email')->filter())
                             ->unique()
                             ->toArray();
             // 宛先が存在する場合
