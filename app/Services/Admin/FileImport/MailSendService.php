@@ -43,17 +43,15 @@ class MailSendService
             $employee_names = $base_employees->pluck('user_name')->toArray();
             // 営業所名を取得
             $base_name = $base_employees->first()->base?->base_name ?? '未設定';
-            // 送信先（admin全員 + 所長（いれば） + メール登録済みの本人）
-            $to_emails = collect($admin_emails)
-                            ->merge($base_admins->pluck('email'))
+            // 送信先（所長（いれば） + メール登録済みの本人）
+            $to_emails = collect($base_admins->pluck('email'))
                             ->merge($base_employees->pluck('email')->filter())
                             ->unique()
                             ->toArray();
-            // 宛先が存在する場合
-            if (!empty($to_emails)) {
-                // メール送信
-                Mail::to($to_emails)->send(new FirstGrantMail($base_name, $employee_names));
-            }
+            // メール送信
+            Mail::to($to_emails)
+                    ->bcc($admin_emails)
+                    ->send(new FirstGrantMail($base_name, $employee_names));
         }
     }
 }

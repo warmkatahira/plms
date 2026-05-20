@@ -39,9 +39,8 @@ class RemainingRequiredDaysService
                                 ->where('is_active', true)
                                 ->whereNotNull('email')
                                 ->get();
-            // 送信先（admin全員 + 所長（いれば） + メール登録済みの本人）
-            $to_emails = collect($admin_emails)
-                            ->merge($base_admins->pluck('email'))
+            // 送信先（所長（いれば） + メール登録済みの本人）
+            $to_emails = collect($base_admins->pluck('email'))
                             ->merge($base_employees->pluck('email')->filter())
                             ->unique()
                             ->toArray();
@@ -53,7 +52,10 @@ class RemainingRequiredDaysService
                 'user_name'                 => $e->user_name,
                 'remaining_required_days'   => $e->remaining_required_days,
             ])->sortByDesc('remaining_required_days')->values();
-            Mail::to($to_emails)->send(new RemainingRequiredDaysMail($base_name, $employee_list));
+            // メール送信
+            Mail::to($to_emails)
+                    ->bcc($admin_emails)
+                    ->send(new RemainingRequiredDaysMail($base_name, $employee_list));
         }
     }
 }
