@@ -21,6 +21,7 @@ class RemainingRequiredDaysController extends Controller
                             GREATEST(0, COALESCE(carried_over_required_days, 0) + COALESCE(granted_required_days, 0) - COALESCE(used_days, 0)) > 0
                         ')
                         ->where('is_active', true)
+                        ->where('is_ignored_remaining_required_days_notice', false)
                         ->with('base')
                         ->get();
         if($employees->isEmpty()){
