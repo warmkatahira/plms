@@ -52,6 +52,7 @@ class User extends Authenticatable
         'used_days_reset_year_month',
         'grant_type',
         'paid_leave_updated_at',
+        'is_ignored_remaining_required_days_notice',
     ];
     // 全てのレコードを取得
     public static function getAll()

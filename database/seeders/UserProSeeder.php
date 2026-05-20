@@ -29,7 +29,8 @@ class UserProSeeder extends Seeder
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
                 'role_id'   => 'admin',
-                'is_active' => true
+                'is_active' => true,
+                'is_ignored_remaining_required_days_notice' => true,
             ]);
 
             DB::table('users')->insert([
@@ -51,7 +52,8 @@ class UserProSeeder extends Seeder
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
                 'role_id'   => 'admin',
-                'is_active' => true
+                'is_active' => true,
+                'is_ignored_remaining_required_days_notice' => true,
             ]);
 
             DB::table('users')->insert([
@@ -182,7 +184,8 @@ class UserProSeeder extends Seeder
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
                 'role_id'   => 'admin',
-                'is_active' => true
+                'is_active' => true,
+                'is_ignored_remaining_required_days_notice' => true,
             ]);
 
             DB::table('users')->insert([
@@ -759,7 +762,8 @@ class UserProSeeder extends Seeder
                 'granted_required_days' => '5',
                 'required_deadline' => '2027-03-31',
                 'role_id'   => 'admin',
-                'is_active' => true
+                'is_active' => true,
+                'is_ignored_remaining_required_days_notice' => true,
             ]);
 
             DB::table('users')->insert([

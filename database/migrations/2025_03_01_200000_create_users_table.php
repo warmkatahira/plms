@@ -37,6 +37,7 @@ return new class extends Migration
             $table->string('used_days_reset_year_month', 6)->nullable();
             $table->unsignedTinyInteger('grant_type')->default(0);
             $table->timestamp('paid_leave_updated_at')->nullable();
+            $table->boolean('is_ignored_remaining_required_days_notice')->default(false);
             $table->rememberToken();
             $table->timestamps();
             // 外部キー
