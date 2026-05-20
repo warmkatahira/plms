@@ -62,7 +62,7 @@ class RemainingRequiredDaysController extends Controller
                 'alert_message' => $e->getMessage(),
             ]);
         }
-        return redirect()->route('employee.index')->with([
+        return redirect()->back()->with([
             'alert_type' => 'success',
             'alert_message' => '義務残通知が完了しました。',
         ]);
