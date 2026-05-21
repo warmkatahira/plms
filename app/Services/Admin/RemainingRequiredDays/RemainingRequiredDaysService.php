@@ -54,7 +54,7 @@ class RemainingRequiredDaysService
             $employee_list = $base_employees->map(fn($e) => [
                 'user_name'                 => $e->user_name,
                 'remaining_required_days'   => $e->remaining_required_days,
-            ])->sortByDesc('remaining_required_days')->values();
+            ])->values();
             // メール送信
             Mail::to($to_emails)
                     ->bcc($admin_emails)
