@@ -22,6 +22,7 @@ class RemainingRequiredDaysService
                         ->where('is_active', true)
                         ->where('is_ignored_remaining_required_days_notice', false)
                         ->with('base')
+                        ->orderBy('employee_no', 'asc')
                         ->get();
         if ($employees->isEmpty()) return;
         // admin・system_adminを全員取得（営業所問わず）

@@ -20,6 +20,7 @@ class MailSendService
         $first_grant_employees = User::whereIn('employee_no', $grant_employees->pluck('employee_no'))
                                         ->where('grant_type', GrantTypeEnum::FIRST)
                                         ->with('base')
+                                        ->orderBy('employee_no', 'asc')
                                         ->get();
         // 初回付与の従業員がいない場合は、処理を抜ける
         if ($first_grant_employees->isEmpty()) return;
