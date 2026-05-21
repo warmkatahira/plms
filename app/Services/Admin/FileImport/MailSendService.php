@@ -43,11 +43,13 @@ class MailSendService
             $employee_names = $base_employees->pluck('user_name')->toArray();
             // 営業所名を取得
             $base_name = $base_employees->first()->base?->base_name ?? '未設定';
-            // 送信先（所長（いれば） + メール登録済みの本人）
+            /* // 送信先（所長（いれば） + メール登録済みの本人）
             $to_emails = collect($base_admins->pluck('email'))
                             ->merge($base_employees->pluck('email')->filter())
                             ->unique()
-                            ->toArray();
+                            ->toArray(); */
+            // テスト用：所長なし・固定アドレスに送信
+            $to_emails = ['t.katahira@warm.co.jp'];
             // メール送信
             Mail::to($to_emails)
                     ->bcc($admin_emails)
