@@ -143,7 +143,6 @@
                 border-radius: 10px;
                 padding: 12px 28px;     /* ← 14px→12px に縮小 */
                 font-size: 14px;
-                font-weight: 600;
                 text-decoration: none;
                 width: fit-content;
                 transition: opacity 0.15s, transform 0.1s;
@@ -286,7 +285,6 @@
                 border-radius: 12px;
                 padding: 18px;
                 font-size: 15px;
-                font-weight: 600;
                 text-align: center;
                 text-decoration: none;
                 display: block;

@@ -43,21 +43,21 @@
         <!-- Tippy.js -->
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+        </style>
     </head>
     <body>
-        <div class="flex flex-col items-center my-0 md:my-5">
-            <!-- アラート表示 -->
-            <x-alert/>
-            <!-- ローディング -->
-            <x-loading />
-            <div>
-                <a href="{{ route('welcome.index') }}">
-                    <x-application-logo />
-                </a>
-            </div>
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 shadow-md overflow-hidden sm:rounded-lg bg-white">
-                {{ $slot }}
-            </div>
-        </div>
+        <!-- アラート表示 -->
+        <x-alert/>
+        <!-- ローディング -->
+        <x-loading />
+        {{ $slot }}
     </body>
 </html>
