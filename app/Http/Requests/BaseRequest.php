@@ -48,6 +48,7 @@ class BaseRequest extends FormRequest
             'user_name'             => '氏名',
             'password'              => 'パスワード',
             'is_active'             => 'ステータス',
+            'email'                 => 'メールアドレス',
         ];
     }
 }

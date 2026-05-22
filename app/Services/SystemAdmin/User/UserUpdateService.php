@@ -18,6 +18,7 @@ class UserUpdateService
             'base_id'                                       => $request->base_id,
             'employee_no'                                   => $request->employee_no,
             'user_name'                                     => $request->user_name,
+            'email'                                         => $request->email,
             'is_auto_update_statutory_leave_remaining_days' => $request->is_auto_update_statutory_leave_remaining_days,
             'role_id'                                       => $request->role_id,
         ]);

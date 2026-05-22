@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-CDn3Wrz3.css",
+    "file": "assets/app-DltwWK4J.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -23,7 +23,7 @@
     ]
   },
   "resources/js/admin/remaining_required_days/remaining_required_days.js": {
-    "file": "assets/remaining_required_days-FVyvQ_9i.js",
+    "file": "assets/remaining_required_days-0z2f5kAb.js",
     "name": "remaining_required_days",
     "src": "resources/js/admin/remaining_required_days/remaining_required_days.js",
     "isEntry": true,

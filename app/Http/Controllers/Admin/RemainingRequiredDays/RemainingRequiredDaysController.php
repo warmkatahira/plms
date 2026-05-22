@@ -39,6 +39,12 @@ class RemainingRequiredDaysController extends Controller
                     'base_name'  => $baseGroup->first()->base?->base_name ?? '未設定',
                     'count'      => $baseGroup->count(),
                     'sort_order' => $baseGroup->first()->base?->sort_order ?? 999,
+                    // 営業所内の従業員リストを追加
+                    'employees'  => $baseGroup->map(fn($e) => [
+                        'name'                    => $e->user_name,
+                        'employee_code'           => $e->employee_code,
+                        'remaining_required_days' => $e->remaining_required_days,
+                    ])->sortBy('employee_code')->values(),
                 ])->values()->sortBy('sort_order')->values(),
             ])
             ->sortKeysDesc();

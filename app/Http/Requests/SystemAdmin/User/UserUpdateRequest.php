@@ -37,6 +37,7 @@ class UserUpdateRequest extends BaseRequest
             'base_id'                                       => 'required|exists:bases,base_id',
             'employee_no'                                   => 'required|string|max:4',
             'user_name'                                     => 'required|string|max:20',
+            'email'                                         => 'nullable|email',
             'is_auto_update_statutory_leave_remaining_days' => 'required|boolean',
             'role_id'                                       => 'required|exists:roles,role_id',
         ];

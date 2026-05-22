@@ -13,6 +13,7 @@ use App\Services\Admin\FileImport\UserUpdateService;
 use App\Services\Admin\FileImport\PaidLeaveUpdateService;
 use App\Services\Admin\FileImport\ImportHistoryCreateService;
 use App\Services\Admin\FileImport\MailSendService;
+use App\Services\Admin\RemainingRequiredDays\RemainingRequiredDaysService;
 // 列挙
 use App\Enums\FileImportEnum;
 // 例外
@@ -42,6 +43,7 @@ class FileImportController extends Controller
                 $UserUpdateService = new UserUpdateService;
                 $PaidLeaveUpdateService = new PaidLeaveUpdateService;
                 $MailSendService = new MailSendService;
+                $RemainingRequiredDaysService = new RemainingRequiredDaysService;
                 // 現在の日時を取得
                 $nowDate = CarbonImmutable::now();
                 // 選択したファイルをストレージにインポート
@@ -67,6 +69,8 @@ class FileImportController extends Controller
                 $grant_employees = $PaidLeaveUpdateService->processGrantMonth();
                 // 初回付与通知を実施
                 $MailSendService->processFirstGrant($grant_employees);
+                // 義務残通知を実施
+                $RemainingRequiredDaysService->sendMail();
                 // import_historiesテーブルへ追加
                 $ImportHistoryCreateService->createImportHistory(
                     $employee_file_info['original_file_name'],
