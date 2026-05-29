@@ -18,13 +18,22 @@
     </head>
     <body style="font-family: 'Kosugi Maru';">
         <div style="font-size: 12px;">
-            <p>※このメールは{{ config('app.name', 'Laravel') }}から自動配信されています。</p>
-            <p>以下の従業員に義務残日数があります。</p>
+            <div>
+                ※返信不可※<br>
+                ※このメールは{{ config('app.name', 'Laravel') }}から自動配信されています。
+            </div>
+            <br>
+            <div>
+                以下の従業員に義務残日数があります。<br>
+                有休管理システムにログインし、義務日数と期限を確認してください。<br>
+                本メールが届いた営業所管理者は、義務残が0になるよう促進してください。
+            </div>
             @foreach($employee_list as $employee)
                 <p>・{{ $employee['user_name'] }}　【残{{ $employee['remaining_required_days'] }}日】</p>
             @endforeach
             <div>
-                <p>ログインURL：{{ config('app.url') }}</p>
+                ログインURL：{{ config('app.url') }}<br>
+                有給休暇の取得管理について：
             </div>
         </div>
     </body>

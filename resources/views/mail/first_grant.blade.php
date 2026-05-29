@@ -18,13 +18,24 @@
     </head>
     <body style="font-family: 'Kosugi Maru';">
         <div style="font-size: 12px;">
-            <p>※このメールは{{ config('app.name', 'Laravel') }}から自動配信されています。</p>
-            <p>以下の従業員に初回有給が付与されました。</p>
+            <div>
+                ※返信不可※<br>
+                ※このメールは{{ config('app.name', 'Laravel') }}から自動配信されています。
+            </div>
+            <br>
+            <div>
+                以下の従業員に初回有給が付与されました。<br>
+                有休管理システムにログインし、有休日数を確認してください。<br>
+                義務日数がある方は必ず期限までに消化いただくようお願いします。<br>
+                なお、本メールが届いた営業所管理者は、対象従業員に<br>
+                有休取得方法についてご案内をお願いします。<br>
+            </div>
             @foreach($employee_names as $name)
                 <p>・{{ $name }}</p>
             @endforeach
             <div>
-                <p>ログインURL：{{ config('app.url') }}</p>
+                ログインURL：{{ config('app.url') }}<br>
+                有給休暇の取得管理について：
             </div>
         </div>
     </body>
