@@ -29,7 +29,7 @@ class FirstGrantMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "初回有給付与のお知らせ（{$this->base_name}）",
+            subject: "初回有休付与のお知らせ（{$this->base_name}）",
         );
     }
 

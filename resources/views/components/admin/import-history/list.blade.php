@@ -6,7 +6,7 @@
                     <th class="font-thin py-1 px-2 text-center">取込日</th>
                     <th class="font-thin py-1 px-2 text-center">取込時間</th>
                     <th class="font-thin py-1 px-2 text-center">従業員データファイル名</th>
-                    <th class="font-thin py-1 px-2 text-center">有給データファイル名</th>
+                    <th class="font-thin py-1 px-2 text-center">有休データファイル名</th>
                     <th class="font-thin py-1 px-2 text-center">エラーファイル名</th>
                     <th class="font-thin py-1 px-2 text-center">メッセージ</th>
                 </tr>

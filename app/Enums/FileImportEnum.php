@@ -13,7 +13,7 @@ enum FileImportEnum
     {
         return match($type) {
             self::FILE_IMPORT_TYPE_EMPLOYEE     => '従業員データ',
-            self::FILE_IMPORT_TYPE_PAID_LEAVE   => '有給データ',
+            self::FILE_IMPORT_TYPE_PAID_LEAVE   => '有休データ',
             default                             => '不明データ',
         };
     }

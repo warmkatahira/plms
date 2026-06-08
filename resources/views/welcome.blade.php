@@ -304,7 +304,7 @@
                     <div class="wl-nav-logo-mark">
                         <i class="las la-calendar-check"></i>
                     </div>
-                    <span class="wl-nav-logo-text">{{ config('app.name', '有給管理システム') }}</span>
+                    <span class="wl-nav-logo-text">{{ config('app.name', '有休管理システム') }}</span>
                 </div>
                 @guest
                     <a href="{{ route('login') }}" class="wl-nav-login">ログイン</a>
@@ -314,11 +314,11 @@
             <section class="wl-hero">
                 <div class="wl-hero-left">
                     <h1 class="wl-h1">
-                        有給を<br>
+                        有休を<br>
                         <em>スマートに</em>管理
                     </h1>
                     <p class="wl-sub">
-                        有給に関わる情報をひとつの画面で確認
+                        有休に関わる情報をひとつの画面で確認
                     </p>
                     @guest
                         <a href="{{ route('login') }}" class="wl-cta">
@@ -369,12 +369,12 @@
 
             <div class="wl-sp-logo-wrap">
                 <div class="wl-sp-logo-mark"><i class="las la-calendar-check"></i></div>
-                <span class="wl-sp-logo-text">{{ config('app.name', '有給管理システム') }}</span>
+                <span class="wl-sp-logo-text">{{ config('app.name', '有休管理システム') }}</span>
             </div>
 
             <div class="wl-sp-catch">
-                <h1>有給を<br><em>スマートに</em>管理</h1>
-                <p>有給に関わる情報をひとつの画面で確認</p>
+                <h1>有休を<br><em>スマートに</em>管理</h1>
+                <p>有休に関わる情報をひとつの画面で確認</p>
             </div>
 
             <div class="wl-sp-phone-wrap">

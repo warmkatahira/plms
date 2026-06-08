@@ -33,7 +33,7 @@
             @endforeach
             <div>
                 ログインURL：{{ config('app.url') }}<br>
-                有給休暇の取得管理について：
+                有休休暇の取得管理について：
             </div>
         </div>
     </body>

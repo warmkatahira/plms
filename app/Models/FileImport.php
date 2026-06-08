@@ -26,9 +26,9 @@ class FileImport extends Model
     {
         return ['社員番号', '氏名', '部課', '有休付与パターン', '有休付与起算日', '次回付与月', '当月月初有休残日数繰越分', '当月月初有休残日数当年分'];
     }
-    // インポートに必要なヘッダーを定義(有給データ)
+    // インポートに必要なヘッダーを定義(有休データ)
     public static function requiredPaidLeaveHeaders(): array
     {
-        return ['対象月', '社員番号', '有給休暇(日数)'];
+        return ['対象月', '社員番号', '有休休暇(日数)'];
     }
 }

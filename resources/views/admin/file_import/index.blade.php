@@ -30,7 +30,7 @@
                     <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm transition hover:shadow-md">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-sm font-bold">2</div>
-                            <span class="text-sm font-semibold text-gray-700">有給データ</span>
+                            <span class="text-sm font-semibold text-gray-700">有休データ</span>
                         </div>
                         <input type="file" id="paid_leave_file" name="paid_leave_file" accept=".csv" class="hidden">
                         <div id="paid_leave_file_area_2"

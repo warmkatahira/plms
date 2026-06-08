@@ -115,7 +115,7 @@
                 <div class="login-logo-mark">
                     <i class="las la-calendar-check"></i>
                 </div>
-                <span class="login-logo-text">{{ config('app.name', '有給管理システム') }}</span>
+                <span class="login-logo-text">{{ config('app.name', '有休管理システム') }}</span>
             </div>
 
             {{-- フォーム --}}

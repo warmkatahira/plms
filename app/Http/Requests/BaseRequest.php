@@ -38,7 +38,7 @@ class BaseRequest extends FormRequest
             'sort_order'            => '並び順',
             // ファイル取込
             'employee_file'         => '従業員データ',
-            'paid_leave_file'       => '有給データ',
+            'paid_leave_file'       => '有休データ',
             // 営業所情報
             'base_id'               => '営業所ID',
             'base_name'             => '営業所名',

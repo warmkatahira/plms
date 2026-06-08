@@ -29,7 +29,7 @@ class RemainingRequiredDaysMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "有給義務残日数のお知らせ（{$this->base_name}）",
+            subject: "有休義務残日数のお知らせ（{$this->base_name}）",
         );
     }
 

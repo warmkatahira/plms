@@ -62,7 +62,7 @@ class FileImportService
         if(FileImportEnum::FILE_IMPORT_TYPE_EMPLOYEE === $file_import_type){
             $require_headers = FileImport::requiredEmployeeHeaders();
         }
-        // 有給データの場合
+        // 有休データの場合
         if(FileImportEnum::FILE_IMPORT_TYPE_PAID_LEAVE === $file_import_type){
             $require_headers = FileImport::requiredPaidLeaveHeaders();
         }
@@ -130,14 +130,14 @@ class FileImportService
                     'granted_remaining_days'        => $line['当月月初有休残日数当年分'],
                 ];
             }
-            // 有給データの場合
+            // 有休データの場合
             if(FileImportEnum::FILE_IMPORT_TYPE_PAID_LEAVE === $file_import_type){
                 // 追加先テーブルのカラム名に合わせて配列を整理
                 $param = [
                     'target_year_month' => $line['対象月'],
                     'employee_no'       => $line['社員番号'],
                     'user_name'         => $line['社員氏名'],
-                    'used_days'         => $line['有給休暇(日数)'],
+                    'used_days'         => $line['有休休暇(日数)'],
                 ];
             }
             // 値が空であればnull、先頭の「'」を除去
@@ -160,7 +160,7 @@ class FileImportService
                 // 有休付与起算日を「平成29年9月1日」→「2017-09-01」形式に変換
                 $param['hire_date'] = $this->convertJapaneseEraToYearMonthDay($param['hire_date']);
             }
-            // 有給データの場合
+            // 有休データの場合
             if(FileImportEnum::FILE_IMPORT_TYPE_PAID_LEAVE === $file_import_type){
                 // 対象月を「令和8年 3月」→「202603」形式に変換
                 $param['target_year_month'] = $this->convertJapaneseEraToYearMonth($param['target_year_month']);
@@ -251,7 +251,7 @@ class FileImportService
                 'granted_remaining_days'        => 'nullable|decimal:0,1',
             ];
         }
-        // 有給データの場合
+        // 有休データの場合
         if(FileImportEnum::FILE_IMPORT_TYPE_PAID_LEAVE === $file_import_type){
             // バリデーションルールを定義
             $rules = [
@@ -277,7 +277,7 @@ class FileImportService
             'next_grant_year_month'         => '次回付与月',
             'carried_over_remaining_days'   => '当月月初有休残日数繰越分',
             'granted_remaining_days'        => '当月月初有休残日数当年分',
-            'used_days'                     => '有給休暇(日数)',
+            'used_days'                     => '有休休暇(日数)',
         ];
         // バリデーション実施
         $validator = Validator::make($param, $rules, $messages, $attributes);
@@ -296,9 +296,9 @@ class FileImportService
     {
         $employee_nos   = collect($employee_data)->pluck('employee_no');
         $paid_leave_nos = collect($paid_leave_data)->pluck('employee_no');
-        // 従業員データにあって有給データにない
+        // 従業員データにあって有休データにない
         $only_in_employee   = $employee_nos->diff($paid_leave_nos);
-        // 有給データにあって従業員データにない
+        // 有休データにあって従業員データにない
         $only_in_paid_leave = $paid_leave_nos->diff($employee_nos);
         if($only_in_employee->isNotEmpty() || $only_in_paid_leave->isNotEmpty()){
             // エラー内容を配列に格納
@@ -307,7 +307,7 @@ class FileImportService
                 $errors[] = ['従業員ファイルのみ存在', '従業員番号：'.$employee_no];
             }
             foreach($only_in_paid_leave as $employee_no){
-                $errors[] = ['有給ファイルのみ存在', '従業員番号：'.$employee_no];
+                $errors[] = ['有休ファイルのみ存在', '従業員番号：'.$employee_no];
             }
             // インスタンス化
             $ImportErrorCreateService = new ImportErrorCreateService;
@@ -324,11 +324,11 @@ class FileImportService
         FileImport::select()->lockForUpdate()->get();
         // 追加先のテーブルをクリア
         FileImport::query()->delete();
-        // 社員番号をキーに有給データをマッピング
+        // 社員番号をキーに有休データをマッピング
         $paid_leave_map = collect($paid_leave_create_data)->keyBy('employee_no');
-        // 従業員データに有給データをマージ
+        // 従業員データに有休データをマージ
         $merged = collect($employee_create_data)->map(function ($row) use ($paid_leave_map) {
-            // 社員番号が一致する有給データを取得
+            // 社員番号が一致する有休データを取得
             $paid_leave = $paid_leave_map->get($row['employee_no'], []);
             return array_merge($row, [
                 'target_year_month' => $paid_leave['target_year_month'] ?? null,
