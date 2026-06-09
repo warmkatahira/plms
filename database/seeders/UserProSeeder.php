@@ -5103,8 +5103,8 @@ class UserProSeeder extends Seeder
                 'is_active' => true
             ]);
 
-            DB::table('users')
+            /* DB::table('users')
     ->where('user_name', 'not like', '%片平%')
-    ->update(['email' => null]);
+    ->update(['email' => null]); */
     }
 }
