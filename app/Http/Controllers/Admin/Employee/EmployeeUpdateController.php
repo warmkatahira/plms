@@ -23,8 +23,11 @@ class EmployeeUpdateController extends Controller
         session(['page_header' => '従業員更新']);
         // 従業員を取得
         $employee = User::with('base')->findOrFail($request->user_no);
+        // 営業所を取得
+        $bases = Base::getAll()->get();
         return view('admin.employee.update')->with([
             'employee' => $employee,
+            'bases' => $bases,
         ]);
     }
 
