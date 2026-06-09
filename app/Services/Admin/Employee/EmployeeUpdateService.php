@@ -13,6 +13,7 @@ class EmployeeUpdateService
         // 従業員を更新
         User::where('user_no', $request->user_no)->update([
             'is_active' => $request->is_active,
+            'base_id'   => $request->base_id,
         ]);
     }
 }

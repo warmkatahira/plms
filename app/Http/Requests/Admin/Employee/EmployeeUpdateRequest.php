@@ -36,6 +36,7 @@ class EmployeeUpdateRequest extends BaseRequest
     {
         return [
             'user_no'                                       => 'required|exists:users,user_no',
+            'base_id'                                       => 'nullable|exists:bases,base_id',
             'is_active'                                     => 'required|boolean',
         ];
     }
