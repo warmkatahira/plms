@@ -13,8 +13,10 @@
                     <th class="font-thin py-1 px-2 text-center">入社日</th>
                     <th class="font-thin py-1 px-2 text-center">勤続年数</th>
                     <th class="font-thin py-1 px-2 text-center">次回付与</th>
-                    <th class="font-thin py-1 px-2 text-center">使用日数リセット</th>
-                    <th class="font-thin py-1 px-2 text-center">付与区分</th>
+                    @can('admin_check')
+                        <th class="font-thin py-1 px-2 text-center">使用日数リセット</th>
+                        <th class="font-thin py-1 px-2 text-center">付与区分</th>
+                    @endcan
                     <th class="font-thin py-1 px-2 text-center">週所定労働日数</th>
                     <th class="font-thin py-1 px-2 text-center">繰越保有日数</th>
                     <th class="font-thin py-1 px-2 text-center">当年保有日数</th>
@@ -38,8 +40,10 @@
                     <x-filter.date-period type="date" fromId="filter_hire_date_from" fromName="filter_hire_date_from" toId="filter_hire_date_to" toName="filter_hire_date_to" />
                     <x-filter.input type="text" id="filter_service_years" name="filter_service_years" />
                     <x-filter.input type="month" id="filter_next_grant_year_month" name="filter_next_grant_year_month" />
-                    <x-filter.input type="month" id="filter_used_days_reset_year_month" name="filter_used_days_reset_year_month" />
-                    <x-filter.select id="filter_grant_type" name="filter_grant_type" :selectItems="$grantTypes" optionValue="value" optionText="label" />
+                    @can('admin_check')
+                        <x-filter.input type="month" id="filter_used_days_reset_year_month" name="filter_used_days_reset_year_month" />
+                        <x-filter.select id="filter_grant_type" name="filter_grant_type" :selectItems="$grantTypes" optionValue="value" optionText="label" />
+                    @endif
                     <x-filter.input type="text" id="filter_work_days_per_week" name="filter_work_days_per_week" />
                     <x-filter.input type="tel" id="filter_carried_over_days" name="filter_carried_over_days" />
                     <x-filter.input type="tel" id="filter_granted_days" name="filter_granted_days" />
@@ -79,10 +83,12 @@
                         <td class="py-1 px-2 border text-center">
                             {{ $employee->next_grant_year_month ? CarbonImmutable::createFromFormat('Ym', $employee->next_grant_year_month)->isoFormat('YYYY年MM月') : '' }}
                         </td>
-                        <td class="py-1 px-2 border text-center">
-                            {{ $employee->used_days_reset_year_month ? CarbonImmutable::createFromFormat('Ym', $employee->used_days_reset_year_month)->isoFormat('YYYY年MM月') : '' }}
-                        </td>
-                        <td class="py-1 px-2 border text-center">{{ $employee->grant_type->label() }}</td>
+                        @can('admin_check')
+                            <td class="py-1 px-2 border text-center">
+                                {{ $employee->used_days_reset_year_month ? CarbonImmutable::createFromFormat('Ym', $employee->used_days_reset_year_month)->isoFormat('YYYY年MM月') : '' }}
+                            </td>
+                            <td class="py-1 px-2 border text-center">{{ $employee->grant_type->label() }}</td>
+                        @endif
                         <td class="py-1 px-2 border">{{ $employee->work_days_per_week }}</td>
                         <td class="py-1 px-2 border text-right">{{ number_format($employee->carried_over_days, 1) }}</td>
                         <td class="py-1 px-2 border text-right">{{ number_format($employee->granted_days, 1) }}</td>
