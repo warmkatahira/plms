@@ -137,7 +137,7 @@ class FileImportService
                     'target_year_month' => $line['対象月'],
                     'employee_no'       => $line['社員番号'],
                     'user_name'         => $line['社員氏名'],
-                    'used_days'         => $line['有休休暇(日数)'],
+                    'used_days'         => $line['有給休暇(日数)'],
                 ];
             }
             // 値が空であればnull、先頭の「'」を除去
@@ -277,7 +277,7 @@ class FileImportService
             'next_grant_year_month'         => '次回付与月',
             'carried_over_remaining_days'   => '当月月初有休残日数繰越分',
             'granted_remaining_days'        => '当月月初有休残日数当年分',
-            'used_days'                     => '有休休暇(日数)',
+            'used_days'                     => '有給休暇(日数)',
         ];
         // バリデーション実施
         $validator = Validator::make($param, $rules, $messages, $attributes);

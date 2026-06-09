@@ -29,6 +29,6 @@ class FileImport extends Model
     // インポートに必要なヘッダーを定義(有休データ)
     public static function requiredPaidLeaveHeaders(): array
     {
-        return ['対象月', '社員番号', '有休休暇(日数)'];
+        return ['対象月', '社員番号', '有給休暇(日数)'];
     }
 }
