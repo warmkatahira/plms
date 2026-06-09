@@ -26,7 +26,7 @@ class EmployeeDownloadService
             $header = User::downloadHeader($is_admin);
             fputcsv($handle, $header);
             // レコードをチャンクごとに書き込む
-            $employees->chunk($chunk_size, function ($employees) use ($handle){
+            $employees->chunk($chunk_size, function ($employees) use ($handle, $is_admin){
                 // 従業員の分だけループ処理
                 foreach($employees as $employee){
                     // 変数に情報を格納
@@ -38,8 +38,11 @@ class EmployeeDownloadService
                         CarbonImmutable::parse($employee->hire_date)->isoFormat('YYYY年MM月DD日'),
                         $employee->service_years,
                         $employee->next_grant_year_month ? CarbonImmutable::createFromFormat('Ym', $employee->next_grant_year_month)->isoFormat('YYYY年MM月') : '',
-                        $employee->used_days_reset_year_month ? CarbonImmutable::createFromFormat('Ym', $employee->used_days_reset_year_month)->isoFormat('YYYY年MM月') : '',
-                        $employee->grant_type->label(),
+                        // 管理者のみ：使用日数リセット・付与区分
+                        ...($is_admin ? [
+                            $employee->used_days_reset_year_month ? CarbonImmutable::createFromFormat('Ym', $employee->used_days_reset_year_month)->isoFormat('YYYY年MM月') : '',
+                            $employee->grant_type->label(),
+                        ] : []),
                         $employee->work_days_per_week,
                         number_format($employee->carried_over_days, 1),
                         number_format($employee->granted_days, 1),
