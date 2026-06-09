@@ -6,7 +6,7 @@
     @csrf
     <div class="flex flex-col border border-gray-400 divide-y divide-gray-400">
         <x-form.switch-boolean label="ステータス" id="is_active" name="is_active" label0="無効" label1="有効" :value="$form_mode === 'update' ? $employee->is_active : null" required="true" />
-        <x-form.p label="営業所" :value="$employee->base?->base_name" grayedOut="true" />
+        <x-form.select label="営業所名" id="base_id" name="base_id" :value="$form_mode === 'update' ? $employee->base_id : null" :items="$bases" optionValue="base_id" optionText="base_name" required="true" />
         <x-form.p label="従業員番号" :value="$employee->employee_no" grayedOut="true" />
         <x-form.p label="氏名" :value="$employee->user_name" grayedOut="true" />
     </div>
