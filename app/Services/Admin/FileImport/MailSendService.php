@@ -44,14 +44,21 @@ class MailSendService
             $employee_names = $base_employees->pluck('user_name')->toArray();
             // 営業所名を取得
             $base_name = $base_employees->first()->base?->base_name ?? '未設定';
-            /* // 送信先（所長（いれば） + メール登録済みの本人）
+            // 送信先（所長（いれば） + メール登録済みの本人）
             $to_emails = collect($base_admins->pluck('email'))
                             ->merge($base_employees->pluck('email')->filter())
                             ->unique()
-                            ->toArray(); */
-            // テスト用：所長なし・固定アドレスに送信
-            $to_emails = ['t.katahira@warm.co.jp'];
-            // メール送信
+                            ->values()
+                            ->toArray();
+            // 宛先（To）が無い営業所は、管理者をToに切り替えて通知を担保する
+            if (empty($to_emails)) {
+                // 管理者をToにして送信（bcc依存をやめ確実に届ける）
+                Mail::to($admin_emails)
+                        ->send(new FirstGrantMail($base_name, $employee_names));
+                // 次の営業所へ
+                continue;
+            }
+            // 通常送信（所長・本人をTo、管理者をBcc）
             Mail::to($to_emails)
                     ->bcc($admin_emails)
                     ->send(new FirstGrantMail($base_name, $employee_names));

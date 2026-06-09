@@ -40,14 +40,6 @@ class RemainingRequiredDaysService
                                 ->where('is_active', true)
                                 ->whereNotNull('email')
                                 ->get();
-            // 送信先（所長（いれば） + メール登録済みの本人）
-            /* $to_emails = collect($base_admins->pluck('email'))
-                            ->merge($base_employees->pluck('email')->filter())
-                            ->unique()
-                            ->toArray(); */
-            // テスト用：所長なし・固定アドレスに送信
-            $to_emails = ['t.katahira@warm.co.jp'];
-            if (empty($to_emails)) continue;
             // 営業所名を取得
             $base_name = $base_employees->first()->base?->base_name ?? '未設定';
             // 従業員情報一覧（名前と義務残日数）
@@ -55,7 +47,21 @@ class RemainingRequiredDaysService
                 'user_name'                 => $e->user_name,
                 'remaining_required_days'   => $e->remaining_required_days,
             ])->values();
-            // メール送信
+            // 送信先（所長（いれば） + メール登録済みの本人）
+            $to_emails = collect($base_admins->pluck('email'))
+                            ->merge($base_employees->pluck('email')->filter())
+                            ->unique()
+                            ->values()
+                            ->toArray();
+            // 宛先（To）が無い営業所は、管理者をToに切り替えて通知を担保する
+            if (empty($to_emails)) {
+                // 管理者をToにして送信（bcc依存をやめ確実に届ける）
+                Mail::to($admin_emails)
+                        ->send(new RemainingRequiredDaysMail($base_name, $employee_list));
+                // 次の営業所へ
+                continue;
+            }
+            // 通常送信（所長・本人をTo、管理者をBcc）
             Mail::to($to_emails)
                     ->bcc($admin_emails)
                     ->send(new RemainingRequiredDaysMail($base_name, $employee_list));
