@@ -102,7 +102,7 @@ class User extends Authenticatable
         $this->notify(new UserResetPasswordNotification($url));
     }
     // ダウンロード時のヘッダーを定義
-    public static function downloadHeader()
+    public static function downloadHeader(bool $is_admin = true)
     {
         return [
             'ステータス',
@@ -112,8 +112,8 @@ class User extends Authenticatable
             '入社日',
             '勤続年数',
             '次回付与',
-            '使用日数リセット',
-            '付与区分',
+            // 管理者のみ
+            ...($is_admin ? ['使用日数リセット', '付与区分'] : []),
             '週所定労働日数',
             '繰越保有日数',
             '当年保有日数',

@@ -13,7 +13,7 @@ use App\Enums\SystemEnum;
 class EmployeeDownloadService
 {
     // ダウンロードするデータを取得
-    public function getDownloadData($employees)
+    public function getDownloadData($employees, bool $is_admin)
     {
         // チャンクサイズを指定
         $chunk_size = 1000;
@@ -23,7 +23,7 @@ class EmployeeDownloadService
             // BOMを書き込む
             fwrite($handle, "\xEF\xBB\xBF");
             // システムに定義してあるヘッダーを取得し、書き込む
-            $header = User::downloadHeader();
+            $header = User::downloadHeader($is_admin);
             fputcsv($handle, $header);
             // レコードをチャンクごとに書き込む
             $employees->chunk($chunk_size, function ($employees) use ($handle){
