@@ -68,9 +68,9 @@ class FileImportController extends Controller
                 // 付与月の従業員の処理
                 $grant_employees = $PaidLeaveUpdateService->processGrantMonth();
                 // 初回付与通知を実施
-                $MailSendService->processFirstGrant($grant_employees);
+                //$MailSendService->processFirstGrant($grant_employees);
                 // 義務残通知を実施
-                $RemainingRequiredDaysService->sendMail();
+                //$RemainingRequiredDaysService->sendMail();
                 // import_historiesテーブルへ追加
                 $ImportHistoryCreateService->createImportHistory(
                     $employee_file_info['original_file_name'],
