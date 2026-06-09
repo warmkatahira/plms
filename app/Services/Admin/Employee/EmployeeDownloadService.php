@@ -17,7 +17,7 @@ class EmployeeDownloadService
     {
         // チャンクサイズを指定
         $chunk_size = 1000;
-        $response = new StreamedResponse(function () use ($employees, $chunk_size){
+        $response = new StreamedResponse(function () use ($employees, $chunk_size, $is_admin){
             // ハンドルを取得
             $handle = fopen('php://output', 'wb');
             // BOMを書き込む
