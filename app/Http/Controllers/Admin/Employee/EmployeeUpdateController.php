@@ -46,7 +46,7 @@ class EmployeeUpdateController extends Controller
                 'alert_message' => $e->getMessage(),
             ]);
         }
-        return redirect()->route('employee.index')->with([
+        return redirect(session('back_url_1'))->with([
             'alert_type' => 'success',
             'alert_message' => '従業員更新が完了しました。',
         ]);
