@@ -12,7 +12,7 @@ use Carbon\CarbonImmutable;
 // 列挙
 use App\Enums\SystemEnum;
 
-class EmployeeDownloadController extends Controller
+class UserDownloadController extends Controller
 {
     public function download()
     {
