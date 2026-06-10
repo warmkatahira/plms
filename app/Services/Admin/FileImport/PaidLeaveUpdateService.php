@@ -110,11 +110,19 @@ class PaidLeaveUpdateService
         if($employee->granted_remaining_days >= 10){
             match ($user->grant_type) {
                 // 1回目：按分義務日数-5を当年義務日数に設定
-                GrantTypeEnum::NONE => (function() use ($user, $employee, $required_deadline) {
+                GrantTypeEnum::NONE => (function() use ($user, $employee) {
                     // 入社日から入社月だけを抽出
                     $hire_month = CarbonImmutable::parse($user->hire_date)->month;
+                    // 入社日の半年後の1年後の前月末を義務期限に設定
+                    $required_deadline_first = CarbonImmutable::parse($user->hire_date)
+                                                    ->addMonths(6)
+                                                    ->startOfMonth()
+                                                    ->addYear()
+                                                    ->subMonth()
+                                                    ->endOfMonth()
+                                                    ->toDateString();
                     // 義務期限を更新
-                    $user->required_deadline = $required_deadline;
+                    $user->required_deadline = $required_deadline_first;
                     // 按分義務日数を取得
                     $prorated_days = GrantRequiredDaysEnum::fromMonth($hire_month)->days();
                     // 按分義務日数が0の場合（10月入社）はここで終了
