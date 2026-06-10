@@ -74,6 +74,11 @@ class User extends Authenticatable
     {
         return $this->is_active ? '有効' : '無効';
     }
+    // 「is_password_change_required_text」に基づいて、有効 or 無効を返すアクセサ
+    public function getIsPasswordChangeRequiredTextAttribute(): string
+    {
+        return $this->is_password_change_required_text ? '必要' : '不要';
+    }
     // 総保有日数を返すアクセサ
     public function getTotalDaysAttribute(): float
     {
