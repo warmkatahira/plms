@@ -3,6 +3,7 @@
         <button id="dropdown_btn" class="dropdown_btn"><i class="las la-bars la-lg mr-1"></i>メニュー</button>
         <div class="dropdown-content" id="dropdown-content">
             <a href="{{ route('user_create.index') }}" class="dropdown-content-element"><i class="las la-plus la-lg mr-1"></i>ユーザー追加</a>
+            <a href="{{ route('user_download.download') }}" class="dropdown-content-element"><i class="las la-download la-lg mr-1"></i>ダウンロード</a>
         </div>
     </div>
 </div>

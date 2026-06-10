@@ -13,6 +13,7 @@ use App\Http\Controllers\SystemAdmin\User\UserController;
 use App\Http\Controllers\SystemAdmin\User\UserCreateController;
 use App\Http\Controllers\SystemAdmin\User\UserUpdateController;
 use App\Http\Controllers\SystemAdmin\User\PasswordResetController;
+use App\Http\Controllers\SystemAdmin\User\UserDownloadController;
 // +-+-+-+-+-+-+-+- 操作ログ +-+-+-+-+-+-+-+-
 use App\Http\Controllers\SystemAdmin\OperationLog\OperationLogController;
 use App\Http\Controllers\SystemAdmin\OperationLog\OperationLogDownloadController;
@@ -37,6 +38,9 @@ Route::middleware('common')->group(function (){
         });
         Route::controller(PasswordResetController::class)->prefix('password_reset')->name('password_reset.')->group(function(){
             Route::post('reset', 'reset')->name('reset');
+        });
+        Route::controller(UserDownloadController::class)->prefix('user_download')->name('user_download.')->group(function(){
+            Route::get('download', 'download')->name('download');
         });
         // +-+-+-+-+-+-+-+- 操作ログ +-+-+-+-+-+-+-+-
         Route::controller(OperationLogController::class)->prefix('operation_log')->name('operation_log.')->group(function(){

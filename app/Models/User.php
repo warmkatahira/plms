@@ -127,6 +127,21 @@ class User extends Authenticatable
             '義務期限',
         ];
     }
+    // ダウンロード時のヘッダーを定義
+    public static function downloadHeaderByUser()
+    {
+        return [
+            'ステータス',
+            '営業所',
+            'ユーザーID',
+            '従業員番号',
+            '氏名',
+            'メールアドレス',
+            '権限',
+            'パスワード変更',
+            '最終ログイン日時',
+        ];
+    }
 
     /**
      * The attributes that should be hidden for serialization.
