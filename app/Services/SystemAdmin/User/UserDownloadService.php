@@ -34,12 +34,12 @@ class UserDownloadService
                         $user->is_active_text,
                         $user->base?->base_name,
                         $user->user_id,
-                        $user->user_no,
+                        $user->employee_no,
                         $user->user_name,
                         $user->email,
                         $user->role->role_name,
                         $user->is_password_change_required_text,
-                        $user->updated_at ? CarbonImmutable::parse($user->updated_at)->isoFormat('YYYY年MM月DD日') : '',
+                        $user->last_login_at ? CarbonImmutable::parse($user->last_login_at)->isoFormat('YYYY年MM月DD日(ddd) HH時mm分ss秒') : '',
                     ];
                     // 書き込む
                     fputcsv($handle, $row);
