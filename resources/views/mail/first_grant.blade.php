@@ -35,7 +35,8 @@
             @endforeach
             <div>
                 ログインURL：{{ config('app.url') }}<br>
-                有休休暇の取得管理について：
+                有休休暇の取得管理について：https://warm-inc.cybozu.com/o/ag.cgi?page=FileView&ffid=87405
+                勤怠申請マニュアル　　　　：https://warm-inc.cybozu.com/o/ag.cgi?page=FileView&ffid=87361
             </div>
         </div>
     </body>
