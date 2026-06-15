@@ -16,6 +16,10 @@ class MailSendService
     // 初回付与通知を実施
     public function processFirstGrant($grant_employees)
     {
+        // 開発環境の場合は行わない
+        if(config('app.env') === 'local'){
+            return;
+        }
         // 初回付与の従業員を取得
         $first_grant_employees = User::whereIn('employee_no', $grant_employees->pluck('employee_no'))
                                         ->where('grant_type', GrantTypeEnum::FIRST)

@@ -15,6 +15,10 @@ class RemainingRequiredDaysService
     // メール送信処理
     public function sendMail()
     {
+        // 開発環境の場合は行わない
+        if(config('app.env') === 'local'){
+            return;
+        }
         // 義務残がある従業員を取得
         $employees = User::whereRaw('
                             GREATEST(0, COALESCE(carried_over_required_days, 0) + COALESCE(granted_required_days, 0) - COALESCE(used_days, 0)) > 0
