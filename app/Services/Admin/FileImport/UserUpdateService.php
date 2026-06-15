@@ -12,7 +12,7 @@ class UserUpdateService
     public function deactivateMissingEmployees()
     {
         // Userに存在するemployee_noを取得
-        $existing_employee_nos = User::pluck('employee_no')->toArray();
+        $existing_employee_nos = User::where('is_active', true)->pluck('employee_no')->toArray();
         // FileImportに存在するemployee_noを取得
         $import_employee_nos = FileImport::pluck('employee_no')->toArray();
         // Userに存在してFileImportに存在しないemployee_noを抽出
