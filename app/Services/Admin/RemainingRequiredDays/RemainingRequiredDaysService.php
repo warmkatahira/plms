@@ -6,6 +6,7 @@ namespace App\Services\Admin\RemainingRequiredDays;
 use App\Models\User;
 // 列挙
 use App\Enums\RoleEnum;
+use App\Enums\ExcludedNotificationEmailEnum;
 // メール
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RemainingRequiredDaysMail;
@@ -29,11 +30,15 @@ class RemainingRequiredDaysService
                         ->orderBy('employee_no', 'asc')
                         ->get();
         if ($employees->isEmpty()) return;
+        // 通知除外メールアドレスを取得
+        $excluded = ExcludedNotificationEmailEnum::values();
         // admin・system_adminを全員取得（営業所問わず）
         $admin_emails = User::whereIn('role_id', [RoleEnum::ADMIN, RoleEnum::SYSTEM_ADMIN])
                                 ->where('is_active', true)
                                 ->whereNotNull('email')
                                 ->pluck('email')
+                                ->reject(fn($email) => in_array($email, $excluded))
+                                ->values()
                                 ->toArray();
         // 営業所ごとにグループ化
         $grouped_by_base = $employees->groupBy('base_id');
@@ -55,6 +60,7 @@ class RemainingRequiredDaysService
             $to_emails = collect($base_admins->pluck('email'))
                             ->merge($base_employees->pluck('email')->filter())
                             ->unique()
+                            ->reject(fn($email) => in_array($email, $excluded))
                             ->values()
                             ->toArray();
             // 宛先（To）が無い営業所は、管理者をToに切り替えて通知を担保する
