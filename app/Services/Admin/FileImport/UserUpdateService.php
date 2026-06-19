@@ -27,4 +27,44 @@ class UserUpdateService
         // 従業員番号と氏名をメッセージ用に整形して返す
         return $missing_employees->map(fn($e) => "{$e->employee_no}：{$e->user_name}")->implode("\n");
     }
+
+    // 所属を更新
+    public function updateBase()
+    {
+        // base_infoの括弧内キーワードとbase_idのマッピング
+        $base_map = [
+            '第１'              => '1st',
+            'IMP三郷'           => 'IMP',
+            '第２'              => '2nd',
+            'ロジステーション'  => 'LS',
+            '第３'              => '3rd',
+            'ロジコンタクト'    => 'LC',
+            'ロジポート'        => 'LP',
+            '広島'              => 'HR',
+            '本社'              => 'honsha',
+        ];
+        // FileImportからパートを含むレコードのみ取得
+        $import_records = FileImport::where('base_info', 'like', 'パート%')
+                                    ->get(['employee_no', 'base_info']);
+        // 対象者の分だけループ処理
+        foreach ($import_records as $record) {
+            // 括弧内の文字列を抽出（全角・半角両対応）
+            if (!preg_match('/[（(](.+?)[）)]/u', $record->base_info, $matches)) {
+                continue;
+            }
+            $keyword = $matches[1];
+            // マッピングにないキーワードはスキップ
+            if (!isset($base_map[$keyword])) {
+                continue;
+            }
+            $new_base_id = $base_map[$keyword];
+            // 現在のbase_idと差分がある場合のみ更新
+            $user = User::where('employee_no', $record->employee_no)
+                        ->where('is_active', true)
+                        ->first(['user_no', 'base_id']);
+            if ($user && $user->base_id !== $new_base_id) {
+                $user->update(['base_id' => $new_base_id]);
+            }
+        }
+    }
 }

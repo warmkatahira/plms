@@ -63,6 +63,8 @@ class FileImportController extends Controller
                 $create_user_count = $UserCreateService->createUser();
                 // usersテーブルに存在していて今回の取り込みに存在していない従業員のis_activeを無効に更新
                 $missing_message = $UserUpdateService->deactivateMissingEmployees();
+                // 所属を更新
+                $UserUpdateService->updateBase();
                 // 付与月ではない従業員の使用日数をカウントアップ
                 $PaidLeaveUpdateService->incrementUsedDays();
                 // 付与月の従業員の処理

@@ -11,3 +11,5 @@ use Illuminate\Support\Facades\Schedule;
 Schedule::command('backup_db_delete')->dailyAt('03:00');
 // DBバックアップを毎日「03:30」に実行
 Schedule::command('backup:run --disable-notifications --only-db --only-to-disk=db_backup_normal')->dailyAt('03:30');
+// DBバックアップを毎月20日「03:30」に実行
+Schedule::command('backup:run --disable-notifications --only-db --only-to-disk=db_backup_normal')->monthlyOn(20, '03:30');
